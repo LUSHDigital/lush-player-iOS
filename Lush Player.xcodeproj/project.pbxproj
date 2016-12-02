@@ -21,6 +21,9 @@
 		B1CEBE9D1DF19E7A001F890D /* EpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* EpisodeCollectionViewCell.swift */; };
 		B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */; };
 		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
+		B1CEBEB51DF1BD1D001F890D /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
+		B1CEBEB61DF1BD1D001F890D /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBB1DF1BFE4001F890D /* Programme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,63 @@
 			remoteGlobalIDString = B1CEBE141DF1881D001F890D;
 			remoteInfo = "Lush Player";
 		};
+		B1CEBEAB1DF1BD0A001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2E5088219C835A300350F00;
+			remoteInfo = ThunderRequest;
+		};
+		B1CEBEAD1DF1BD0A001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C2E5088D19C835A300350F00;
+			remoteInfo = ThunderRequestTests;
+		};
+		B1CEBEAF1DF1BD0A001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B1177ED81BBAF18E00372D4D;
+			remoteInfo = ThunderRequestMac;
+		};
+		B1CEBEB11DF1BD0A001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B1177EE21BBAF18E00372D4D;
+			remoteInfo = ThunderRequestMacTests;
+		};
+		B1CEBEB31DF1BD0A001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 49084FD11BD13DBD0012F636;
+			remoteInfo = ThunderRequestTV;
+		};
+		B1CEBEB71DF1BD1D001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 49084FD01BD13DBD0012F636;
+			remoteInfo = ThunderRequestTV;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B1CEBEB91DF1BD1E001F890D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B1CEBEB61DF1BD1D001F890D /* ThunderRequestTV.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +120,8 @@
 		B1CEBE9C1DF19E7A001F890D /* EpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerController.swift; sourceTree = "<group>"; };
+		B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderRequest.xcodeproj; path = "Thunder Request/ThunderRequest.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		B1CEBEBB1DF1BFE4001F890D /* Programme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +129,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CEBEB51DF1BD1D001F890D /* ThunderRequestTV.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,7 +173,9 @@
 		B1CEBE171DF1881D001F890D /* Lush Player */ = {
 			isa = PBXGroup;
 			children = (
+				B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */,
 				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
+				B1CEBEBA1DF1BFD2001F890D /* Models */,
 				B1CEBE4C1DF18E23001F890D /* Controllers */,
 				B1CEBE451DF18C31001F890D /* View Controllers */,
 				B1CEBE1E1DF1881E001F890D /* Main.storyboard */,
@@ -162,6 +226,26 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		B1CEBEA41DF1BD0A001F890D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */,
+				B1CEBEAE1DF1BD0A001F890D /* ThunderRequestTests.xctest */,
+				B1CEBEB01DF1BD0A001F890D /* ThunderRequestMac.framework */,
+				B1CEBEB21DF1BD0A001F890D /* ThunderRequestMacTests.xctest */,
+				B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1CEBEBA1DF1BFD2001F890D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBEBB1DF1BFE4001F890D /* Programme.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -172,10 +256,12 @@
 				B1CEBE111DF1881D001F890D /* Sources */,
 				B1CEBE121DF1881D001F890D /* Frameworks */,
 				B1CEBE131DF1881D001F890D /* Resources */,
+				B1CEBEB91DF1BD1E001F890D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				B1CEBEB81DF1BD1D001F890D /* PBXTargetDependency */,
 			);
 			name = "Lush Player";
 			productName = "Lush Player";
@@ -258,6 +344,12 @@
 			mainGroup = B1CEBE0C1DF1881D001F890D;
 			productRefGroup = B1CEBE161DF1881D001F890D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B1CEBEA41DF1BD0A001F890D /* Products */;
+					ProjectRef = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B1CEBE141DF1881D001F890D /* Lush Player */,
@@ -266,6 +358,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThunderRequest.framework;
+			remoteRef = B1CEBEAB1DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1CEBEAE1DF1BD0A001F890D /* ThunderRequestTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ThunderRequestTests.xctest;
+			remoteRef = B1CEBEAD1DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1CEBEB01DF1BD0A001F890D /* ThunderRequestMac.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThunderRequestMac.framework;
+			remoteRef = B1CEBEAF1DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1CEBEB21DF1BD0A001F890D /* ThunderRequestMacTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ThunderRequestMacTests.xctest;
+			remoteRef = B1CEBEB11DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ThunderRequestTV.framework;
+			remoteRef = B1CEBEB31DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B1CEBE131DF1881D001F890D /* Resources */ = {
@@ -299,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */,
 				B1CEBE4B1DF18DF9001F890D /* BrightCoveController.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* EpisodeCollectionViewCell.swift in Sources */,
 				B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */,
@@ -339,6 +470,11 @@
 			isa = PBXTargetDependency;
 			target = B1CEBE141DF1881D001F890D /* Lush Player */;
 			targetProxy = B1CEBE341DF1881E001F890D /* PBXContainerItemProxy */;
+		};
+		B1CEBEB81DF1BD1D001F890D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThunderRequestTV;
+			targetProxy = B1CEBEB71DF1BD1D001F890D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
