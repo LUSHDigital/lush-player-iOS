@@ -46,7 +46,7 @@
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="bfL-ew-hUE" firstAttribute="top" secondItem="c5P-NR-g79" secondAttribute="bottom" constant="22" id="2SI-S7-Scc"/>
+                <constraint firstItem="bfL-ew-hUE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="c5P-NR-g79" secondAttribute="bottom" constant="22" id="2SI-S7-Scc"/>
                 <constraint firstAttribute="trailing" secondItem="srp-P1-bI2" secondAttribute="trailing" id="4tT-Kn-PwV"/>
                 <constraint firstAttribute="trailing" secondItem="bfL-ew-hUE" secondAttribute="trailing" id="54C-Bl-KlU"/>
                 <constraint firstItem="bfL-ew-hUE" firstAttribute="leading" secondItem="36d-lW-ec6" secondAttribute="leading" id="70h-CK-WRM"/>
@@ -64,6 +64,7 @@
             <connections>
                 <outlet property="dateLabel" destination="srp-P1-bI2" id="oUq-Jv-leH"/>
                 <outlet property="formatLabel" destination="bfL-ew-hUE" id="rTd-9B-Lh1"/>
+                <outlet property="imageView" destination="c5P-NR-g79" id="tq3-lm-jvl"/>
                 <outlet property="titleLabel" destination="SO6-b6-CDL" id="U6d-3f-BhT"/>
             </connections>
             <point key="canvasLocation" x="-160" y="-366.5"/>

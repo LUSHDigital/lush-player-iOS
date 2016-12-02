@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: RefreshableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

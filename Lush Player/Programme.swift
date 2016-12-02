@@ -10,6 +10,11 @@ import Foundation
 
 struct Programme {
     
+    enum Media: String {
+        case TV = "TV"
+        case radio = "RADIO"
+    }
+    
     let id: String
     
     var title: String?
@@ -20,13 +25,17 @@ struct Programme {
     
     var date: Date?
     
-    init?(dictionary: [AnyHashable : Any]) {
+    let media: Media
+    
+    init?(dictionary: [AnyHashable : Any], media: Media) {
         
         guard let _id = dictionary["id"] as? String else { return nil }
         
+        self.media = media
         id = _id
-        title = dictionary["title"] as? String
-        description = dictionary["description"] as? String
+        
+        title = (dictionary["title"] as? String)?.htmlUnescape()
+        description = (dictionary["description"] as? String)?.htmlUnescape()
         if let url = dictionary["thumbnail"] as? String {
             thumbnailURL = URL(string: url)
         }

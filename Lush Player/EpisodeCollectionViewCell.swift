@@ -10,13 +10,17 @@ import UIKit
 
 class EpisodeCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var imageView: UIImageView!
+    
     @IBOutlet weak var formatLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func awakeFromNib() {
+        
+        imageView.adjustsImageWhenAncestorFocused = true
+        imageView.clipsToBounds = false
     }
 }

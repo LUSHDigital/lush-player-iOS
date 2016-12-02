@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChannelsViewController: UIViewController {
+class ChannelsViewController: RefreshableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

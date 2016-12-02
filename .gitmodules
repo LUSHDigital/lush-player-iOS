@@ -1,3 +1,6 @@
 [submodule "Thunder Request"]
 	path = Thunder Request
 	url = https://github.com/3sidedcube/iOS-ThunderRequest.git
+[submodule "HTML Parser"]
+	path = HTML Parser
+	url = git@github.com:IBM-Swift/swift-html-entities.git

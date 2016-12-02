@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodesViewController: UIViewController {
+class EpisodesViewController: RefreshableViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
