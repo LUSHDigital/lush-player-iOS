@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16A322" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="hNz-n2-bh7">
+            <objects>
+                <viewController title="Home" id="9pv-A4-QxB" customClass="HomeViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
+                        <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJ3-B8-ayi">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <connections>
+                                    <segue destination="Iqq-LE-Vy0" kind="embed" identifier="featuredEpisodeEmbed" id="urf-A3-P8U"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nJ3-B8-ayi" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="1bO-ao-w8F"/>
+                            <constraint firstItem="nJ3-B8-ayi" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="P79-O0-D8F"/>
+                            <constraint firstAttribute="trailing" secondItem="nJ3-B8-ayi" secondAttribute="trailing" id="TA3-WO-ipd"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="nJ3-B8-ayi" secondAttribute="bottom" id="Yza-0u-4hx"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" title="Home" id="acW-dT-cKf"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="-2130"/>
+        </scene>
+        <!--Live-->
+        <scene sceneID="wg7-f3-ORb">
+            <objects>
+                <viewController title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
+                        <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Live" id="cPa-gy-q4n"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="-678"/>
+        </scene>
+        <!--Episodes View Controller-->
+        <scene sceneID="ah4-Ru-fiQ">
+            <objects>
+                <viewController id="Iqq-LE-Vy0" customClass="EpisodesViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4FK-XR-UTs"/>
+                        <viewControllerLayoutGuide type="bottom" id="6WH-99-XWV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2qH-eW-82Q">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcS-Dk-23d">
+                                <rect key="frame" x="40" y="58" width="1840" height="58"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZR-XW-CDK">
+                                <rect key="frame" x="0.0" y="151" width="1920" height="929"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xL3-ME-B41">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Iqq-LE-Vy0" id="aoc-eo-gUL"/>
+                                    <outlet property="delegate" destination="Iqq-LE-Vy0" id="9UM-j1-spu"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="BcS-Dk-23d" firstAttribute="leading" secondItem="2qH-eW-82Q" secondAttribute="leadingMargin" constant="20" id="2OP-bu-y7e"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="BcS-Dk-23d" secondAttribute="trailing" constant="20" id="EV8-Bq-jDN"/>
+                            <constraint firstAttribute="trailing" secondItem="eZR-XW-CDK" secondAttribute="trailing" id="NTp-AD-W6Q"/>
+                            <constraint firstItem="6WH-99-XWV" firstAttribute="top" secondItem="eZR-XW-CDK" secondAttribute="bottom" id="QfV-rD-xHv"/>
+                            <constraint firstItem="eZR-XW-CDK" firstAttribute="leading" secondItem="2qH-eW-82Q" secondAttribute="leading" id="Us9-5p-elw"/>
+                            <constraint firstItem="eZR-XW-CDK" firstAttribute="top" secondItem="BcS-Dk-23d" secondAttribute="bottom" constant="35" id="bLl-tm-n1f"/>
+                            <constraint firstItem="BcS-Dk-23d" firstAttribute="top" secondItem="4FK-XR-UTs" secondAttribute="bottom" constant="58" id="pGl-E7-d9R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="eZR-XW-CDK" id="SyW-bD-RFs"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KwH-zs-sXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4717" y="135"/>
+        </scene>
+        <!--Channels-->
+        <scene sceneID="h0V-Bs-EkA">
+            <objects>
+                <viewController title="Channels" id="5aj-tE-z06" customClass="ChannelsViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="reD-JU-RgG"/>
+                        <viewControllerLayoutGuide type="bottom" id="bWZ-Rn-oIF"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aGf-sv-XT8">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Channels" id="4p2-VZ-CV6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SI0-80-Yf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="777"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="RIv-hf-3KB">
+            <objects>
+                <viewController title="Search" id="bmK-I7-9RX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="occ-Xk-hKG"/>
+                        <viewControllerLayoutGuide type="bottom" id="ScU-9p-2Rv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4Ek-oK-TIm">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="dfY-Qs-ud8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a6L-Dd-gEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="2238"/>
+        </scene>
+        <!--Search-->
+        <scene sceneID="yl2-sM-qoP">
+            <objects>
+                <tabBarController title="Search" id="49e-Tb-3d3" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                        <rect key="frame" x="0.0" y="0.0" width="1920" height="120"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
+                        <segue destination="8rJ-Kc-sve" kind="relationship" relationship="viewControllers" id="lzU-1b-eKA"/>
+                        <segue destination="5aj-tE-z06" kind="relationship" relationship="viewControllers" id="RQa-e6-fbJ"/>
+                        <segue destination="bmK-I7-9RX" kind="relationship" relationship="viewControllers" id="RRe-VY-TCK"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
+		B1CEBE1B1DF1881D001F890D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1A1DF1881D001F890D /* HomeViewController.swift */; };
+		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
+		B1CEBE201DF1881E001F890D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE1E1DF1881E001F890D /* Main.storyboard */; };
+		B1CEBE221DF1881E001F890D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE211DF1881E001F890D /* Assets.xcassets */; };
+		B1CEBE2D1DF1881E001F890D /* Lush_PlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE2C1DF1881E001F890D /* Lush_PlayerTests.swift */; };
+		B1CEBE381DF1881E001F890D /* Lush_PlayerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE371DF1881E001F890D /* Lush_PlayerUITests.swift */; };
+		B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE461DF18C48001F890D /* ChannelsViewController.swift */; };
+		B1CEBE491DF18C59001F890D /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE481DF18C59001F890D /* SearchViewController.swift */; };
+		B1CEBE4B1DF18DF9001F890D /* BrightCoveController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE4A1DF18DF9001F890D /* BrightCoveController.swift */; };
+		B1CEBE4E1DF1931F001F890D /* EpisodeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* EpisodeCollectionViewCell.xib */; };
+		B1CEBE9D1DF19E7A001F890D /* EpisodeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* EpisodeCollectionViewCell.swift */; };
+		B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */; };
+		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1CEBE291DF1881E001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBE0D1DF1881D001F890D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1CEBE141DF1881D001F890D;
+			remoteInfo = "Lush Player";
+		};
+		B1CEBE341DF1881E001F890D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBE0D1DF1881D001F890D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1CEBE141DF1881D001F890D;
+			remoteInfo = "Lush Player";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1CEBE1A1DF1881D001F890D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		B1CEBE1F1DF1881E001F890D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B1CEBE211DF1881E001F890D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1CEBE231DF1881E001F890D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1CEBE281DF1881E001F890D /* Lush PlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush PlayerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CEBE2C1DF1881E001F890D /* Lush_PlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_PlayerTests.swift; sourceTree = "<group>"; };
+		B1CEBE2E1DF1881E001F890D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush PlayerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1CEBE371DF1881E001F890D /* Lush_PlayerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_PlayerUITests.swift; sourceTree = "<group>"; };
+		B1CEBE391DF1881E001F890D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1CEBE461DF18C48001F890D /* ChannelsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelsViewController.swift; sourceTree = "<group>"; };
+		B1CEBE481DF18C59001F890D /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B1CEBE4A1DF18DF9001F890D /* BrightCoveController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightCoveController.swift; sourceTree = "<group>"; };
+		B1CEBE4D1DF1931F001F890D /* EpisodeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpisodeCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1CEBE9C1DF19E7A001F890D /* EpisodeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
+		B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1CEBE121DF1881D001F890D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE251DF1881E001F890D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE301DF1881E001F890D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1CEBE0C1DF1881D001F890D = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE171DF1881D001F890D /* Lush Player */,
+				B1CEBE2B1DF1881E001F890D /* Lush PlayerTests */,
+				B1CEBE361DF1881E001F890D /* Lush PlayerUITests */,
+				B1CEBE161DF1881D001F890D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1CEBE161DF1881D001F890D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE151DF1881D001F890D /* Lush Player.app */,
+				B1CEBE281DF1881E001F890D /* Lush PlayerTests.xctest */,
+				B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1CEBE171DF1881D001F890D /* Lush Player */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
+				B1CEBE4C1DF18E23001F890D /* Controllers */,
+				B1CEBE451DF18C31001F890D /* View Controllers */,
+				B1CEBE1E1DF1881E001F890D /* Main.storyboard */,
+				B1CEBE211DF1881E001F890D /* Assets.xcassets */,
+				B1CEBE231DF1881E001F890D /* Info.plist */,
+			);
+			path = "Lush Player";
+			sourceTree = "<group>";
+		};
+		B1CEBE2B1DF1881E001F890D /* Lush PlayerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE2C1DF1881E001F890D /* Lush_PlayerTests.swift */,
+				B1CEBE2E1DF1881E001F890D /* Info.plist */,
+			);
+			path = "Lush PlayerTests";
+			sourceTree = "<group>";
+		};
+		B1CEBE361DF1881E001F890D /* Lush PlayerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE371DF1881E001F890D /* Lush_PlayerUITests.swift */,
+				B1CEBE391DF1881E001F890D /* Info.plist */,
+			);
+			path = "Lush PlayerUITests";
+			sourceTree = "<group>";
+		};
+		B1CEBE451DF18C31001F890D /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE1A1DF1881D001F890D /* HomeViewController.swift */,
+				B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */,
+				B1CEBE461DF18C48001F890D /* ChannelsViewController.swift */,
+				B1CEBE481DF18C59001F890D /* SearchViewController.swift */,
+				B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		B1CEBE4C1DF18E23001F890D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1CEBE4A1DF18DF9001F890D /* BrightCoveController.swift */,
+				B1CEBE4D1DF1931F001F890D /* EpisodeCollectionViewCell.xib */,
+				B1CEBE9C1DF19E7A001F890D /* EpisodeCollectionViewCell.swift */,
+				B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1CEBE141DF1881D001F890D /* Lush Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1CEBE3C1DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush Player" */;
+			buildPhases = (
+				B1CEBE111DF1881D001F890D /* Sources */,
+				B1CEBE121DF1881D001F890D /* Frameworks */,
+				B1CEBE131DF1881D001F890D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lush Player";
+			productName = "Lush Player";
+			productReference = B1CEBE151DF1881D001F890D /* Lush Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1CEBE271DF1881E001F890D /* Lush PlayerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1CEBE3F1DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush PlayerTests" */;
+			buildPhases = (
+				B1CEBE241DF1881E001F890D /* Sources */,
+				B1CEBE251DF1881E001F890D /* Frameworks */,
+				B1CEBE261DF1881E001F890D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1CEBE2A1DF1881E001F890D /* PBXTargetDependency */,
+			);
+			name = "Lush PlayerTests";
+			productName = "Lush PlayerTests";
+			productReference = B1CEBE281DF1881E001F890D /* Lush PlayerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B1CEBE321DF1881E001F890D /* Lush PlayerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1CEBE421DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush PlayerUITests" */;
+			buildPhases = (
+				B1CEBE2F1DF1881E001F890D /* Sources */,
+				B1CEBE301DF1881E001F890D /* Frameworks */,
+				B1CEBE311DF1881E001F890D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1CEBE351DF1881E001F890D /* PBXTargetDependency */,
+			);
+			name = "Lush PlayerUITests";
+			productName = "Lush PlayerUITests";
+			productReference = B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1CEBE0D1DF1881D001F890D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = ThreeSidedCube;
+				TargetAttributes = {
+					B1CEBE141DF1881D001F890D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5AAUAL6K5G;
+						ProvisioningStyle = Automatic;
+					};
+					B1CEBE271DF1881E001F890D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5AAUAL6K5G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B1CEBE141DF1881D001F890D;
+					};
+					B1CEBE321DF1881E001F890D = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 5AAUAL6K5G;
+						ProvisioningStyle = Automatic;
+						TestTargetID = B1CEBE141DF1881D001F890D;
+					};
+				};
+			};
+			buildConfigurationList = B1CEBE101DF1881D001F890D /* Build configuration list for PBXProject "Lush Player" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1CEBE0C1DF1881D001F890D;
+			productRefGroup = B1CEBE161DF1881D001F890D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1CEBE141DF1881D001F890D /* Lush Player */,
+				B1CEBE271DF1881E001F890D /* Lush PlayerTests */,
+				B1CEBE321DF1881E001F890D /* Lush PlayerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1CEBE131DF1881D001F890D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1CEBE221DF1881E001F890D /* Assets.xcassets in Resources */,
+				B1CEBE4E1DF1931F001F890D /* EpisodeCollectionViewCell.xib in Resources */,
+				B1CEBE201DF1881E001F890D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE261DF1881E001F890D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE311DF1881E001F890D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1CEBE111DF1881D001F890D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1CEBE4B1DF18DF9001F890D /* BrightCoveController.swift in Sources */,
+				B1CEBE9D1DF19E7A001F890D /* EpisodeCollectionViewCell.swift in Sources */,
+				B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */,
+				B1CEBE491DF18C59001F890D /* SearchViewController.swift in Sources */,
+				B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */,
+				B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */,
+				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
+				B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */,
+				B1CEBE1B1DF1881D001F890D /* HomeViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE241DF1881E001F890D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1CEBE2D1DF1881E001F890D /* Lush_PlayerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1CEBE2F1DF1881E001F890D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1CEBE381DF1881E001F890D /* Lush_PlayerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1CEBE2A1DF1881E001F890D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1CEBE141DF1881D001F890D /* Lush Player */;
+			targetProxy = B1CEBE291DF1881E001F890D /* PBXContainerItemProxy */;
+		};
+		B1CEBE351DF1881E001F890D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1CEBE141DF1881D001F890D /* Lush Player */;
+			targetProxy = B1CEBE341DF1881E001F890D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B1CEBE1E1DF1881E001F890D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1CEBE1F1DF1881E001F890D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1CEBE3A1DF1881E001F890D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		B1CEBE3B1DF1881E001F890D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1CEBE3D1DF1881E001F890D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B1CEBE3E1DF1881E001F890D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush Player/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B1CEBE401DF1881E001F890D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush PlayerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-PlayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lush Player.app/Lush Player";
+			};
+			name = Debug;
+		};
+		B1CEBE411DF1881E001F890D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush PlayerTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-PlayerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lush Player.app/Lush Player";
+			};
+			name = Release;
+		};
+		B1CEBE431DF1881E001F890D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush PlayerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-PlayerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Lush Player";
+			};
+			name = Debug;
+		};
+		B1CEBE441DF1881E001F890D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = 5AAUAL6K5G;
+				INFOPLIST_FILE = "Lush PlayerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.lush.Lush-PlayerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Lush Player";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1CEBE101DF1881D001F890D /* Build configuration list for PBXProject "Lush Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1CEBE3A1DF1881E001F890D /* Debug */,
+				B1CEBE3B1DF1881E001F890D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1CEBE3C1DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1CEBE3D1DF1881E001F890D /* Debug */,
+				B1CEBE3E1DF1881E001F890D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B1CEBE3F1DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush PlayerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1CEBE401DF1881E001F890D /* Debug */,
+				B1CEBE411DF1881E001F890D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B1CEBE421DF1881E001F890D /* Build configuration list for PBXNativeTarget "Lush PlayerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1CEBE431DF1881E001F890D /* Debug */,
+				B1CEBE441DF1881E001F890D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1CEBE0D1DF1881D001F890D /* Project object */;
+}
