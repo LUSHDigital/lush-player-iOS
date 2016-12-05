@@ -4,3 +4,6 @@
 [submodule "HTML Parser"]
 	path = HTML Parser
 	url = git@github.com:IBM-Swift/swift-html-entities.git
+[submodule "Brightcove"]
+	path = Brightcove
+	url = git@github.com:brightcove/brightcove-player-sdk-ios.git

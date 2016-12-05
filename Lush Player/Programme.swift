@@ -11,11 +11,22 @@ import Foundation
 struct Programme {
     
     enum Media: String {
-        case TV = "TV"
-        case radio = "RADIO"
+        case TV = "tv_program"
+        case radio = "radio_program"
+        
+        func displayString() -> String {
+            switch self {
+            case .TV:
+                return "TV"
+            case .radio:
+                return "RADIO"
+            }
+        }
     }
     
     let id: String
+    
+    var guid: String?
     
     var title: String?
     
@@ -23,7 +34,13 @@ struct Programme {
     
     var thumbnailURL: URL?
     
+    var url: URL?
+    
+    var file: URL?
+    
     var date: Date?
+    
+    var duration: String?
     
     let media: Media
     
@@ -34,11 +51,22 @@ struct Programme {
         self.media = media
         id = _id
         
+        guid = dictionary["guid"] as? String
+        if let urlString = dictionary["url"] as? String {
+            url = URL(string: urlString)
+        }
+        
+        if let fileString = dictionary["file"] as? String {
+            file = URL(string: fileString)
+        }
+        
         title = (dictionary["title"] as? String)?.htmlUnescape()
         description = (dictionary["description"] as? String)?.htmlUnescape()
         if let url = dictionary["thumbnail"] as? String {
             thumbnailURL = URL(string: url)
         }
+        
+        duration = dictionary["duration"] as? String
         
         if let dateString = dictionary["date"] as? String {
             

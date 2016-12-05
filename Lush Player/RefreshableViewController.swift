@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 class RefreshableViewController: UIViewController {
     
@@ -33,5 +34,37 @@ class RefreshableViewController: UIViewController {
 
     func redraw() {
         
+    }
+    
+    func play(programme: Programme) {
+        
+        if (programme.media == .TV) {
+            
+            performSegue(withIdentifier: "PlayProgramme", sender: programme)
+            
+        } else if (programme.media == .radio) {
+            
+            guard let file = programme.file else { return }
+            
+            let avPlayerViewController = AVPlayerViewController()
+            let avPlayer = AVPlayer(url: file)
+            avPlayerViewController.player = avPlayer
+            
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+            } catch let error as NSError {
+                print(error)
+            }
+            
+            present(avPlayerViewController, animated: true, completion: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        guard let programme = sender as? Programme else { return }
+        guard let playerVC = segue.destination as? PlayerViewController else { return }
+        
+        playerVC.programme = programme
     }
 }

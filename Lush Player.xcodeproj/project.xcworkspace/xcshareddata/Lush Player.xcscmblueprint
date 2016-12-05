@@ -5,14 +5,16 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "48D1D77F8E696CFD83C9D9AC0D062062AD5CA998" : 9223372036854775807,
+    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : 9223372036854775807,
     "33527851E4D7276FEDA473DB1496A42DDA6B5681" : 9223372036854775807,
-    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : 9223372036854775807
+    "DA1C8EBA90D8BE58CD8B8AF64CBEFEAA71DD166F" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E864D77B-FC1E-4EA4-80EB-212712C27FBB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "48D1D77F8E696CFD83C9D9AC0D062062AD5CA998" : "Lush%20Player\/Thunder%20Request\/",
+    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : "Lush%20Player\/",
     "33527851E4D7276FEDA473DB1496A42DDA6B5681" : "Lush%20Player\/Thunder%20Table\/",
-    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : "Lush%20Player\/"
+    "DA1C8EBA90D8BE58CD8B8AF64CBEFEAA71DD166F" : "Lush%20Player\/HTML%20Parser\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Lush Player",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -32,6 +34,11 @@
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "bitbucket.org:3sidedcube\/lush-player-ios-client.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "4A25E1F0F5E0433EF280D358CE6405BC98AB475E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:IBM-Swift\/swift-html-entities.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DA1C8EBA90D8BE58CD8B8AF64CBEFEAA71DD166F"
     }
   ]
 }

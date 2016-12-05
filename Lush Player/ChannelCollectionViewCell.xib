@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11542" systemVersion="16A322" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="Rz2-K0-ksD" customClass="ChannelCollectionViewCell" customModule="Lush_Player" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="379" height="239"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="379" height="239"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Channel-Cosmetics" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-Yl-tyn">
+                        <rect key="frame" x="69" y="40" width="240" height="154"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="q2R-Yl-tyn" firstAttribute="centerX" secondItem="Rz2-K0-ksD" secondAttribute="centerX" id="COu-iV-qFg"/>
+                <constraint firstItem="q2R-Yl-tyn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Rz2-K0-ksD" secondAttribute="top" constant="40" id="FdT-Ii-wwb"/>
+                <constraint firstItem="q2R-Yl-tyn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Rz2-K0-ksD" secondAttribute="leading" constant="44" id="Fpu-cp-VLk"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="q2R-Yl-tyn" secondAttribute="bottom" constant="40" id="gT1-lr-Pik"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="q2R-Yl-tyn" secondAttribute="trailing" constant="44" id="jdm-Jc-i8L"/>
+                <constraint firstItem="q2R-Yl-tyn" firstAttribute="centerY" secondItem="Rz2-K0-ksD" secondAttribute="centerY" id="tF0-iF-51M"/>
+            </constraints>
+            <size key="customSize" width="379" height="239"/>
+            <connections>
+                <outlet property="imageView" destination="q2R-Yl-tyn" id="bW0-oK-dum"/>
+            </connections>
+            <point key="canvasLocation" x="233.5" y="201.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Channel-Cosmetics" width="400" height="180"/>
+    </resources>
+</document>
