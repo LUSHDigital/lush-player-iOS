@@ -44,20 +44,40 @@ class RefreshableViewController: UIViewController {
             
         } else if (programme.media == .radio) {
             
-            guard let file = programme.file else { return }
-            
-            let avPlayerViewController = AVPlayerViewController()
-            let avPlayer = AVPlayer(url: file)
-            avPlayerViewController.player = avPlayer
-            
-            do {
-                try AVAudioSession.sharedInstance().setActive(true)
-            } catch let error as NSError {
-                print(error)
+            guard let file = programme.file else {
+                
+                LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error, programme) -> (Void) in
+                    
+                    guard let welf = self else { return }
+                    if let error = error {
+                        UIAlertController.presentError(error, in: welf)
+                    }
+                    
+                    guard let programmeFile = programme?.file else { return }
+                    
+                    welf.playAudio(from: programmeFile)
+                })
+                
+                return
             }
             
-            present(avPlayerViewController, animated: true, completion: nil)
+            playAudio(from: file)
         }
+    }
+    
+    private func playAudio(from url: URL) {
+        
+        let avPlayerViewController = AVPlayerViewController()
+        let avPlayer = AVPlayer(url: url)
+        avPlayerViewController.player = avPlayer
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        present(avPlayerViewController, animated: true, completion: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

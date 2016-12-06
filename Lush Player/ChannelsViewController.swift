@@ -54,6 +54,10 @@ class ChannelsViewController: RefreshableViewController {
             
             LushPlayerController.shared.fetchProgrammes(for: selectedChannel, of: nil, with: { [weak self] (error, programmes) -> (Void) in
                 
+                if let error = error, let welf = self {
+                    UIAlertController.presentError(error, in: welf)
+                }
+                
                 self?.redraw()
             })
         }

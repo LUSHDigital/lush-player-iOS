@@ -19,7 +19,11 @@ class PlayerViewController: UIViewController {
     
     var controllerView: UIView?
     
-    let brightcoveToken = ""
+    let brightcovePolicyKey = ""
+    
+    let brightcoveAccountId = ""
+    
+    var playbackService: BCOVPlaybackService?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -38,9 +42,9 @@ class PlayerViewController: UIViewController {
                 controller.view.frame = view.bounds
             }
             
-            let catalog = BCOVCatalogService(token: brightcoveToken)
+            playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
             
-            catalog?.findPlaylist(withPlaylistID: playlistID, parameters: nil, completion: { (playlist, jsonResponse, error) in
+            playbackService?.findPlaylist(withPlaylistID: playlistID, parameters: nil, completion: { (playlist, jsonResponse, error) in
                 
                 guard let videos = playlist?.videos as? NSFastEnumeration else {
                     return
@@ -49,7 +53,6 @@ class PlayerViewController: UIViewController {
                 controller?.setVideos(videos)
                 controller?.play()
             })
-
             
             return
         }
@@ -83,9 +86,10 @@ class PlayerViewController: UIViewController {
                 }
             }
             
-            let catalog = BCOVCatalogService(token: "")
+            guard let welf = self else { return }
             
-            catalog?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
+            welf.playbackService = BCOVPlaybackService(accountId: welf.brightcoveAccountId, policyKey: welf.brightcovePolicyKey)
+            welf.playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
                 
                 guard let video = video else { return }
                 controller?.setVideos([video] as NSFastEnumeration)

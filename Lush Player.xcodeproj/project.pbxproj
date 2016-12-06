@@ -23,7 +23,6 @@
 		B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */; };
 		B1CEBE4E1DF1931F001F890D /* ProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */; };
 		B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */; };
-		B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */; };
 		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
 		B1CEBEB51DF1BD1D001F890D /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
 		B1CEBEB61DF1BD1D001F890D /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -136,7 +135,6 @@
 		B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
-		B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodesViewController.swift; sourceTree = "<group>"; };
 		B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerController.swift; sourceTree = "<group>"; };
 		B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderRequest.xcodeproj; path = "Thunder Request/ThunderRequest.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		B1CEBEBB1DF1BFE4001F890D /* Programme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
@@ -255,7 +253,6 @@
 				B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */,
 				B1CEBE461DF18C48001F890D /* ChannelsViewController.swift */,
 				B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */,
-				B1CEBE9E1DF1A223001F890D /* EpisodesViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -498,7 +495,6 @@
 				B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */,
 				B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
-				B1CEBE9F1DF1A223001F890D /* EpisodesViewController.swift in Sources */,
 				B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */,
 				B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */,
 				B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */,

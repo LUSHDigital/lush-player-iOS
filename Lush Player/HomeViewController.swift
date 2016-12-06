@@ -23,10 +23,18 @@ class HomeViewController: RefreshableViewController {
         
         LushPlayerController.shared.fetchProgrammes(for: .TV, with: { [weak self] (error, programmes) in
             
+            if let error = error, let welf = self {
+                UIAlertController.presentError(error, in: welf)
+            }
+            
             self?.redraw()
         })
         
         LushPlayerController.shared.fetchProgrammes(for: .radio, with: { [weak self] (error, programmes) in
+            
+            if let error = error, let welf = self {
+                UIAlertController.presentError(error, in: welf)
+            }
             
             self?.redraw()
         })

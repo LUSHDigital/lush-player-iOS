@@ -114,58 +114,6 @@
             </objects>
             <point key="canvasLocation" x="4717" y="-1310"/>
         </scene>
-        <!--Episodes View Controller-->
-        <scene sceneID="ah4-Ru-fiQ">
-            <objects>
-                <viewController id="Iqq-LE-Vy0" customClass="EpisodesViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4FK-XR-UTs"/>
-                        <viewControllerLayoutGuide type="bottom" id="6WH-99-XWV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="2qH-eW-82Q">
-                        <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcS-Dk-23d">
-                                <rect key="frame" x="40" y="58" width="1840" height="58"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="eZR-XW-CDK">
-                                <rect key="frame" x="0.0" y="151" width="1920" height="929"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="36" minimumInteritemSpacing="40" id="xL3-ME-B41">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells/>
-                                <connections>
-                                    <outlet property="dataSource" destination="Iqq-LE-Vy0" id="aoc-eo-gUL"/>
-                                    <outlet property="delegate" destination="Iqq-LE-Vy0" id="9UM-j1-spu"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <constraints>
-                            <constraint firstItem="BcS-Dk-23d" firstAttribute="leading" secondItem="2qH-eW-82Q" secondAttribute="leadingMargin" constant="20" id="2OP-bu-y7e"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BcS-Dk-23d" secondAttribute="trailing" constant="20" id="EV8-Bq-jDN"/>
-                            <constraint firstAttribute="trailing" secondItem="eZR-XW-CDK" secondAttribute="trailing" id="NTp-AD-W6Q"/>
-                            <constraint firstItem="6WH-99-XWV" firstAttribute="top" secondItem="eZR-XW-CDK" secondAttribute="bottom" id="QfV-rD-xHv"/>
-                            <constraint firstItem="eZR-XW-CDK" firstAttribute="leading" secondItem="2qH-eW-82Q" secondAttribute="leading" id="Us9-5p-elw"/>
-                            <constraint firstItem="eZR-XW-CDK" firstAttribute="top" secondItem="BcS-Dk-23d" secondAttribute="bottom" constant="35" id="bLl-tm-n1f"/>
-                            <constraint firstItem="BcS-Dk-23d" firstAttribute="top" secondItem="4FK-XR-UTs" secondAttribute="bottom" constant="58" id="pGl-E7-d9R"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="collectionView" destination="eZR-XW-CDK" id="SyW-bD-RFs"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KwH-zs-sXI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4717" y="135"/>
-        </scene>
         <!--Channels-->
         <scene sceneID="h0V-Bs-EkA">
             <objects>
@@ -285,10 +233,34 @@
                     <view key="view" contentMode="scaleToFill" id="4Ek-oK-TIm">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Uu7-vI-BxX">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="anA-Jo-Uz7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="bmK-I7-9RX" id="yAf-wa-1Xo"/>
+                                    <outlet property="delegate" destination="bmK-I7-9RX" id="zbF-6O-VdV"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ScU-9p-2Rv" firstAttribute="top" secondItem="Uu7-vI-BxX" secondAttribute="bottom" id="0FI-ad-Goi"/>
+                            <constraint firstAttribute="trailing" secondItem="Uu7-vI-BxX" secondAttribute="trailing" id="16F-dk-5LH"/>
+                            <constraint firstItem="Uu7-vI-BxX" firstAttribute="leading" secondItem="4Ek-oK-TIm" secondAttribute="leading" id="r4K-wb-DFH"/>
+                            <constraint firstItem="Uu7-vI-BxX" firstAttribute="top" secondItem="occ-Xk-hKG" secondAttribute="bottom" id="xp4-3E-lbJ"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="dfY-Qs-ud8"/>
                     <connections>
+                        <outlet property="resultsCollectionView" destination="Uu7-vI-BxX" id="FKO-dd-fZo"/>
                         <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="BXw-wY-Rn2"/>
                     </connections>
                 </viewController>
