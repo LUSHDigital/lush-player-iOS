@@ -8,6 +8,7 @@
 
 import UIKit
 import ThunderRequestTV
+import AVKit
 
 class PlayerViewController: UIViewController {
     
@@ -15,13 +16,15 @@ class PlayerViewController: UIViewController {
     
     var programme: Programme?
     
-    var playlistID: String?
+    var playlist: BCOVPlaylist?
     
     var controllerView: UIView?
     
-    let brightcovePolicyKey = ""
+    var brightcovePolicyKey: String?
     
-    let brightcoveAccountId = ""
+    let brightcoveAccountId = BrightcoveConstants.accountID
+    
+    let avPlayerViewController = AVPlayerViewController()
     
     var playbackService: BCOVPlaybackService?
 
@@ -31,10 +34,17 @@ class PlayerViewController: UIViewController {
         
         super.viewDidLoad()
         
-        if let playlistID = playlistID {
+        guard let brightcovePolicyKey = brightcovePolicyKey else { return }
+        
+        addChildViewController(avPlayerViewController)
+        avPlayerViewController.view.frame = view.bounds
+        avPlayerViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        view.addSubview(avPlayerViewController.view)
+        avPlayerViewController.didMove(toParentViewController: self)
+        
+        if let playlist = playlist {
             
-            let controller = BCOVPlayerSDKManager.shared().createPlaybackController()
-            self.controller = controller
+            configureController()
             
             if let controller = controller {
                 
@@ -42,17 +52,8 @@ class PlayerViewController: UIViewController {
                 controller.view.frame = view.bounds
             }
             
-            playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
-            
-            playbackService?.findPlaylist(withPlaylistID: playlistID, parameters: nil, completion: { (playlist, jsonResponse, error) in
-                
-                guard let videos = playlist?.videos as? NSFastEnumeration else {
-                    return
-                }
-                
-                controller?.setVideos(videos)
-                controller?.play()
-            })
+            let videos = playlist.videos as NSFastEnumeration
+            self.controller?.setVideos(videos)
             
             return
         }
@@ -60,7 +61,6 @@ class PlayerViewController: UIViewController {
         guard let programme = programme else {
             return
         }
-        
         
         LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error: Error?, programme: Programme?) in
             
@@ -75,32 +75,53 @@ class PlayerViewController: UIViewController {
                 return
             }
             
-            let controller = BCOVPlayerSDKManager.shared().createPlaybackController()
-            self?.controller = controller
-            
-            if let controller = controller {
-                self?.view.addSubview(controller.view)
-                
-                if let view = self?.view {
-                    controller.view.frame = view.bounds
-                }
-            }
+            self?.configureController()
             
             guard let welf = self else { return }
             
-            welf.playbackService = BCOVPlaybackService(accountId: welf.brightcoveAccountId, policyKey: welf.brightcovePolicyKey)
+            welf.playbackService = BCOVPlaybackService(accountId: welf.brightcoveAccountId, policyKey: brightcovePolicyKey)
             welf.playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
                 
                 guard let video = video else { return }
-                controller?.setVideos([video] as NSFastEnumeration)
-                controller?.play()
+                self?.controller?.setVideos([video] as NSFastEnumeration)
+//                self?.controller?.play()
             })
         })
+    }
+    
+    private func configureController() {
+        
+        let manager = BCOVPlayerSDKManager.shared()
+        
+        let options = BCOVBasicSessionProviderOptions()
+        options.sourceSelectionPolicy = BCOVBasicSourceSelectionPolicy.sourceSelectionHLS(withScheme: kBCOVSourceURLSchemeHTTPS)
+        let provider = manager?.createBasicSessionProvider(with: options)
+        
+        let controller = BCOVPlayerSDKManager.shared().createPlaybackController(with: provider, viewStrategy: nil)
+        self.controller = controller
+        
+        controller?.allowsBackgroundAudioPlayback = true
+        controller?.delegate = self
+        controller?.isAutoAdvance = true
     }
     
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
         controllerView?.frame = view.bounds
+    }
+}
+
+extension PlayerViewController: BCOVPlaybackControllerDelegate {
+    
+    func playbackController(_ controller: BCOVPlaybackController!, didCompletePlaylist playlist: NSFastEnumeration!) {
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
+        
+        avPlayerViewController.player = session.player
+        avPlayerViewController.player?.play()
     }
 }
