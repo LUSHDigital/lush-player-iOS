@@ -85,6 +85,7 @@ class RefreshableViewController: UIViewController {
         guard let programme = sender as? Programme else { return }
         guard let playerVC = segue.destination as? PlayerViewController else { return }
         
+        playerVC.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
         playerVC.programme = programme
     }
 }
