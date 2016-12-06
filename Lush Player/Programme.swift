@@ -33,9 +33,7 @@ struct Programme {
     var description: String?
     
     var thumbnailURL: URL?
-    
-    var url: URL?
-    
+        
     var file: URL?
     
     var date: Date?
@@ -52,12 +50,13 @@ struct Programme {
         id = _id
         
         guid = dictionary["guid"] as? String
-        if let urlString = dictionary["url"] as? String {
-            url = URL(string: urlString)
-        }
         
         if let fileString = dictionary["file"] as? String {
             file = URL(string: fileString)
+        }
+        
+        if file == nil, let urlString = dictionary["url"] as? String {
+            file = URL(string: urlString)
         }
         
         title = (dictionary["title"] as? String)?.htmlUnescape()

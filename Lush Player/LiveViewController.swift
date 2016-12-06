@@ -14,8 +14,13 @@ class LiveViewController: UIViewController {
         
         super.viewDidLoad()
         
-        LushPlayerController.shared.fetchLivePlaylist(with: nil, completion: { (error, programmes) in
-        
+        LushPlayerController.shared.fetchLivePlaylist(with: nil, completion: { [weak self] (error, programmes) in
+            
+            if let error = error, let welf = self {
+                UIAlertController.presentError(error, in: welf)
+            }
+            
+            
         })
         // Do any additional setup after loading the view, typically from a nib.
     }

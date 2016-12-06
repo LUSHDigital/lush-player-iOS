@@ -12,6 +12,7 @@ import ThunderRequestTV
 typealias ProgrammesCompletion = (_ error: Error?, _ programmes: [Programme]?) -> (Void)
 typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Programme?) -> (Void)
 typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
+typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [SearchResult]?) -> (Void)
 
 enum Channel : String {
     
@@ -216,6 +217,34 @@ class LushPlayerController {
             }
             
             completion(nil, playlistID)
+        }
+    }
+    
+    func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
+        
+        requestController.get("search?title=\(term)") { (response, error) in
+            
+            if let _error = error {
+                
+                completion(_error, nil)
+                return
+            }
+            
+            if response?.status != 200 {
+                completion(LushPlayerError.invalidResponseStatus, nil)
+                return
+            }
+            
+            guard let videos = response?.array as? [[AnyHashable : Any]] else {
+                completion(LushPlayerError.invalidResponse, nil)
+                return
+            }
+            
+            let programmes = videos.flatMap({ (video) -> SearchResult? in
+                return SearchResult(dictionary: video)
+            })
+            
+            completion(nil, programmes)
         }
     }
 }
