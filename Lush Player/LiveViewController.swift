@@ -162,6 +162,11 @@ class LiveViewController: UIViewController {
         refresh()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        redraw()
+    }
+    
     @IBAction func handleWatch(_ sender: Any) {
         
         if let programme = programme {
