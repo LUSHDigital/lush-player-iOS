@@ -193,7 +193,7 @@ class LushPlayerController {
         
         let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
         
-        requestController.get("playlist?offset=\(timezoneOffset)") { (response, error) in
+        requestController.get("playlist?offset=\(timezoneOffset)+minutes") { (response, error) in
             
             if let _error = error {
                 
@@ -207,7 +207,7 @@ class LushPlayerController {
             }
             
             guard let responseDict = response?.array?.first as? [AnyHashable : Any] else {
-                completion(LushPlayerError.invalidResponse, nil)
+                completion(LushPlayerError.emptyResponse, nil)
                 return
             }
             
@@ -252,4 +252,5 @@ class LushPlayerController {
 enum LushPlayerError: Error {
     case invalidResponseStatus
     case invalidResponse
+    case emptyResponse
 }

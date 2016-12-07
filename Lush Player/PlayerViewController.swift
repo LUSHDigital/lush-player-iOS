@@ -83,8 +83,19 @@ class PlayerViewController: UIViewController {
             welf.playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
                 
                 guard let video = video else { return }
-                self?.controller?.setVideos([video] as NSFastEnumeration)
-//                self?.controller?.play()
+                
+//                guard let source = video.sources.first as? BCOVSource else { return }
+                
+//                OperationQueue.main.addOperation {
+//                    
+//                    let player = AVPlayer(url: source.url)
+//                    self?.avPlayerViewController.player = player
+//                    player.play()
+//                }
+                
+                OperationQueue.main.addOperation ({
+                    self?.controller?.setVideos([video] as NSFastEnumeration)
+                })
             })
         })
     }
@@ -121,7 +132,11 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
     
     func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
         
-        avPlayerViewController.player = session.player
-        avPlayerViewController.player?.play()
+        OperationQueue.main.addOperation({
+            
+            session.player.pause()
+            self.avPlayerViewController.player = session.player
+            session.player.play()
+        })
     }
 }

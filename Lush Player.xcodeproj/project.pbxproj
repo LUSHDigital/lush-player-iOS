@@ -14,6 +14,7 @@
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
 		B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9831DF5D6DA00E8551D /* SearchResult.swift */; };
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
+		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
 		B1CEBE201DF1881E001F890D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE1E1DF1881E001F890D /* Main.storyboard */; };
@@ -121,6 +122,7 @@
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
 		B125D9831DF5D6DA00E8551D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
+		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
@@ -187,11 +189,13 @@
 				B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */,
 			);
 			name = Views;
+			path = "Lush Player";
 			sourceTree = "<group>";
 		};
 		B1CEBE0C1DF1881D001F890D = {
 			isa = PBXGroup;
 			children = (
+				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBE171DF1881D001F890D /* Lush Player */,
 				B1CEBE2B1DF1881E001F890D /* Lush PlayerTests */,
 				B1CEBE361DF1881E001F890D /* Lush PlayerUITests */,
@@ -216,7 +220,6 @@
 				B125D9661DF5686800E8551D /* BrightcovePlayerSDK.framework */,
 				B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */,
 				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
-				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBEF51DF1D894001F890D /* Helpers */,
 				B1CEBEBA1DF1BFD2001F890D /* Models */,
 				B1CEBE4C1DF18E23001F890D /* Controllers */,
@@ -294,6 +297,7 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */,
 				B1CEBEED1DF1D88E001F890D /* Constants.swift */,
 				B1CEBEEE1DF1D88E001F890D /* ParseError.swift */,
 				B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */,
@@ -511,6 +515,7 @@
 				B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */,
 				B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
+				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
 				B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */,
 			);
@@ -658,6 +663,7 @@
 		B1CEBE3D1DF1881E001F890D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -679,6 +685,7 @@
 		B1CEBE3E1DF1881E001F890D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
