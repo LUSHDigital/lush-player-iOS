@@ -344,13 +344,13 @@ class LiveViewController: UIViewController {
                     
                     guard let programmeFile = programme?.file else { return }
                     
-                    welf.playAudio(from: programmeFile)
+                    welf.playAudio(from: programmeFile, with: programme?.thumbnailURL)
                 })
                 
                 return
             }
             
-            playAudio(from: file)
+            playAudio(from: file, with: programme.thumbnailURL)
         }
     }
     
@@ -359,7 +359,7 @@ class LiveViewController: UIViewController {
         
     }
     
-    private func playAudio(from url: URL) {
+    private func playAudio(from url: URL, with imageURL: URL?) {
         
         let avPlayerViewController = AVPlayerViewController()
         let avPlayer = AVPlayer(url: url)
@@ -370,6 +370,10 @@ class LiveViewController: UIViewController {
         } catch let error as NSError {
             print(error)
         }
+        
+        let imageView = UIImageView(frame: view.bounds)
+        imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
+        avPlayerViewController.contentOverlayView?.addSubview(imageView)
         
         present(avPlayerViewController, animated: true, completion: {
             avPlayer.play()

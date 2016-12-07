@@ -62,7 +62,7 @@ class PlayerViewController: UIViewController {
             return
         }
         
-        if let guid = programme.guid {
+        if let _ = programme.guid {
             
             play(programme: programme)
             return
