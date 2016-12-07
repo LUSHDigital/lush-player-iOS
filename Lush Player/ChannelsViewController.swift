@@ -130,12 +130,12 @@ extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
         case tvProgrammesCollectionView:
             
             guard let programme = tvProgrammes?[indexPath.item] else { return }
-            play(programme: programme)
+            show(programme: programme)
             
         case radioProgrammesCollectionView:
             
             guard let programme = radioProgrammes?[indexPath.item] else { return }
-            play(programme: programme)
+            show(programme: programme)
             
         default:
             print("Unknown collection view")

@@ -48,17 +48,17 @@
                     <tabBarItem key="tabBarItem" title="Home" id="Scn-3E-SoE"/>
                     <connections>
                         <outlet property="collectionView" destination="Rhb-lm-BLq" id="JmJ-Gn-0Ni"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="6kf-HR-PJE"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="9BN-dk-Lhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fh-DU-Ajf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-2121"/>
+            <point key="canvasLocation" x="2246" y="-727"/>
         </scene>
         <!--Live-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgrammeDetails" title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -73,29 +73,34 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alr-GW-5Dg">
                                 <rect key="frame" x="0.0" y="0.0" width="880" height="1080"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LIVE: Fresh from the Kitchen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JnL-bE-PS2">
-                                        <rect key="frame" x="148" y="84" width="732" height="69"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fok-5a-YFq" customClass="TSCView" customModule="Lush_Player" customModuleProvider="target">
-                                        <rect key="frame" x="92" y="100" width="36" height="36"/>
-                                        <color key="backgroundColor" red="0.81176470588235294" green="0.0078431372549019607" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="36" id="YOB-fz-nK2"/>
-                                            <constraint firstAttribute="width" constant="36" id="qXK-nA-NDI"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="18"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yxv-uK-8uf">
+                                        <rect key="frame" x="92" y="92" width="696" height="36"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fok-5a-YFq" customClass="TSCView" customModule="Lush_Player" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" red="0.81176470588235294" green="0.0078431372549019607" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="YOB-fz-nK2"/>
+                                                    <constraint firstAttribute="width" constant="36" id="qXK-nA-NDI"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="LIVE: Fresh from the Kitchen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="JnL-bE-PS2">
+                                                <rect key="frame" x="52" y="18" width="644" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00am - 10:00am GMT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJu-ng-OMV">
                                         <rect key="frame" x="92" y="161" width="306" height="35"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-vm-xVb" customClass="TSCButton" customModule="Lush_Player" customModuleProvider="target">
@@ -133,20 +138,28 @@
                                             <action selector="handleWatch:" destination="8rJ-Kc-sve" eventType="primaryActionTriggered" id="glq-uD-BsJ"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-3w-L1W">
+                                        <rect key="frame" x="92" y="427" width="0.0" height="0.0"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="ZZX-vm-xVb" firstAttribute="leading" secondItem="YJu-ng-OMV" secondAttribute="leading" id="1wG-Jf-MD6"/>
+                                    <constraint firstItem="yxv-uK-8uf" firstAttribute="top" secondItem="alr-GW-5Dg" secondAttribute="top" constant="92" id="85X-EX-9hi"/>
                                     <constraint firstAttribute="width" constant="880" id="9ec-dD-4Fj"/>
-                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="leading" secondItem="Fok-5a-YFq" secondAttribute="leading" id="9xa-dg-QWW"/>
-                                    <constraint firstItem="Fok-5a-YFq" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="leading" constant="92" id="Lae-93-L8w"/>
-                                    <constraint firstItem="ZZX-vm-xVb" firstAttribute="leading" secondItem="Fok-5a-YFq" secondAttribute="leading" id="MIX-iP-uPv"/>
-                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="top" secondItem="JnL-bE-PS2" secondAttribute="bottom" constant="8" id="SwR-BV-iVl"/>
-                                    <constraint firstAttribute="trailing" secondItem="JnL-bE-PS2" secondAttribute="trailing" id="Tei-Bl-Jbd"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sn2-3w-L1W" secondAttribute="bottom" constant="92" id="ACz-f0-dpP"/>
+                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="leading" secondItem="yxv-uK-8uf" secondAttribute="leading" id="Fmc-yP-XT3"/>
+                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="top" secondItem="yxv-uK-8uf" secondAttribute="bottom" constant="33" id="M5q-on-cYH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sn2-3w-L1W" secondAttribute="trailing" id="MAL-YX-Rvo"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YJu-ng-OMV" secondAttribute="trailing" id="bCb-BT-y9S"/>
-                                    <constraint firstItem="JnL-bE-PS2" firstAttribute="leading" secondItem="Fok-5a-YFq" secondAttribute="trailing" constant="20" id="iAs-ef-L0e"/>
+                                    <constraint firstItem="sn2-3w-L1W" firstAttribute="top" secondItem="ZZX-vm-xVb" secondAttribute="bottom" constant="51" id="bNU-rf-fdb"/>
+                                    <constraint firstAttribute="trailing" secondItem="yxv-uK-8uf" secondAttribute="trailing" constant="92" id="jaP-q8-ECy"/>
                                     <constraint firstItem="ZZX-vm-xVb" firstAttribute="top" secondItem="YJu-ng-OMV" secondAttribute="bottom" constant="48" id="nhI-Ws-WX7"/>
-                                    <constraint firstItem="JnL-bE-PS2" firstAttribute="centerY" secondItem="Fok-5a-YFq" secondAttribute="centerY" id="nj5-B5-i8a"/>
-                                    <constraint firstItem="Fok-5a-YFq" firstAttribute="top" secondItem="alr-GW-5Dg" secondAttribute="topMargin" constant="92" id="wfF-M4-Avv"/>
+                                    <constraint firstItem="sn2-3w-L1W" firstAttribute="leading" secondItem="ZZX-vm-xVb" secondAttribute="leading" id="yA0-n4-6W0"/>
+                                    <constraint firstItem="yxv-uK-8uf" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="leading" constant="92" id="yls-H8-w2v"/>
                                 </constraints>
                             </view>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MQS-6R-nGx">
@@ -180,6 +193,8 @@
                     <tabBarItem key="tabBarItem" title="Live" id="cPa-gy-q4n"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="YJu-ng-OMV" id="i4d-Tm-qXw"/>
+                        <outlet property="descriptionLabel" destination="sn2-3w-L1W" id="y7S-Qb-Tar"/>
                         <outlet property="gradientView" destination="5SY-ao-kLD" id="4zj-nP-6hP"/>
                         <outlet property="imageView" destination="aOl-h6-KBV" id="eZU-4Z-u4z"/>
                         <outlet property="liveView" destination="Fok-5a-YFq" id="CsY-vh-am6"/>
@@ -192,7 +207,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-678"/>
+            <point key="canvasLocation" x="4962" y="1509"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="ODT-zF-ZRc">
@@ -229,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayr-po-c88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4717" y="-1310"/>
+            <point key="canvasLocation" x="7392" y="1509"/>
         </scene>
         <!--Channels-->
         <scene sceneID="h0V-Bs-EkA">
@@ -332,7 +347,7 @@
                         <outlet property="channelSelectionCollectionView" destination="XeG-el-caD" id="lgj-Ki-gJI"/>
                         <outlet property="radioProgrammesCollectionView" destination="gqh-Db-naV" id="fXS-F2-dmy"/>
                         <outlet property="tvProgrammesCollectionView" destination="VKk-jP-Mwk" id="OHw-UH-bxa"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="akB-TJ-oXo"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="xCG-Gc-4vv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SI0-80-Yf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,7 +393,7 @@
                     <tabBarItem key="tabBarItem" title="Search" id="dfY-Qs-ud8"/>
                     <connections>
                         <outlet property="resultsCollectionView" destination="Uu7-vI-BxX" id="FKO-dd-fZo"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="BXw-wY-Rn2"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="H6I-8a-wbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6L-Dd-gEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -410,6 +425,6 @@
         <image name="Play-Button" width="116" height="68"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0D8-dM-Z3X"/>
+        <segue reference="H6I-8a-wbh"/>
     </inferredMetricsTieBreakers>
 </document>

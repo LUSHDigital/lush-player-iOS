@@ -62,6 +62,12 @@ class PlayerViewController: UIViewController {
             return
         }
         
+        if let guid = programme.guid {
+            
+            play(programme: programme)
+            return
+        }
+        
         LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error: Error?, programme: Programme?) in
             
             if let _error = error {
@@ -71,33 +77,39 @@ class PlayerViewController: UIViewController {
                 return
             }
             
-            guard let guid = programme?.guid else {
+            guard let programme = programme else {
                 return
             }
             
-            self?.configureController()
+            self?.play(programme: programme)
+        })
+    }
+    
+    private func play(programme: Programme) {
+        
+        guard let guid = programme.guid else { return }
+        
+        configureController()
+        
+        playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
+        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
             
-            guard let welf = self else { return }
+            guard let video = video else { return }
             
-            welf.playbackService = BCOVPlaybackService(accountId: welf.brightcoveAccountId, policyKey: brightcovePolicyKey)
-            welf.playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
-                
-                guard let video = video else { return }
-                
-//                guard let source = video.sources.first as? BCOVSource else { return }
-                
-//                OperationQueue.main.addOperation {
-//                    
-//                    let player = AVPlayer(url: source.url)
-//                    self?.avPlayerViewController.player = player
-//                    player.play()
-//                }
-                
-                OperationQueue.main.addOperation ({
-                    self?.controller?.setVideos([video] as NSFastEnumeration)
-                })
+            //                guard let source = video.sources.first as? BCOVSource else { return }
+            
+            //                OperationQueue.main.addOperation {
+            //
+            //                    let player = AVPlayer(url: source.url)
+            //                    self?.avPlayerViewController.player = player
+            //                    player.play()
+            //                }
+            
+            OperationQueue.main.addOperation ({
+                self.controller?.setVideos([video] as NSFastEnumeration)
             })
         })
+
     }
     
     private func configureController() {

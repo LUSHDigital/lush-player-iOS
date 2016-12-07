@@ -90,7 +90,7 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
         }
         
         guard let programme = Programme(dictionary: programmeDict, media: media) else { return }
-        play(programme: programme)
+        show(programme: programme)
     }
 }
 

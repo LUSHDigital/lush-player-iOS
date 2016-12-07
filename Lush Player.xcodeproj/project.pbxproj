@@ -189,13 +189,11 @@
 				B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */,
 			);
 			name = Views;
-			path = "Lush Player";
 			sourceTree = "<group>";
 		};
 		B1CEBE0C1DF1881D001F890D = {
 			isa = PBXGroup;
 			children = (
-				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBE171DF1881D001F890D /* Lush Player */,
 				B1CEBE2B1DF1881E001F890D /* Lush PlayerTests */,
 				B1CEBE361DF1881E001F890D /* Lush PlayerUITests */,
@@ -223,6 +221,7 @@
 				B1CEBEF51DF1D894001F890D /* Helpers */,
 				B1CEBEBA1DF1BFD2001F890D /* Models */,
 				B1CEBE4C1DF18E23001F890D /* Controllers */,
+				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBE451DF18C31001F890D /* View Controllers */,
 				B1CEBE1E1DF1881E001F890D /* Main.storyboard */,
 				B1CEBE211DF1881E001F890D /* Assets.xcassets */,

@@ -29,4 +29,8 @@ class Lush_PlayerTests: XCTestCase {
         
     }
     
+    func testSchedule() {
+        
+        let playlist = BCOVPlaylist()
+    }
 }

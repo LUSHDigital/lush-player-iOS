@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVKit
 
 extension DateComponents {
     
@@ -99,47 +100,20 @@ extension BCOVPlaylist {
         })
     }
     
-    var playlistPosition: (video: BCOVVideo, playbackStartTime: TimeInterval)? {
+    var playlistPosition: (scheduleItem: (video: BCOVVideo, startDate: Date, endDate: Date), playbackStartTime: TimeInterval)? {
         get {
             
             // First make sure our videos array are actually BCOVVideo objects
-            guard let videos = videos as? [BCOVVideo] else { return nil }
-            var playbackStartTime: TimeInterval = 0
             
-            guard let currentVideo = videos.first(where: { (video) -> Bool in
-                
-                guard let customInfo = video.properties["custom_fields"] as? [AnyHashable : Any] else { return false }
-                guard let liveDuration = customInfo["livebroadcastlength"] as? String, let startTime = customInfo["starttime"] as? String else { return false }
-                
-                // Set up date formatters
-                let durationFormatter = DateFormatter()
-                durationFormatter.dateFormat = "HH:mm:ss"
-                
-                let startFormatter = DateFormatter()
-                startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-                
-                // Create duration date object and start date object from date formatters
-                guard let durationDate = durationFormatter.date(from: liveDuration), let startDate = startFormatter.date(from: startTime) else { return false }
-                
-                let components: Set<Calendar.Component> = [.minute, .hour, .second]
-                
-                // Get start date and duration DateComponents
-                let startComponents = Calendar.current.dateComponents(components, from: startDate)
-                let durationComponents = Calendar.current.dateComponents(components, from: durationDate)
-                
-                // Normalise start date so it only represents the time of day
-                let startTimeDate = Calendar.current.date(from: startComponents) ?? startDate
-                
-                // Get the time interval through the day from durationComponents, the current time as a date using the same normalisation as for startTimeDate
-                guard let interval = durationComponents.timeIntervalSinceStartOfDay, let currentDate = Calendar.current.date(from: Calendar.current.dateComponents(components, from: Date())) else { return false }
-                
-                // Calculate the end date of the video
-                let endDate = startDate.addingTimeInterval(interval)
+            let scheduleArray = schedule()
+            var playbackStartTime: TimeInterval = 0
+            let currentDate = Date()
+            
+            guard let currentVideo = scheduleArray.first(where: { (schedule) -> Bool in
                 
                 // Return whether the current date falls during the time of the show
-                
-                if currentDate > startTimeDate && currentDate < endDate {
-                    playbackStartTime = currentDate.timeIntervalSince(startTimeDate)
+                if currentDate > schedule.startDate && currentDate < schedule.endDate {
+                    playbackStartTime = currentDate.timeIntervalSince(schedule.startDate)
                     return true
                 } else {
                     return false
@@ -151,15 +125,22 @@ extension BCOVPlaylist {
     }
 }
 
+
+/// This view controller is designed for the LIVE tab of the app, however as it is similar in UI and logic to the
+/// programme details view it can be re-used for that by setting `programme` to a non-nil value.
 class LiveViewController: UIViewController {
 
     var playbackService: BCOVPlaybackService?
     
     var playlist: BCOVPlaylist?
     
+    var programme: Programme?
+    
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var timeLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
     
     @IBOutlet weak var watchButton: TSCButton!
     
@@ -171,6 +152,8 @@ class LiveViewController: UIViewController {
     
     @IBOutlet weak var gradientView: GradientView!
     
+    @IBOutlet weak var dateLabel: UILabel!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -181,13 +164,40 @@ class LiveViewController: UIViewController {
     
     @IBAction func handleWatch(_ sender: Any) {
         
+        if let programme = programme {
+            play(programme: programme)
+        } else if let playlist = playlist {
+            play(playlist: playlist)
+        }
     }
     
     func refresh() {
         
         self.loadingIndicator.startAnimating()
         
+        if let programme = programme {
+            
+            watchButton.isEnabled = false
+            watchButton.alpha = 0.6
+            
+            refresh(programme: programme)
+            
+            if programme.media == .TV {
+                watchButton.setTitle("PLAY", for: .normal)
+            } else {
+                watchButton.setTitle("LISTEN", for: .normal)
+            }
+            
+        } else {
+            refreshLive()
+        }
+    }
+    
+    private func refreshLive() {
+        
         LushPlayerController.shared.fetchLivePlaylist(with: nil, completion: { [weak self] (error, playlistID) in
+            
+            self?.loadingIndicator.stopAnimating()
             
             if let error = error, let welf = self {
                 
@@ -203,8 +213,6 @@ class LiveViewController: UIViewController {
                 }
             }
             
-            self?.loadingIndicator.stopAnimating()
-            
             guard let playlistID = playlistID else { return }
             
             self?.playbackService = BCOVPlaybackService(accountId: BrightcoveConstants.accountID, policyKey: BrightcoveConstants.livePolicyID)
@@ -219,39 +227,77 @@ class LiveViewController: UIViewController {
                 self?.redraw()
             })
         })
-
     }
+    
+    private func refresh(programme: Programme) {
+        
+        LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error, programme) in
+            
+            if let error = error, let welf = self {
+                UIAlertController.presentError(error, in: welf)
+            }
+
+            if programme?.guid != nil {
+                self?.watchButton.isEnabled = true
+                self?.watchButton.alpha = 1.0
+            }
+            
+            self?.loadingIndicator.stopAnimating()
+            self?.redraw()
+        })
+    }
+    
+    /// A timer which will redraw the screen when the next programme in the playlist should be played
+    var redrawTimer: Timer?
 
     func redraw() {
         
-        guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
+        redrawTimer?.invalidate()
+        
+        if let programme = programme {
             
-            titleLabel.isHidden = true
-            timeLabel.isHidden = true
-            watchButton.isHidden = true
             liveView.isHidden = true
-            imageView.image = nil
+            titleLabel.text = programme.title
+            descriptionLabel.text = programme.description
+            imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
+            dateLabel.text = programme.dateString
             
-            return
-        }
-        
-        if titleLabel.isHidden == true {
-            
-            UIView.animate(withDuration: 0.4, animations: { 
-                
-                self.titleLabel.isHidden = false
-                self.timeLabel.isHidden = false
-                self.watchButton.isHidden = false
-                self.liveView.isHidden = false
-            })
-        }
-        
-        titleLabel.text = playlistPosition.video.properties["name"] as? String
-        
-        if let posterString = playlistPosition.video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
-            imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
         } else {
-            imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
+            
+            guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
+                
+                titleLabel.isHidden = true
+                timeLabel.isHidden = true
+                watchButton.isHidden = true
+                liveView.isHidden = true
+                imageView.image = nil
+                
+                return
+            }
+            
+            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate, interval: 0, repeats: false, block: { [weak self] (timer) in
+                self?.redraw()
+            })
+            
+            if titleLabel.isHidden == true {
+                
+                UIView.animate(withDuration: 0.4, animations: {
+                    
+                    self.titleLabel.isHidden = false
+                    self.timeLabel.isHidden = false
+                    self.watchButton.isHidden = false
+                    self.liveView.isHidden = false
+                })
+            }
+            
+            let video = playlistPosition.scheduleItem.video
+            titleLabel.text = video.properties["name"] as? String
+            
+            if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
+                imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
+            } else {
+                imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
+            }
         }
     }
     
@@ -263,11 +309,71 @@ class LiveViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let programme = sender as? Programme else { return }
+        guard let programme = sender as? Programme else {
+        
+            //TODO: Logic to play from live playlist
+            
+            return
+        }
+        
         guard let playerVC = segue.destination as? PlayerViewController else { return }
         
-        playerVC.brightcovePolicyKey = BrightcoveConstants.livePolicyID
+        playerVC.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
         playerVC.programme = programme
+    }
+    
+    //MARK:
+    //MARK: -
+    
+    func play(programme: Programme) {
+        
+        if (programme.media == .TV) {
+            
+            performSegue(withIdentifier: "PlayProgramme", sender: programme)
+            
+        } else if (programme.media == .radio) {
+            
+            guard let file = programme.file else {
+                
+                LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error, programme) -> (Void) in
+                    
+                    guard let welf = self else { return }
+                    if let error = error {
+                        UIAlertController.presentError(error, in: welf)
+                    }
+                    
+                    guard let programmeFile = programme?.file else { return }
+                    
+                    welf.playAudio(from: programmeFile)
+                })
+                
+                return
+            }
+            
+            playAudio(from: file)
+        }
+    }
+    
+    func play(playlist: BCOVPlaylist) {
+        
+        
+    }
+    
+    private func playAudio(from url: URL) {
+        
+        let avPlayerViewController = AVPlayerViewController()
+        let avPlayer = AVPlayer(url: url)
+        avPlayerViewController.player = avPlayer
+        
+        do {
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        present(avPlayerViewController, animated: true, completion: {
+            avPlayer.play()
+        })
     }
 }
 
