@@ -77,7 +77,9 @@ class RefreshableViewController: UIViewController {
             print(error)
         }
         
-        present(avPlayerViewController, animated: true, completion: nil)
+        present(avPlayerViewController, animated: true, completion: {
+            avPlayer.play()
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
