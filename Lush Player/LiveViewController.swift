@@ -8,6 +8,16 @@
 
 import UIKit
 
+extension DateComponents {
+    
+    var timeIntervalSinceStartOfDay: TimeInterval? {
+        get {
+            guard let hour = hour, let minute = minute, let second = second else { return nil }
+            return (Double(hour) * 3600.0) + (Double(minute) * 60.0) + Double(second)
+        }
+    }
+}
+
 class GradientView : UIView {
     
     var gradientLayer: CAGradientLayer? {
@@ -46,21 +56,97 @@ class GradientView : UIView {
 
 extension BCOVPlaylist {
     
-    var currentVideo: BCOVVideo? {
+    func schedule(relative toDate: Date = Date()) -> [(video: BCOVVideo, startDate: Date, endDate: Date)] {
+        
+        return videos.flatMap({ (video) -> (video: BCOVVideo, startDate: Date, endDate: Date)? in
+            
+            guard let _video = video as? BCOVVideo else { return nil }
+            
+            guard let customInfo = _video.properties["custom_fields"] as? [AnyHashable : Any] else { return nil }
+            guard let liveDuration = customInfo["livebroadcastlength"] as? String, let startTime = customInfo["starttime"] as? String else { return nil }
+            
+            // Set up date formatters
+            let durationFormatter = DateFormatter()
+            durationFormatter.dateFormat = "HH:mm:ss"
+            
+            let startFormatter = DateFormatter()
+            startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+            
+            // Create duration date object and start date object from date formatters
+            guard let durationDate = durationFormatter.date(from: liveDuration), let startDate = startFormatter.date(from: startTime) else { return nil }
+            
+            let components: Set<Calendar.Component> = [.minute, .hour, .second]
+            
+            // The date components of the date to return relative start/end dates from
+            let relativeComponents = Calendar.current.dateComponents(components, from: toDate)
+            
+            // Change start date back from API so it retains it's time, but takes the day/year/month from our relative date
+            var startComponents = Calendar.current.dateComponents(components, from: startDate)
+            startComponents.year = relativeComponents.year
+            startComponents.month = relativeComponents.month
+            startComponents.day = relativeComponents.day
+            
+            let durationComponents = Calendar.current.dateComponents(components, from: durationDate)
+            
+            guard let relativeStartDate = Calendar.current.date(from: startComponents) else { return nil }
+            
+            // Get the time interval through the day from durationComponents, the current time as a date using the same normalisation as for startTimeDate
+            guard let interval = durationComponents.timeIntervalSinceStartOfDay else { return nil }
+            
+            // Calculate the end date of the video
+            let endDate = relativeStartDate.addingTimeInterval(interval)
+            return (_video, relativeStartDate, endDate)
+        })
+    }
+    
+    var playlistPosition: (video: BCOVVideo, playbackStartTime: TimeInterval)? {
         get {
             
             // First make sure our videos array are actually BCOVVideo objects
             guard let videos = videos as? [BCOVVideo] else { return nil }
+            var playbackStartTime: TimeInterval = 0
             
-            let timezoneOffset = (TimeZone.current.secondsFromGMT(for: Date()) / 60)
-            
-            return videos.first(where: { (video) -> Bool in
+            guard let currentVideo = videos.first(where: { (video) -> Bool in
                 
                 guard let customInfo = video.properties["custom_fields"] as? [AnyHashable : Any] else { return false }
                 guard let liveDuration = customInfo["livebroadcastlength"] as? String, let startTime = customInfo["starttime"] as? String else { return false }
                 
-                return true
-            })
+                // Set up date formatters
+                let durationFormatter = DateFormatter()
+                durationFormatter.dateFormat = "HH:mm:ss"
+                
+                let startFormatter = DateFormatter()
+                startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+                
+                // Create duration date object and start date object from date formatters
+                guard let durationDate = durationFormatter.date(from: liveDuration), let startDate = startFormatter.date(from: startTime) else { return false }
+                
+                let components: Set<Calendar.Component> = [.minute, .hour, .second]
+                
+                // Get start date and duration DateComponents
+                let startComponents = Calendar.current.dateComponents(components, from: startDate)
+                let durationComponents = Calendar.current.dateComponents(components, from: durationDate)
+                
+                // Normalise start date so it only represents the time of day
+                let startTimeDate = Calendar.current.date(from: startComponents) ?? startDate
+                
+                // Get the time interval through the day from durationComponents, the current time as a date using the same normalisation as for startTimeDate
+                guard let interval = durationComponents.timeIntervalSinceStartOfDay, let currentDate = Calendar.current.date(from: Calendar.current.dateComponents(components, from: Date())) else { return false }
+                
+                // Calculate the end date of the video
+                let endDate = startDate.addingTimeInterval(interval)
+                
+                // Return whether the current date falls during the time of the show
+                
+                if currentDate > startTimeDate && currentDate < endDate {
+                    playbackStartTime = currentDate.timeIntervalSince(startTimeDate)
+                    return true
+                } else {
+                    return false
+                }
+            }) else { return nil }
+            
+            return (currentVideo, playbackStartTime)
         }
     }
 }
@@ -138,7 +224,7 @@ class LiveViewController: UIViewController {
 
     func redraw() {
         
-        guard let playlist = playlist, let video = playlist.currentVideo else {
+        guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
             
             titleLabel.isHidden = true
             timeLabel.isHidden = true
@@ -160,9 +246,9 @@ class LiveViewController: UIViewController {
             })
         }
         
-        titleLabel.text = video.properties["name"] as? String
+        titleLabel.text = playlistPosition.video.properties["name"] as? String
         
-        if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
+        if let posterString = playlistPosition.video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
             imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
         } else {
             imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
