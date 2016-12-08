@@ -247,7 +247,7 @@ class LiveViewController: UIViewController {
             
         } else {
             
-//            guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
+            guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
             
                 titleLabel.isHidden = true
                 timeLabel.isHidden = true
@@ -263,45 +263,45 @@ class LiveViewController: UIViewController {
                 })
                 
                 return
-//            }
+            }
             
-//            stopFallback()
-//            
-//            // Fire a timer 1 second after programme is scheduled to end, to redraw!
-//            remainingTimer?.invalidate()
-//            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
-//                self?.redraw()
-//            })
-//            
-//            if titleLabel.isHidden == true {
-//                
-//                UIView.animate(withDuration: 0.4, animations: {
-//                    
-//                    self.titleLabel.isHidden = false
-//                    self.timeLabel.isHidden = false
-//                    self.watchButton.isHidden = false
-//                    self.liveView.isHidden = false
-//                    self.remainingLabel.isHidden = false
-//                    self.descriptionLabel.isHidden = false
-//                })
-//            }
-//            
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = "HH:mma"
-//            descriptionLabel.text = nil
-//            
-//            redrawRemainingLabel(playlistPosition: playlistPosition)
-//            
-//            dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
-//            
-//            let video = playlistPosition.scheduleItem.video
-//            titleLabel.text = video.properties["name"] as? String
-//            
-//            if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
-//                imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
-//            } else {
-//                imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
-//            }
+            stopFallback()
+            
+            // Fire a timer 1 second after programme is scheduled to end, to redraw!
+            remainingTimer?.invalidate()
+            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
+                self?.redraw()
+            })
+            
+            if titleLabel.isHidden == true {
+                
+                UIView.animate(withDuration: 0.4, animations: {
+                    
+                    self.titleLabel.isHidden = false
+                    self.timeLabel.isHidden = false
+                    self.watchButton.isHidden = false
+                    self.liveView.isHidden = false
+                    self.remainingLabel.isHidden = false
+                    self.descriptionLabel.isHidden = false
+                })
+            }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mma"
+            descriptionLabel.text = nil
+            
+            redrawRemainingLabel(playlistPosition: playlistPosition)
+            
+            dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
+            
+            let video = playlistPosition.scheduleItem.video
+            titleLabel.text = video.properties["name"] as? String
+            
+            if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
+                imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
+            } else {
+                imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
+            }
         }
     }
     
