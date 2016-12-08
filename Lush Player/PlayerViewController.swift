@@ -12,7 +12,7 @@ import AVKit
 
 class PlayerViewController: UIViewController {
     
-    private var controller: BCOVPlaybackController?
+    internal var controller: BCOVPlaybackController?
     
     var programme: Programme?
     
@@ -27,6 +27,8 @@ class PlayerViewController: UIViewController {
     let avPlayerViewController = AVPlayerViewController()
     
     var playbackService: BCOVPlaybackService?
+    
+    var seekTime: TimeInterval?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -34,7 +36,7 @@ class PlayerViewController: UIViewController {
         
         super.viewDidLoad()
         
-        guard let brightcovePolicyKey = brightcovePolicyKey else { return }
+        guard brightcovePolicyKey != nil else { return }
         
         addChildViewController(avPlayerViewController)
         avPlayerViewController.view.frame = view.bounds
@@ -46,14 +48,12 @@ class PlayerViewController: UIViewController {
             
             configureController()
             
-            if let controller = controller {
-                
-                view.addSubview(controller.view)
-                controller.view.frame = view.bounds
+            if let currentItem = playlist.playlistPosition {
+                seekTime = currentItem.playbackStartTime
+                self.controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
+            } else {
+                dismiss(animated: true, completion: nil)
             }
-            
-            let videos = playlist.videos as NSFastEnumeration
-            self.controller?.setVideos(videos)
             
             return
         }
@@ -139,6 +139,17 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
     
     func playbackController(_ controller: BCOVPlaybackController!, didCompletePlaylist playlist: NSFastEnumeration!) {
         
+        if let videoPlaylist = self.playlist {
+            
+            if let currentItem = videoPlaylist.playlistPosition {
+                controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+            
+            return
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -148,7 +159,24 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
             
             session.player.pause()
             self.avPlayerViewController.player = session.player
-            session.player.play()
+            
+            if let seekTime = self.seekTime {
+                
+                let newTime = CMTime(seconds: seekTime, preferredTimescale: 1)
+                session.player.seek(to: newTime)
+                session.player.play()
+                
+            } else if let seekTime = self.playlist?.playlistPosition?.playbackStartTime {
+                
+                let newTime = CMTime(seconds: seekTime, preferredTimescale: 1)
+                session.player.seek(to: newTime)
+                session.player.play()
+                
+            } else {
+                
+                session.player.play()
+
+            }
         })
     }
 }

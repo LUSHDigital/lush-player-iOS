@@ -55,76 +55,6 @@ class GradientView : UIView {
     }
 }
 
-extension BCOVPlaylist {
-    
-    func schedule(relative toDate: Date = Date()) -> [(video: BCOVVideo, startDate: Date, endDate: Date)] {
-        
-        return videos.flatMap({ (video) -> (video: BCOVVideo, startDate: Date, endDate: Date)? in
-            
-            guard let _video = video as? BCOVVideo else { return nil }
-            
-            guard let customInfo = _video.properties["custom_fields"] as? [AnyHashable : Any] else { return nil }
-            guard let liveDuration = customInfo["livebroadcastlength"] as? String, let startTime = customInfo["starttime"] as? String else { return nil }
-            
-            // Set up date formatters
-            let durationFormatter = DateFormatter()
-            durationFormatter.dateFormat = "HH:mm:ss"
-            
-            let startFormatter = DateFormatter()
-            startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-            
-            // Create duration date object and start date object from date formatters
-            guard let durationDate = durationFormatter.date(from: liveDuration), let startDate = startFormatter.date(from: startTime) else { return nil }
-            
-            let components: Set<Calendar.Component> = [.minute, .hour, .second]
-            
-            // The date components of the date to return relative start/end dates from
-            let relativeComponents = Calendar.current.dateComponents(components, from: toDate)
-            
-            // Change start date back from API so it retains it's time, but takes the day/year/month from our relative date
-            var startComponents = Calendar.current.dateComponents(components, from: startDate)
-            startComponents.year = relativeComponents.year
-            startComponents.month = relativeComponents.month
-            startComponents.day = relativeComponents.day
-            
-            let durationComponents = Calendar.current.dateComponents(components, from: durationDate)
-            
-            guard let relativeStartDate = Calendar.current.date(from: startComponents) else { return nil }
-            
-            // Get the time interval through the day from durationComponents, the current time as a date using the same normalisation as for startTimeDate
-            guard let interval = durationComponents.timeIntervalSinceStartOfDay else { return nil }
-            
-            // Calculate the end date of the video
-            let endDate = relativeStartDate.addingTimeInterval(interval)
-            return (_video, relativeStartDate, endDate)
-        })
-    }
-    
-    var playlistPosition: (scheduleItem: (video: BCOVVideo, startDate: Date, endDate: Date), playbackStartTime: TimeInterval)? {
-        get {
-            
-            // First make sure our videos array are actually BCOVVideo objects
-            
-            let scheduleArray = schedule()
-            var playbackStartTime: TimeInterval = 0
-            let currentDate = Date()
-            
-            guard let currentVideo = scheduleArray.first(where: { (schedule) -> Bool in
-                
-                // Return whether the current date falls during the time of the show
-                if currentDate > schedule.startDate && currentDate < schedule.endDate {
-                    playbackStartTime = currentDate.timeIntervalSince(schedule.startDate)
-                    return true
-                } else {
-                    return false
-                }
-            }) else { return nil }
-            
-            return (currentVideo, playbackStartTime)
-        }
-    }
-}
-
 
 /// This view controller is designed for the LIVE tab of the app, however as it is similar in UI and logic to the
 /// programme details view it can be re-used for that by setting `programme` to a non-nil value.
@@ -153,6 +83,9 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var gradientView: GradientView!
     
     @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var remainingLabel: UILabel!
+    @IBOutlet weak var descriptionRemainingConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         
@@ -267,6 +200,9 @@ class LiveViewController: UIViewController {
             imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
             dateLabel.text = programme.dateString
             
+            descriptionRemainingConstraint.constant = 0
+            remainingLabel.text = nil
+            
         } else {
             
             guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
@@ -276,11 +212,15 @@ class LiveViewController: UIViewController {
                 watchButton.isHidden = true
                 liveView.isHidden = true
                 imageView.image = nil
+                remainingLabel.isHidden = true
+                descriptionLabel.isHidden = true
                 
                 return
             }
             
-            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate, interval: 0, repeats: false, block: { [weak self] (timer) in
+            // Fire a timer 1 second after programme is scheduled to end, to redraw!
+            remainingTimer?.invalidate()
+            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
                 self?.redraw()
             })
             
@@ -292,8 +232,18 @@ class LiveViewController: UIViewController {
                     self.timeLabel.isHidden = false
                     self.watchButton.isHidden = false
                     self.liveView.isHidden = false
+                    self.remainingLabel.isHidden = false
+                    self.descriptionLabel.isHidden = false
                 })
             }
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mma"
+            descriptionLabel.text = nil
+            
+            redrawRemainingLabel(playlistPosition: playlistPosition)
+            
+            dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
             
             let video = playlistPosition.scheduleItem.video
             titleLabel.text = video.properties["name"] as? String
@@ -306,6 +256,58 @@ class LiveViewController: UIViewController {
         }
     }
     
+    var remainingTimer: Timer?
+    
+    /// Redraws the remaining time of the programme
+    ///
+    /// - Parameter playlistPosition: An option playlistPosition to draw from (if nil, this will be calculated)
+    func redrawRemainingLabel(playlistPosition: (scheduleItem: (video: BCOVVideo, startDate: Date, endDate: Date), playbackStartTime: TimeInterval)? = nil) {
+        
+        guard let playlist = playlist else { return }
+
+        let position = playlistPosition ?? playlist.playlistPosition
+        guard let _position = position else { return }
+        
+        let remainingTime = _position.scheduleItem.endDate.timeIntervalSince(_position.scheduleItem.startDate) - _position.playbackStartTime
+        
+        remainingTimer?.invalidate()
+        
+        let dateComponentsFormatter = DateComponentsFormatter()
+        dateComponentsFormatter.includesTimeRemainingPhrase = true
+        dateComponentsFormatter.unitsStyle = .short
+        
+        remainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
+        
+        // Format remaining time
+        if remainingTime > 24 * 60 * 60 {
+            
+            let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(24*60*60))+1)
+            remainingTimer = Timer(fire: firstFireDate, interval: 24*60*60, repeats: true, block: { [weak self] (timer) in
+                self?.redrawRemainingLabel()
+            })
+            
+        } else if remainingTime > 60 * 60 {
+            
+            let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(60*60))+1)
+            remainingTimer = Timer(fire: firstFireDate, interval: 60*60, repeats: true, block: { [weak self] (timer) in
+                self?.redrawRemainingLabel()
+            })
+            
+        } else if remainingTime > 60 {
+            
+            let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(60))+1)
+            remainingTimer = Timer(fire: firstFireDate, interval: 60, repeats: true, block: { [weak self] (timer) in
+                self?.redrawRemainingLabel()
+            })
+            
+        } else {
+            
+            remainingTimer = Timer(fire: Date(timeIntervalSinceNow: 1), interval: 1, repeats: true, block: { [weak self] (timer) in
+                self?.redrawRemainingLabel()
+            })
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
@@ -314,17 +316,11 @@ class LiveViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        guard let programme = sender as? Programme else {
-        
-            //TODO: Logic to play from live playlist
-            
-            return
-        }
-        
         guard let playerVC = segue.destination as? PlayerViewController else { return }
         
-        playerVC.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
-        playerVC.programme = programme
+        playerVC.brightcovePolicyKey = sender is Programme ? BrightcoveConstants.onDemandPolicyID : BrightcoveConstants.livePolicyID
+        playerVC.programme = sender as? Programme
+        playerVC.playlist = sender as? BCOVPlaylist
     }
     
     //MARK:
@@ -361,7 +357,8 @@ class LiveViewController: UIViewController {
     
     func play(playlist: BCOVPlaylist) {
         
-        
+        guard let _ = playlist.playlistPosition else { return }
+        performSegue(withIdentifier: "PlayProgramme", sender: playlist)
     }
     
     private func playAudio(from url: URL, with imageURL: URL?) {
