@@ -67,6 +67,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="GzN-UH-Tel" customClass="PlayerView" customModule="Lush_Player" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1080" id="yHk-3m-5CD"/>
+                                </constraints>
+                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-h6-KBV">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
@@ -184,6 +191,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="GzN-UH-Tel" secondAttribute="bottom" id="BDj-s6-0pb"/>
                             <constraint firstItem="alr-GW-5Dg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="C97-Oh-EUx"/>
                             <constraint firstItem="alr-GW-5Dg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="I2A-UK-lck"/>
                             <constraint firstItem="MQS-6R-nGx" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="QBL-uX-zGq"/>
@@ -193,15 +201,19 @@
                             <constraint firstItem="5SY-ao-kLD" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="trailing" id="eLc-cq-yxf"/>
                             <constraint firstItem="5SY-ao-kLD" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="fV3-TU-1TH"/>
                             <constraint firstAttribute="trailing" secondItem="aOl-h6-KBV" secondAttribute="trailing" id="iPS-bQ-JUJ"/>
+                            <constraint firstAttribute="trailing" secondItem="GzN-UH-Tel" secondAttribute="trailing" id="mEo-Wb-wCC"/>
                             <constraint firstAttribute="bottom" secondItem="5SY-ao-kLD" secondAttribute="bottom" id="ozx-7n-uUa"/>
                             <constraint firstItem="MQS-6R-nGx" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="qXq-sZ-OKk"/>
                             <constraint firstItem="aOl-h6-KBV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="ugh-LS-c3b"/>
+                            <constraint firstItem="GzN-UH-Tel" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="vRl-sm-NTt"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Live" id="cPa-gy-q4n"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="backgroundPlayerView" destination="GzN-UH-Tel" id="xob-fi-vED"/>
+                        <outlet property="containerView" destination="alr-GW-5Dg" id="tqZ-ew-Adr"/>
                         <outlet property="dateLabel" destination="YJu-ng-OMV" id="i4d-Tm-qXw"/>
                         <outlet property="descriptionLabel" destination="sn2-3w-L1W" id="y7S-Qb-Tar"/>
                         <outlet property="descriptionRemainingConstraint" destination="XLV-KB-AEx" id="uIe-bo-1ZU"/>
@@ -436,6 +448,6 @@
         <image name="Play-Button" width="116" height="68"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="H6I-8a-wbh"/>
+        <segue reference="lzU-1b-eKA"/>
     </inferredMetricsTieBreakers>
 </document>

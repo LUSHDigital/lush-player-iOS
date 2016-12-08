@@ -81,11 +81,14 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var gradientView: GradientView!
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var dateLabel: UILabel!
     
     @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var descriptionRemainingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var backgroundPlayerView: PlayerView!
     
     override func viewDidLoad() {
         
@@ -143,6 +146,8 @@ class LiveViewController: UIViewController {
                     switch lushError {
                     case .emptyResponse:
                         print("No Live Playlist")
+                        // Still redraw so we get fallback video
+                        self?.redraw()
                     case .invalidResponse, .invalidResponseStatus:
                         UIAlertController.presentError(error, in: welf)
                     }
@@ -187,6 +192,42 @@ class LiveViewController: UIViewController {
     
     /// A timer which will redraw the screen when the next programme in the playlist should be played
     var redrawTimer: Timer?
+    var loopObserver: NSObjectProtocol?
+    
+    func playFallback() {
+        
+        guard let url = Bundle.main.url(forResource: "Holding Screen", withExtension: "mp4") else { return }
+        if let _ = backgroundPlayerView.playerLayer?.player {
+            return
+        }
+        
+        containerView.isHidden = true
+        gradientView.isHidden = true
+        
+        let player = AVPlayer(url: url)
+        backgroundPlayerView.playerLayer?.player = player
+        player.play()
+        
+        loopObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil) { [weak self] notification in
+            
+            guard let player = notification.object as? AVPlayerItem, player == self?.backgroundPlayerView.playerLayer?.player?.currentItem else { return }
+            
+            self?.backgroundPlayerView.playerLayer?.player?.seek(to: kCMTimeZero)
+            self?.backgroundPlayerView.playerLayer?.player?.play()
+        }
+    }
+    
+    func stopFallback() {
+        
+        if let player = backgroundPlayerView.playerLayer?.player {
+            
+            player.pause()
+            backgroundPlayerView.playerLayer?.player = nil
+            
+            containerView.isHidden = false
+            gradientView.isHidden = false
+        }
+    }
 
     func redraw() {
         
@@ -199,14 +240,15 @@ class LiveViewController: UIViewController {
             descriptionLabel.text = programme.description
             imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
             dateLabel.text = programme.dateString
+            backgroundPlayerView.isHidden = true
             
             descriptionRemainingConstraint.constant = 0
             remainingLabel.text = nil
             
         } else {
             
-            guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
-                
+//            guard let playlist = playlist, let playlistPosition = playlist.playlistPosition else {
+            
                 titleLabel.isHidden = true
                 timeLabel.isHidden = true
                 watchButton.isHidden = true
@@ -214,45 +256,52 @@ class LiveViewController: UIViewController {
                 imageView.image = nil
                 remainingLabel.isHidden = true
                 descriptionLabel.isHidden = true
+                playFallback()
+                
+                redrawTimer = Timer(fire: Date(timeIntervalSinceNow: 60), interval: 0, repeats: false, block: { [weak self] (timer) in
+                    self?.refreshLive()
+                })
                 
                 return
-            }
+//            }
             
-            // Fire a timer 1 second after programme is scheduled to end, to redraw!
-            remainingTimer?.invalidate()
-            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
-                self?.redraw()
-            })
-            
-            if titleLabel.isHidden == true {
-                
-                UIView.animate(withDuration: 0.4, animations: {
-                    
-                    self.titleLabel.isHidden = false
-                    self.timeLabel.isHidden = false
-                    self.watchButton.isHidden = false
-                    self.liveView.isHidden = false
-                    self.remainingLabel.isHidden = false
-                    self.descriptionLabel.isHidden = false
-                })
-            }
-            
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "HH:mma"
-            descriptionLabel.text = nil
-            
-            redrawRemainingLabel(playlistPosition: playlistPosition)
-            
-            dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
-            
-            let video = playlistPosition.scheduleItem.video
-            titleLabel.text = video.properties["name"] as? String
-            
-            if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
-                imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
-            } else {
-                imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
-            }
+//            stopFallback()
+//            
+//            // Fire a timer 1 second after programme is scheduled to end, to redraw!
+//            remainingTimer?.invalidate()
+//            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
+//                self?.redraw()
+//            })
+//            
+//            if titleLabel.isHidden == true {
+//                
+//                UIView.animate(withDuration: 0.4, animations: {
+//                    
+//                    self.titleLabel.isHidden = false
+//                    self.timeLabel.isHidden = false
+//                    self.watchButton.isHidden = false
+//                    self.liveView.isHidden = false
+//                    self.remainingLabel.isHidden = false
+//                    self.descriptionLabel.isHidden = false
+//                })
+//            }
+//            
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = "HH:mma"
+//            descriptionLabel.text = nil
+//            
+//            redrawRemainingLabel(playlistPosition: playlistPosition)
+//            
+//            dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
+//            
+//            let video = playlistPosition.scheduleItem.video
+//            titleLabel.text = video.properties["name"] as? String
+//            
+//            if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
+//                imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
+//            } else {
+//                imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
+//            }
         }
     }
     
