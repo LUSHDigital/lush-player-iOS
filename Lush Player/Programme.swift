@@ -38,6 +38,8 @@ struct Programme {
     
     var date: Date?
     
+    var dateString: String?
+    
     var duration: String?
     
     let media: Media
@@ -67,7 +69,8 @@ struct Programme {
         
         duration = dictionary["duration"] as? String
         
-        if let dateString = dictionary["date"] as? String {
+        dateString = dictionary["date"] as? String
+        if let dateString = dateString {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"

@@ -12,7 +12,7 @@ import AVKit
 
 class PlayerViewController: UIViewController {
     
-    private var controller: BCOVPlaybackController?
+    internal var controller: BCOVPlaybackController?
     
     var programme: Programme?
     
@@ -27,6 +27,8 @@ class PlayerViewController: UIViewController {
     let avPlayerViewController = AVPlayerViewController()
     
     var playbackService: BCOVPlaybackService?
+    
+    var seekTime: TimeInterval?
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -34,7 +36,7 @@ class PlayerViewController: UIViewController {
         
         super.viewDidLoad()
         
-        guard let brightcovePolicyKey = brightcovePolicyKey else { return }
+        guard brightcovePolicyKey != nil else { return }
         
         addChildViewController(avPlayerViewController)
         avPlayerViewController.view.frame = view.bounds
@@ -46,19 +48,23 @@ class PlayerViewController: UIViewController {
             
             configureController()
             
-            if let controller = controller {
-                
-                view.addSubview(controller.view)
-                controller.view.frame = view.bounds
+            if let currentItem = playlist.playlistPosition {
+                seekTime = currentItem.playbackStartTime
+                self.controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
+            } else {
+                dismiss(animated: true, completion: nil)
             }
-            
-            let videos = playlist.videos as NSFastEnumeration
-            self.controller?.setVideos(videos)
             
             return
         }
         
         guard let programme = programme else {
+            return
+        }
+        
+        if let _ = programme.guid {
+            
+            play(programme: programme)
             return
         }
         
@@ -71,22 +77,39 @@ class PlayerViewController: UIViewController {
                 return
             }
             
-            guard let guid = programme?.guid else {
+            guard let programme = programme else {
                 return
             }
             
-            self?.configureController()
+            self?.play(programme: programme)
+        })
+    }
+    
+    private func play(programme: Programme) {
+        
+        guard let guid = programme.guid else { return }
+        
+        configureController()
+        
+        playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
+        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
             
-            guard let welf = self else { return }
+            guard let video = video else { return }
             
-            welf.playbackService = BCOVPlaybackService(accountId: welf.brightcoveAccountId, policyKey: brightcovePolicyKey)
-            welf.playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
-                
-                guard let video = video else { return }
-                self?.controller?.setVideos([video] as NSFastEnumeration)
-//                self?.controller?.play()
+            //                guard let source = video.sources.first as? BCOVSource else { return }
+            
+            //                OperationQueue.main.addOperation {
+            //
+            //                    let player = AVPlayer(url: source.url)
+            //                    self?.avPlayerViewController.player = player
+            //                    player.play()
+            //                }
+            
+            OperationQueue.main.addOperation ({
+                self.controller?.setVideos([video] as NSFastEnumeration)
             })
         })
+
     }
     
     private func configureController() {
@@ -116,12 +139,44 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
     
     func playbackController(_ controller: BCOVPlaybackController!, didCompletePlaylist playlist: NSFastEnumeration!) {
         
+        if let videoPlaylist = self.playlist {
+            
+            if let currentItem = videoPlaylist.playlistPosition {
+                controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+            
+            return
+        }
+        
         dismiss(animated: true, completion: nil)
     }
     
     func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
         
-        avPlayerViewController.player = session.player
-        avPlayerViewController.player?.play()
+        OperationQueue.main.addOperation({
+            
+            session.player.pause()
+            self.avPlayerViewController.player = session.player
+            
+            if let seekTime = self.seekTime {
+                
+                let newTime = CMTime(seconds: seekTime, preferredTimescale: 1)
+                session.player.seek(to: newTime)
+                session.player.play()
+                
+            } else if let seekTime = self.playlist?.playlistPosition?.playbackStartTime {
+                
+                let newTime = CMTime(seconds: seekTime, preferredTimescale: 1)
+                session.player.seek(to: newTime)
+                session.player.play()
+                
+            } else {
+                
+                session.player.play()
+
+            }
+        })
     }
 }

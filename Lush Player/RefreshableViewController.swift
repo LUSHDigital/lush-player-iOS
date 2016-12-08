@@ -36,56 +36,15 @@ class RefreshableViewController: UIViewController {
         
     }
     
-    func play(programme: Programme) {
-        
-        if (programme.media == .TV) {
-            
-            performSegue(withIdentifier: "PlayProgramme", sender: programme)
-            
-        } else if (programme.media == .radio) {
-            
-            guard let file = programme.file else {
-                
-                LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error, programme) -> (Void) in
-                    
-                    guard let welf = self else { return }
-                    if let error = error {
-                        UIAlertController.presentError(error, in: welf)
-                    }
-                    
-                    guard let programmeFile = programme?.file else { return }
-                    
-                    welf.playAudio(from: programmeFile)
-                })
-                
-                return
-            }
-            
-            playAudio(from: file)
-        }
-    }
-    
-    private func playAudio(from url: URL) {
-        
-        let avPlayerViewController = AVPlayerViewController()
-        let avPlayer = AVPlayer(url: url)
-        avPlayerViewController.player = avPlayer
-        
-        do {
-            try AVAudioSession.sharedInstance().setActive(true)
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        present(avPlayerViewController, animated: true, completion: nil)
+    func show(programme: Programme) {
+        performSegue(withIdentifier: "ShowProgramme", sender: programme)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         guard let programme = sender as? Programme else { return }
-        guard let playerVC = segue.destination as? PlayerViewController else { return }
+        guard let detailVC = segue.destination as? LiveViewController else { return }
         
-        playerVC.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
-        playerVC.programme = programme
+        detailVC.programme = programme
     }
 }

@@ -48,17 +48,17 @@
                     <tabBarItem key="tabBarItem" title="Home" id="Scn-3E-SoE"/>
                     <connections>
                         <outlet property="collectionView" destination="Rhb-lm-BLq" id="JmJ-Gn-0Ni"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="6kf-HR-PJE"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="9BN-dk-Lhi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7fh-DU-Ajf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-2121"/>
+            <point key="canvasLocation" x="2246" y="-727"/>
         </scene>
         <!--Live-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgrammeDetails" title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -66,16 +66,159 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-h6-KBV">
+                                <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alr-GW-5Dg">
+                                <rect key="frame" x="0.0" y="0.0" width="880" height="1080"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="yxv-uK-8uf">
+                                        <rect key="frame" x="92" y="92" width="696" height="36"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fok-5a-YFq" customClass="TSCView" customModule="Lush_Player" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
+                                                <color key="backgroundColor" red="0.81176470588235294" green="0.0078431372549019607" blue="0.10588235294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="36" id="YOB-fz-nK2"/>
+                                                    <constraint firstAttribute="width" constant="36" id="qXK-nA-NDI"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="18"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="LIVE: Fresh from the Kitchen" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="JnL-bE-PS2">
+                                                <rect key="frame" x="52" y="0.0" width="644" height="0.0"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:00am - 10:00am GMT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YJu-ng-OMV">
+                                        <rect key="frame" x="92" y="161" width="306" height="35"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZX-vm-xVb" customClass="TSCButton" customModule="Lush_Player" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="244" width="414" height="132"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="132" id="lVi-v8-yXt"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="40" minY="20" maxX="40" maxY="20"/>
+                                        <state key="normal" title="WATCH LIVE" image="Play-Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="solidMode" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="primaryColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="secondaryColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="edgeInsets">
+                                                <size key="value" width="0.0" height="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="primaryFocusedColor">
+                                                <color key="value" red="1" green="1" blue="1" alpha="0.66498007550335569" colorSpace="calibratedRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="secondaryFocusedColor">
+                                                <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="handleWatch:" destination="8rJ-Kc-sve" eventType="primaryActionTriggered" id="glq-uD-BsJ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sn2-3w-L1W">
+                                        <rect key="frame" x="92" y="427" width="151" height="35"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 min remaining" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehF-S1-7zD">
+                                        <rect key="frame" x="92" y="496" width="208" height="35"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="ZZX-vm-xVb" firstAttribute="leading" secondItem="YJu-ng-OMV" secondAttribute="leading" id="1wG-Jf-MD6"/>
+                                    <constraint firstItem="yxv-uK-8uf" firstAttribute="top" secondItem="alr-GW-5Dg" secondAttribute="top" constant="92" id="85X-EX-9hi"/>
+                                    <constraint firstAttribute="width" constant="880" id="9ec-dD-4Fj"/>
+                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="leading" secondItem="yxv-uK-8uf" secondAttribute="leading" id="Fmc-yP-XT3"/>
+                                    <constraint firstItem="YJu-ng-OMV" firstAttribute="top" secondItem="yxv-uK-8uf" secondAttribute="bottom" constant="33" id="M5q-on-cYH"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="sn2-3w-L1W" secondAttribute="trailing" id="MAL-YX-Rvo"/>
+                                    <constraint firstItem="ehF-S1-7zD" firstAttribute="top" secondItem="sn2-3w-L1W" secondAttribute="bottom" constant="34" id="XLV-KB-AEx"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="YJu-ng-OMV" secondAttribute="trailing" id="bCb-BT-y9S"/>
+                                    <constraint firstItem="sn2-3w-L1W" firstAttribute="top" secondItem="ZZX-vm-xVb" secondAttribute="bottom" constant="51" id="bNU-rf-fdb"/>
+                                    <constraint firstItem="ehF-S1-7zD" firstAttribute="leading" secondItem="sn2-3w-L1W" secondAttribute="leading" id="hCo-lL-aYK"/>
+                                    <constraint firstAttribute="trailing" secondItem="yxv-uK-8uf" secondAttribute="trailing" constant="92" id="jaP-q8-ECy"/>
+                                    <constraint firstItem="ZZX-vm-xVb" firstAttribute="top" secondItem="YJu-ng-OMV" secondAttribute="bottom" constant="48" id="nhI-Ws-WX7"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ehF-S1-7zD" secondAttribute="trailing" constant="482" id="u9l-sl-I5B"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ehF-S1-7zD" secondAttribute="bottom" constant="42" id="w2l-ym-Q2g"/>
+                                    <constraint firstItem="sn2-3w-L1W" firstAttribute="leading" secondItem="ZZX-vm-xVb" secondAttribute="leading" id="yA0-n4-6W0"/>
+                                    <constraint firstItem="yxv-uK-8uf" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="leading" constant="92" id="yls-H8-w2v"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MQS-6R-nGx">
+                                <rect key="frame" x="928" y="508" width="64" height="64"/>
+                            </activityIndicatorView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5SY-ao-kLD" customClass="GradientView" customModule="Lush_Player" customModuleProvider="target">
+                                <rect key="frame" x="880" y="0.0" width="500" height="1080"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="9Bz-i4-IQ2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alr-GW-5Dg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="C97-Oh-EUx"/>
+                            <constraint firstItem="alr-GW-5Dg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="I2A-UK-lck"/>
+                            <constraint firstItem="MQS-6R-nGx" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="QBL-uX-zGq"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="alr-GW-5Dg" secondAttribute="bottom" id="UXa-n8-ru8"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="aOl-h6-KBV" secondAttribute="bottom" id="WM5-uh-NW9"/>
+                            <constraint firstItem="aOl-h6-KBV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Z66-B3-c9V"/>
+                            <constraint firstItem="5SY-ao-kLD" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="trailing" id="eLc-cq-yxf"/>
+                            <constraint firstItem="5SY-ao-kLD" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="fV3-TU-1TH"/>
+                            <constraint firstAttribute="trailing" secondItem="aOl-h6-KBV" secondAttribute="trailing" id="iPS-bQ-JUJ"/>
+                            <constraint firstAttribute="bottom" secondItem="5SY-ao-kLD" secondAttribute="bottom" id="ozx-7n-uUa"/>
+                            <constraint firstItem="MQS-6R-nGx" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="qXq-sZ-OKk"/>
+                            <constraint firstItem="aOl-h6-KBV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="ugh-LS-c3b"/>
+                        </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <tabBarItem key="tabBarItem" title="Live" id="cPa-gy-q4n"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="dateLabel" destination="YJu-ng-OMV" id="i4d-Tm-qXw"/>
+                        <outlet property="descriptionLabel" destination="sn2-3w-L1W" id="y7S-Qb-Tar"/>
+                        <outlet property="descriptionRemainingConstraint" destination="XLV-KB-AEx" id="uIe-bo-1ZU"/>
+                        <outlet property="gradientView" destination="5SY-ao-kLD" id="4zj-nP-6hP"/>
+                        <outlet property="imageView" destination="aOl-h6-KBV" id="eZU-4Z-u4z"/>
+                        <outlet property="liveView" destination="Fok-5a-YFq" id="CsY-vh-am6"/>
+                        <outlet property="loadingIndicator" destination="MQS-6R-nGx" id="LfT-0P-RQZ"/>
+                        <outlet property="remainingLabel" destination="ehF-S1-7zD" id="dAw-cw-BnE"/>
+                        <outlet property="timeLabel" destination="YJu-ng-OMV" id="4eO-7S-S0u"/>
+                        <outlet property="titleLabel" destination="JnL-bE-PS2" id="Uga-b1-vJH"/>
+                        <outlet property="watchButton" destination="ZZX-vm-xVb" id="VTp-fs-jkj"/>
                         <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="0D8-dM-Z3X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="-678"/>
+            <point key="canvasLocation" x="4962" y="1509"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="ODT-zF-ZRc">
@@ -112,7 +255,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayr-po-c88" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4717" y="-1310"/>
+            <point key="canvasLocation" x="7392" y="1509"/>
         </scene>
         <!--Channels-->
         <scene sceneID="h0V-Bs-EkA">
@@ -215,7 +358,7 @@
                         <outlet property="channelSelectionCollectionView" destination="XeG-el-caD" id="lgj-Ki-gJI"/>
                         <outlet property="radioProgrammesCollectionView" destination="gqh-Db-naV" id="fXS-F2-dmy"/>
                         <outlet property="tvProgrammesCollectionView" destination="VKk-jP-Mwk" id="OHw-UH-bxa"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="akB-TJ-oXo"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="xCG-Gc-4vv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SI0-80-Yf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +404,7 @@
                     <tabBarItem key="tabBarItem" title="Search" id="dfY-Qs-ud8"/>
                     <connections>
                         <outlet property="resultsCollectionView" destination="Uu7-vI-BxX" id="FKO-dd-fZo"/>
-                        <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="BXw-wY-Rn2"/>
+                        <segue destination="8rJ-Kc-sve" kind="show" identifier="ShowProgramme" id="H6I-8a-wbh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6L-Dd-gEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -289,7 +432,10 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Play-Button" width="116" height="68"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BXw-wY-Rn2"/>
+        <segue reference="H6I-8a-wbh"/>
     </inferredMetricsTieBreakers>
 </document>

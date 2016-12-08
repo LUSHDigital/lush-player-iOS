@@ -39,8 +39,9 @@ class HomeViewController: RefreshableViewController {
             self?.redraw()
         })
         
+        collectionView.contentInset = UIEdgeInsets(top: 180, left: 112, bottom: 62, right: 112)
+        
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.sectionInset = UIEdgeInsets(top: 180, left: 112, bottom: 0, right: 112)
             flowLayout.minimumLineSpacing = 64
             flowLayout.minimumInteritemSpacing = 64
         }
@@ -78,7 +79,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
             return
         }
         
-        play(programme: allProgrammes[indexPath.item])
+        show(programme: allProgrammes[indexPath.item])
     }
 }
 

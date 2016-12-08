@@ -8,12 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9641DF5682B00E8551D /* PlayerViewController.swift */; };
-		B125D9681DF5689600E8551D /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B125D9661DF5686800E8551D /* BrightcovePlayerSDK.framework */; };
-		B125D9691DF5689600E8551D /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B125D9661DF5686800E8551D /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */; };
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
 		B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9831DF5D6DA00E8551D /* SearchResult.swift */; };
+		B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
+		B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; };
+		B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
+		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
+		B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
 		B1CEBE201DF1881E001F890D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE1E1DF1881E001F890D /* Main.storyboard */; };
@@ -25,8 +29,6 @@
 		B1CEBE4E1DF1931F001F890D /* ProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */; };
 		B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */; };
 		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
-		B1CEBEB51DF1BD1D001F890D /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
-		B1CEBEB61DF1BD1D001F890D /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBB1DF1BFE4001F890D /* Programme.swift */; };
 		B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */; };
 		B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE71DF1CDA1001F890D /* ImageView.swift */; };
@@ -40,6 +42,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		B149856E1DF9519700BC8C7B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 49084FD01BD13DBD0012F636;
+			remoteInfo = ThunderRequestTV;
+		};
 		B1CEBE291DF1881E001F890D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B1CEBE0D1DF1881D001F890D /* Project object */;
@@ -89,24 +98,17 @@
 			remoteGlobalIDString = 49084FD11BD13DBD0012F636;
 			remoteInfo = ThunderRequestTV;
 		};
-		B1CEBEB71DF1BD1D001F890D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 49084FD01BD13DBD0012F636;
-			remoteInfo = ThunderRequestTV;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B1CEBEB91DF1BD1E001F890D /* Embed Frameworks */ = {
+		B14985701DF9519700BC8C7B /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B1CEBEB61DF1BD1D001F890D /* ThunderRequestTV.framework in Embed Frameworks */,
-				B125D9691DF5689600E8551D /* BrightcovePlayerSDK.framework in Embed Frameworks */,
+				B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */,
+				B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,12 +117,14 @@
 
 /* Begin PBXFileReference section */
 		B125D9641DF5682B00E8551D /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
-		B125D9661DF5686800E8551D /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
 		B125D9831DF5D6DA00E8551D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
+		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
+		B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
@@ -156,8 +160,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B125D9681DF5689600E8551D /* BrightcovePlayerSDK.framework in Frameworks */,
-				B1CEBEB51DF1BD1D001F890D /* ThunderRequestTV.framework in Frameworks */,
+				B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */,
+				B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,13 +217,13 @@
 		B1CEBE171DF1881D001F890D /* Lush Player */ = {
 			isa = PBXGroup;
 			children = (
-				B125D9661DF5686800E8551D /* BrightcovePlayerSDK.framework */,
+				B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */,
 				B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */,
 				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
-				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBEF51DF1D894001F890D /* Helpers */,
 				B1CEBEBA1DF1BFD2001F890D /* Models */,
 				B1CEBE4C1DF18E23001F890D /* Controllers */,
+				B125D96E1DF58CDD00E8551D /* Views */,
 				B1CEBE451DF18C31001F890D /* View Controllers */,
 				B1CEBE1E1DF1881E001F890D /* Main.storyboard */,
 				B1CEBE211DF1881E001F890D /* Assets.xcassets */,
@@ -294,11 +298,13 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */,
 				B1CEBEED1DF1D88E001F890D /* Constants.swift */,
 				B1CEBEEE1DF1D88E001F890D /* ParseError.swift */,
 				B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */,
 				B1CEBEF01DF1D88E001F890D /* Utilities.swift */,
 				B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */,
+				B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -313,12 +319,12 @@
 				B1CEBE111DF1881D001F890D /* Sources */,
 				B1CEBE121DF1881D001F890D /* Frameworks */,
 				B1CEBE131DF1881D001F890D /* Resources */,
-				B1CEBEB91DF1BD1E001F890D /* Embed Frameworks */,
+				B14985701DF9519700BC8C7B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				B1CEBEB81DF1BD1D001F890D /* PBXTargetDependency */,
+				B149856F1DF9519700BC8C7B /* PBXTargetDependency */,
 			);
 			name = "Lush Player";
 			productName = "Lush Player";
@@ -495,6 +501,7 @@
 			files = (
 				B1CEBEF31DF1D88E001F890D /* String+HTMLEntities.swift in Sources */,
 				B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */,
+				B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */,
 				B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */,
 				B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
@@ -511,6 +518,7 @@
 				B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */,
 				B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
+				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
 				B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */,
 			);
@@ -535,6 +543,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		B149856F1DF9519700BC8C7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThunderRequestTV;
+			targetProxy = B149856E1DF9519700BC8C7B /* PBXContainerItemProxy */;
+		};
 		B1CEBE2A1DF1881E001F890D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = B1CEBE141DF1881D001F890D /* Lush Player */;
@@ -544,11 +557,6 @@
 			isa = PBXTargetDependency;
 			target = B1CEBE141DF1881D001F890D /* Lush Player */;
 			targetProxy = B1CEBE341DF1881E001F890D /* PBXContainerItemProxy */;
-		};
-		B1CEBEB81DF1BD1D001F890D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ThunderRequestTV;
-			targetProxy = B1CEBEB71DF1BD1D001F890D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
