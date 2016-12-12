@@ -222,7 +222,8 @@ class LushPlayerController {
     
     func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
         
-        requestController.get("search?title=\(term)") { (response, error) in
+        let finalTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? term
+        requestController.get("search?title=\(finalTerm)") { (response, error) in
             
             if let _error = error {
                 

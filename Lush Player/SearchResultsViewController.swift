@@ -31,14 +31,16 @@ class SearchResultsViewController: RefreshableViewController {
 
     override func refresh() {
         
-        guard let searchTerm = searchTerm, !searchTerm.isEmpty else {
+        guard let searchTerm = searchTerm, !searchTerm.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
             
             searchResults = []
             redraw()
             return
         }
         
-        LushPlayerController.shared.performSearch(for: searchTerm, with: { [weak self] (error, results) in
+        var term = searchTerm.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        
+        LushPlayerController.shared.performSearch(for: term, with: { [weak self] (error, results) in
         
             if let error = error, let welf = self {
                 UIAlertController.presentError(error, in: welf)
