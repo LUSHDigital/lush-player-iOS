@@ -89,6 +89,7 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var descriptionRemainingConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var backgroundPlayerView: PlayerView!
+    @IBOutlet weak var noBroadcastLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -201,6 +202,7 @@ class LiveViewController: UIViewController {
             return
         }
         
+        noBroadcastLabel.isHidden = false
         containerView.isHidden = true
         gradientView.isHidden = true
         
@@ -219,6 +221,7 @@ class LiveViewController: UIViewController {
     
     func stopFallback() {
         
+        noBroadcastLabel.isHidden = true
         if let player = backgroundPlayerView.playerLayer?.player {
             
             player.pause()
@@ -241,6 +244,7 @@ class LiveViewController: UIViewController {
             imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
             dateLabel.text = programme.dateString
             backgroundPlayerView.isHidden = true
+            noBroadcastLabel.isHidden = true
             
             descriptionRemainingConstraint.constant = 0
             remainingLabel.text = nil
@@ -410,6 +414,8 @@ class LiveViewController: UIViewController {
         performSegue(withIdentifier: "PlayProgramme", sender: playlist)
     }
     
+    private var endObserver: NSObjectProtocol?
+    
     private func playAudio(from url: URL, with imageURL: URL?) {
         
         let avPlayerViewController = AVPlayerViewController()
@@ -422,6 +428,11 @@ class LiveViewController: UIViewController {
             print(error)
         }
         
+        endObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil, using: { (notification) in
+            
+            avPlayerViewController.dismiss(animated: true, completion: nil)
+        })
+        
         let imageView = UIImageView(frame: view.bounds)
         imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
         avPlayerViewController.contentOverlayView?.addSubview(imageView)
@@ -431,4 +442,3 @@ class LiveViewController: UIViewController {
         })
     }
 }
-

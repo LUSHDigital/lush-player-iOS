@@ -326,6 +326,7 @@
 				B1CEBE121DF1881D001F890D /* Frameworks */,
 				B1CEBE131DF1881D001F890D /* Resources */,
 				B14985701DF9519700BC8C7B /* Embed Frameworks */,
+				B19F3DFE1DFEE69C00A6F6BF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -500,6 +501,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B19F3DFE1DFEE69C00A6F6BF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1CEBE111DF1881D001F890D /* Sources */ = {

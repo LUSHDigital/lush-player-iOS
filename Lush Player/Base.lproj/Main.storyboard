@@ -77,6 +77,12 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aOl-h6-KBV">
                                 <rect key="frame" x="0.0" y="0.0" width="1920" height="1080"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There is no live broadcast right now." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="suS-V7-PDi">
+                                <rect key="frame" x="572" y="511" width="776" height="58"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alr-GW-5Dg">
                                 <rect key="frame" x="0.0" y="0.0" width="880" height="1080"/>
                                 <subviews>
@@ -194,16 +200,22 @@
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="GzN-UH-Tel" secondAttribute="bottom" id="BDj-s6-0pb"/>
                             <constraint firstItem="alr-GW-5Dg" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="C97-Oh-EUx"/>
                             <constraint firstItem="alr-GW-5Dg" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="I2A-UK-lck"/>
+                            <constraint firstItem="suS-V7-PDi" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QS5-Rx-YEW" secondAttribute="leadingMargin" constant="44" id="IPp-oF-COA"/>
+                            <constraint firstItem="Djb-ko-YwX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="suS-V7-PDi" secondAttribute="bottom" constant="44" id="Muh-ns-4mk"/>
                             <constraint firstItem="MQS-6R-nGx" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="QBL-uX-zGq"/>
                             <constraint firstAttribute="bottomMargin" secondItem="alr-GW-5Dg" secondAttribute="bottom" id="UXa-n8-ru8"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="aOl-h6-KBV" secondAttribute="bottom" id="WM5-uh-NW9"/>
+                            <constraint firstItem="suS-V7-PDi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="44" id="YcH-cy-eJN"/>
                             <constraint firstItem="aOl-h6-KBV" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="Z66-B3-c9V"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="suS-V7-PDi" secondAttribute="trailing" constant="44" id="dp8-nx-t52"/>
                             <constraint firstItem="5SY-ao-kLD" firstAttribute="leading" secondItem="alr-GW-5Dg" secondAttribute="trailing" id="eLc-cq-yxf"/>
                             <constraint firstItem="5SY-ao-kLD" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="fV3-TU-1TH"/>
                             <constraint firstAttribute="trailing" secondItem="aOl-h6-KBV" secondAttribute="trailing" id="iPS-bQ-JUJ"/>
                             <constraint firstAttribute="trailing" secondItem="GzN-UH-Tel" secondAttribute="trailing" id="mEo-Wb-wCC"/>
                             <constraint firstAttribute="bottom" secondItem="5SY-ao-kLD" secondAttribute="bottom" id="ozx-7n-uUa"/>
                             <constraint firstItem="MQS-6R-nGx" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="qXq-sZ-OKk"/>
+                            <constraint firstItem="suS-V7-PDi" firstAttribute="centerY" secondItem="QS5-Rx-YEW" secondAttribute="centerY" id="sAi-ZH-5Zt"/>
+                            <constraint firstItem="suS-V7-PDi" firstAttribute="centerX" secondItem="QS5-Rx-YEW" secondAttribute="centerX" id="uYw-ae-hWj"/>
                             <constraint firstItem="aOl-h6-KBV" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" id="ugh-LS-c3b"/>
                             <constraint firstItem="GzN-UH-Tel" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="vRl-sm-NTt"/>
                         </constraints>
@@ -221,6 +233,7 @@
                         <outlet property="imageView" destination="aOl-h6-KBV" id="eZU-4Z-u4z"/>
                         <outlet property="liveView" destination="Fok-5a-YFq" id="CsY-vh-am6"/>
                         <outlet property="loadingIndicator" destination="MQS-6R-nGx" id="LfT-0P-RQZ"/>
+                        <outlet property="noBroadcastLabel" destination="suS-V7-PDi" id="Uav-fj-PW7"/>
                         <outlet property="remainingLabel" destination="ehF-S1-7zD" id="dAw-cw-BnE"/>
                         <outlet property="timeLabel" destination="YJu-ng-OMV" id="4eO-7S-S0u"/>
                         <outlet property="titleLabel" destination="JnL-bE-PS2" id="Uga-b1-vJH"/>
