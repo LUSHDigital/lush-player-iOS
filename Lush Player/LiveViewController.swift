@@ -186,6 +186,10 @@ class LiveViewController: UIViewController {
                 self?.watchButton.alpha = 1.0
             }
             
+            if let _programme = programme {
+                self?.programme = _programme
+            }
+            
             self?.loadingIndicator.stopAnimating()
             self?.redraw()
         })
