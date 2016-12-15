@@ -430,7 +430,10 @@ class LiveViewController: UIViewController {
         
         endObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil, using: { (notification) in
             
-            avPlayerViewController.dismiss(animated: true, completion: nil)
+            guard let playerItem = notification.object as? AVPlayerItem else { return }
+            if playerItem == avPlayerViewController.player?.currentItem {
+                avPlayerViewController.dismiss(animated: true, completion: nil)
+            }
         })
         
         let imageView = UIImageView(frame: view.bounds)
