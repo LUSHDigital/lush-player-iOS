@@ -22,6 +22,19 @@ struct Programme {
                 return "RADIO"
             }
         }
+        
+        /// Override the default initialiser for raw values. The Home channels use "tv_program" and "radio_program" as their types but the categories endpoint uses "tv" and "radio"
+        ///
+        /// - Parameter rawValue: The string that defines the type for
+        init?(rawValue: String) {
+            switch rawValue {
+                case "tv_program": self = .TV
+                case "tv": self = .TV
+                case "radio_program": self = .radio
+                case "radio": self = .radio
+                default: return nil
+            }
+        }
     }
     
     let id: String
