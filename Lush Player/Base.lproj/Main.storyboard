@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11542" systemVersion="16A322" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder.AppleTV.Storyboard" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="appleTV" orientation="landscape">
         <adaptation id="light"/>
     </device>
     <dependencies>
         <deployment identifier="tvOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -343,13 +343,13 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TV Episodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-P7-Yug">
-                                <rect key="frame" x="112" y="198" width="1696" height="58"/>
+                                <rect key="frame" x="95" y="198" width="1730" height="58"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radio Episodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRo-yx-AhU">
-                                <rect key="frame" x="112" y="639" width="1716" height="58"/>
+                                <rect key="frame" x="95" y="639" width="1750" height="58"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -358,8 +358,8 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="VKk-jP-Mwk" firstAttribute="height" secondItem="gqh-Db-naV" secondAttribute="height" id="7ad-AS-7uX"/>
-                            <constraint firstItem="g9v-P7-Yug" firstAttribute="leading" secondItem="aGf-sv-XT8" secondAttribute="leadingMargin" constant="92" id="Oiz-hV-pe3"/>
-                            <constraint firstAttribute="trailing" secondItem="tRo-yx-AhU" secondAttribute="trailing" constant="92" id="QRr-YN-szx"/>
+                            <constraint firstItem="g9v-P7-Yug" firstAttribute="leading" secondItem="aGf-sv-XT8" secondAttribute="leadingMargin" constant="75" id="Oiz-hV-pe3"/>
+                            <constraint firstAttribute="trailing" secondItem="tRo-yx-AhU" secondAttribute="trailing" constant="75" id="QRr-YN-szx"/>
                             <constraint firstAttribute="bottomMargin" secondItem="gqh-Db-naV" secondAttribute="bottom" constant="44" id="TT1-i5-3F6"/>
                             <constraint firstAttribute="trailing" secondItem="gqh-Db-naV" secondAttribute="trailing" id="UqA-yb-ghi"/>
                             <constraint firstAttribute="trailing" secondItem="XeG-el-caD" secondAttribute="trailing" id="UwB-BW-vL7"/>
@@ -372,7 +372,7 @@
                             <constraint firstItem="VKk-jP-Mwk" firstAttribute="leading" secondItem="aGf-sv-XT8" secondAttribute="leading" id="h2r-Fd-3Y0"/>
                             <constraint firstItem="tRo-yx-AhU" firstAttribute="top" secondItem="VKk-jP-Mwk" secondAttribute="bottom" constant="44" id="iRo-bs-S2P"/>
                             <constraint firstItem="XeG-el-caD" firstAttribute="leading" secondItem="aGf-sv-XT8" secondAttribute="leading" id="mE9-hk-aSJ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="g9v-P7-Yug" secondAttribute="trailing" constant="92" id="nLv-Q1-d4o"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="g9v-P7-Yug" secondAttribute="trailing" constant="75" id="nLv-Q1-d4o"/>
                             <constraint firstItem="XeG-el-caD" firstAttribute="top" secondItem="reD-JU-RgG" secondAttribute="bottom" id="xbl-8K-idg"/>
                         </constraints>
                     </view>
