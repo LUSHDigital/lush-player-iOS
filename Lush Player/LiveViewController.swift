@@ -436,6 +436,8 @@ class LiveViewController: UIViewController {
             
             guard let playerItem = notification.object as? AVPlayerItem else { return }
             if playerItem == avPlayerViewController.player?.currentItem {
+                avPlayerViewController.player?.pause()
+                avPlayerViewController.player = nil
                 avPlayerViewController.dismiss(animated: true, completion: nil)
             }
         })
