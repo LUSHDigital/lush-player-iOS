@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.AppleTV.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="AppleTV" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="appleTV" orientation="landscape">
+        <adaptation id="light"/>
+    </device>
+    <dependencies>
+        <deployment identifier="tvOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" id="36d-lW-ec6" customClass="ChannelProgrammeCollectionViewCell" customModule="Lush_Player" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="662" height="592"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="662" height="592"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c5P-NR-g79">
+                        <rect key="frame" x="0.0" y="0.0" width="662" height="372"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="c5P-NR-g79" secondAttribute="height" multiplier="16:9" id="xuy-IW-EE5"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="2 Days Ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="srp-P1-bI2">
+                        <rect key="frame" x="0.0" y="537" width="662" height="0.0"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                        <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="highlightedColor" cocoaTouchSystemColor="lightTextColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Soapbox film with Solidarity With Refugees" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SO6-b6-CDL">
+                        <rect key="frame" x="0.0" y="384" width="662" height="92"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="srp-P1-bI2" secondAttribute="trailing" id="4tT-Kn-PwV"/>
+                <constraint firstItem="srp-P1-bI2" firstAttribute="leading" secondItem="36d-lW-ec6" secondAttribute="leading" id="BhX-8G-5Xd"/>
+                <constraint firstItem="c5P-NR-g79" firstAttribute="leading" secondItem="36d-lW-ec6" secondAttribute="leading" id="Tw5-TO-pHj"/>
+                <constraint firstItem="c5P-NR-g79" firstAttribute="top" secondItem="36d-lW-ec6" secondAttribute="top" id="dea-84-QoX"/>
+                <constraint firstItem="SO6-b6-CDL" firstAttribute="top" secondItem="c5P-NR-g79" secondAttribute="bottom" constant="12" id="ftQ-gH-hyE"/>
+                <constraint firstAttribute="trailing" secondItem="c5P-NR-g79" secondAttribute="trailing" id="gPi-Dc-Fe5"/>
+                <constraint firstItem="srp-P1-bI2" firstAttribute="top" secondItem="SO6-b6-CDL" secondAttribute="bottom" constant="6" id="j2t-0a-7wv"/>
+                <constraint firstAttribute="trailing" secondItem="SO6-b6-CDL" secondAttribute="trailing" id="pQG-Ff-NmK"/>
+                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="srp-P1-bI2" secondAttribute="bottom" id="s49-5O-UtS"/>
+                <constraint firstItem="SO6-b6-CDL" firstAttribute="leading" secondItem="36d-lW-ec6" secondAttribute="leading" id="ye1-ul-loR"/>
+            </constraints>
+            <size key="customSize" width="662" height="592"/>
+            <connections>
+                <outlet property="dateLabel" destination="srp-P1-bI2" id="oUq-Jv-leH"/>
+                <outlet property="imageView" destination="c5P-NR-g79" id="tq3-lm-jvl"/>
+                <outlet property="titleLabel" destination="SO6-b6-CDL" id="U6d-3f-BhT"/>
+            </connections>
+            <point key="canvasLocation" x="-168" y="-367"/>
+        </collectionViewCell>
+    </objects>
+</document>
