@@ -8,10 +8,13 @@
 
 import UIKit
 
+/// A collection view cell for displaying a channel
 class ChannelCollectionViewCell: UICollectionViewCell {
     
+    /// The image view that displays the channel logo
     @IBOutlet weak var imageView: UIImageView!
     
+    /// Used to customise cell based on selection state
     override var isSelected: Bool {
         didSet {
             backgroundColor = isSelected ? UIColor(red:0.439, green:0.439, blue:0.439, alpha:1) : (isFocused ? UIColor(white: 0.0, alpha: 0.2) : UIColor.clear)
@@ -21,6 +24,7 @@ class ChannelCollectionViewCell: UICollectionViewCell {
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
         
+        // Animate the cell style when it is being focussed
         coordinator.addCoordinatedAnimations({
             
             if self.isFocused && !self.isSelected {

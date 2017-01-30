@@ -10,6 +10,7 @@ import Foundation
 import ObjectiveC
 import UIKit
 
+/// Completion used for image load requests
 public typealias ImageViewSetImageURLCompletion = (_ image: UIImage?,_  error: Error?) -> (Void)
 
 private var finalSizeKey: UInt8 = 0
@@ -27,7 +28,7 @@ private class ImageClosureWrapper {
     }
 }
 
-// MARK: - An extension on UIImageView for loading images from urls
+/// An extension on UIImageView for loading images from urls
 public extension UIImageView {
     
     private struct AssociatedKeys {

@@ -109,6 +109,12 @@ class LushPlayerController {
         }
     }
     
+    /// Fetches the programmes for a specific LUSH channel
+    ///
+    /// - Parameters:
+    ///   - channel: The channel to fetch programmes for
+    ///   - medium: The media type to fetch programmes for
+    ///   - completion: A block of code to be called once programmes have been fetched
     func fetchProgrammes(for channel: Channel, of medium: Programme.Media?, with completion: @escaping ProgrammesCompletion) {
         
         var endpoint = "categories?channel=\(channel.rawValue)"
@@ -220,6 +226,11 @@ class LushPlayerController {
         }
     }
     
+    /// Searches for programmes based on a user-entered search term
+    ///
+    /// - Parameters:
+    ///   - term: The term to search for programmes under
+    ///   - completion: A block of code to be called when the search results have been returned
     func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
         
         let finalTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? term

@@ -15,8 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        // Set the correct background audio category for correct background behaviour
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
         } catch let error as NSError {
@@ -28,11 +28,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
+    /// Sets up the search tab as a UISearchController, this is done manually as IB has no support for this
     func setupSearchTab() {
         
+        // Get the root UITabBarController
         guard let tabController = window?.rootViewController as? UITabBarController, var tabViewControllers = tabController.viewControllers else { return }
+        
+        // Allocate search results VC from Main.storyboard
         guard let resultsViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SearchResults") as? SearchResultsViewController else { return }
         
+        // Set up our UISearchController
         let searchController = UISearchController(searchResultsController: resultsViewController)
         searchController.searchResultsUpdater = resultsViewController
         
@@ -46,9 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let searchNavController = UINavigationController(rootViewController: searchContainerViewController)
         searchNavController.tabBarItem.title = "Search"
         
+        // Add the tab into our UITabBarController
         tabViewControllers.append(searchNavController)
         tabController.viewControllers = tabViewControllers
         
+        // Reset the rootViewController on our window
         window?.rootViewController = tabController
     }
 }
