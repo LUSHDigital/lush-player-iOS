@@ -235,7 +235,6 @@
                         <outlet property="loadingIndicator" destination="MQS-6R-nGx" id="LfT-0P-RQZ"/>
                         <outlet property="noBroadcastLabel" destination="suS-V7-PDi" id="Uav-fj-PW7"/>
                         <outlet property="remainingLabel" destination="ehF-S1-7zD" id="dAw-cw-BnE"/>
-                        <outlet property="timeLabel" destination="YJu-ng-OMV" id="4eO-7S-S0u"/>
                         <outlet property="titleLabel" destination="JnL-bE-PS2" id="Uga-b1-vJH"/>
                         <outlet property="watchButton" destination="ZZX-vm-xVb" id="VTp-fs-jkj"/>
                         <segue destination="8aA-zm-C8p" kind="presentation" identifier="PlayProgramme" id="0D8-dM-Z3X"/>

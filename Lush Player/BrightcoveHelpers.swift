@@ -10,6 +10,11 @@ import Foundation
 
 extension BCOVPlaylist {
     
+    /// Returns the playlist schedule relative to a particular date, by changing up the live playlist data
+    /// as if the playlist was running today (If it isn't already)
+    ///
+    /// - Parameter toDate: The date to return the playlist schedule relative to
+    /// - Returns: An array of brightcove video objects, with their start and end date relative to `toDate`
     func schedule(relative toDate: Date = Date()) -> [(video: BCOVVideo, startDate: Date, endDate: Date)] {
         
         return videos.flatMap({ (video) -> (video: BCOVVideo, startDate: Date, endDate: Date)? in
@@ -53,6 +58,8 @@ extension BCOVPlaylist {
         })
     }
     
+    /// A helper variable which returns the current playlist item from the playlist, and the offset at which
+    /// the item should be played to be considered 'live'
     var playlistPosition: (scheduleItem: (video: BCOVVideo, startDate: Date, endDate: Date), playbackStartTime: TimeInterval)? {
         get {
             

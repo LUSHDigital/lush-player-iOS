@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// View controller for displaying content based on the specified LUSH channel.
 class ChannelsViewController: RefreshableViewController {
     
     @IBOutlet weak var channelSelectionCollectionView: UICollectionView!
