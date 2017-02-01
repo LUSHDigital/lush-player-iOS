@@ -13,10 +13,10 @@
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E864D77B-FC1E-4EA4-80EB-212712C27FBB",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "D682F49FB8B61EFCC558A1669AB91A34B5405C7B" : "Lush%20Player\/Thunder%20Basics\/",
-    "48D1D77F8E696CFD83C9D9AC0D062062AD5CA998" : "Lush%20Player\/Thunder%20Request\/",
-    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : "Lush%20Player\/",
+    "48D1D77F8E696CFD83C9D9AC0D062062AD5CA998" : "lush-player-tvOS-client\/Thunder%20Request\/",
+    "4A25E1F0F5E0433EF280D358CE6405BC98AB475E" : "lush-player-tvOS-client\/",
     "33527851E4D7276FEDA473DB1496A42DDA6B5681" : "Lush%20Player\/Thunder%20Table\/",
-    "DA1C8EBA90D8BE58CD8B8AF64CBEFEAA71DD166F" : "Lush%20Player\/HTML%20Parser\/"
+    "DA1C8EBA90D8BE58CD8B8AF64CBEFEAA71DD166F" : "lush-player-tvOS-client\/HTML%20Parser\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "Lush Player",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
