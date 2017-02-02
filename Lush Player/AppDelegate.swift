@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Set the correct background audio category for correct background behaviour
         do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryAmbient)
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         } catch let error as NSError {
             print(error)
         }
