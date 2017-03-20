@@ -10,7 +10,6 @@
 		B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9641DF5682B00E8551D /* PlayerViewController.swift */; };
 		B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */; };
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
-		B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9831DF5D6DA00E8551D /* SearchResult.swift */; };
 		B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
 		B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; };
@@ -30,16 +29,10 @@
 		B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */; };
 		B1CEBE4E1DF1931F001F890D /* ProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */; };
 		B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */; };
-		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
-		B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBB1DF1BFE4001F890D /* Programme.swift */; };
 		B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */; };
 		B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE71DF1CDA1001F890D /* ImageView.swift */; };
 		B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE81DF1CDA1001F890D /* ImageController.swift */; };
 		B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */; };
-		B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEED1DF1D88E001F890D /* Constants.swift */; };
-		B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEE1DF1D88E001F890D /* ParseError.swift */; };
-		B1CEBEF31DF1D88E001F890D /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */; };
-		B1CEBEF41DF1D88E001F890D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEF01DF1D88E001F890D /* Utilities.swift */; };
 		B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */; };
 		B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */; };
 		B1DBCBEA1E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */; };
@@ -50,6 +43,11 @@
 		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
 		FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */; };
 		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
+		FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
+		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
+		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; };
+		FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +121,34 @@
 			remoteGlobalIDString = FF1121791E7FE99000CD5337;
 			remoteInfo = "Lush Player iOS";
 		};
+		FFD0D65F1E8026EF00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FFD0D6261E80226000483381;
+			remoteInfo = "LushPlayerKit iOS";
+		};
+		FFD0D6611E8026EF00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FFD0D6341E80227200483381;
+			remoteInfo = "LushPlayerKit tvOS";
+		};
+		FFD0D6661E80276500483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FFD0D6331E80227200483381;
+			remoteInfo = "LushPlayerKit tvOS";
+		};
+		FFD0D66A1E80276D00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FFD0D6251E80226000483381;
+			remoteInfo = "LushPlayerKit iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -133,7 +159,19 @@
 			dstSubfolderSpec = 10;
 			files = (
 				B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */,
+				FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */,
 				B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD0D66C1E80276D00483381 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,7 +183,6 @@
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
-		B125D9831DF5D6DA00E8551D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
@@ -168,17 +205,11 @@
 		B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
-		B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerController.swift; sourceTree = "<group>"; };
 		B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderRequest.xcodeproj; path = "Thunder Request/ThunderRequest.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		B1CEBEBB1DF1BFE4001F890D /* Programme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B1CEBEE71DF1CDA1001F890D /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		B1CEBEE81DF1CDA1001F890D /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 		B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableViewController.swift; sourceTree = "<group>"; };
-		B1CEBEED1DF1D88E001F890D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "HTML Parser/Sources/HTMLEntities/Constants.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEEE1DF1D88E001F890D /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = "HTML Parser/Sources/HTMLEntities/ParseError.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+HTMLEntities.swift"; path = "HTML Parser/Sources/HTMLEntities/String+HTMLEntities.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEF01DF1D88E001F890D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "HTML Parser/Sources/HTMLEntities/Utilities.swift"; sourceTree = SOURCE_ROOT; };
 		B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -195,6 +226,7 @@
 		FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSUITests.swift; sourceTree = "<group>"; };
 		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +234,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */,
+				FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */,
 				B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */,
 				B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
@@ -225,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +304,7 @@
 				FF11217B1E7FE99000CD5337 /* Lush Player iOS */,
 				FF1121901E7FE99000CD5337 /* Lush Player iOSTests */,
 				FF11219B1E7FE99000CD5337 /* Lush Player iOSUITests */,
+				FFD0D6861E802F0300483381 /* Frameworks */,
 				B1CEBE161DF1881D001F890D /* Products */,
 				B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */,
 			);
@@ -342,7 +378,6 @@
 			children = (
 				B1CEBEE71DF1CDA1001F890D /* ImageView.swift */,
 				B1CEBEE81DF1CDA1001F890D /* ImageController.swift */,
-				B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */,
 				B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */,
 			);
 			name = Controllers;
@@ -363,8 +398,6 @@
 		B1CEBEBA1DF1BFD2001F890D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEBB1DF1BFE4001F890D /* Programme.swift */,
-				B125D9831DF5D6DA00E8551D /* SearchResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -372,10 +405,6 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEED1DF1D88E001F890D /* Constants.swift */,
-				B1CEBEEE1DF1D88E001F890D /* ParseError.swift */,
-				B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */,
-				B1CEBEF01DF1D88E001F890D /* Utilities.swift */,
 				B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */,
 				B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */,
 			);
@@ -413,6 +442,23 @@
 			path = "Lush Player iOSUITests";
 			sourceTree = "<group>";
 		};
+		FFD0D61F1E80224B00483381 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */,
+				FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFD0D6861E802F0300483381 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -430,6 +476,7 @@
 			);
 			dependencies = (
 				B149856F1DF9519700BC8C7B /* PBXTargetDependency */,
+				FFD0D6671E80276500483381 /* PBXTargetDependency */,
 			);
 			name = "Lush Player";
 			productName = "Lush Player";
@@ -479,10 +526,12 @@
 				FF1121761E7FE99000CD5337 /* Sources */,
 				FF1121771E7FE99000CD5337 /* Frameworks */,
 				FF1121781E7FE99000CD5337 /* Resources */,
+				FFD0D66C1E80276D00483381 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				FFD0D66B1E80276D00483381 /* PBXTargetDependency */,
 			);
 			name = "Lush Player iOS";
 			productName = "Lush Player iOS";
@@ -588,6 +637,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = FFD0D61F1E80224B00483381 /* Products */;
+					ProjectRef = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+				},
+				{
 					ProductGroup = B1CEBEA41DF1BD0A001F890D /* Products */;
 					ProjectRef = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
 				},
@@ -638,6 +691,20 @@
 			fileType = wrapper.framework;
 			path = ThunderRequestTV.framework;
 			remoteRef = B1CEBEB31DF1BD0A001F890D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LushPlayerKit.framework;
+			remoteRef = FFD0D65F1E8026EF00483381 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LushPlayerKit.framework;
+			remoteRef = FFD0D6611E8026EF00483381 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -717,10 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1CEBEF31DF1D88E001F890D /* String+HTMLEntities.swift in Sources */,
-				B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */,
 				B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */,
-				B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */,
 				B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */,
@@ -729,18 +793,14 @@
 				B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */,
 				B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */,
 				B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */,
-				B1CEBEF41DF1D88E001F890D /* Utilities.swift in Sources */,
 				B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
-				B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */,
 				B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */,
-				B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */,
 				B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
 				B1985E201DF9725E00802635 /* PlayerView.swift in Sources */,
 				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
-				B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -812,6 +872,16 @@
 			isa = PBXTargetDependency;
 			target = FF1121791E7FE99000CD5337 /* Lush Player iOS */;
 			targetProxy = FF1121991E7FE99000CD5337 /* PBXContainerItemProxy */;
+		};
+		FFD0D6671E80276500483381 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LushPlayerKit tvOS";
+			targetProxy = FFD0D6661E80276500483381 /* PBXContainerItemProxy */;
+		};
+		FFD0D66B1E80276D00483381 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LushPlayerKit iOS";
+			targetProxy = FFD0D66A1E80276D00483381 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -937,6 +1007,7 @@
 		B1CEBE3D1DF1881E001F890D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -958,6 +1029,7 @@
 		B1CEBE3E1DF1881E001F890D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -1037,6 +1109,7 @@
 		FF11219F1E7FE99000CD5337 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1055,6 +1128,7 @@
 		FF1121A01E7FE99000CD5337 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1186,6 +1260,7 @@
 				FF1121A01E7FE99000CD5337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF1121AA1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -1194,6 +1269,7 @@
 				FF1121A21E7FE99000CD5337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FF1121AB1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -1202,6 +1278,7 @@
 				FF1121A41E7FE99000CD5337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

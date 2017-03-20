@@ -7,50 +7,35 @@
 //
 
 import Foundation
-import ThunderRequestTV
+#if os(iOS)
+    import ThunderRequest
+#elseif os(tvOS)
+    import ThunderRequestTV
+#endif
 
-typealias ProgrammesCompletion = (_ error: Error?, _ programmes: [Programme]?) -> (Void)
-typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Programme?) -> (Void)
-typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
-typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [SearchResult]?) -> (Void)
+public typealias ProgrammesCompletion = (_ error: Error?, _ programmes: [Programme]?) -> (Void)
+public typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Programme?) -> (Void)
+public typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
+public typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [SearchResult]?) -> (Void)
 
-enum Channel : String {
-    
-    case life = "lushlife"
-    case kitchen = "kitchen"
-    case times = "times"
-    case soapbox = "soapbox"
-    case gorilla = "gorilla"
-    case cosmetics = "cosmetics"
-    
-    func image() -> UIImage? {
-        
-        switch self {
-        case .life:
-            return UIImage(named: "Channel-Life")
-        default:
-            return UIImage(named: "Channel-\(rawValue.capitalized)")
-        }
-    }
-}
 
 public extension Notification.Name {
     public static let ProgrammesRefreshed: NSNotification.Name = NSNotification.Name(rawValue: "ProgrammesRefreshed")
 }
 
 /// A controller which interfaces with lush's player API to return information about TV/Radio programmes and their live playlist
-class LushPlayerController {
+public class LushPlayerController {
     
     /// A shared instance to be used to make requests
-    static let shared = LushPlayerController()
+    public static let shared = LushPlayerController()
     
     /// Programmes sorted by media type
-    var programmes: [Programme.Media: [Programme]] = [:]
+    public var programmes: [Programme.Media: [Programme]] = [:]
     
     /// Programmes sorted by channel
-    var channelProgrammes: [Channel : [Programme]] = [:]
+    public var channelProgrammes: [Channel : [Programme]] = [:]
     
-    static var allChannels: [Channel] {
+    public static var allChannels: [Channel] {
         get {
             return [
                 .life,
@@ -71,7 +56,7 @@ class LushPlayerController {
     /// - Parameters:
     ///   - media: The media type to fetch programmes for
     ///   - completion: A block of code to be called once programmes have been fetched
-    func fetchProgrammes(for media: Programme.Media, with completion: @escaping ProgrammesCompletion) {
+    public func fetchProgrammes(for media: Programme.Media, with completion: @escaping ProgrammesCompletion) {
         
         var endpoint = "videos"
         switch media {
@@ -115,7 +100,7 @@ class LushPlayerController {
     ///   - channel: The channel to fetch programmes for
     ///   - medium: The media type to fetch programmes for
     ///   - completion: A block of code to be called once programmes have been fetched
-    func fetchProgrammes(for channel: Channel, of medium: Programme.Media?, with completion: @escaping ProgrammesCompletion) {
+    public func fetchProgrammes(for channel: Channel, of medium: Programme.Media?, with completion: @escaping ProgrammesCompletion) {
         
         var endpoint = "categories?channel=\(channel.rawValue)"
         if let medium = medium {
@@ -158,7 +143,7 @@ class LushPlayerController {
     /// - Parameters:
     ///   - programme: The programme to pull details for
     ///   - completion: A block of code to be called when the programme details are fetched
-    func fetchDetails(for programme: Programme, with completion: @escaping ProgrammeDetailsCompletion) {
+    public func fetchDetails(for programme: Programme, with completion: @escaping ProgrammeDetailsCompletion) {
         
         requestController.get("programme?id=\(programme.id)") { (response, error) in
         
@@ -195,7 +180,7 @@ class LushPlayerController {
     /// - Parameters:
     ///   - utcOffset: The time offset of the current user in minutes from UTC. If not set this value will be calculated
     ///   - completion: A block of code to be called when the playlist has been fetched
-    func fetchLivePlaylist(with utcOffset: Int?, completion: @escaping PlaylistCompletion) {
+    public func fetchLivePlaylist(with utcOffset: Int?, completion: @escaping PlaylistCompletion) {
         
         let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
         
@@ -231,7 +216,7 @@ class LushPlayerController {
     /// - Parameters:
     ///   - term: The term to search for programmes under
     ///   - completion: A block of code to be called when the search results have been returned
-    func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
+    public func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
         
         let finalTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? term
         requestController.get("search?title=\(finalTerm)") { (response, error) in
@@ -261,7 +246,7 @@ class LushPlayerController {
     }
 }
 
-enum LushPlayerError: Error {
+public enum LushPlayerError: Error {
     case invalidResponseStatus
     case invalidResponse
     case emptyResponse

@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import LushPlayerKit
 
 /// A base view controller which adds refreshable capabilities to UIViewController
 class RefreshableViewController: UIViewController {

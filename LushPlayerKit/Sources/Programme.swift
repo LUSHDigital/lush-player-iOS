@@ -9,17 +9,17 @@
 import Foundation
 
 /// An structual representation of a radio or TV programme back from the LUSH API
-struct Programme {
+public struct Programme {
     
     /// An enum representing the media type of the programme
     ///
     /// - TV: The programme is a TV episode
     /// - radio: The programme is a Radio episode
-    enum Media: String {
+    public enum Media: String {
         case TV = "tv_program"
         case radio = "radio_program"
         
-        func displayString() -> String {
+        public func displayString() -> String {
             switch self {
             case .TV:
                 return "TV"
@@ -31,7 +31,7 @@ struct Programme {
         /// Override the default initialiser for raw values. The Home channels use "tv_program" and "radio_program" as their types but the categories endpoint uses "tv" and "radio"
         ///
         /// - Parameter rawValue: The string that defines the type for
-        init?(rawValue: String) {
+        public init?(rawValue: String) {
             switch rawValue {
                 case "tv_program": self = .TV
                 case "tv": self = .TV
@@ -43,35 +43,35 @@ struct Programme {
     }
     
     /// A unique ID for the programme
-    let id: String
+    public let id: String
     
     /// The global unique ID for the programme
-    var guid: String?
+    public var guid: String?
     
     /// The title of the programme
-    var title: String?
+    public var title: String?
     
     /// A short description of the programme
-    var description: String?
+    public var description: String?
     
     /// A URL to the thumbnail data for the programme
-    var thumbnailURL: URL?
+    public var thumbnailURL: URL?
         
     /// A file which can be used to play the programme
     /// - Note: This should only be present for Radio programmes
-    var file: URL?
+    public var file: URL?
     
     /// The date of the programme
-    var date: Date?
+    public var date: Date?
     
     /// A string representation of the programme date
-    var dateString: String?
+    public var dateString: String?
     
     /// A string describing the duration of the programme
-    var duration: String?
+    public var duration: String?
     
     /// The media type of the programme
-    let media: Media
+    public let media: Media
     
     /// Initialises a new Programme with a dictionary representation and media type
     ///
@@ -80,7 +80,7 @@ struct Programme {
     ///
     /// - Parameter dictionary: A dictionary representation of the programme
     /// - Parameter media: The media type of the programme
-    init?(dictionary: [AnyHashable : Any], media: Media) {
+    public init?(dictionary: [AnyHashable : Any], media: Media) {
         
         guard let _id = dictionary["id"] as? String else { return nil }
         

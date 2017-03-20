@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import LushPlayerKit
+
 
 /// View controller for displaying content based on the specified LUSH channel.
 class ChannelsViewController: RefreshableViewController {
