@@ -12,11 +12,28 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        customiseApp()
+        
         return true
+    }
+    
+    func customiseApp() {
+        
+        let navbar = UINavigationBar.appearance()
+        navbar.isTranslucent = false
+        navbar.barTintColor = UIColor.black
+        navbar.tintColor = UIColor.white
+        navbar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        
+        let tabbar = UITabBar.appearance()
+        tabbar.isTranslucent = false
+        tabbar.barTintColor = UIColor.white
+        tabbar.tintColor = UIColor.black
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

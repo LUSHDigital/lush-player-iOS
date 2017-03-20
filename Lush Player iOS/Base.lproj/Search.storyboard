@@ -1,31 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pTB-HU-GY4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6uX-6l-Ug2">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
-        <scene sceneID="VBr-Ao-krb">
+        <!--Collection View Controller-->
+        <scene sceneID="asp-zJ-T85">
             <objects>
-                <viewController id="pTB-HU-GY4" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="W6R-dA-dCO"/>
-                        <viewControllerLayoutGuide type="bottom" id="2RB-Dd-x5x"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fEl-IG-EjL">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <collectionViewController id="6uX-6l-Ug2" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="84x-zv-1ZI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EHQ-Kg-yIu"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0kQ-7j-Xib" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e31-zL-Q8O">
+                            <size key="itemSize" width="313" height="132"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fa2-bv-ZDR">
+                                <rect key="frame" x="31" y="0.0" width="313" height="132"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="313" height="132"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="6uX-6l-Ug2" id="R9U-Xx-T2e"/>
+                            <outlet property="delegate" destination="6uX-6l-Ug2" id="SrE-nD-xJl"/>
+                        </connections>
+                    </collectionView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="44x-o8-s0E" id="KSD-uA-f5j"/>
+                    </connections>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSN-ZR-31l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="geP-DW-m9p">
+                    <connections>
+                        <outlet property="delegate" destination="6uX-6l-Ug2" id="hE4-V9-W3f"/>
+                        <outlet property="searchContentsController" destination="6uX-6l-Ug2" id="zLO-Yl-2CL"/>
+                        <outlet property="searchResultsDataSource" destination="6uX-6l-Ug2" id="sF2-cf-Cwp"/>
+                        <outlet property="searchResultsDelegate" destination="6uX-6l-Ug2" id="1C6-Hc-DOk"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="44x-o8-s0E">
+                    <connections>
+                        <outlet property="delegate" destination="6uX-6l-Ug2" id="k8U-r7-EqI"/>
+                        <outlet property="searchContentsController" destination="6uX-6l-Ug2" id="YiW-Iz-iok"/>
+                        <outlet property="searchResultsDataSource" destination="6uX-6l-Ug2" id="hcM-qn-e7X"/>
+                        <outlet property="searchResultsDelegate" destination="6uX-6l-Ug2" id="0xl-4p-a0z"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="382" y="880"/>
+            <point key="canvasLocation" x="-10.4" y="971.96401799100454"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 
 /// A collection view cell for displaying a channel
 class ChannelCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
     
     /// The image view that displays the channel logo
     @IBOutlet weak var imageView: UIImageView!

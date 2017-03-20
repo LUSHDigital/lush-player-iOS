@@ -53,6 +53,11 @@
 		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
 		FFF5EA141E80371F007CE0C8 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA131E80371F007CE0C8 /* Events.storyboard */; };
 		FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA151E80372C007CE0C8 /* Search.storyboard */; };
+		FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */; };
+		FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */; };
+		FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */; };
+		FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */; };
+		FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -237,6 +242,11 @@
 		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
 		FFF5EA131E80371F007CE0C8 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
 		FFF5EA161E80372C007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewController.swift; sourceTree = "<group>"; };
+		FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Nib.swift"; sourceTree = "<group>"; };
+		FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -424,17 +434,19 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5EA181E8038E8007CE0C8 /* Channels */,
 				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
 				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
 				FF1121801E7FE99000CD5337 /* Main.storyboard */,
 				FFF5EA151E80372C007CE0C8 /* Search.storyboard */,
 				FFF5EA131E80371F007CE0C8 /* Events.storyboard */,
-				FFF5EA101E803701007CE0C8 /* Channels.storyboard */,
 				FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */,
 				FFF5EA071E8036CA007CE0C8 /* Home.storyboard */,
 				FF1121831E7FE99000CD5337 /* Assets.xcassets */,
 				FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */,
 				FF1121881E7FE99000CD5337 /* Info.plist */,
+				FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */,
+				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
 			);
 			path = "Lush Player iOS";
 			sourceTree = "<group>";
@@ -472,6 +484,25 @@
 				FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFF5EA181E8038E8007CE0C8 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA101E803701007CE0C8 /* Channels.storyboard */,
+				FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */,
+				FFF5EA1F1E80392D007CE0C8 /* ChannelCollectionViewCell */,
+			);
+			name = Channels;
+			sourceTree = "<group>";
+		};
+		FFF5EA1F1E80392D007CE0C8 /* ChannelCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */,
+				FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */,
+			);
+			name = ChannelCollectionViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -764,6 +795,7 @@
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
+				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -844,7 +876,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
+				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
+				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
 				FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
