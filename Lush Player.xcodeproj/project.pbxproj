@@ -58,6 +58,8 @@
 		FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */; };
 		FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */; };
 		FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */; };
+		FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */; };
+		FFF5EA531E814F2C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +249,8 @@
 		FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMediaCell.swift; sourceTree = "<group>"; };
 		FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardMediaCell.xib; sourceTree = "<group>"; };
+		FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
+		FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,7 +435,7 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
-				FFF5EA471E814CD6007CE0C8 /* Content Detail */,
+				FFF5EA471E814CD6007CE0C8 /* Media Detail */,
 				FFF5EA381E813D6A007CE0C8 /* Home */,
 				FFF5EA331E8135C4007CE0C8 /* Standard List Item */,
 				FFF5EA181E8038E8007CE0C8 /* Channels */,
@@ -522,11 +526,13 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		FFF5EA471E814CD6007CE0C8 /* Content Detail */ = {
+		FFF5EA471E814CD6007CE0C8 /* Media Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
+				FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */,
 			);
-			name = "Content Detail";
+			name = "Media Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -818,6 +824,7 @@
 				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
+				FFF5EA531E814F2C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
@@ -900,6 +907,7 @@
 			files = (
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
+				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
