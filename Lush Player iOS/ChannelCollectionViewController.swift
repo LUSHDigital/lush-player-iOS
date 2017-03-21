@@ -24,19 +24,13 @@ class ChannelCollectionViewController: UICollectionViewController {
         // Set up all spacing for each collection view
         if let channelFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             
-            channelFlowLayout.minimumLineSpacing = 0.0
-            channelFlowLayout.minimumInteritemSpacing = 0.0
+            channelFlowLayout.minimumLineSpacing = 2
+            channelFlowLayout.minimumInteritemSpacing = 1
         }
         
         self.collectionView?.delegate = self
         
         
-    }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        print(collectionView?.bounds.width)
     }
     
     
@@ -72,8 +66,8 @@ extension ChannelCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = collectionView.bounds.width / 2
-        let cellHeight = collectionView.bounds.height / 3
+        let cellWidth = collectionView.bounds.width / 2 - 1
+        let cellHeight = collectionView.bounds.height / 3 - 2
         
         let cellSize = CGSize(width: cellWidth, height: cellHeight)
         return cellSize

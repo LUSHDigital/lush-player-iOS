@@ -8,14 +8,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Channel Collection View Controller-->
+        <!--Channel-->
         <scene sceneID="iWx-Co-YJ8">
             <objects>
-                <collectionViewController id="IzV-tj-WHW" customClass="ChannelCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="pSb-sa-mVr">
+                <collectionViewController title="Channel" id="IzV-tj-WHW" customClass="ChannelCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" id="pSb-sa-mVr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="8UT-SY-d9x">
                             <size key="itemSize" width="235" height="196"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
