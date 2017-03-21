@@ -13,11 +13,52 @@ class MediaDetailViewController: UIViewController {
     
     var programme: Programme!
     
+    @IBOutlet weak var mediaTypeLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    @IBOutlet weak var expandDescriptionButton: UIButton!
+    
+    var descriptionExpansion: ExpansionState = .contracted
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     
 
-        // Do any additional setup after loading the view.
+        mediaTypeLabel.text = programme.media.displayString()
+        
+        descriptionLabel.text = programme.description
+        
+        dateLabel.text = programme.date?.timeAgo
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if !descriptionLabel.isTruncated() {
+            expandDescriptionButton.isHidden = true
+        }
+    }
+    
+    @IBAction func pressedExpandButton(_ sender: Any) {
+        
+        switch descriptionExpansion {
+        case .contracted:
+            descriptionLabel.numberOfLines = 0
+            descriptionExpansion = .expanded
+        
+        case .expanded:
+            descriptionLabel.numberOfLines = 3
+            descriptionExpansion = .contracted
+        
+        case .notExpandable:
+            return
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,21 +67,12 @@ class MediaDetailViewController: UIViewController {
             self.navigationController?.isNavigationBarHidden = false
         }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    enum ExpansionState {
+        
+        case notExpandable
+        case contracted
+        case expanded
     }
-    */
-
 }

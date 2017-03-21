@@ -60,6 +60,7 @@
 		FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */; };
 		FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */; };
 		FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */; };
+		FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -251,6 +252,7 @@
 		FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
 		FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
 		FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Helper.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -450,6 +452,7 @@
 				FF1121881E7FE99000CD5337 /* Info.plist */,
 				FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */,
 				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
+				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
 			);
 			path = "Lush Player iOS";
 			sourceTree = "<group>";
@@ -905,6 +908,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
