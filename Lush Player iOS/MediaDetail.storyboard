@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -35,7 +35,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Riq-0i-EqP" secondAttribute="height" multiplier="16:9" id="6qa-fq-IWC"/>
                                                             <constraint firstAttribute="height" constant="211" id="gZ5-G0-NWz"/>
                                                         </constraints>
                                                     </view>
@@ -62,8 +61,9 @@
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-AO-tCh">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-AO-tCh">
                                                                 <rect key="frame" x="0.0" y="61" width="144" height="30"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                 <state key="normal" title="Show full description">
                                                                     <color key="titleColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -83,21 +83,26 @@
                                                         </constraints>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s87-zT-xDQ" userLabel="Button StackView">
-                                                        <rect key="frame" x="20" y="161.5" width="109" height="40"/>
+                                                        <rect key="frame" x="20" y="161.5" width="169" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-ln-xfo">
-                                                                <rect key="frame" x="0.0" y="0.0" width="109" height="40"/>
-                                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-ln-xfo" customClass="SpacedCharacterButton" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="169" height="40"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="BJR-0o-Yv2"/>
                                                                 </constraints>
-                                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                                                <state key="normal" title="Button"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                                <state key="normal" title="SHARE" image="share_button_icon">
+                                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="shareMedia" destination="eWJ-Fy-sIz" eventType="touchUpInside" id="vKs-5P-hxA"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
-                                                        <constraints>
-                                                            <constraint firstItem="fFR-ln-xfo" firstAttribute="width" secondItem="s87-zT-xDQ" secondAttribute="width" multiplier="0.5" constant="54.5" id="F7J-rT-HZv"/>
-                                                        </constraints>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-gx-fND" userLabel="Tags StackView">
                                                         <rect key="frame" x="20" y="221.5" width="240" height="255.5"/>
@@ -115,25 +120,45 @@
                                                                     <constraint firstAttribute="height" constant="225" id="3Zb-61-3jd"/>
                                                                 </constraints>
                                                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="UAO-B4-VeC">
-                                                                    <size key="itemSize" width="125" height="43"/>
+                                                                    <size key="itemSize" width="92" height="42"/>
                                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                                                 </collectionViewFlowLayout>
                                                                 <cells>
-                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cIL-pW-dTN">
-                                                                        <rect key="frame" x="58" y="0.0" width="125" height="43"/>
+                                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="cIL-pW-dTN" customClass="TagViewCell" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                                                        <rect key="frame" x="10" y="10" width="92" height="42"/>
                                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="125" height="43"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="92" height="42"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBj-rf-pGG">
+                                                                                    <rect key="frame" x="13" y="13" width="66" height="16"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
                                                                         </view>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="trailingMargin" secondItem="vBj-rf-pGG" secondAttribute="trailing" constant="5" id="9yg-s5-TBp"/>
+                                                                            <constraint firstAttribute="bottomMargin" secondItem="vBj-rf-pGG" secondAttribute="bottom" constant="5" id="CtL-dZ-03Z"/>
+                                                                            <constraint firstItem="vBj-rf-pGG" firstAttribute="top" secondItem="cIL-pW-dTN" secondAttribute="topMargin" constant="5" id="fVt-7Q-2Z3"/>
+                                                                            <constraint firstItem="vBj-rf-pGG" firstAttribute="leading" secondItem="cIL-pW-dTN" secondAttribute="leadingMargin" constant="5" id="sl2-Bl-Unl"/>
+                                                                        </constraints>
+                                                                        <connections>
+                                                                            <outlet property="tagLabel" destination="vBj-rf-pGG" id="cNX-9p-tlX"/>
+                                                                        </connections>
                                                                     </collectionViewCell>
                                                                 </cells>
                                                             </collectionView>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="fFR-ln-xfo" firstAttribute="width" secondItem="TMy-PC-LgE" secondAttribute="width" multiplier="0.45" id="PcJ-GR-iph"/>
+                                                </constraints>
                                                 <edgeInsets key="layoutMargins" top="20" left="20" bottom="0.0" right="20"/>
                                             </stackView>
                                         </subviews>
@@ -155,6 +180,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="sM2-JF-08P" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="Kxy-88-aoF"/>
                             <constraint firstItem="pdx-cS-u8s" firstAttribute="top" secondItem="lD4-Sl-p5c" secondAttribute="bottom" id="ZI9-jV-YA6"/>
                             <constraint firstItem="lD4-Sl-p5c" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="czW-E3-OaI"/>
                             <constraint firstItem="lD4-Sl-p5c" firstAttribute="leading" secondItem="1yH-MX-4g6" secondAttribute="leading" id="fVI-Mb-m2I"/>
@@ -167,7 +193,10 @@
                         <outlet property="dateLabel" destination="2Ih-b8-ils" id="45b-Z4-uIM"/>
                         <outlet property="descriptionLabel" destination="ngy-6a-bnK" id="EFx-I4-Bpa"/>
                         <outlet property="expandDescriptionButton" destination="VUO-AO-tCh" id="Vi7-qq-98u"/>
+                        <outlet property="mediaPlayerView" destination="Riq-0i-EqP" id="xgY-nd-cAT"/>
                         <outlet property="mediaTypeLabel" destination="e8S-sG-x3F" id="z9q-KG-F9k"/>
+                        <outlet property="shareButton" destination="fFR-ln-xfo" id="ILK-IZ-uzY"/>
+                        <outlet property="tagCollectionView" destination="2BZ-Yg-DFI" id="hRJ-s3-KCD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLh-nK-BwS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,4 +204,7 @@
             <point key="canvasLocation" x="661.60000000000002" y="53.523238380809602"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="share_button_icon" width="16" height="16"/>
+    </resources>
 </document>
