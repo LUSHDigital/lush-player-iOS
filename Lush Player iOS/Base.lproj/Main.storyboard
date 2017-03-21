@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Lush Player Tab Bar Controller-->
         <scene sceneID="HPl-PO-eyP">
             <objects>
-                <tabBarController id="euR-eM-Ojc" sceneMemberID="viewController">
+                <tabBarController id="euR-eM-Ojc" customClass="LushPlayerTabBarController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="YB6-Ax-1L6"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="M6T-n3-zuC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>

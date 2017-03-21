@@ -58,6 +58,7 @@
 		FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */; };
 		FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */; };
 		FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */; };
+		FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -247,6 +248,7 @@
 		FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Nib.swift"; sourceTree = "<group>"; };
 		FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerTabBarController.swift; sourceTree = "<group>"; };
+		FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -447,6 +449,7 @@
 				FF1121881E7FE99000CD5337 /* Info.plist */,
 				FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */,
 				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
+				FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */,
 			);
 			path = "Lush Player iOS";
 			sourceTree = "<group>";
@@ -880,6 +883,7 @@
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
+				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
 				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
 				FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */,
 			);
