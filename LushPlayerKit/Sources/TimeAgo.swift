@@ -11,7 +11,7 @@ import Foundation
 extension Date {
     
     /// Returns a string representation of the time since this date
-    var timeAgo: String {
+    public var timeAgo: String {
         
         let calendar = NSCalendar.current
         let unitFlags: Set<Calendar.Component> = [.minute, .hour, .day, .weekOfYear, .month, .year, .second]

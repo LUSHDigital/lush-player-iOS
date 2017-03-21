@@ -29,6 +29,12 @@
 		FFD0D67F1E80299F00483381 /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D65B1E8026E400483381 /* LushPlayerController.swift */; };
 		FFD0D6841E802EB100483381 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D6831E802EB100483381 /* Channel.swift */; };
 		FFD0D6851E802EB100483381 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D6831E802EB100483381 /* Channel.swift */; };
+		FFF5EA3A1E814528007CE0C8 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA391E814528007CE0C8 /* TimeAgo.swift */; };
+		FFF5EA3B1E814528007CE0C8 /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA391E814528007CE0C8 /* TimeAgo.swift */; };
+		FFF5EA431E814B30007CE0C8 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA411E814B30007CE0C8 /* ImageController.swift */; };
+		FFF5EA441E814B30007CE0C8 /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA411E814B30007CE0C8 /* ImageController.swift */; };
+		FFF5EA451E814B30007CE0C8 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA421E814B30007CE0C8 /* ImageView.swift */; };
+		FFF5EA461E814B30007CE0C8 /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA421E814B30007CE0C8 /* ImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +91,9 @@
 		FFD0D6751E8028E100483381 /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+HTMLEntities.swift"; sourceTree = "<group>"; };
 		FFD0D6761E8028E100483381 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		FFD0D6831E802EB100483381 /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		FFF5EA391E814528007CE0C8 /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
+		FFF5EA411E814B30007CE0C8 /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
+		FFF5EA421E814B30007CE0C8 /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +144,9 @@
 				FFD0D63D1E80232600483381 /* Info-iOS.plist */,
 				FFD0D63E1E80232600483381 /* Info-tvOS.plist */,
 				FFD0D6421E80254000483381 /* TestFile.swift */,
+				FFF5EA391E814528007CE0C8 /* TimeAgo.swift */,
+				FFF5EA411E814B30007CE0C8 /* ImageController.swift */,
+				FFF5EA421E814B30007CE0C8 /* ImageView.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -341,12 +353,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF5EA451E814B30007CE0C8 /* ImageView.swift in Sources */,
 				FFD0D6771E8028E100483381 /* Constants.swift in Sources */,
 				FFD0D66F1E80284700483381 /* Programme.swift in Sources */,
 				FFD0D67B1E8028E100483381 /* String+HTMLEntities.swift in Sources */,
 				FFD0D6791E8028E100483381 /* ParseError.swift in Sources */,
 				FFD0D65C1E8026E400483381 /* LushPlayerController.swift in Sources */,
 				FFD0D6711E80284700483381 /* SearchResult.swift in Sources */,
+				FFF5EA431E814B30007CE0C8 /* ImageController.swift in Sources */,
+				FFF5EA3A1E814528007CE0C8 /* TimeAgo.swift in Sources */,
 				FFD0D67D1E8028E100483381 /* Utilities.swift in Sources */,
 				FFD0D6841E802EB100483381 /* Channel.swift in Sources */,
 				FFD0D6431E80254000483381 /* TestFile.swift in Sources */,
@@ -357,12 +372,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF5EA461E814B30007CE0C8 /* ImageView.swift in Sources */,
 				FFD0D6701E80284700483381 /* Programme.swift in Sources */,
 				FFD0D6721E80284700483381 /* SearchResult.swift in Sources */,
 				FFD0D67F1E80299F00483381 /* LushPlayerController.swift in Sources */,
 				FFD0D67E1E8028E100483381 /* Utilities.swift in Sources */,
 				FFD0D67C1E8028E100483381 /* String+HTMLEntities.swift in Sources */,
 				FFD0D6441E80254400483381 /* TestFile.swift in Sources */,
+				FFF5EA441E814B30007CE0C8 /* ImageController.swift in Sources */,
+				FFF5EA3B1E814528007CE0C8 /* TimeAgo.swift in Sources */,
 				FFD0D6781E8028E100483381 /* Constants.swift in Sources */,
 				FFD0D6851E802EB100483381 /* Channel.swift in Sources */,
 				FFD0D67A1E8028E100483381 /* ParseError.swift in Sources */,
@@ -649,6 +667,7 @@
 				FFD0D62E1E80226000483381 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FFD0D6391E80227200483381 /* Build configuration list for PBXNativeTarget "LushPlayerKit tvOS" */ = {
 			isa = XCConfigurationList;
@@ -657,6 +676,7 @@
 				FFD0D63B1E80227200483381 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

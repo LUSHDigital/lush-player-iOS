@@ -30,10 +30,7 @@
 		B1CEBE4E1DF1931F001F890D /* ProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */; };
 		B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */; };
 		B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */; };
-		B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE71DF1CDA1001F890D /* ImageView.swift */; };
-		B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE81DF1CDA1001F890D /* ImageController.swift */; };
 		B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */; };
-		B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */; };
 		B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */; };
 		B1DBCBEA1E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */; };
 		FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11217C1E7FE99000CD5337 /* AppDelegate.swift */; };
@@ -59,6 +56,8 @@
 		FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */; };
 		FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */; };
 		FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */; };
+		FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */; };
+		FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,10 +217,7 @@
 		B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderRequest.xcodeproj; path = "Thunder Request/ThunderRequest.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B1CEBEE71DF1CDA1001F890D /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
-		B1CEBEE81DF1CDA1001F890D /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 		B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableViewController.swift; sourceTree = "<group>"; };
-		B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF11217A1E7FE99000CD5337 /* Lush Player iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -249,6 +245,8 @@
 		FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Nib.swift"; sourceTree = "<group>"; };
 		FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerTabBarController.swift; sourceTree = "<group>"; };
 		FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMediaCell.swift; sourceTree = "<group>"; };
+		FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardMediaCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -398,8 +396,6 @@
 		B1CEBE4C1DF18E23001F890D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEE71DF1CDA1001F890D /* ImageView.swift */,
-				B1CEBEE81DF1CDA1001F890D /* ImageController.swift */,
 				B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */,
 			);
 			name = Controllers;
@@ -427,7 +423,6 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */,
 				B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */,
 			);
 			name = Helpers;
@@ -436,6 +431,9 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5EA471E814CD6007CE0C8 /* Content Detail */,
+				FFF5EA381E813D6A007CE0C8 /* Home */,
+				FFF5EA331E8135C4007CE0C8 /* Standard List Item */,
 				FFF5EA181E8038E8007CE0C8 /* Channels */,
 				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
 				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
@@ -443,13 +441,11 @@
 				FFF5EA151E80372C007CE0C8 /* Search.storyboard */,
 				FFF5EA131E80371F007CE0C8 /* Events.storyboard */,
 				FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */,
-				FFF5EA071E8036CA007CE0C8 /* Home.storyboard */,
 				FF1121831E7FE99000CD5337 /* Assets.xcassets */,
 				FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */,
 				FF1121881E7FE99000CD5337 /* Info.plist */,
 				FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */,
 				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
-				FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */,
 			);
 			path = "Lush Player iOS";
 			sourceTree = "<group>";
@@ -506,6 +502,31 @@
 				FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */,
 			);
 			name = ChannelCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		FFF5EA331E8135C4007CE0C8 /* Standard List Item */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */,
+				FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */,
+			);
+			name = "Standard List Item";
+			sourceTree = "<group>";
+		};
+		FFF5EA381E813D6A007CE0C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA071E8036CA007CE0C8 /* Home.storyboard */,
+				FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		FFF5EA471E814CD6007CE0C8 /* Content Detail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Content Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -799,6 +820,7 @@
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
+				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -840,9 +862,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */,
-				B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
-				B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */,
 				B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */,
 				B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */,
 				B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */,
@@ -851,7 +871,6 @@
 				B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
 				B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */,
-				B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
 				B1985E201DF9725E00802635 /* PlayerView.swift in Sources */,
 				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
@@ -882,6 +901,7 @@
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
+				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
 				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
