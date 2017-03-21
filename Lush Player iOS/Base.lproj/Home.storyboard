@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QI2-gX-qMF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sOe-Eq-f9q">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -8,11 +8,27 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="Mr6-HG-c5P">
+            <objects>
+                <navigationController navigationBarHidden="YES" id="sOe-Eq-f9q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ayt-9K-sFN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="QI2-gX-qMF" kind="relationship" relationship="rootViewController" id="fo5-iF-Fwc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFN-H4-uAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="-799"/>
+        </scene>
         <!--Home-->
         <scene sceneID="H63-By-XrC">
             <objects>
                 <collectionViewController title="Home" id="QI2-gX-qMF" customClass="HomeCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Lu7-eX-ayH">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="Lu7-eX-ayH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,10 +53,22 @@
                             <outlet property="delegate" destination="QI2-gX-qMF" id="aBy-yv-kOH"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="IcM-gJ-yCC"/>
+                    <connections>
+                        <segue destination="2UW-WP-FGR" kind="show" identifier="MediaDetailSegue" id="PaU-FV-FEt"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q6g-SF-9JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1340" y="-798"/>
+        </scene>
+        <!--MediaDetail-->
+        <scene sceneID="ti4-eY-01h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MediaDetail" id="2UW-WP-FGR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QyY-Vn-21h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2286" y="-799"/>
         </scene>
     </scenes>
 </document>

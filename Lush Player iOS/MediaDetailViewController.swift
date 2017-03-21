@@ -7,13 +7,24 @@
 //
 
 import UIKit
+import LushPlayerKit
 
 class MediaDetailViewController: UIViewController {
-
+    
+    var programme: Programme!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animate(withDuration: 0.3) {
+            self.navigationController?.isNavigationBarHidden = false
+        }
     }
 
     override func didReceiveMemoryWarning() {

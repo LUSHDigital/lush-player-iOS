@@ -46,6 +46,14 @@ class HomeCollectionViewController: UICollectionViewController {
         })
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIView.animate(withDuration: 0.3) {
+            self.navigationController?.isNavigationBarHidden = true
+        }
+        
+    }
+    
     func redraw() {
         // Sort the programmes by their date in chronological order
         allProgrammes = LushPlayerController.shared.programmes.flatMap { (keyPair) in
@@ -107,6 +115,19 @@ class HomeCollectionViewController: UICollectionViewController {
         }
 
         return UICollectionViewCell()
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let programmes = allProgrammes {
+            
+            let programme = programmes[indexPath.item]
+            showProgramme(programme: programme)
+        }
+    }
+    
+    func showProgramme(programme: Programme) {
+        self.performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
     }
     
     private enum ViewState {

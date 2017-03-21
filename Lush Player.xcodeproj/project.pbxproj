@@ -17,7 +17,6 @@
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
 		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
 		B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */; };
-		B1985E201DF9725E00802635 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E1F1DF9725E00802635 /* PlayerView.swift */; };
 		B1985E261DF9739C00802635 /* Holding Screen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1985E251DF9739C00802635 /* Holding Screen.mp4 */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
@@ -59,7 +58,8 @@
 		FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */; };
 		FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */; };
 		FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */; };
-		FFF5EA531E814F2C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */; };
+		FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */; };
+		FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,7 +199,6 @@
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
-		B1985E1F1DF9725E00802635 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		B1985E251DF9739C00802635 /* Holding Screen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holding Screen.mp4"; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -250,7 +249,8 @@
 		FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMediaCell.swift; sourceTree = "<group>"; };
 		FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardMediaCell.xib; sourceTree = "<group>"; };
 		FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
-		FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
+		FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
+		FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,10 +311,10 @@
 				B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */,
 				B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */,
 				B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */,
+				FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */,
 				B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */,
 				B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */,
 				B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */,
-				B1985E1F1DF9725E00802635 /* PlayerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -529,8 +529,8 @@
 		FFF5EA471E814CD6007CE0C8 /* Media Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */,
 				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
-				FFF5EA521E814F2C007CE0C8 /* MediaDetail.storyboard */,
 			);
 			name = "Media Detail";
 			sourceTree = "<group>";
@@ -824,7 +824,7 @@
 				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
-				FFF5EA531E814F2C007CE0C8 /* MediaDetail.storyboard in Resources */,
+				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
@@ -877,9 +877,9 @@
 				B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */,
 				B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
+				FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */,
 				B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
-				B1985E201DF9725E00802635 /* PlayerView.swift in Sources */,
 				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
 			);
