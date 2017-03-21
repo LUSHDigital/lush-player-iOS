@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LushPlayerKit
 
 /// The view controller responsible for showing LUSH search results
 class SearchResultsViewController: RefreshableViewController {
