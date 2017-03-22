@@ -30,22 +30,34 @@ class MediaDetailViewController: UIViewController {
     
     @IBOutlet weak var shareButton: SpacedCharacterButton!
     
-    @IBOutlet weak var expandDescriptionButton: UIButton!
-
+    @IBOutlet weak var tagsContainerView: UIView!
     
+    @IBOutlet weak var expandDescriptionButton: UIButton!
+    
+    var tagListController: TagListCollectionViewController? {
+        return childViewControllers.first as? TagListCollectionViewController
+    }
+
+    @IBOutlet weak var tagListContainerHeight: NSLayoutConstraint!
     
     var descriptionExpansion: ExpansionState = .contracted
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
         titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
         descriptionLabel.text = programme.description
         dateLabel.text = programme.date?.timeAgo
         
         shareButton.setTitle("SHARE", for: .normal)
+        if let tagListController = tagListController {
+            
+            if let tags = programme.tags {
+                tagListController.tags = tags
+            }
+            tagListController.didSelectTag = selectedTag
+        }
     }
     
     
@@ -59,6 +71,8 @@ class MediaDetailViewController: UIViewController {
                 expandDescriptionButton.isHidden = true
             }
         }
+        
+        tagListContainerHeight.constant = tagListController?.collectionView?.contentSize.height ?? 128
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,6 +81,11 @@ class MediaDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
         }
+    }
+    
+    func selectedTag(tag: String) {
+        print(tag)
+        tagListContainerHeight.constant = 300
     }
     
     

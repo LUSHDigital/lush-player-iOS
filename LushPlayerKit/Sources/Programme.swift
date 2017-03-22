@@ -81,6 +81,8 @@ public struct Programme {
         return URL(string: url)
     }
     
+    public let tags: [String]?
+    
     /// Initialises a new Programme with a dictionary representation and media type
     ///
     /// - Note: This is an optional initialiser, and will return nil if there was no unique id for the programme,
@@ -102,6 +104,8 @@ public struct Programme {
         }
         
         alias = dictionary["alias"] as? String
+        
+        tags = dictionary["tags"] as? [String]
         
         if file == nil, let urlString = dictionary["url"] as? String {
             file = URL(string: urlString)

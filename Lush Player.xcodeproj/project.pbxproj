@@ -42,6 +42,8 @@
 		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
 		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
+		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
+		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
 		FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -242,6 +244,10 @@
 		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
 		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
@@ -483,6 +489,20 @@
 			path = "Lush Player iOSUITests";
 			sourceTree = "<group>";
 		};
+		FF5564F01E82B3A000F3C9A4 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */,
+				FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */,
+				FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */,
+				FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */,
+				FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */,
+				FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */,
+				FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */,
+			);
+			name = Tags;
+			sourceTree = "<group>";
+		};
 		FFD0D61F1E80224B00483381 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,10 +562,8 @@
 			children = (
 				FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */,
 				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
-				FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */,
-				FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */,
-				FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */,
 				FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */,
+				FF5564F01E82B3A000F3C9A4 /* Tags */,
 			);
 			name = "Media Detail";
 			sourceTree = "<group>";
@@ -701,6 +719,7 @@
 					FF1121791E7FE99000CD5337 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = DJ6N7G9BBD;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FF11218C1E7FE99000CD5337 = {
@@ -923,12 +942,14 @@
 			files = (
 				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
+				FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
@@ -1243,6 +1264,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
@@ -1252,6 +1274,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1262,6 +1286,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
@@ -1271,6 +1296,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

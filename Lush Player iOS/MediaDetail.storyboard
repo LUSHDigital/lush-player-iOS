@@ -186,6 +186,8 @@
                         <outlet property="mediaPlayerView" destination="Riq-0i-EqP" id="xgY-nd-cAT"/>
                         <outlet property="mediaTypeLabel" destination="e8S-sG-x3F" id="z9q-KG-F9k"/>
                         <outlet property="shareButton" destination="fFR-ln-xfo" id="ILK-IZ-uzY"/>
+                        <outlet property="tagListContainerHeight" destination="mLk-DO-fq7" id="f88-mw-eOL"/>
+                        <outlet property="tagsContainerView" destination="Jhb-Lg-VRE" id="h6Q-Wa-RsM"/>
                         <outlet property="titleLabel" destination="xn6-S0-5Bz" id="uqP-ar-jlr"/>
                     </connections>
                 </viewController>
@@ -197,10 +199,10 @@
         <scene sceneID="A0b-6K-Qg1">
             <objects>
                 <collectionViewController id="1Ld-Nj-7GX" customClass="TagListCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="XlK-ol-f6q">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Siy-gi-dEX">
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Siy-gi-dEX" customClass="UICollectionViewLeftAlignedLayout">
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
