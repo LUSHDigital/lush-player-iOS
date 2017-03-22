@@ -39,6 +39,9 @@
 		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
 		FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */; };
 		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
+		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
+		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
+		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
 		FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -61,7 +64,6 @@
 		FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */; };
 		FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */; };
 		FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */; };
-		FFF5EA651E819C0B007CE0C8 /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA641E819C0B007CE0C8 /* TagViewCell.swift */; };
 		FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -237,6 +239,9 @@
 		FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSUITests.swift; sourceTree = "<group>"; };
 		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
+		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
@@ -255,7 +260,6 @@
 		FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
 		FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Helper.swift"; sourceTree = "<group>"; };
-		FFF5EA641E819C0B007CE0C8 /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagViewCell.swift; path = ../TagViewCell.swift; sourceTree = "<group>"; };
 		FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedCharacterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -538,7 +542,9 @@
 			children = (
 				FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */,
 				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
-				FFF5EA641E819C0B007CE0C8 /* TagViewCell.swift */,
+				FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */,
+				FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */,
+				FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */,
 				FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */,
 			);
 			name = "Media Detail";
@@ -835,6 +841,7 @@
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
 				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
+				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 			);
@@ -916,7 +923,9 @@
 			files = (
 				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
+				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
@@ -925,7 +934,6 @@
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
 				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
 				FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */,
-				FFF5EA651E819C0B007CE0C8 /* TagViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

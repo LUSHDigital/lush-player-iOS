@@ -18,7 +18,7 @@ class MediaDetailViewController: UIViewController {
         get { return self.programme.media }
     }
     
-    @IBOutlet weak var tagCollectionView: UICollectionView!
+    @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var mediaPlayerView: UIView!
     
@@ -31,19 +31,21 @@ class MediaDetailViewController: UIViewController {
     @IBOutlet weak var shareButton: SpacedCharacterButton!
     
     @IBOutlet weak var expandDescriptionButton: UIButton!
+
+    
     
     var descriptionExpansion: ExpansionState = .contracted
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
         descriptionLabel.text = programme.description
         dateLabel.text = programme.date?.timeAgo
         
         shareButton.setTitle("SHARE", for: .normal)
-        
-        
     }
     
     
@@ -85,7 +87,6 @@ class MediaDetailViewController: UIViewController {
                 self.descriptionExpansion = .contracted
             })
 
-        
         case .notExpandable:
             return
         }
@@ -94,7 +95,7 @@ class MediaDetailViewController: UIViewController {
     /// Share the media by presenting an activity share sheet
     @IBAction func shareMedia() {
         
-        guard let url = programme.file else { return }
+        guard let url = programme.webURL else { return }
         let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
         
         self.present(activityController, animated: true, completion: nil)

@@ -21,7 +21,7 @@ extension UILabel {
         let size = textString.boundingRect(with: boundingSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
 
         
-        return ceil(size.height) >= self.bounds.size.height
+        return ceil(size.height) > self.bounds.size.height
     }
     
 }
