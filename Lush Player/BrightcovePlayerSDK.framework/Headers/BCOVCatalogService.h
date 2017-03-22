@@ -2,7 +2,7 @@
 // BCOVCatalogService.h
 // BrightcovePlayerSDK
 //
-// Copyright (c) 2016 Brightcove, Inc. All rights reserved.
+// Copyright (c) 2017 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
@@ -42,9 +42,12 @@
 @end
 
 /**
- * The BCCatalog class provides asynchronous methods for retrieving information
+ * Deprecated: Use BCOVPlaybackService instead.
+ *
+ * The BCOVCatalogService class provides asynchronous methods for retrieving information
  * about videos and playlists from Brightcove’s Media API services.
  */
+DEPRECATED_MSG_ATTRIBUTE("Use BCOVPlaybackService instead")
 @interface BCOVCatalogService : NSObject
 
 /**
