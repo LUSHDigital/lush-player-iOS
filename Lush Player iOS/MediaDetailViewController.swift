@@ -85,7 +85,6 @@ class MediaDetailViewController: UIViewController {
     
     func selectedTag(tag: String) {
         print(tag)
-        tagListContainerHeight.constant = 300
     }
     
     

@@ -22,5 +22,4 @@ class TagCollectionView: UICollectionView {
     override var intrinsicContentSize: CGSize {
         return self.contentSize
     }
-
 }

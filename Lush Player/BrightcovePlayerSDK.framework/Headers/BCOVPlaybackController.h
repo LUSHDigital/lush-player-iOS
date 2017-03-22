@@ -2,7 +2,7 @@
 // BCOVPlaybackController.h
 // BrightcovePlayerSDK
 //
-// Copyright (c) 2016 Brightcove, Inc. All rights reserved.
+// Copyright (c) 2017 Brightcove, Inc. All rights reserved.
 // License: https://accounts.brightcove.com/en/terms-and-conditions
 //
 
@@ -25,6 +25,78 @@
 @protocol BCOVPlaybackSessionBasicConsumer;
 @protocol BCOVPlaybackSessionConsumer;
 
+/**
+ * Enumeration defining the valid values that may be set for the
+ * BCOVVideo360ViewProjection's sourceFormat
+ */
+typedef NS_ENUM(NSInteger, BCOVVideo360SourceFormat) {
+    
+    BCOVVideo360SourceFormatNone  = 0,
+    
+    BCOVVideo360SourceFormatEquirectangular  = 1,
+    
+};
+
+/**
+ * Enumeration defining the valid values that may be set for the
+ * BCOVVideo360ProjectionStyle's projectionStyle
+ */
+typedef NS_ENUM(NSInteger, BCOVVideo360ProjectionStyle) {
+    
+    BCOVVideo360ProjectionStyleNormal  = 0,
+    
+    BCOVVideo360ProjectionStyleVRGoggles  = 1,
+    
+};
+
+// The approximate vertical angle of view when the view orientation's zoom is 1.0.
+// Set to 75 degrees
+extern const CGFloat kBCOVVideo360BaseAngleOfView;
+
+
+// Position of virtual camera when viewing Video 360 streams
+@interface BCOVVideo360ViewProjection : NSObject
+
+// Horizontal angle of view in degrees
+@property (nonatomic) CGFloat pan;
+
+// Vertical angle of view in degrees
+@property (nonatomic) CGFloat tilt;
+
+// Magnification of view; 1.0 corresponds to 75 degrees
+// Default value is 1.0
+@property (nonatomic) CGFloat zoom;
+
+// Angle of rotation in degrees about the virtual camera's longitudinal axis.
+// Normally zero; commonly used to correct camera tilt.
+@property (nonatomic) CGFloat roll;
+
+/**
+ * Horizontal offset of the rendered 360 video in the view.
+ * When using a split screen VR goggles view, the x offset is
+ * applied to the left view, and the negative of the offset is
+ * applied to the right view. This can be used to adjust the view to
+ * fit different device sizes.
+ * Defaults to 0.0.
+ */
+@property (nonatomic, assign) CGFloat xOffset;
+
+/**
+ * Vertical offset of the rendered 360 video in the view.
+ * Defaults to 0.0.
+ */
+@property (nonatomic, assign) CGFloat yOffset;
+
+@property (nonatomic) BCOVVideo360SourceFormat sourceFormat;
+
+@property (nonatomic) BCOVVideo360ProjectionStyle projectionStyle;
+
+/**
+ * Convenience method to return a new instance of a BCOVVideo360ViewProjection object
+ */
++ (instancetype)viewProjection;
+
+@end
 
 /**
  * BCOVPlaybackController's Options Dictionary Keys
@@ -69,6 +141,13 @@ extern NSString * const kBCOVBufferOptimizerMinimumDurationKey;
  */
 extern NSString * const kBCOVBufferOptimizerMaximumDurationKey;
 
+/**
+ * Key in the playback controller's options dictionary for setting the
+ * AVPlayerViewController compatibility mode. Setting this dictionary value
+ * will prevent the BCOVPlaybackSession from automatically associating its 
+ * internal AVPlayerLayer with an external AVPlayerLayer.
+ */
+extern NSString * const kBCOVAVPlayerViewControllerCompatibilityKey;
 
 /**
  * Enumeration defining the valid values that may be set for the
@@ -83,6 +162,15 @@ typedef NS_ENUM(NSInteger, BCOVBufferOptimizerMethod) {
     BCOVBufferOptimizerMethodDefault    = 1
     
 };
+
+/**
+ * A string used to mark an application certificate as the default for
+ * all video cloud accounts. This indicates that the associated application
+ * certificate should be used if a more specific identifier cannot be found.
+ * See `-addFairPlayApplicationCertificate:identifier:` for details.
+ */
+extern NSString * const kBCOVDefaultFairPlayApplicationCertificateIdentifier;
+
 
 /**
  * Typedef for a view strategy given to a playback controller to construct its
@@ -240,6 +328,16 @@ typedef UIView *(^BCOVPlaybackControllerViewStrategy)(UIView *view, id<BCOVPlayb
 @property (nonatomic, readwrite) NSTimeInterval shutterFadeTime;
 
 /**
+ * Position of virtual camera when viewing Video 360 streams
+ * Default values are:
+ * pan: 0 degrees
+ * tilt: 0 degrees
+ * zoom: 1.0
+ * roll: 0 degrees
+ */
+@property (nonatomic, readwrite, copy) BCOVVideo360ViewProjection *viewProjection;
+
+/**
  * Registers a session consumer with a container, to be notified of new
  * sessions. Added consumers will be retained by this container. If a session
  * already existed in the container at the time of subscription, the specified
@@ -387,6 +485,37 @@ typedef UIView *(^BCOVPlaybackControllerViewStrategy)(UIView *view, id<BCOVPlayb
  * with this playback controller.
  */
 - (void)pauseAd;
+
+#pragma mark - FairPlay DRM
+
+/**
+ * This method is used to add a FairPlay application certificate to the
+ * playback controller's list of available FairPLay application certificates.
+ * Certificates will be retained for the life of the playback controller.
+ *
+ * If you are using Dynamic Delivery, application certificates are retrieved
+ * automatically by the FairPlay plugin, so this method is not needed.
+ * You can, however, use this method to pre-load your application certificate
+ * to speed up playback of the first FairPlay-encrypted video.
+ * Certificates are stored and re-used for subsequent videos.
+ *
+ *  @param applicationCertificateData
+ *                  The FairPlay application certificate in an NSData object.
+ *                  If set to nil, any existing application certificate for the
+ *                  given identifier will be removed.
+ *  @param identifier
+ *                  A string used to locate the application certificate.
+ *                  This string may not be nil.
+ *                  - For Dynamic Delivery, the identifier must be the URL
+ *                  that was used to retrieve this certificate.
+ *                  - For legacy Video Cloud accounts, this should be set to
+ *                  kBCOVDefaultFairPlayApplicationCertificateIdentifier
+ *                  to apply to all accounts.
+ *                  - If you are using multiple legacy Video Cloud accounts,
+ *                  set this param to the acount ID.
+ */
+- (void)addFairPlayApplicationCertificate:(NSData *)applicationCertificateData
+                               identifier:(NSString *)identifier;
 
 @end
 
