@@ -22,8 +22,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lD4-Sl-p5c">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="659"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lD4-Sl-p5c">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="GKA-nH-TyI">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="669.5"/>
@@ -31,17 +31,13 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="sM2-JF-08P" userLabel="Player Stack View">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Riq-0i-EqP">
+                                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wrN-ut-Lnv">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" secondItem="Riq-0i-EqP" secondAttribute="height" multiplier="16:9" id="YzR-RB-1Zy"/>
+                                                            <constraint firstAttribute="width" secondItem="wrN-ut-Lnv" secondAttribute="height" multiplier="16:9" id="QTL-kN-zLj"/>
                                                         </constraints>
-                                                    </view>
+                                                    </containerView>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="Riq-0i-EqP" firstAttribute="width" secondItem="sM2-JF-08P" secondAttribute="width" id="lq2-a5-GJ4"/>
-                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TMy-PC-LgE" userLabel="Info Stack View">
                                                 <rect key="frame" x="0.0" y="211" width="375" height="241"/>
@@ -170,6 +166,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="sM2-JF-08P" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="Kxy-88-aoF"/>
+                            <constraint firstItem="wrN-ut-Lnv" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="X9T-Jw-QgI"/>
                             <constraint firstItem="pdx-cS-u8s" firstAttribute="top" secondItem="lD4-Sl-p5c" secondAttribute="bottom" id="ZI9-jV-YA6"/>
                             <constraint firstItem="Ag3-cz-7Va" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="be6-VT-QMD"/>
                             <constraint firstItem="lD4-Sl-p5c" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="czW-E3-OaI"/>
@@ -183,8 +180,8 @@
                         <outlet property="dateLabel" destination="2Ih-b8-ils" id="45b-Z4-uIM"/>
                         <outlet property="descriptionLabel" destination="ngy-6a-bnK" id="EFx-I4-Bpa"/>
                         <outlet property="expandDescriptionButton" destination="VUO-AO-tCh" id="Vi7-qq-98u"/>
-                        <outlet property="mediaPlayerView" destination="Riq-0i-EqP" id="xgY-nd-cAT"/>
                         <outlet property="mediaTypeLabel" destination="e8S-sG-x3F" id="z9q-KG-F9k"/>
+                        <outlet property="playerContainerView" destination="wrN-ut-Lnv" id="fCK-wp-vWD"/>
                         <outlet property="shareButton" destination="fFR-ln-xfo" id="ILK-IZ-uzY"/>
                         <outlet property="tagListContainerHeight" destination="mLk-DO-fq7" id="f88-mw-eOL"/>
                         <outlet property="tagsContainerView" destination="Jhb-Lg-VRE" id="h6Q-Wa-RsM"/>
@@ -199,7 +196,7 @@
         <scene sceneID="A0b-6K-Qg1">
             <objects>
                 <collectionViewController id="1Ld-Nj-7GX" customClass="TagListCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Siy-gi-dEX" customClass="UICollectionViewLeftAlignedLayout">
@@ -218,6 +215,20 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uqs-qP-tkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="662" y="581"/>
+        </scene>
+        <!--Player View Controller-->
+        <scene sceneID="EC9-rz-t5b">
+            <objects>
+                <viewController storyboardIdentifier="PlayerViewControllerId" id="QxB-db-Zul" customClass="PlayerViewController" customModule="LushPlayerKit" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hdt-aS-vgd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wx9-9a-fha" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1570" y="54"/>
         </scene>
     </scenes>
     <resources>

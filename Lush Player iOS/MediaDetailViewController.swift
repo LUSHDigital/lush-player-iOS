@@ -34,9 +34,14 @@ class MediaDetailViewController: UIViewController {
     
     @IBOutlet weak var expandDescriptionButton: UIButton!
     
+    @IBOutlet weak var playerContainerView: UIView!
+    
     var tagListController: TagListCollectionViewController? {
-        return childViewControllers.first as? TagListCollectionViewController
+        return childViewControllers.filter({ $0 is TagListCollectionViewController }).first as? TagListCollectionViewController
     }
+    
+    weak var playerViewController: PlayerViewController?
+
 
     @IBOutlet weak var tagListContainerHeight: NSLayoutConstraint!
     
@@ -44,6 +49,20 @@ class MediaDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewControllerId") as? PlayerViewController {
+            
+            playerViewController.programme = programme
+            playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
+            
+            addChildViewController(playerViewController)
+            let bounds = self.playerContainerView.bounds
+            playerViewController.view.frame = bounds
+            self.playerContainerView.addSubview(playerViewController.view)
+    
+            playerViewController.didMove(toParentViewController: self)
+        }
+        
     
         titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
@@ -56,13 +75,17 @@ class MediaDetailViewController: UIViewController {
             if let tags = programme.tags {
                 tagListController.tags = tags
             }
-            tagListController.didSelectTag = selectedTag
+            tagListController.didSelectTag = { [weak self] tag in
+                self?.selectedTag(tag: tag)
+            }
         }
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        playerViewController?.view.frame = self.playerContainerView.bounds
         
         // Don't show expand button if our text is truncated 
         if descriptionExpansion != .expanded {

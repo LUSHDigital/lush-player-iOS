@@ -17,29 +17,29 @@ import AVKit
 
 /// The view controller displaying the programme player UI
 /// Also responsible for playing playlists and managing the playlist schedule
-class PlayerViewController: UIViewController {
+public class PlayerViewController: UIViewController {
     
-    internal var controller: BCOVPlaybackController?
+    public var controller: BCOVPlaybackController?
     
-    var programme: Programme?
+    public var programme: Programme?
     
-    var playlist: BCOVPlaylist?
+    public var playlist: BCOVPlaylist?
     
-    var controllerView: UIView?
+    public var controllerView: UIView?
     
-    var brightcovePolicyKey: String?
+    public var brightcovePolicyKey: String?
     
-    let brightcoveAccountId = BrightcoveConstants.accountID
+    public let brightcoveAccountId = BrightcoveConstants.accountID
     
-    let avPlayerViewController = AVPlayerViewController()
+    public let avPlayerViewController = AVPlayerViewController()
     
-    var playbackService: BCOVPlaybackService?
+    public var playbackService: BCOVPlaybackService?
     
-    var seekTime: TimeInterval?
+    public var seekTime: TimeInterval?
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet public weak var activityIndicator: UIActivityIndicatorView!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -140,14 +140,14 @@ class PlayerViewController: UIViewController {
         
         let controller = BCOVPlayerSDKManager.shared().createPlaybackController(with: provider, viewStrategy: nil)
         self.controller = controller
-        
+
         // Allow background audio and enable auto-advance
         controller?.allowsBackgroundAudioPlayback = true
         controller?.delegate = self
         controller?.isAutoAdvance = true
     }
     
-    override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
         controllerView?.frame = view.bounds
@@ -156,7 +156,7 @@ class PlayerViewController: UIViewController {
 
 extension PlayerViewController: BCOVPlaybackControllerDelegate {
     
-    func playbackController(_ controller: BCOVPlaybackController!, didCompletePlaylist playlist: NSFastEnumeration!) {
+    public func playbackController(_ controller: BCOVPlaybackController!, didCompletePlaylist playlist: NSFastEnumeration!) {
         
         // If we have a playlist
         if let videoPlaylist = self.playlist {
@@ -178,7 +178,7 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
     
     /// Called when the BCOVPlaybackController starts playing content
     ///
-    func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
+    public func playbackController(_ controller: BCOVPlaybackController!, didAdvanceTo session: BCOVPlaybackSession!) {
         
         // Make sure we're on the main thread
         OperationQueue.main.addOperation({
