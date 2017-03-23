@@ -216,10 +216,32 @@
             </objects>
             <point key="canvasLocation" x="662" y="581"/>
         </scene>
+        <!--Sound Player View Controller-->
+        <scene sceneID="qjs-od-MVn">
+            <objects>
+                <viewController storyboardIdentifier="SoundPlayerViewControllerId" id="L8r-eh-Y2k" customClass="SoundPlayerViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6RC-io-i1Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="sig-dU-ZsA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4UT-YI-WhE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a8d-0A-4cI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2258" y="54"/>
+        </scene>
         <!--Player View Controller-->
         <scene sceneID="EC9-rz-t5b">
             <objects>
                 <viewController storyboardIdentifier="PlayerViewControllerId" id="QxB-db-Zul" customClass="PlayerViewController" customModule="LushPlayerKit" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KCN-0L-H18"/>
+                        <viewControllerLayoutGuide type="bottom" id="gGc-xa-xrK"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Hdt-aS-vgd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

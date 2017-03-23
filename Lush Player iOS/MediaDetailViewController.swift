@@ -40,7 +40,7 @@ class MediaDetailViewController: UIViewController {
         return childViewControllers.filter({ $0 is TagListCollectionViewController }).first as? TagListCollectionViewController
     }
     
-    weak var playerViewController: PlayerViewController?
+    var mediaContentState: MediaContentState?
 
 
     @IBOutlet weak var tagListContainerHeight: NSLayoutConstraint!
@@ -50,20 +50,10 @@ class MediaDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewControllerId") as? PlayerViewController {
-            
-            playerViewController.programme = programme
-            playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
-            
-            addChildViewController(playerViewController)
-            let bounds = self.playerContainerView.bounds
-            playerViewController.view.frame = bounds
-            self.playerContainerView.addSubview(playerViewController.view)
-    
-            playerViewController.didMove(toParentViewController: self)
-        }
+        addMediaController()
         
-    
+        title = programme.title
+        
         titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
         descriptionLabel.text = programme.description
@@ -85,7 +75,15 @@ class MediaDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        playerViewController?.view.frame = self.playerContainerView.bounds
+        if let mediaContentState = mediaContentState {
+            switch mediaContentState {
+            case .TV(let playerViewController):
+                playerViewController.view.frame = self.playerContainerView.bounds
+            
+            case .radio(let soundViewController):
+                soundViewController.view.frame = self.playerContainerView.bounds
+            }
+        }
         
         // Don't show expand button if our text is truncated 
         if descriptionExpansion != .expanded {
@@ -104,6 +102,78 @@ class MediaDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
         }
+    }
+    
+    
+    /// Adds the relevant media controller for either TV or Radio, to the top of the view
+    func addMediaController() {
+        
+        let placeholder = MediaPlaceholderView(frame: self.playerContainerView.bounds)
+        placeholder.playButton.addTarget(self, action: #selector(playContent), for: .touchUpInside)
+        placeholder.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
+        
+        switch programme.media {
+        case .TV:
+            if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewControllerId") as? PlayerViewController {
+                
+                playerViewController.programme = programme
+                playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
+                
+                addChildViewController(playerViewController)
+                let bounds = self.playerContainerView.bounds
+                playerViewController.view.frame = bounds
+                self.playerContainerView.addSubview(playerViewController.view)
+                
+                self.mediaContentState = MediaContentState.TV(playerViewController)
+                playerViewController.avPlayerViewController.view?.addSubview(placeholder)
+                playerViewController.didMove(toParentViewController: self)
+            }
+            
+        case .radio:
+            if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "SoundPlayerViewControllerId") as? SoundPlayerViewController {
+            
+                addChildViewController(playerViewController)
+                let bounds = self.playerContainerView.bounds
+                playerViewController.view.frame = bounds
+                self.playerContainerView.addSubview(playerViewController.view)
+                
+                playerViewController.didMove(toParentViewController: self)
+                playerViewController.view?.addSubview(placeholder)
+//                playerViewController.play(programme: programme)
+                self.mediaContentState = MediaContentState.radio(playerViewController)
+            
+            }
+        }
+    }
+    
+    func playContent() {
+        
+        if let mediaContentState = mediaContentState {
+            switch mediaContentState {
+            case .TV(let playerViewController):
+                
+                let placeholderView = playerViewController.avPlayerViewController.view.subviews.filter({ $0 is MediaPlaceholderView }).first
+                playerViewController.avPlayerViewController.player?.play()
+                UIView.animate(withDuration: 0.3, animations: { 
+                    placeholderView?.alpha = 0.0
+                }, completion: { (done) in
+                    placeholderView?.isHidden = true
+                    
+                })
+                
+            case .radio(let soundViewController):
+                let placeholderView = soundViewController.view.subviews.filter({ $0 is MediaPlaceholderView }).first
+                soundViewController.play(programme: self.programme)
+                UIView.animate(withDuration: 0.3, animations: {
+                    placeholderView?.alpha = 0.0
+                }, completion: { (done) in
+                    placeholderView?.isHidden = true
+                    
+                })
+               
+            }
+        }
+        
     }
     
     func selectedTag(tag: String) {
@@ -148,5 +218,11 @@ class MediaDetailViewController: UIViewController {
         case notExpandable
         case contracted
         case expanded
+    }
+    
+    enum MediaContentState {
+        
+        case TV(PlayerViewController)
+        case radio(SoundPlayerViewController)
     }
 }
