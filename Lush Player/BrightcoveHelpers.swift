@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import LushPlayerKit
 
 extension BCOVPlaylist {
     

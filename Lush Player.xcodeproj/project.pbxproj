@@ -12,12 +12,9 @@
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
 		B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
 		B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; };
-		B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
 		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
 		B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */; };
-		B1985E201DF9725E00802635 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E1F1DF9725E00802635 /* PlayerView.swift */; };
 		B1985E261DF9739C00802635 /* Holding Screen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1985E251DF9739C00802635 /* Holding Screen.mp4 */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
@@ -40,11 +37,22 @@
 		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
 		FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */; };
 		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
-		FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
+		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
+		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
+		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
+		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
+		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
+		FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; };
+		FFA8F0251E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */; };
+		FFA8F0261E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */; };
 		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */; };
+		FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */; };
 		FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA071E8036CA007CE0C8 /* Home.storyboard */; };
 		FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */; };
 		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
@@ -58,6 +66,11 @@
 		FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */; };
 		FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */; };
 		FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */; };
+		FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */; };
+		FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */; };
+		FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */; };
+		FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */; };
+		FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -168,9 +181,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FFA8F0261E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 				B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */,
 				FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */,
-				B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -182,6 +195,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */,
+				FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -193,11 +207,9 @@
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
-		B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
-		B1985E1F1DF9725E00802635 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		B1985E251DF9739C00802635 /* Holding Screen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holding Screen.mp4"; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -233,7 +245,19 @@
 		FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSUITests.swift; sourceTree = "<group>"; };
 		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
+		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
+		FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
+		FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
 		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
+		FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPlaceholderView.xib; sourceTree = "<group>"; };
+		FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlaceholderView.swift; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
@@ -247,6 +271,11 @@
 		FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMediaCell.swift; sourceTree = "<group>"; };
 		FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardMediaCell.xib; sourceTree = "<group>"; };
+		FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
+		FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
+		FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Helper.swift"; sourceTree = "<group>"; };
+		FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedCharacterButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,10 +283,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA8F0251E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
 				FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */,
-				FFD0D6631E80275700483381 /* LushPlayerKit.framework in Frameworks */,
 				B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */,
-				B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
+				FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -307,10 +336,10 @@
 				B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */,
 				B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */,
 				B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */,
+				FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */,
 				B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */,
 				B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */,
 				B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */,
-				B1985E1F1DF9725E00802635 /* PlayerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -346,7 +375,6 @@
 		B1CEBE171DF1881D001F890D /* Lush Player */ = {
 			isa = PBXGroup;
 			children = (
-				B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */,
 				B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */,
 				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
 				B1CEBEF51DF1D894001F890D /* Helpers */,
@@ -383,6 +411,7 @@
 		B1CEBE451DF18C31001F890D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */,
 				B125D9641DF5682B00E8551D /* PlayerViewController.swift */,
 				B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */,
 				B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */,
@@ -431,11 +460,13 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
-				FFF5EA471E814CD6007CE0C8 /* Content Detail */,
+				FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */,
+				FFF5EA471E814CD6007CE0C8 /* Media Detail */,
 				FFF5EA381E813D6A007CE0C8 /* Home */,
 				FFF5EA331E8135C4007CE0C8 /* Standard List Item */,
 				FFF5EA181E8038E8007CE0C8 /* Channels */,
 				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
+				FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */,
 				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
 				FF1121801E7FE99000CD5337 /* Main.storyboard */,
 				FFF5EA151E80372C007CE0C8 /* Search.storyboard */,
@@ -446,6 +477,9 @@
 				FF1121881E7FE99000CD5337 /* Info.plist */,
 				FFF5EA291E803B97007CE0C8 /* UICollectionView+Nib.swift */,
 				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
+				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
+				FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */,
+				FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */,
 			);
 			path = "Lush Player iOS";
 			sourceTree = "<group>";
@@ -466,6 +500,19 @@
 				FF11219E1E7FE99000CD5337 /* Info.plist */,
 			);
 			path = "Lush Player iOSUITests";
+			sourceTree = "<group>";
+		};
+		FF5564F01E82B3A000F3C9A4 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */,
+				FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */,
+				FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */,
+				FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */,
+				FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */,
+				FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */,
+			);
+			name = Tags;
 			sourceTree = "<group>";
 		};
 		FFD0D61F1E80224B00483381 /* Products */ = {
@@ -522,11 +569,16 @@
 			name = Home;
 			sourceTree = "<group>";
 		};
-		FFF5EA471E814CD6007CE0C8 /* Content Detail */ = {
+		FFF5EA471E814CD6007CE0C8 /* Media Detail */ = {
 			isa = PBXGroup;
 			children = (
+				FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */,
+				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
+				FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */,
+				FF5564F01E82B3A000F3C9A4 /* Tags */,
+				FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */,
 			);
-			name = "Content Detail";
+			name = "Media Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -597,6 +649,7 @@
 				FF1121771E7FE99000CD5337 /* Frameworks */,
 				FF1121781E7FE99000CD5337 /* Resources */,
 				FFD0D66C1E80276D00483381 /* Embed Frameworks */,
+				FFA8F0271E82D14700338DF1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -680,6 +733,7 @@
 					FF1121791E7FE99000CD5337 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = DJ6N7G9BBD;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					FF11218C1E7FE99000CD5337 = {
@@ -818,9 +872,12 @@
 				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
+				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
+				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
+				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +911,19 @@
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
 		};
+		FFA8F0271E82D14700338DF1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -870,9 +940,9 @@
 				B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */,
 				B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
+				FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */,
 				B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
-				B1985E201DF9725E00802635 /* PlayerView.swift in Sources */,
 				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
 			);
@@ -898,9 +968,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
+				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
+				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFF5EA2A1E803B97007CE0C8 /* UICollectionView+Nib.swift in Sources */,
+				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
+				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
+				FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */,
+				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
+				FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
@@ -1119,6 +1198,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
 				);
 				INFOPLIST_FILE = "Lush Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1142,6 +1226,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
 				);
 				INFOPLIST_FILE = "Lush Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1215,15 +1304,25 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
+					"\"$(SRCROOT)/Lush Player iOS\"",
+					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
+					"\"$(SRCROOT)/Lush Player iOS\"/**",
+				);
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1234,15 +1333,24 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
+					"\"$(SRCROOT)/Lush Player iOS\"",
+					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
+					"\"$(SRCROOT)/Lush Player iOS\"/**",
+				);
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

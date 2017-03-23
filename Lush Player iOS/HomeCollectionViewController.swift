@@ -20,6 +20,7 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = true
         
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
@@ -44,6 +45,13 @@ class HomeCollectionViewController: UICollectionViewController {
             
             self?.redraw()
         })
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        UIView.animate(withDuration: 0.3) {
+            self.navigationController?.isNavigationBarHidden = true
+        }
     }
     
     func redraw() {
@@ -109,11 +117,34 @@ class HomeCollectionViewController: UICollectionViewController {
         return UICollectionViewCell()
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let programmes = allProgrammes {
+            
+            let programme = programmes[indexPath.item]
+            showProgramme(programme: programme)
+        }
+    }
+    
+    func showProgramme(programme: Programme) {
+        self.performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
+    }
+    
     private enum ViewState {
         
         case loading
         case empty
         case loaded([Programme])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "MediaDetailSegue" {
+            if let destination = segue.destination as? MediaDetailViewController, let programme = sender as? Programme {
+                
+                destination.programme = programme
+            }
+        }
     }
 }
 

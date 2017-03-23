@@ -73,6 +73,16 @@ public struct Programme {
     /// The media type of the programme
     public let media: Media
     
+    private let alias: String?
+    
+    public var webURL: URL? {
+        guard let alias = alias else { return nil }
+        let url = "http://player.lush.com/\(media.displayString().lowercased())/\(alias)"
+        return URL(string: url)
+    }
+    
+    public let tags: [String]?
+    
     /// Initialises a new Programme with a dictionary representation and media type
     ///
     /// - Note: This is an optional initialiser, and will return nil if there was no unique id for the programme,
@@ -92,6 +102,10 @@ public struct Programme {
         if let fileString = dictionary["file"] as? String {
             file = URL(string: fileString)
         }
+        
+        alias = dictionary["alias"] as? String
+        
+        tags = dictionary["tags"] as? [String]
         
         if file == nil, let urlString = dictionary["url"] as? String {
             file = URL(string: urlString)

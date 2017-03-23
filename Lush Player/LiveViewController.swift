@@ -10,16 +10,6 @@ import UIKit
 import AVKit
 import LushPlayerKit
 
-// A useful extension on DateComponents to return the `TimeInterval` since the start of the day
-extension DateComponents {
-    
-    var timeIntervalSinceStartOfDay: TimeInterval? {
-        get {
-            guard let hour = hour, let minute = minute, let second = second else { return nil }
-            return (Double(hour) * 3600.0) + (Double(minute) * 60.0) + Double(second)
-        }
-    }
-}
 
 /// A view for displaying a colour gradient with ease
 class GradientView : UIView {
