@@ -50,7 +50,7 @@
         <scene sceneID="cYI-cf-fJo">
             <objects>
                 <viewControllerPlaceholder storyboardName="Home" id="VMU-lF-y3J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="CBj-bC-UsT"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="home_icon" id="CBj-bC-UsT"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9j4-hZ-b1h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +60,7 @@
         <scene sceneID="1KB-us-DCv">
             <objects>
                 <viewControllerPlaceholder storyboardName="Live" id="Oeu-py-Ge1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="reu-76-ypl"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="live_icon" id="reu-76-ypl"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f2a-cF-zkM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,7 +70,7 @@
         <scene sceneID="CbH-YC-ZGA">
             <objects>
                 <viewControllerPlaceholder storyboardName="Channels" id="cox-eA-jk5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="GqC-wK-QL0"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="channels_icon" id="GqC-wK-QL0"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A2v-c9-L3n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -80,7 +80,7 @@
         <scene sceneID="bvz-R3-cfF">
             <objects>
                 <viewControllerPlaceholder storyboardName="Events" id="0EU-Aw-AhE" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Pfy-xl-v8N"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="events_icon" id="Pfy-xl-v8N"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8J2-sO-YcY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -90,11 +90,18 @@
         <scene sceneID="mkY-V9-scc">
             <objects>
                 <viewControllerPlaceholder storyboardName="Search" id="TGR-G5-uxQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="g2E-Cs-liB"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="search_icon" id="g2E-Cs-liB"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aIC-2i-oCw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1271" y="316"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="channels_icon" width="21" height="20"/>
+        <image name="events_icon" width="20" height="18"/>
+        <image name="home_icon" width="21" height="21"/>
+        <image name="live_icon" width="24" height="19"/>
+        <image name="search_icon" width="20" height="21"/>
+    </resources>
 </document>

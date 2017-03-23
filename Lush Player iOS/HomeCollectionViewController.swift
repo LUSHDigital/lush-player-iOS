@@ -20,6 +20,7 @@ class HomeCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.isNavigationBarHidden = true
         
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
@@ -46,12 +47,11 @@ class HomeCollectionViewController: UICollectionViewController {
         })
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = true
         }
-        
     }
     
     func redraw() {
