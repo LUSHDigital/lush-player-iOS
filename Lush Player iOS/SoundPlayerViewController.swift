@@ -11,7 +11,17 @@ import UIKit
 import LushPlayerKit
 import AVKit
 
-class SoundPlayerViewController: ViewController {
+
+/// View Controller for playing radio programs, this differs from the PlayerViewController as we simply stream the mp3 file
+class SoundPlayerViewController: AVPlayerViewController {
+    
+    var imageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        imageView = UIImageView(frame: self.view.bounds)
+    }
+    
     
     /// Plays a specific programme
     ///
@@ -56,9 +66,8 @@ class SoundPlayerViewController: ViewController {
     private func playAudio(from url: URL, with imageURL: URL?) {
         
         // Setup an AVPlayerViewController
-        let avPlayerViewController = AVPlayerViewController()
         let avPlayer = AVPlayer(url: url)
-        avPlayerViewController.player = avPlayer
+        self.player = avPlayer
         
         // Try and mark us as playing Audio
         do {
@@ -67,29 +76,17 @@ class SoundPlayerViewController: ViewController {
             print(error)
         }
         
-        //        // Set up an observer for when radio programme ends, this is used to dismiss the UI as tvOS doesn't handle this for us
-        //        endObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil, queue: nil, using: { (notification) in
-        //
-        //            // Make sure we're dismissing because of the correct AVPlayerItem
-        //            guard let playerItem = notification.object as? AVPlayerItem else { return }
-        //            if playerItem == avPlayerViewController.player?.currentItem {
-        //
-        //                // Pause the player, nil it and then dismiss, this fixed an issue with rewinding radio programmes.
-        //                avPlayerViewController.player?.pause()
-        //                avPlayerViewController.player = nil
-        //                avPlayerViewController.dismiss(animated: true, completion: nil)
-        //            }
-        //        })
-        
         // Set up the image view for the radio programme and add it to the AVPlayerViewController contentOverlayView
-        let imageView = UIImageView(frame: view.bounds)
+        
         imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
-        avPlayerViewController.contentOverlayView?.addSubview(imageView)
-        self.addChildViewController(avPlayerViewController)
-        avPlayerViewController.view.frame = self.view.bounds
-        self.view.addSubview(avPlayerViewController.view)
-        avPlayerViewController.didMove(toParentViewController: self)
+        self.contentOverlayView?.addSubview(imageView)
         avPlayer.play()
+    }
+    
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        imageView.frame = self.view.bounds
     }
 }
 

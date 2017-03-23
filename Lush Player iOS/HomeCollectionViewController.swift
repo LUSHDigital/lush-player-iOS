@@ -144,9 +144,7 @@ class HomeCollectionViewController: UICollectionViewController {
                 
                 destination.programme = programme
             }
-            
         }
-        
     }
 }
 
