@@ -50,20 +50,8 @@ class MediaDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewControllerId") as? PlayerViewController {
-            
-            playerViewController.programme = programme
-            playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
-            
-            addChildViewController(playerViewController)
-            let bounds = self.playerContainerView.bounds
-            playerViewController.view.frame = bounds
-            self.playerContainerView.addSubview(playerViewController.view)
-    
-            playerViewController.didMove(toParentViewController: self)
-        }
+        addMediaController()
         
-    
         titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
         descriptionLabel.text = programme.description
@@ -103,6 +91,39 @@ class MediaDetailViewController: UIViewController {
         
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
+        }
+    }
+    
+    
+    /// Adds the relevant media controller for either TV or Radio, to the top of the view
+    func addMediaController() {
+        
+        switch programme.media {
+        case .TV:
+            if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "PlayerViewControllerId") as? PlayerViewController {
+                
+                playerViewController.programme = programme
+                playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
+                
+                addChildViewController(playerViewController)
+                let bounds = self.playerContainerView.bounds
+                playerViewController.view.frame = bounds
+                self.playerContainerView.addSubview(playerViewController.view)
+                
+                playerViewController.didMove(toParentViewController: self)
+            }
+            
+        case .radio:
+            if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "SoundPlayerViewControllerId") as? SoundPlayerViewController {
+            
+                addChildViewController(playerViewController)
+                let bounds = self.playerContainerView.bounds
+                playerViewController.view.frame = bounds
+                self.playerContainerView.addSubview(playerViewController.view)
+                
+                playerViewController.didMove(toParentViewController: self)
+                playerViewController.play(programme: programme)
+            }
         }
     }
     
