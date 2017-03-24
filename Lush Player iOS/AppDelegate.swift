@@ -34,7 +34,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabbar.isTranslucent = false
         tabbar.barTintColor = UIColor.white
         tabbar.tintColor = UIColor.black
+        
+        // Add status bar background
+        let statusBarBackground = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20))
+        statusBarBackground.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1)
+        self.window?.rootViewController?.view.addSubview(statusBarBackground)
+        
     }
+    
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -57,7 +65,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
 }
-
