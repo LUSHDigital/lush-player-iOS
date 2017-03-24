@@ -11,39 +11,45 @@ import LushPlayerKit
 
 private let reuseIdentifier = "HomeCellId"
 
-class HomeCollectionViewController: UICollectionViewController {
+class HomeCollectionViewController: ContentListingViewController {
     
-    private var state: ViewState = .loading
     
-    var allProgrammes: [Programme]?
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
         
-        let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
-        collectionView?.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
-    
-        
         // Fetch the latest TV programmes
         LushPlayerController.shared.fetchProgrammes(for: .TV, with: { [weak self] (error, programmes) in
+            if let welf = self {
+                
+                if let error = error {
+                    welf.viewState = ContentListingViewState.noInternet(welf.noInternetStateViewController)
+                    return
+                }
             
-            if let error = error, let welf = self {
-                UIAlertController.presentError(error, in: welf)
+                if let programmes = programmes {
+                    welf.viewState = .loaded(welf.sortProgrammes(programmes))
+                }
             }
-            
-            self?.redraw()
         })
         
         // Fetch the latest radio programmes
         LushPlayerController.shared.fetchProgrammes(for: .radio, with: { [weak self] (error, programmes) in
             
-            if let error = error, let welf = self {
-                UIAlertController.presentError(error, in: welf)
+            if let welf = self {
+                
+                if let error = error {
+                    welf.viewState = ContentListingViewState.noInternet(welf.noInternetStateViewController)
+                    return
+                }
+                
+                if let programmes = programmes {
+                    
+                    welf.viewState = .loaded(welf.sortProgrammes(programmes))
+                    return
+                }
             }
-            
-            self?.redraw()
         })
     }
     
@@ -54,9 +60,9 @@ class HomeCollectionViewController: UICollectionViewController {
         }
     }
     
-    func redraw() {
+    func sortProgrammes(_ programmes: [Programme]) -> [Programme] {
         // Sort the programmes by their date in chronological order
-        allProgrammes = LushPlayerController.shared.programmes.flatMap { (keyPair) in
+        let sortedProgrammes = LushPlayerController.shared.programmes.flatMap { (keyPair) in
             return keyPair.value
             }.sorted(by: { (p1, p2) -> Bool in
                 
@@ -67,59 +73,13 @@ class HomeCollectionViewController: UICollectionViewController {
                 return p1Date > p2Date
             })
         
-        if let allProgrammes = allProgrammes, !allProgrammes.isEmpty {
-            state = .loaded(allProgrammes)
-            self.collectionView?.reloadData()
-        }
-        // Redraw
-        
+        return sortedProgrammes
     }
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        switch state {
-        case .loading:
-            return 0
-        case .empty:
-            return 0
-        case .loaded:
-            return 1
-        }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        switch state {
-        case .loading:
-            return 0
-        case .empty:
-            return 0
-        case .loaded(let programmes):
-            return programmes.count
-        }
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let programmes =  allProgrammes {
-            
-            let programme = programmes[indexPath.item]
-            
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? StandardMediaCell {
-                
-                cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
-                cell.mediaTypeLabel.text = programme.media.displayString()
-                cell.titleLabel.text = programme.title
-                cell.datePublishedLabel.text = programme.date?.timeAgo
-                return cell
-            }
-        }
 
-        return UICollectionViewCell()
-    }
-    
-    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if let programmes = allProgrammes {
+        if case let .loaded(programmes) = viewState {
             
             let programme = programmes[indexPath.item]
             showProgramme(programme: programme)
@@ -129,13 +89,7 @@ class HomeCollectionViewController: UICollectionViewController {
     func showProgramme(programme: Programme) {
         self.performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
     }
-    
-    private enum ViewState {
-        
-        case loading
-        case empty
-        case loaded([Programme])
-    }
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
@@ -145,19 +99,5 @@ class HomeCollectionViewController: UICollectionViewController {
                 destination.programme = programme
             }
         }
-    }
-}
-
-
-
-extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = collectionView.bounds.width - 40
-        let cellHeight = cellWidth * 0.9
-        let cellSize = CGSize(width: cellWidth , height: cellHeight)
-        return cellSize
     }
 }

@@ -17,50 +17,34 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="QI2-gX-qMF" kind="relationship" relationship="rootViewController" id="fo5-iF-Fwc"/>
+                        <segue destination="mD6-CN-VeX" kind="relationship" relationship="rootViewController" id="CF9-sI-0Jq"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QFN-H4-uAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="529" y="-799"/>
         </scene>
-        <!--Home-->
-        <scene sceneID="H63-By-XrC">
+        <!--Home Collection View Controller-->
+        <scene sceneID="9Au-rn-uL1">
             <objects>
-                <collectionViewController title="Home" id="QI2-gX-qMF" customClass="HomeCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Lu7-eX-ayH">
+                <viewController id="mD6-CN-VeX" customClass="HomeCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8ko-Dj-05J"/>
+                        <viewControllerLayoutGuide type="bottom" id="ckB-5j-IGx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XlV-Lx-rsQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="Zej-Zf-Xbu">
-                            <size key="itemSize" width="50" height="50"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="q76-Kk-2v9">
-                                <rect key="frame" x="20" y="0.0" width="50" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="QI2-gX-qMF" id="XI4-86-rbf"/>
-                            <outlet property="delegate" destination="QI2-gX-qMF" id="aBy-yv-kOH"/>
-                        </connections>
-                    </collectionView>
-                    <navigationItem key="navigationItem" id="IcM-gJ-yCC"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="A6f-09-BZj"/>
                     <connections>
-                        <segue destination="2UW-WP-FGR" kind="show" identifier="MediaDetailSegue" id="PaU-FV-FEt"/>
+                        <segue destination="2UW-WP-FGR" kind="show" identifier="MediaDetailSegue" id="dby-af-fXw"/>
                     </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q6g-SF-9JC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngw-7S-xxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1340" y="-798"/>
+            <point key="canvasLocation" x="1418" y="-799"/>
         </scene>
         <!--MediaDetail-->
         <scene sceneID="ti4-eY-01h">

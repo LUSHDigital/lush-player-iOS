@@ -11,9 +11,9 @@ import LushPlayerKit
 
 class ContentListingViewController: UIViewController {
     
-    var viewState: ContentListingViewState = .loading {
+    var viewState: ContentListingViewState = .loading(LoadingViewController()) {
         didSet {
-            collectionView.reloadData()
+            self.redraw()
         }
     }
     
@@ -24,54 +24,60 @@ class ContentListingViewController: UIViewController {
         
         switch viewState {
             
-        case .loading:
-            loadingIndicatorStateViewController.view.frame = view.bounds
-            self.view.addSubview(loadingIndicatorStateViewController.view)
-            addChildViewController(loadingIndicatorStateViewController)
-            loadingIndicatorStateViewController.didMove(toParentViewController: self)
+        case .loading(let loadingViewController):
             
-        case .loaded(let programmes):
+            loadingViewController.view.frame = view.bounds
+            loadingViewController.willMove(toParentViewController: self)
+            addChildViewController(loadingViewController)
+            self.view.addSubview(loadingViewController.view)
+            loadingViewController.didMove(toParentViewController: self)
             
-            hideSubviewControllerIfNeeded(viewController: loadingIndicatorStateViewController)
-            hideSubviewControllerIfNeeded(viewController: emptyStateViewController)
-            hideSubviewControllerIfNeeded(viewController: noInternetStateViewController)
+        case .loaded(_):
             
+            hideChildControllersIfNeeded()
+            collectionView.reloadData()
         
         case .empty(let emptyStateViewController):
             
-            hideSubviewControllerIfNeeded(viewController: loadingIndicatorStateViewController)
+            hideChildControllersIfNeeded()
             emptyStateViewController.view.frame = view.bounds
-            self.view.addSubview(emptyStateViewController.view)
             addChildViewController(emptyStateViewController)
+            self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
             
         case .noInternet(let noInternetViewController):
             
-            hideSubviewControllerIfNeeded(viewController: loadingIndicatorStateViewController)
+            hideChildControllersIfNeeded()
             noInternetViewController.view.frame = view.bounds
-            self.view.addSubview(noInternetViewController.view)
             addChildViewController(noInternetViewController)
+            self.view.addSubview(noInternetViewController.view)
             noInternetViewController.didMove(toParentViewController: self)
         }
     }
     
-    func hideSubviewControllerIfNeeded(viewController: UIViewController) {
-        if viewController.view.isDescendant(of: self.view) {
-            viewController.removeFromParentViewController()
-            viewController.view.removeFromSuperview()
+    func hideChildControllersIfNeeded() {
+
+        for vc in self.childViewControllers {
+            vc.willMove(toParentViewController: nil)
+    
+            vc.view.removeFromSuperview()
+            vc.removeFromParentViewController()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let collectionViewLayout = UICollectionViewFlowLayout()
+        collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        collectionViewLayout.minimumLineSpacing = 20
+        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
+        self.view.addSubview(collectionView)
         collectionView.delegate = self
         collectionView.dataSource = self
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
         redraw()
-        // Do any additional setup after loading the view.
     }
     
     enum ContentListingViewState {
@@ -79,7 +85,7 @@ class ContentListingViewController: UIViewController {
         case loaded([Programme])
         case empty(UIViewController)
         case noInternet(UIViewController)
-        case loading
+        case loading(UIViewController)
     }
     
 }
@@ -122,11 +128,20 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
     }
 }
 
-extension ContentListingViewController: EmptyStateDisplayable, NoInternetStateDisplayable, LoadingStateDisplayable {
+
+extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
     
-    internal var loadingIndicatorStateViewController: UIViewController {
-        return LoadingViewController()
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cellWidth = collectionView.bounds.width - 40
+        let cellHeight = cellWidth * 0.9
+        let cellSize = CGSize(width: cellWidth , height: cellHeight)
+        return cellSize
     }
+}
+
+extension ContentListingViewController: EmptyStateDisplayable, NoInternetStateDisplayable {
+    
     
     internal var noInternetStateViewController: UIViewController {
         return UIViewController()
