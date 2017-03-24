@@ -36,6 +36,8 @@ class MediaDetailViewController: UIViewController {
     
     @IBOutlet weak var playerContainerView: UIView!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     var tagListController: TagListCollectionViewController? {
         return childViewControllers.filter({ $0 is TagListCollectionViewController }).first as? TagListCollectionViewController
     }
@@ -51,6 +53,8 @@ class MediaDetailViewController: UIViewController {
         super.viewDidLoad()
         
         addMediaController()
+        
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 30, right: 0)
         
         title = programme.title
         
