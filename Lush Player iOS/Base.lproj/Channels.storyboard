@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="IzV-tj-WHW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="OZS-EB-kMe">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <scene sceneID="iWx-Co-YJ8">
             <objects>
                 <collectionViewController title="Channel" id="IzV-tj-WHW" customClass="ChannelCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" dataMode="prototypes" id="pSb-sa-mVr">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" id="pSb-sa-mVr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -37,10 +37,73 @@
                             <outlet property="delegate" destination="IzV-tj-WHW" id="31X-57-XzD"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="sbM-Ld-hf8"/>
+                    <connections>
+                        <segue destination="zoZ-NG-kFm" kind="show" identifier="ShowChannelSegue" id="e5P-sd-UXL"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RfA-yt-aez" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1712.8" y="495.20239880059972"/>
+        </scene>
+        <!--Channels-->
+        <scene sceneID="7UI-eb-blo">
+            <objects>
+                <navigationController title="Channels" id="OZS-EB-kMe" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Z8-fP-MVT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IzV-tj-WHW" kind="relationship" relationship="rootViewController" id="zAY-fC-W3W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QCv-sT-RR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="814" y="495"/>
+        </scene>
+        <!--Channel Listing Container View Controller-->
+        <scene sceneID="UOC-ao-G6Q">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="zoZ-NG-kFm" customClass="ChannelListingContainerViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="So5-in-6mn"/>
+                        <viewControllerLayoutGuide type="bottom" id="A0q-Qf-ZLt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yyo-55-fAj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CTw-HU-tQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2727.1999999999998" y="539.28035982008998"/>
+        </scene>
+        <!--Channel Listing View Controller-->
+        <scene sceneID="ve9-ZG-JWN">
+            <objects>
+                <viewController storyboardIdentifier="ChannelListingViewControllerId" id="xfa-ui-aRY" customClass="ChannelListingViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pap-hN-5f6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="3TR-FC-x0o" kind="show" identifier="MediaDetailSegue" id="ebe-J8-NeJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HbG-aU-lk2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3558" y="539"/>
+        </scene>
+        <!--MediaDetail-->
+        <scene sceneID="mO0-hF-IhF">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MediaDetail" id="3TR-FC-x0o" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="791-x6-ch8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4358" y="635"/>
         </scene>
     </scenes>
 </document>
