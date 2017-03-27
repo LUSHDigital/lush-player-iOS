@@ -24,7 +24,7 @@ class HomeCollectionViewController: ContentListingViewController {
             if let welf = self {
                 
                 if let error = error {
-                    welf.viewState = ContentListingViewState.noInternet(welf.noInternetStateViewController)
+                    welf.viewState = ContentListingViewState.error(welf.errorStateViewController)
                     return
                 }
             
@@ -40,7 +40,7 @@ class HomeCollectionViewController: ContentListingViewController {
             if let welf = self {
                 
                 if let error = error {
-                    welf.viewState = ContentListingViewState.noInternet(welf.noInternetStateViewController)
+                    welf.viewState = ContentListingViewState.error(welf.errorStateViewController)
                     return
                 }
                 
@@ -75,29 +75,10 @@ class HomeCollectionViewController: ContentListingViewController {
         
         return sortedProgrammes
     }
-    
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if case let .loaded(programmes) = viewState {
-            
-            let programme = programmes[indexPath.item]
-            showProgramme(programme: programme)
-        }
-    }
     
-    func showProgramme(programme: Programme) {
+    override func showProgramme(programme: Programme) {
+        super.showProgramme(programme: programme)
         self.performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
-    }
-
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "MediaDetailSegue" {
-            if let destination = segue.destination as? MediaDetailViewController, let programme = sender as? Programme {
-                
-                destination.programme = programme
-            }
-        }
     }
 }

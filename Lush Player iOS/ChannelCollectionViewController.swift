@@ -17,6 +17,8 @@ class ChannelCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         // Register cell classes
+        
+        self.navigationController?.isNavigationBarHidden = true
        
         let nib = UINib(nibName: cellReuseId, bundle: nil)
         self.collectionView?.register(nib, forCellWithReuseIdentifier: cellReuseId)
@@ -29,8 +31,24 @@ class ChannelCollectionViewController: UICollectionViewController {
         }
         
         self.collectionView?.delegate = self
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         
-        
+        if segue.identifier == "ShowChannelSegue" {
+            guard let vc = segue.destination as? ChannelListingContainerViewController else { return }
+            
+            guard let channel = sender as? Channel else { return }
+            vc.childListingViewController?.selectedChannel = channel
+            vc.channel = channel
+        }
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     
@@ -58,6 +76,12 @@ class ChannelCollectionViewController: UICollectionViewController {
         return UICollectionViewCell()
     }
 
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let channel = LushPlayerController.allChannels[indexPath.item]
+        performSegue(withIdentifier: "ShowChannelSegue", sender: channel)
+    }
 }
 
 

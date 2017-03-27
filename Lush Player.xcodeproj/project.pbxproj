@@ -56,6 +56,10 @@
 		FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */; };
 		FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */; };
 		FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD501E85487100AC7399 /* LoadingViewController.swift */; };
+		FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */; };
+		FFEECD681E891F1F00AC7399 /* ThunderRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */; };
+		FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */; };
 		FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA071E8036CA007CE0C8 /* Home.storyboard */; };
 		FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */; };
 		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
@@ -174,6 +178,13 @@
 			remoteGlobalIDString = FFD0D6251E80226000483381;
 			remoteInfo = "LushPlayerKit iOS";
 		};
+		FFEECD691E891F1F00AC7399 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C2E5088119C835A300350F00;
+			remoteInfo = ThunderRequest;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -196,6 +207,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FFEECD681E891F1F00AC7399 /* ThunderRequest.framework in Embed Frameworks */,
 				FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */,
 				FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 			);
@@ -263,6 +275,8 @@
 		FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListingViewController.swift; sourceTree = "<group>"; };
 		FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuContainerViewController.swift; sourceTree = "<group>"; };
 		FFEECD501E85487100AC7399 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingViewController.swift; sourceTree = "<group>"; };
+		FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingContainerViewController.swift; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
@@ -311,6 +325,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */,
 				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
 				FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
@@ -582,6 +597,8 @@
 				FFF5EA101E803701007CE0C8 /* Channels.storyboard */,
 				FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */,
 				FFF5EA1F1E80392D007CE0C8 /* ChannelCollectionViewCell */,
+				FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */,
+				FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */,
 			);
 			name = Channels;
 			sourceTree = "<group>";
@@ -701,6 +718,7 @@
 			);
 			dependencies = (
 				FFD0D66B1E80276D00483381 /* PBXTargetDependency */,
+				FFEECD6A1E891F1F00AC7399 /* PBXTargetDependency */,
 			);
 			name = "Lush Player iOS";
 			productName = "Lush Player iOS";
@@ -1017,11 +1035,13 @@
 				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
 				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
+				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
+				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
 				FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */,
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
@@ -1089,6 +1109,11 @@
 			isa = PBXTargetDependency;
 			name = "LushPlayerKit iOS";
 			targetProxy = FFD0D66A1E80276D00483381 /* PBXContainerItemProxy */;
+		};
+		FFEECD6A1E891F1F00AC7399 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThunderRequest;
+			targetProxy = FFEECD691E891F1F00AC7399 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

@@ -45,13 +45,13 @@ class ContentListingViewController: UIViewController {
             self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
             
-        case .noInternet(let noInternetViewController):
+        case .error(let errorViewController):
             
             hideChildControllersIfNeeded()
-            noInternetViewController.view.frame = view.bounds
-            addChildViewController(noInternetViewController)
-            self.view.addSubview(noInternetViewController.view)
-            noInternetViewController.didMove(toParentViewController: self)
+            errorViewController.view.frame = view.bounds
+            addChildViewController(errorViewController)
+            self.view.addSubview(errorViewController.view)
+            errorViewController.didMove(toParentViewController: self)
         }
     }
     
@@ -80,11 +80,13 @@ class ContentListingViewController: UIViewController {
         redraw()
     }
     
+    func showProgramme(programme: Programme) { }
+    
     enum ContentListingViewState {
         
         case loaded([Programme])
         case empty(UIViewController)
-        case noInternet(UIViewController)
+        case error(UIViewController)
         case loading(UIViewController)
     }
     
@@ -126,6 +128,15 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
         
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if case let .loaded(programmes) = viewState {
+            
+            let programme = programmes[indexPath.item]
+            showProgramme(programme: programme)
+        }
+    }
 }
 
 
@@ -140,10 +151,10 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ContentListingViewController: EmptyStateDisplayable, NoInternetStateDisplayable {
+extension ContentListingViewController: EmptyStateDisplayable, ErrorStateDisplayable {
     
     
-    internal var noInternetStateViewController: UIViewController {
+    internal var errorStateViewController: UIViewController {
         return UIViewController()
     }
     
@@ -162,7 +173,7 @@ protocol EmptyStateDisplayable {
     var emptyStateViewController: UIViewController { get }
 }
 
-protocol NoInternetStateDisplayable {
+protocol ErrorStateDisplayable {
     
-    var noInternetStateViewController: UIViewController { get }
+    var errorStateViewController: UIViewController { get }
 }
