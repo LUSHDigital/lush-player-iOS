@@ -18,39 +18,37 @@ class HomeCollectionViewController: ContentListingViewController {
         super.viewDidLoad()
 
         self.navigationController?.isNavigationBarHidden = true
+    
+        refresh()
+    }
+    
+    func refresh() {
+        
+        viewState = .loading(LoadingViewController())
         
         // Fetch the latest TV programmes
         LushPlayerController.shared.fetchProgrammes(for: .TV, with: { [weak self] (error, programmes) in
-            if let welf = self {
-                
-                if let error = error {
-                    welf.viewState = ContentListingViewState.error(welf.errorStateViewController)
-                    return
-                }
-            
-                if let programmes = programmes {
-                    welf.viewState = .loaded(welf.sortProgrammes(programmes))
-                }
-            }
+            self?.handleResponse(error: error, programmes: programmes)
         })
         
         // Fetch the latest radio programmes
         LushPlayerController.shared.fetchProgrammes(for: .radio, with: { [weak self] (error, programmes) in
-            
-            if let welf = self {
-                
-                if let error = error {
-                    welf.viewState = ContentListingViewState.error(welf.errorStateViewController)
-                    return
-                }
-                
-                if let programmes = programmes {
-                    
-                    welf.viewState = .loaded(welf.sortProgrammes(programmes))
-                    return
-                }
-            }
+            self?.handleResponse(error: error, programmes: programmes)
         })
+    }
+    
+    func handleResponse(error: Error?, programmes: [Programme]?) {
+        if let _ = error {
+            self.connectionErrorViewController.retryAction = { [weak self] in
+                self?.refresh()
+            }
+            self.viewState = ContentListingViewState.error(self.errorStateViewController)
+            return
+        }
+        
+        if let programmes = programmes {
+            self.viewState = .loaded(self.sortProgrammes(programmes))
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
