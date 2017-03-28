@@ -62,6 +62,10 @@
 		FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */; };
 		FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */; };
 		FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */; };
+		FFEECD821E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */; };
+		FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */; };
+		FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */; };
+		FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */; };
 		FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA071E8036CA007CE0C8 /* Home.storyboard */; };
 		FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */; };
 		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
@@ -281,6 +285,10 @@
 		FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingContainerViewController.swift; sourceTree = "<group>"; };
 		FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConnectionErrorScreen.storyboard; sourceTree = "<group>"; };
+		FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionErrorViewController.swift; sourceTree = "<group>"; };
+		FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmptyStateScreen.storyboard; sourceTree = "<group>"; };
+		FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyErrorViewController.swift; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
@@ -483,6 +491,7 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FFEECD801E8A8ED800AC7399 /* Error States */,
 				FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */,
 				FFF5EA471E814CD6007CE0C8 /* Media Detail */,
 				FFF5EA381E813D6A007CE0C8 /* Home */,
@@ -595,6 +604,17 @@
 				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FFEECD801E8A8ED800AC7399 /* Error States */ = {
+			isa = PBXGroup;
+			children = (
+				FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */,
+				FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */,
+				FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */,
+				FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */,
+			);
+			name = "Error States";
 			sourceTree = "<group>";
 		};
 		FFF5EA181E8038E8007CE0C8 /* Channels */ = {
@@ -942,10 +962,12 @@
 				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
+				FFEECD821E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard in Resources */,
 				FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */,
 				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
 				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
+				FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
@@ -1054,7 +1076,9 @@
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
 				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
 				FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */,
+				FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */,
 				FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */,
+				FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */,

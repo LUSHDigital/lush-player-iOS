@@ -46,27 +46,28 @@ class ChannelListingContainerViewController: MenuContainerViewController {
         
         let firstIndex = IndexPath(item: 0, section: 0)
         menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
-        
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuItem = menuItems[indexPath.item]
-        let programmes = filterProgrammes(filterTerm: menuItem.identifier)
-        childListingViewController?.viewState = .loaded(programmes)
         
-    }
-    
-    func filterProgrammes(filterTerm: String) -> [Programme] {
-        
-        switch filterTerm {
-        case Programme.Media.radio.rawValue:
-            return LushPlayerController.shared.channelProgrammes[channel]?.filter({ $0.media == Programme.Media.radio }) ?? []
-        case Programme.Media.TV.rawValue:
-            return LushPlayerController.shared.channelProgrammes[channel]?.filter({ $0.media == Programme.Media.TV }) ?? []
-        default:
-            return LushPlayerController.shared.channelProgrammes[channel] ?? []
-        }
- 
+        if let programmes = LushPlayerController.shared.channelProgrammes[channel] {
+            
+            let filteredProgrammes = programmes.filter({ (programme) -> Bool in
+                
+                if menuItem.identifier == "all" { return true }
+                return programme.media.rawValue == menuItem.identifier
+            })
+            
+            if filteredProgrammes.isEmpty {
+                
+                childListingViewController?.viewState = .empty(childListingViewController?.emptyStateViewController ?? EmptyErrorViewController())
+                childListingViewController?.emptyStateViewController.descriptionLabel.text = "Sorry, no \(menuItem.identifier == "all" ? "" : menuItem.title) episodes here right now"
+                return
+            }
+            
+            childListingViewController?.viewState = .loaded(filteredProgrammes)
+        } 
     }
 }

@@ -11,11 +11,25 @@ import LushPlayerKit
 
 class ContentListingViewController: UIViewController {
     
+    
     var viewState: ContentListingViewState = .loading(LoadingViewController()) {
         didSet {
             self.redraw()
         }
     }
+    
+    var connectionErrorViewController: ConnectionErrorViewController = {
+        let storyboard = UIStoryboard(name: "ConnectionErrorScreen", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as? ConnectionErrorViewController
+        return vc ?? ConnectionErrorViewController()
+    }()
+    
+    var emptyStateViewController: EmptyErrorViewController = {
+        let storyboard = UIStoryboard(name: "EmptyStateScreen", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as? EmptyErrorViewController
+        return vc ?? EmptyErrorViewController()
+    }()
+    
     
     // Collection view for displaying the content items
     var collectionView: UICollectionView!
@@ -26,6 +40,7 @@ class ContentListingViewController: UIViewController {
             
         case .loading(let loadingViewController):
             
+            hideChildControllersIfNeeded()
             loadingViewController.view.frame = view.bounds
             loadingViewController.willMove(toParentViewController: self)
             addChildViewController(loadingViewController)
@@ -151,16 +166,13 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension ContentListingViewController: EmptyStateDisplayable, ErrorStateDisplayable {
+extension ContentListingViewController: ErrorStateDisplayable {
     
     
     internal var errorStateViewController: UIViewController {
-        return UIViewController()
+        return connectionErrorViewController
     }
     
-    internal var emptyStateViewController: UIViewController {
-        return UIViewController()
-    }
 }
 
 protocol LoadingStateDisplayable {

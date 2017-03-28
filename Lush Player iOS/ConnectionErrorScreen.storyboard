@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f88-nw-gqc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Connection Error View Controller-->
+        <scene sceneID="z5K-jY-74i">
+            <objects>
+                <viewController id="f88-nw-gqc" customClass="ConnectionErrorViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VNU-GI-Xe8"/>
+                        <viewControllerLayoutGuide type="bottom" id="7XK-yV-Lfn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p4E-GJ-FgB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="D6h-6g-ULq">
+                                <rect key="frame" x="38" y="145" width="300" height="277"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nOK-xS-giR">
+                                        <rect key="frame" x="72" y="0.0" width="156" height="178"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ConnectionProblem" translatesAutoresizingMaskIntoConstraints="NO" id="tDy-XZ-9kW">
+                                                <rect key="frame" x="8" y="8" width="140" height="140"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="tDy-XZ-9kW" secondAttribute="height" multiplier="1:1" id="4vo-1R-4lR"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="8" left="8" bottom="30" right="8"/>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whoops..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hjx-9u-gXw">
+                                        <rect key="frame" x="78" y="188" width="144.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A problem occured with your network connection. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAH-Py-pun">
+                                        <rect key="frame" x="31.5" y="234" width="237.5" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSp-0R-kSb" customClass="SpacedCharacterButton" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                <rect key="frame" x="112" y="462" width="150" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IAw-bK-NYX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="LKk-HG-Lb2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                <state key="normal" title="RETRY">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRetry:" destination="f88-nw-gqc" eventType="touchUpInside" id="mLN-Ks-aUq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D6h-6g-ULq" firstAttribute="width" secondItem="p4E-GJ-FgB" secondAttribute="width" multiplier="0.8" id="O5y-qI-DP8"/>
+                            <constraint firstItem="D6h-6g-ULq" firstAttribute="centerY" secondItem="p4E-GJ-FgB" secondAttribute="centerY" constant="-50" id="OXv-Eg-dgu"/>
+                            <constraint firstItem="tSp-0R-kSb" firstAttribute="centerX" secondItem="p4E-GJ-FgB" secondAttribute="centerX" id="RjU-4Z-aZw"/>
+                            <constraint firstItem="tSp-0R-kSb" firstAttribute="top" secondItem="D6h-6g-ULq" secondAttribute="bottom" constant="40" id="ShJ-oF-9QG"/>
+                            <constraint firstItem="D6h-6g-ULq" firstAttribute="centerX" secondItem="p4E-GJ-FgB" secondAttribute="centerX" id="meN-ig-dDX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="errorDescription" destination="gAH-Py-pun" id="u2H-Yx-bsy"/>
+                        <outlet property="errorTitle" destination="hjx-9u-gXw" id="Xpe-if-IU7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5T-kR-6kA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="-243.32833583208398"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ConnectionProblem" width="140" height="140"/>
+    </resources>
+</document>
