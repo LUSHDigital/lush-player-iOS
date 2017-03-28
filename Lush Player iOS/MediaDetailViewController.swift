@@ -83,9 +83,11 @@ class MediaDetailViewController: UIViewController {
             switch mediaContentState {
             case .TV(let playerViewController):
                 playerViewController.view.frame = self.playerContainerView.bounds
+                self.playerContainerView.subviews.forEach({ $0.frame = self.playerContainerView.bounds })
             
             case .radio(let soundViewController):
                 soundViewController.view.frame = self.playerContainerView.bounds
+                self.playerContainerView.subviews.forEach({ $0.frame = self.playerContainerView.bounds })
             }
         }
         
@@ -129,7 +131,7 @@ class MediaDetailViewController: UIViewController {
                 self.playerContainerView.addSubview(playerViewController.view)
                 
                 self.mediaContentState = MediaContentState.TV(playerViewController)
-                playerViewController.avPlayerViewController.view?.addSubview(placeholder)
+                playerContainerView.addSubview(placeholder)
                 playerViewController.didMove(toParentViewController: self)
             }
             
@@ -142,7 +144,7 @@ class MediaDetailViewController: UIViewController {
                 self.playerContainerView.addSubview(playerViewController.view)
                 
                 playerViewController.didMove(toParentViewController: self)
-                playerViewController.view?.addSubview(placeholder)
+                playerContainerView.addSubview(placeholder)
 //                playerViewController.play(programme: programme)
                 self.mediaContentState = MediaContentState.radio(playerViewController)
             
@@ -152,32 +154,24 @@ class MediaDetailViewController: UIViewController {
     
     func playContent() {
         
+        let placeholderView = playerContainerView.subviews.filter({ $0 is MediaPlaceholderView }).first
+        UIView.animate(withDuration: 0.3, animations: {
+            placeholderView?.alpha = 0.0
+        }, completion: { (done) in
+            placeholderView?.isHidden = true
+            
+        })
+        
         if let mediaContentState = mediaContentState {
             switch mediaContentState {
+
             case .TV(let playerViewController):
-                
-                let placeholderView = playerViewController.avPlayerViewController.view.subviews.filter({ $0 is MediaPlaceholderView }).first
                 playerViewController.avPlayerViewController.player?.play()
-                UIView.animate(withDuration: 0.3, animations: { 
-                    placeholderView?.alpha = 0.0
-                }, completion: { (done) in
-                    placeholderView?.isHidden = true
-                    
-                })
                 
             case .radio(let soundViewController):
-                let placeholderView = soundViewController.view.subviews.filter({ $0 is MediaPlaceholderView }).first
                 soundViewController.play(programme: self.programme)
-                UIView.animate(withDuration: 0.3, animations: {
-                    placeholderView?.alpha = 0.0
-                }, completion: { (done) in
-                    placeholderView?.isHidden = true
-                    
-                })
-               
             }
         }
-        
     }
     
     func selectedTag(tag: String) {
