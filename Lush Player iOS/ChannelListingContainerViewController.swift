@@ -20,6 +20,9 @@ class ChannelListingContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        title = channel.title
+        
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: "ChannelListingViewControllerId") as? ChannelListingViewController else { return }
         viewController.selectedChannel = channel
         

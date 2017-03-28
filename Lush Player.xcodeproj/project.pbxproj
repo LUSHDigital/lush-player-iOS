@@ -60,6 +60,8 @@
 		FFEECD681E891F1F00AC7399 /* ThunderRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */; };
 		FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */; };
+		FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */; };
+		FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */; };
 		FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA071E8036CA007CE0C8 /* Home.storyboard */; };
 		FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */; };
 		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
@@ -277,6 +279,8 @@
 		FFEECD501E85487100AC7399 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingViewController.swift; sourceTree = "<group>"; };
 		FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingContainerViewController.swift; sourceTree = "<group>"; };
+		FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
 		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
@@ -555,6 +559,8 @@
 				FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */,
 				FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */,
 				FFEECD501E85487100AC7399 /* LoadingViewController.swift */,
+				FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */,
+				FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -936,6 +942,7 @@
 				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
 				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
 				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
+				FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */,
 				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
 				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
 				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
@@ -1039,6 +1046,7 @@
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
+				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
 				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
