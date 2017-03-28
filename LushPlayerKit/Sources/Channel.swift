@@ -26,4 +26,22 @@ public enum Channel : String {
             return UIImage(named: "Channel-\(rawValue.capitalized)")
         }
     }
+    
+    public var title: String {
+        
+        switch self {
+        case .life:
+            return "Lush Life"
+        case .kitchen:
+            return "Lush Kitchen"
+        case .times:
+            return "Lush Times"
+        case .soapbox:
+            return "SoapBox"
+        case .gorilla:
+            return "Gorilla"
+        case .cosmetics:
+            return "Lush Cosmetics"
+        }
+    }
 }

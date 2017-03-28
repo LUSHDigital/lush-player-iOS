@@ -20,6 +20,9 @@ class ChannelListingViewController: ContentListingViewController {
     }
     
     func refresh() {
+        
+        viewState = .loading(LoadingViewController())
+        
         guard let selectedChannel = selectedChannel else { return }
         // If we've already pulled the programmes for the selected channel
         if let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] {
@@ -36,8 +39,8 @@ class ChannelListingViewController: ContentListingViewController {
                 
                 // If we get an error, then display it
                 if let error = error, let welf = self {
-                    welf.viewState = .error(welf.errorStateViewController)
-                    UIAlertController.presentError(error, in: welf)
+                    welf.handleError(error: error)
+                    return
                 }
                 
 
@@ -54,6 +57,32 @@ class ChannelListingViewController: ContentListingViewController {
                 
             })
         }
+    }
+    
+    
+    func handleError(error: Error) {
+        
+        self.connectionErrorViewController.retryAction = { [weak self] in
+            self?.refresh()
+        }
+        
+        if error is URLError {
+            viewState = .error(self.connectionErrorViewController)
+            return
+        } else if (error as NSError).domain == "com.threesidedcube.ThunderRequest" {
+            viewState = .error(self.connectionErrorViewController)
+            return
+        }
+        
+        UIAlertController.presentError(error, in: self)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.parent is MenuContainerViewController {
+                    collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)
+        }
+
     }
     
     
