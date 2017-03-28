@@ -12,14 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
+    var statusBarBackground = UIView(frame: UIApplication.shared.statusBarFrame)
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
         customiseApp()
         
+        
         return true
+    }
+    
+    func rotated() {
+        statusBarBackground.isHidden = UIApplication.shared.isStatusBarHidden
     }
     
     func customiseApp() {
@@ -35,11 +41,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         tabbar.barTintColor = UIColor.white
         tabbar.tintColor = UIColor.black
         
-        // Add status bar background
-        let statusBarBackground = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 20))
         statusBarBackground.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1)
+        
+        //Add the view behind the status bar
         self.window?.rootViewController?.view.addSubview(statusBarBackground)
         
+        //set the constraints to auto-resize
+        statusBarBackground.translatesAutoresizingMaskIntoConstraints = false
+        statusBarBackground.superview?.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .top, relatedBy: .equal, toItem: statusBarBackground.superview, attribute: .top, multiplier: 1.0, constant: 0.0))
+        statusBarBackground.superview?.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .left, relatedBy: .equal, toItem: statusBarBackground.superview, attribute: .left, multiplier: 1.0, constant: 0.0))
+        statusBarBackground.superview?.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .right, relatedBy: .equal, toItem: statusBarBackground.superview, attribute: .right, multiplier: 1.0, constant: 0.0))
+        statusBarBackground.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: UIApplication.shared.statusBarFrame.height))
+
+        statusBarBackground.superview?.setNeedsUpdateConstraints()
+        statusBarBackground.isHidden = UIApplication.shared.isStatusBarHidden
     }
     
     
