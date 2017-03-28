@@ -12,9 +12,18 @@ class MenuCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
     
+    override var isSelected: Bool {
+        didSet {
+            if isSelected {
+                self.backgroundColor = UIColor(colorLiteralRed: 91/225, green: 91/225, blue: 91/225, alpha: 1)
+            } else {
+                self.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
 }

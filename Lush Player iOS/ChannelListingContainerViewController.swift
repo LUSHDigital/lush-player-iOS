@@ -9,7 +9,7 @@
 import UIKit
 import LushPlayerKit
 
-class ChannelListingContainerViewController: UIViewController {
+class ChannelListingContainerViewController: MenuContainerViewController {
     
     var channel: Channel!
     
@@ -20,6 +20,11 @@ class ChannelListingContainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        menuItems = [
+        MenuItem(title: "All Episodes", identifier: "all"),
+        MenuItem(title: Programme.Media.TV.displayString(), identifier: Programme.Media.TV.rawValue),
+        MenuItem(title: Programme.Media.radio.displayString(), identifier: Programme.Media.radio.rawValue)
+        ]
         
         title = channel.title
         
@@ -27,7 +32,7 @@ class ChannelListingContainerViewController: UIViewController {
         viewController.selectedChannel = channel
         
         addChildViewController(viewController)
-        self.view.addSubview(viewController.view)
+        containerView.addSubview(viewController.view)
         didMove(toParentViewController: viewController)
         
         // Do any additional setup after loading the view.
@@ -37,22 +42,31 @@ class ChannelListingContainerViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = false
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        
+        let firstIndex = IndexPath(item: 0, section: 0)
+        menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let menuItem = menuItems[indexPath.item]
+        let programmes = filterProgrammes(filterTerm: menuItem.identifier)
+        childListingViewController?.viewState = .loaded(programmes)
+        
     }
-    */
-
+    
+    func filterProgrammes(filterTerm: String) -> [Programme] {
+        
+        switch filterTerm {
+        case Programme.Media.radio.rawValue:
+            return LushPlayerController.shared.channelProgrammes[channel]?.filter({ $0.media == Programme.Media.radio }) ?? []
+        case Programme.Media.TV.rawValue:
+            return LushPlayerController.shared.channelProgrammes[channel]?.filter({ $0.media == Programme.Media.TV }) ?? []
+        default:
+            return LushPlayerController.shared.channelProgrammes[channel] ?? []
+        }
+ 
+    }
 }

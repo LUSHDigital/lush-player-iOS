@@ -56,6 +56,14 @@ class ChannelListingViewController: ContentListingViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.parent is MenuContainerViewController {
+                    collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)
+        }
+
+    }
+    
     
     override func showProgramme(programme: Programme) {
         super.showProgramme(programme: programme)

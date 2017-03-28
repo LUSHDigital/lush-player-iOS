@@ -16,13 +16,19 @@ class MenuContainerViewController: UIViewController {
             menuCollectionView.reloadData()
         }
     }
+    
+    var containerView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 70)
+        containerView = UIView(frame: self.view.bounds)
+        view.addSubview(containerView)
+        containerView.isUserInteractionEnabled = true
+
+        let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50)
         menuCollectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+        menuCollectionView.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
         
         let nib = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
         
@@ -62,6 +68,15 @@ extension MenuContainerViewController: UICollectionViewDataSource {
         return cell
     }
     
+}
+
+extension MenuContainerViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let size: CGSize = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+        return CGSize(width: size.width + 45.0, height: 50)
+    }
 }
 
 
