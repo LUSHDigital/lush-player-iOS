@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,7 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Set the correct background audio category for correct background behaviour
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        // Setup screen rotation observer
         NotificationCenter.default.addObserver(self, selector: #selector(AppDelegate.rotated), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        
+        // Overall App customisation 
         customiseApp()
         
         
@@ -43,10 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         statusBarBackground.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1)
         
-        //Add the view behind the status bar
         self.window?.rootViewController?.view.addSubview(statusBarBackground)
         
-        //set the constraints to auto-resize
         statusBarBackground.translatesAutoresizingMaskIntoConstraints = false
         statusBarBackground.superview?.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .top, relatedBy: .equal, toItem: statusBarBackground.superview, attribute: .top, multiplier: 1.0, constant: 0.0))
         statusBarBackground.superview?.addConstraint(NSLayoutConstraint(item: statusBarBackground, attribute: .left, relatedBy: .equal, toItem: statusBarBackground.superview, attribute: .left, multiplier: 1.0, constant: 0.0))
