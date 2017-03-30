@@ -9,7 +9,7 @@
 import UIKit
 import LushPlayerKit
 
-class ContentListingViewController: UIViewController {
+class ContentListingViewController: UIViewController, StateParentViewable {
     
     
     var viewState: ContentListingViewState = .loading(LoadingViewController()) {
@@ -18,13 +18,13 @@ class ContentListingViewController: UIViewController {
         }
     }
     
-    var connectionErrorViewController: ConnectionErrorViewController = {
+    lazy var connectionErrorViewController: ConnectionErrorViewController = {
         let storyboard = UIStoryboard(name: "ConnectionErrorScreen", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as? ConnectionErrorViewController
         return vc ?? ConnectionErrorViewController()
     }()
     
-    var emptyStateViewController: EmptyErrorViewController = {
+    lazy var emptyStateViewController: EmptyErrorViewController = {
         let storyboard = UIStoryboard(name: "EmptyStateScreen", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as? EmptyErrorViewController
         return vc ?? EmptyErrorViewController()
@@ -67,16 +67,6 @@ class ContentListingViewController: UIViewController {
             addChildViewController(errorViewController)
             self.view.addSubview(errorViewController.view)
             errorViewController.didMove(toParentViewController: self)
-        }
-    }
-    
-    func hideChildControllersIfNeeded() {
-
-        for vc in self.childViewControllers {
-            vc.willMove(toParentViewController: nil)
-    
-            vc.view.removeFromSuperview()
-            vc.removeFromParentViewController()
         }
     }
     
@@ -174,6 +164,23 @@ extension ContentListingViewController: ErrorStateDisplayable {
     }
     
 }
+
+protocol StateParentViewable {
+    func hideChildControllersIfNeeded()
+}
+
+extension StateParentViewable where Self:UIViewController {
+    
+    func hideChildControllersIfNeeded() {
+        for vc in self.childViewControllers {
+            vc.willMove(toParentViewController: nil)
+            vc.view.removeFromSuperview()
+            vc.removeFromParentViewController()
+        }
+    }
+}
+
+
 
 protocol LoadingStateDisplayable {
     
