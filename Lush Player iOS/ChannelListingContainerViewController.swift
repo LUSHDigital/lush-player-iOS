@@ -64,6 +64,7 @@ class ChannelListingContainerViewController: MenuContainerViewController {
                 
                 childListingViewController?.viewState = .empty(childListingViewController?.emptyStateViewController ?? EmptyErrorViewController())
                 childListingViewController?.emptyStateViewController.descriptionLabel.text = "Sorry, no \(menuItem.identifier == "all" ? "" : menuItem.title) episodes here right now"
+                childListingViewController?.emptyStateViewController.channelImageView.image = channel.image()
                 return
             }
             

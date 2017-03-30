@@ -36,6 +36,8 @@ public class PlayerViewController: UIViewController {
     public var playbackService: BCOVPlaybackService?
     
     public var seekTime: TimeInterval?
+    
+    public var shouldAutoPlay: Bool = true
 
     @IBOutlet public weak var activityIndicator: UIActivityIndicatorView!
     
@@ -76,9 +78,26 @@ public class PlayerViewController: UIViewController {
         // If the programme already has a GUID, then play it straight off
         if let _ = programme.guid {
             
-            play(programme: programme)
-            return
+            if shouldAutoPlay {
+                play(programme: programme)
+                return
+            }
         }
+        
+        fetch(programme: programme) { [weak self] (error, programme) in
+            if let programme = programme {
+                // Play the retuned programme
+                if let welf = self, welf.shouldAutoPlay {
+                    welf.play(programme: programme)
+                }
+            }
+        }
+        
+    }
+    
+    
+    
+    private func fetch(programme: Programme, completion: @escaping ((Error?, Programme?) -> ())) {
         
         // If we don't have a GUID for the programme, then fetch details from endpoint
         LushPlayerController.shared.fetchDetails(for: programme, with: { [weak self] (error: Error?, programme: Programme?) in
@@ -96,18 +115,27 @@ public class PlayerViewController: UIViewController {
                 return
             }
             
-            // Play the retuned programme
-            self?.play(programme: programme)
+            completion(error, programme)
         })
     }
     
     /// Plays a programme in the AVPlayerViewController
     ///
     /// - Parameter programme: The programme to start playings
-    private func play(programme: Programme) {
+    public func play(programme: Programme) {
         
         // Make sure programme has GUID again
-        guard let guid = programme.guid else { return }
+        guard let guid = programme.guid else {
+            
+            fetch(programme: programme, completion: { [weak self] (error, programme) in
+                if let programme = programme {
+                    // Play the retuned programme
+                    self?.play(programme: programme)
+                }
+            })
+            
+            return
+        }
         
         // Configure brightcove controller
         configureController()

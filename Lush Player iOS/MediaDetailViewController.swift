@@ -124,6 +124,7 @@ class MediaDetailViewController: UIViewController {
                 
                 playerViewController.programme = programme
                 playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
+                playerViewController.shouldAutoPlay = false
                 
                 addChildViewController(playerViewController)
                 let bounds = self.playerContainerView.bounds
@@ -166,7 +167,7 @@ class MediaDetailViewController: UIViewController {
             switch mediaContentState {
 
             case .TV(let playerViewController):
-                playerViewController.avPlayerViewController.player?.play()
+                playerViewController.play(programme: self.programme)
                 
             case .radio(let soundViewController):
                 soundViewController.play(programme: self.programme)

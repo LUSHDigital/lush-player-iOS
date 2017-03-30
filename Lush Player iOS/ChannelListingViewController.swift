@@ -54,7 +54,6 @@ class ChannelListingViewController: ContentListingViewController {
                     self?.viewState  = .loaded(programmes)
                     return
                 }
-                
             })
         }
     }
@@ -80,9 +79,8 @@ class ChannelListingViewController: ContentListingViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.parent is MenuContainerViewController {
-                    collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)
+            collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)
         }
-
     }
     
     
@@ -103,8 +101,6 @@ class ChannelListingViewController: ContentListingViewController {
     }
     
 }
-
-
 
 enum ChannelError: Error, LocalizedError {
     
