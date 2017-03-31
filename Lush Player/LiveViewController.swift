@@ -80,6 +80,7 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var liveView: TSCView!
     
     /// The image view used to display the programme thumbnail
+    @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     
     /// The gradient view used to merge the programme details into the thumbnail
@@ -100,6 +101,8 @@ class LiveViewController: UIViewController {
     @IBOutlet weak var descriptionRemainingConstraint: NSLayoutConstraint!
     
     /// The player view used to play the live 'no content' video when no live content
+    @IBAction func pressedShare(_ sender: SpacedCharacterButton) {
+    }
     @IBOutlet weak var backgroundPlayerView: PlayerView!
     
     /// The label displaying that there's currently no live content

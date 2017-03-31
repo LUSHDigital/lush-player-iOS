@@ -55,20 +55,9 @@ public class PlayerViewController: UIViewController {
         
         // If we have a playlist, then start playing
         if let playlist = playlist {
-            
-            // configure brightcove
-            configureController()
-            
-            // Get the current playback position
-            if let currentItem = playlist.playlistPosition {
-                seekTime = currentItem.playbackStartTime
-                self.controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
-            } else {
-                dismiss(animated: true, completion: nil)
-            }
-            
-            return
+            play(playlist: playlist)
         }
+        
         
         // If we have no programme then return
         guard let programme = programme else {
@@ -95,6 +84,26 @@ public class PlayerViewController: UIViewController {
         
     }
     
+    
+    deinit {
+        avPlayerViewController.player?.pause()
+        avPlayerViewController.view.removeFromSuperview()
+        avPlayerViewController.player = nil
+    }
+    
+    public func play(playlist: BCOVPlaylist) {
+        
+            // configure brightcove
+            configureController()
+            
+            // Get the current playback position
+            if let currentItem = playlist.playlistPosition {
+                seekTime = currentItem.playbackStartTime
+                self.controller?.setVideos([currentItem.scheduleItem.video] as NSFastEnumeration)
+            } else {
+                dismiss(animated: true, completion: nil)
+            }
+    }
     
     
     private func fetch(programme: Programme, completion: @escaping ((Error?, Programme?) -> ())) {

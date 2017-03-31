@@ -12,9 +12,9 @@ class SpacedCharacterButton: UIButton {
     
     var spacingAmount: Float = 1.5
 
-        override func setTitle(_ title: String?, for state: UIControlState) {
-            super.setTitle(title, for: state)
-            let attributedString = NSMutableAttributedString(string: title!, attributes: [NSKernAttributeName : CGFloat(spacingAmount)])
-            setAttributedTitle(attributedString, for: .normal)
-        }
+    override func setTitle(_ title: String?, for state: UIControlState) {
+        super.setTitle(title, for: state)
+        let attributedString = NSMutableAttributedString(string: title!, attributes: [NSKernAttributeName : CGFloat(spacingAmount)])
+        setAttributedTitle(attributedString, for: .normal)
+    }
 }
