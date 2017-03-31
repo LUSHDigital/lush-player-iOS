@@ -33,6 +33,17 @@ class LiveViewController: UIViewController, StateParentViewable {
         return vc ?? OffAirViewController()
     }()
     
+    @IBOutlet weak var playerViewContainer : UIView!
+    
+    @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
+    @IBOutlet weak var timeRemainingLabel: UILabel!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    
     func redraw() {
         
         switch liveViewState {
@@ -46,15 +57,11 @@ class LiveViewController: UIViewController, StateParentViewable {
             self.view.addSubview(loadingViewController.view)
             loadingViewController.didMove(toParentViewController: self)
             
-        case .live(let playerViewController):
+        case .live(let playlist):
             hideChildControllersIfNeeded()
-            playerViewController.view.frame = view.bounds
-            playerViewController.willMove(toParentViewController: self)
-            addChildViewController(playerViewController)
-            playerViewController.view.frame = playerViewContainer.bounds
-            playerViewContainer.addSubview(playerViewController.view)
-            
-            playerViewController.didMove(toParentViewController: self)
+            playerViewController.playlist = playlist
+            self.play(playlist: playlist)
+            playerViewController.play(playlist: playlist)
             
         case .offAir(let offAirViewController):
             
@@ -67,17 +74,48 @@ class LiveViewController: UIViewController, StateParentViewable {
     }
     
     
-    @IBOutlet var playerViewContainer : UIView!
+    func hideChildControllersIfNeeded() {
+        for vc in self.childViewControllers {
+            
+            if vc is OffAirViewController || vc is LoadingViewController {
+                vc.willMove(toParentViewController: nil)
+                vc.view.removeFromSuperview()
+                vc.removeFromParentViewController()
+            }
+            
+        }
+    }
     
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        playerViewController.brightcovePolicyKey = BrightcoveConstants.livePolicyID
+        playerViewController.view.frame = view.bounds
+        playerViewController.willMove(toParentViewController: self)
+        addChildViewController(playerViewController)
+        playerViewController.view.frame = playerViewContainer.bounds
+        playerViewContainer.addSubview(playerViewController.view)
+        
+        playerViewController.didMove(toParentViewController: self)
+        
+        
         redraw()
 //        self.liveViewState = .offAir(self.offAirViewCOntroller)
         refreshLive()
 
         // Do any additional setup after loading the view.
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        refreshLive()
+    }
+    
+    @IBAction func pressedShare(sender: Any) {
+        print("Share")
     }
 
 
@@ -122,31 +160,76 @@ class LiveViewController: UIViewController, StateParentViewable {
                 // If we got an error, show it!
                 if let error = error, let welf = self {
                     UIAlertController.presentError(error, in: welf)
+                    return
                 }
                 
                 // Setup the playlist, and redraw the view
-                self?.playerViewController.playlist = playlist
-                if let welf = self {
-                    welf.playerViewController.playlist = playlist
-                    welf.playerViewController.brightcovePolicyKey = BrightcoveConstants.livePolicyID
-                    welf.liveViewState = .live(welf.playerViewController)
+                if let playlist = playlist {
+                    self?.liveViewState = .live(playlist)
+                    return
                 }
-                
             })
         })
     }
     
+    func play(playlist: BCOVPlaylist) {
+        
+//        // Invalidate redraw timer
+//        redrawTimer?.invalidate()
+//
+//        // Make sure we have a position within it to play from
+        guard let playlistPosition = playlist.playlistPosition else {
+//
+//            // Check every 60 seconds for live playlist content!
+//            redrawTimer = Timer(fire: Date(timeIntervalSinceNow: 60), interval: 0, repeats: false, block: { [weak self] (timer) in
+//                self?.refreshLive()
+//            })
+//
+            return
+        }
+        
+        
+        self.playerViewController.play(playlist: playlist)
+//
+//        // We got a playlist, so stop playing fallback video
+//
+//        // Fire a timer 1 second after programme is scheduled to end, to redraw!
+//        remainingTimer?.invalidate()
+//        redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
+//            self?.redraw()
+//        })
+//
+//        // Show all UI in a nice animated fashion
+        
+        // date formatter for date label
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mma"
+        descriptionLabel.text = nil
+        
+        // Update remaining time label
+//        redrawRemainingLabel(playlistPosition: playlistPosition)
+        
+        // Update date label
+        dateLabel.text = "\(dateFormatter.string(from: playlistPosition.scheduleItem.startDate)) - \(dateFormatter.string(from: playlistPosition.scheduleItem.endDate))"
+        
+        // Set title label to name of video
+        let video = playlistPosition.scheduleItem.video
+        titleLabel.text = video.properties["name"] as? String
+        
+        // If we have a poster url on the video object, display it in background
+//        if let posterString = video.properties["poster"] as? String, let posterURL = URL(string: posterString) {
+//            imageView.set(imageURL: posterURL, withPlaceholder: nil, completion: nil)
+//        } else {
+//            imageView.set(imageURL: nil, withPlaceholder: nil, completion: nil)
+//        }
+//
+    }
     
-    
-
     
     enum LiveViewState {
         
         case loading(UIViewController)
-        case live(PlayerViewController)
+        case live(BCOVPlaylist)
         case offAir(UIViewController)
     }
-    
-    
-    
 }
