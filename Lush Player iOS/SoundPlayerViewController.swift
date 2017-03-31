@@ -56,6 +56,11 @@ class SoundPlayerViewController: AVPlayerViewController {
         playAudio(from: file, with: programme.thumbnailURL)
     }
     
+    deinit {
+        self.player?.pause()
+        self.view.removeFromSuperview()
+        self.player = nil
+    }
     
     
     /// Plays an audio file from a provided url, with a specified image url

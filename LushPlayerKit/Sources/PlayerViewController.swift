@@ -84,6 +84,13 @@ public class PlayerViewController: UIViewController {
         
     }
     
+    
+    deinit {
+        avPlayerViewController.player?.pause()
+        avPlayerViewController.view.removeFromSuperview()
+        avPlayerViewController.player = nil
+    }
+    
     public func play(playlist: BCOVPlaylist) {
         
             // configure brightcove

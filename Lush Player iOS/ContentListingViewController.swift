@@ -188,7 +188,7 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
         case (.compact, .compact):
             numberOfColumns = 1
         case (.compact, .regular):
-            numberOfColumns = 1
+            numberOfColumns = 2
         default:
             numberOfColumns = 1
         }
