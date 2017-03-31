@@ -72,7 +72,7 @@ class ContentListingViewController: UIViewController, StateParentViewable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let collectionViewLayout = UICollectionViewFlowLayout()
+        let collectionViewLayout = ContentListingFlowLayout()
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionViewLayout.minimumLineSpacing = 20
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
@@ -82,7 +82,22 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
+        setupConstraints()
+        
         redraw()
+    }
+    
+    func setupConstraints() {
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.addConstraints([
+            NSLayoutConstraint(item: collectionView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: collectionView, attribute: .left, relatedBy: .equal, toItem: collectionView.superview, attribute: .left, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: collectionView, attribute: .right, relatedBy: .equal, toItem: collectionView.superview, attribute: .right, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: collectionView, attribute: .bottom, relatedBy: .equal, toItem: collectionView.superview, attribute: .bottom, multiplier: 1.0, constant: 0.0)
+            ])
+        
+        view.setNeedsUpdateConstraints()
     }
     
     func showProgramme(programme: Programme) { }
@@ -142,6 +157,20 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
             showProgramme(programme: programme)
         }
     }
+    
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
+    }
 }
 
 
@@ -149,10 +178,33 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = collectionView.bounds.width - 40
-        let cellHeight = cellWidth * 0.9
+        var numberOfColumns: CGFloat = 1
+        
+        switch (view.traitCollection.verticalSizeClass, view.traitCollection.horizontalSizeClass) {
+        case (.regular, .regular):
+            numberOfColumns = 3
+        case (.regular, .compact):
+            numberOfColumns = 1
+        case (.compact, .compact):
+            numberOfColumns = 1
+        case (.compact, .regular):
+            numberOfColumns = 1
+        default:
+            numberOfColumns = 1
+        }
+        
+        
+        guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
+        let currentTotalWidth = collectionView.bounds.width - layout.sectionInset.left - layout.sectionInset.right
+    
+        
+        let cellWidth = (currentTotalWidth - (numberOfColumns-1) * layout.sectionInset.left) / numberOfColumns
+        let cellHeight = CGFloat(Double(cellWidth) * 0.9)
+
         let cellSize = CGSize(width: cellWidth , height: cellHeight)
         return cellSize
+        
+
     }
 }
 
@@ -180,6 +232,15 @@ extension StateParentViewable where Self:UIViewController {
     }
 }
 
+
+class ContentListingFlowLayout: UICollectionViewFlowLayout {
+    
+    
+    override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        return true
+    }
+    
+}
 
 
 protocol LoadingStateDisplayable {

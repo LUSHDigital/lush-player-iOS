@@ -15,6 +15,7 @@ class LoadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.black
         self.view.addSubview(loadingIndicator)
         loadingIndicator.startAnimating()
         
