@@ -78,6 +78,7 @@ class ChannelListingViewController: ContentListingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionView.collectionViewLayout.invalidateLayout()
         if self.parent is MenuContainerViewController {
             collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)
         }

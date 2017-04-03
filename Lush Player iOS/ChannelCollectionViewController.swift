@@ -48,7 +48,14 @@ class ChannelCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        collectionViewLayout.invalidateLayout()
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        
+        collectionViewLayout.invalidateLayout()
     }
     
     
@@ -82,6 +89,13 @@ class ChannelCollectionViewController: UICollectionViewController {
         let channel = LushPlayerController.allChannels[indexPath.item]
         performSegue(withIdentifier: "ShowChannelSegue", sender: channel)
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
+    }
 }
 
 
@@ -90,8 +104,24 @@ extension ChannelCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = collectionView.bounds.width / 2 - 1
-        let cellHeight = collectionView.bounds.height / 3 - 2
+        
+        var numberOfColumns: CGFloat = 2
+        var rowHeight: CGFloat = 3
+        
+        switch (UIDevice.current.orientation) {
+            
+            case (.landscapeLeft):
+                fallthrough
+            case (.landscapeRight):
+            numberOfColumns = 3
+            rowHeight = 2
+            default:
+            numberOfColumns = 2
+        }
+        
+        
+        let cellWidth = collectionView.bounds.width / numberOfColumns - 1
+        let cellHeight = collectionView.bounds.height / rowHeight - 2
         
         let cellSize = CGSize(width: cellWidth, height: cellHeight)
         return cellSize

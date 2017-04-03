@@ -55,14 +55,17 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         case .empty(let emptyStateViewController):
             
             hideChildControllersIfNeeded()
-            emptyStateViewController.view.frame = view.bounds
+            emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//            emptyStateViewController.view.frame = view.bounds
             addChildViewController(emptyStateViewController)
             self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
+            collectionView.reloadData()
             
         case .error(let errorViewController):
             
             hideChildControllersIfNeeded()
+            errorViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             errorViewController.view.frame = view.bounds
             addChildViewController(errorViewController)
             self.view.addSubview(errorViewController.view)
@@ -86,6 +89,13 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         
         redraw()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     
     func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -186,7 +196,7 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
         case (.regular, .compact):
             numberOfColumns = 1
         case (.compact, .compact):
-            numberOfColumns = 1
+            numberOfColumns = 2
         case (.compact, .regular):
             numberOfColumns = 2
         default:
