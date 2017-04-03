@@ -90,6 +90,12 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         redraw()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.collectionViewLayout.invalidateLayout()
+    }
+    
     
     func setupConstraints() {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
