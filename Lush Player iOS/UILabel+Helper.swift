@@ -11,17 +11,21 @@ import UIKit
 
 extension UILabel {
     
-    func isTruncated() -> Bool {
+    func countLabelLines() -> Int {
         
-        guard let text = self.text else { return false }
+        self.layoutIfNeeded()
+        let textAsNSString = (text ?? "") as NSString
+        let attributes = [NSFontAttributeName : font as Any]
         
-        let textString = text as NSString
-        
-        let boundingSize = CGSize(width: self.frame.size.width, height: CGFloat.greatestFiniteMagnitude)
-        let size = textString.boundingRect(with: boundingSize, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: self.font], context: nil).size
-
-        
-        return ceil(size.height) >= self.bounds.size.height
+        let labelSize = textAsNSString.boundingRect(with: CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
+        return Int(ceil(CGFloat(labelSize.height) / font.lineHeight))
     }
     
+    func isTruncated() -> Bool {
+        
+        if (countLabelLines() > numberOfLines) {
+            return true
+        }
+        return false
+    }
 }
