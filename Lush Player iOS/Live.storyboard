@@ -290,7 +290,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bwY-dI-cLR">
-                                <rect key="frame" x="19" y="140" width="337.5" height="388"/>
+                                <rect key="frame" x="19" y="145.5" width="337.5" height="377"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="h92-SD-sWI">
                                         <rect key="frame" x="91" y="0.0" width="156" height="178"/>
@@ -304,42 +304,53 @@
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="8" left="8" bottom="30" right="8"/>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're not live ’n’ kicking right now…" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsl-aL-A76">
-                                        <rect key="frame" x="6" y="188" width="326" height="67"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check back in soon to see broadcasts in real-time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wp6-K0-uXG">
-                                        <rect key="frame" x="3.5" y="265" width="330.5" height="43"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-jI-QLA">
-                                        <rect key="frame" x="69" y="318" width="200" height="70"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="UuX-Zt-IOL">
+                                        <rect key="frame" x="3.5" y="188" width="330.5" height="189"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cA-Ux-7V4" customClass="SpacedCharacterButton" customModule="Lush_Player_iOS" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="30" width="200" height="40"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="7zq-aN-FLm"/>
-                                                    <constraint firstAttribute="height" constant="40" id="9Tq-h3-Ph7"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
-                                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                <state key="normal" title="EXPLORE OUR CHANNELS">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="pressedExploreChannel:" destination="hcY-s1-4rj" eventType="touchUpInside" id="1i6-d5-MMP"/>
-                                                </connections>
-                                            </button>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Mf-WV-Nha">
+                                                <rect key="frame" x="0.0" y="0.0" width="330.5" height="115"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're not live ’n’ kicking right now…" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lsl-aL-A76">
+                                                        <rect key="frame" x="0.0" y="0.0" width="330.5" height="67"/>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check back in soon to see broadcasts in real-time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wp6-K0-uXG">
+                                                        <rect key="frame" x="0.0" y="72" width="330.5" height="43"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="gv3-jI-QLA">
+                                                <rect key="frame" x="65.5" y="119" width="200" height="70"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4cA-Ux-7V4" customClass="SpacedCharacterButton" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="30" width="200" height="40"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="7zq-aN-FLm"/>
+                                                            <constraint firstAttribute="height" constant="40" id="9Tq-h3-Ph7"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                                                        <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
+                                                        <state key="normal" title="EXPLORE OUR CHANNELS">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="pressedExploreChannel:" destination="hcY-s1-4rj" eventType="touchUpInside" id="1i6-d5-MMP"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="0.0" right="0.0"/>
+                                            </stackView>
                                         </subviews>
-                                        <edgeInsets key="layoutMargins" top="30" left="0.0" bottom="0.0" right="0.0"/>
                                     </stackView>
                                 </subviews>
+                                <variation key="heightClass=compact" axis="horizontal"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
