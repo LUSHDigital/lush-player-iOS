@@ -91,11 +91,14 @@ class MediaDetailViewController: UIViewController {
             }
         }
         
-        // Don't show expand button if our text is truncated 
+        // Don't show expand button if our text is not truncated
         if descriptionExpansion != .expanded {
             if !descriptionLabel.isTruncated() {
                 descriptionExpansion = .notExpandable
                 expandDescriptionButton.isHidden = true
+            } else {
+                descriptionExpansion = .contracted
+                expandDescriptionButton.isHidden = false
             }
         }
         
