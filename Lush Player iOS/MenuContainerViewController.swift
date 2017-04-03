@@ -31,6 +31,11 @@ class MenuContainerViewController: UIViewController {
 
         let frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 50)
         menuCollectionView = UICollectionView(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
+        if let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.minimumInteritemSpacing = 0
+            flowLayout.minimumLineSpacing = 0
+            flowLayout.sectionInset = .zero
+        }
         menuCollectionView.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
         
         let nib = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
@@ -91,8 +96,21 @@ extension MenuContainerViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size: CGSize = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
-        return CGSize(width: size.width + 45.0, height: 50)
+        if menuItems.count > 3 {
+            let size: CGSize = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+            return CGSize(width: size.width + 45.0, height: 50)
+        }
+        
+        let width = collectionView.bounds.size.width / CGFloat(menuItems.count)
+        return CGSize(width: width, height: 50)
+        
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        guard let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            return
+        }
+        flowLayout.invalidateLayout()
     }
 }
 
