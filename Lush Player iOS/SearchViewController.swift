@@ -39,6 +39,7 @@ class SearchViewController: UIViewController {
         
         let appearance = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
         appearance.textColor = .white
+        appearance.keyboardAppearance = .dark
         
         let image = UIImage.createImage(with: UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
         

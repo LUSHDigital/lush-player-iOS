@@ -42,6 +42,8 @@
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
 		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
 		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
+		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
+		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
 		FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */; };
 		FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */; };
 		FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; };
@@ -281,6 +283,8 @@
 		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffAirViewController.swift; sourceTree = "<group>"; };
 		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
@@ -612,6 +616,8 @@
 				FFE852071E928F9700E35902 /* SearchResultsViewController.swift */,
 				FFE8520B1E92996E00E35902 /* LushSearchBar.swift */,
 				FFE8520D1E929A9300E35902 /* LushSearchController.swift */,
+				FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */,
+				FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1001,6 +1007,7 @@
 				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
 				FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
+				FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
 			);
@@ -1121,6 +1128,7 @@
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */,
+				FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
 				FFE852121E93BA0E00E35902 /* main.swift in Sources */,
 				FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */,

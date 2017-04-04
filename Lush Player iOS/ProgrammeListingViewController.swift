@@ -13,7 +13,6 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     
@@ -39,7 +38,7 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
         return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         if case let .loaded(programmes) = viewState {
             

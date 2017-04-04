@@ -78,13 +78,16 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let collectionViewLayout = ContentListingFlowLayout()
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionViewLayout.minimumLineSpacing = 20
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
         self.view.addSubview(collectionView)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
@@ -144,6 +147,10 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             return
         }
         flowLayout.invalidateLayout()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
