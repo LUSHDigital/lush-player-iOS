@@ -1,65 +1,102 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="6uX-6l-Ug2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dz2-cM-luo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Search-->
-        <scene sceneID="asp-zJ-T85">
+        <!--Navigation Controller-->
+        <scene sceneID="xCc-x7-q1X">
             <objects>
-                <collectionViewController title="Search" id="6uX-6l-Ug2" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="84x-zv-1ZI">
+                <navigationController navigationBarHidden="YES" id="dz2-cM-luo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mZn-Q3-if2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FLi-ZQ-g0d" kind="relationship" relationship="rootViewController" id="Hqn-6a-5zd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bh-TC-Qtf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1664" y="947"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="DI3-8P-VU1">
+            <objects>
+                <viewController id="FLi-ZQ-g0d" customClass="SearchViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IoD-TH-GnT"/>
+                        <viewControllerLayoutGuide type="bottom" id="bxK-gX-hbw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yDP-l0-Akk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QjI-BH-r0O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="amv-T4-ovv" kind="embed" id="x34-M8-F6X"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emg-rh-UbW">
+                                <rect key="frame" x="0.0" y="20" width="375" height="90"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" placeholder="Type here" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8xG-9h-zcZ" customClass="LushSearchBar" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                        <offsetWrapper key="searchTextPositionAdjustment" horizontal="10" vertical="0.0"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8xG-9h-zcZ" secondAttribute="bottom" id="cpJ-7F-1Em"/>
+                                    <constraint firstItem="8xG-9h-zcZ" firstAttribute="leading" secondItem="emg-rh-UbW" secondAttribute="leading" id="enc-XL-Cau"/>
+                                    <constraint firstAttribute="trailing" secondItem="8xG-9h-zcZ" secondAttribute="trailing" id="gon-HI-eRi"/>
+                                    <constraint firstAttribute="height" constant="90" id="h7p-KL-OcO"/>
+                                    <constraint firstItem="8xG-9h-zcZ" firstAttribute="top" secondItem="emg-rh-UbW" secondAttribute="top" id="l5n-t6-Cdz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QjI-BH-r0O" firstAttribute="leading" secondItem="yDP-l0-Akk" secondAttribute="leading" id="5V0-NW-nbG"/>
+                            <constraint firstItem="QjI-BH-r0O" firstAttribute="top" secondItem="yDP-l0-Akk" secondAttribute="top" id="F5k-FV-zMH"/>
+                            <constraint firstAttribute="trailing" secondItem="emg-rh-UbW" secondAttribute="trailing" id="Fdu-LU-16L"/>
+                            <constraint firstItem="emg-rh-UbW" firstAttribute="top" secondItem="IoD-TH-GnT" secondAttribute="bottom" id="JHQ-Wi-nSc"/>
+                            <constraint firstItem="emg-rh-UbW" firstAttribute="leading" secondItem="yDP-l0-Akk" secondAttribute="leading" id="OVq-GB-bNQ"/>
+                            <constraint firstItem="bxK-gX-hbw" firstAttribute="top" secondItem="QjI-BH-r0O" secondAttribute="bottom" id="UWC-Qn-ngx"/>
+                            <constraint firstAttribute="trailing" secondItem="QjI-BH-r0O" secondAttribute="trailing" id="mB2-vn-yAs"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="dwi-I3-SBS"/>
+                    <connections>
+                        <outlet property="searchBar" destination="8xG-9h-zcZ" id="y2j-2G-HD6"/>
+                        <outlet property="searchContainerView" destination="emg-rh-UbW" id="hBK-ZZ-Qtp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9iS-rP-vea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-858.39999999999998" y="958.4707646176912"/>
+        </scene>
+        <!--Search Results View Controller-->
+        <scene sceneID="6BL-hm-O0t">
+            <objects>
+                <viewController storyboardIdentifier="SearchResultsViewControllerId" id="amv-T4-ovv" customClass="SearchResultsViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DOJ-Qm-vvG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="e31-zL-Q8O">
-                            <size key="itemSize" width="313" height="132"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                        </collectionViewFlowLayout>
-                        <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="fa2-bv-ZDR">
-                                <rect key="frame" x="31" y="0.0" width="313" height="132"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="313" height="132"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </view>
-                            </collectionViewCell>
-                        </cells>
-                        <connections>
-                            <outlet property="dataSource" destination="6uX-6l-Ug2" id="R9U-Xx-T2e"/>
-                            <outlet property="delegate" destination="6uX-6l-Ug2" id="SrE-nD-xJl"/>
-                        </connections>
-                    </collectionView>
-                    <connections>
-                        <outlet property="searchDisplayController" destination="44x-o8-s0E" id="KSD-uA-f5j"/>
-                    </connections>
-                </collectionViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hSN-ZR-31l" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="geP-DW-m9p">
-                    <connections>
-                        <outlet property="delegate" destination="6uX-6l-Ug2" id="hE4-V9-W3f"/>
-                        <outlet property="searchContentsController" destination="6uX-6l-Ug2" id="zLO-Yl-2CL"/>
-                        <outlet property="searchResultsDataSource" destination="6uX-6l-Ug2" id="sF2-cf-Cwp"/>
-                        <outlet property="searchResultsDelegate" destination="6uX-6l-Ug2" id="1C6-Hc-DOk"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="44x-o8-s0E">
-                    <connections>
-                        <outlet property="delegate" destination="6uX-6l-Ug2" id="k8U-r7-EqI"/>
-                        <outlet property="searchContentsController" destination="6uX-6l-Ug2" id="YiW-Iz-iok"/>
-                        <outlet property="searchResultsDataSource" destination="6uX-6l-Ug2" id="hcM-qn-e7X"/>
-                        <outlet property="searchResultsDelegate" destination="6uX-6l-Ug2" id="0xl-4p-a0z"/>
-                    </connections>
-                </searchDisplayController>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x50-aq-ckj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-10.4" y="971.96401799100454"/>
+            <point key="canvasLocation" x="114" y="1249"/>
         </scene>
     </scenes>
 </document>
