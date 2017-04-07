@@ -42,6 +42,9 @@
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
 		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
 		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
+		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
+		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
+		FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */; };
 		FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */; };
 		FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */; };
 		FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; };
@@ -53,6 +56,13 @@
 		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852021E928CD100E35902 /* SearchViewController.swift */; };
+		FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852071E928F9700E35902 /* SearchResultsViewController.swift */; };
+		FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */; };
+		FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520B1E92996E00E35902 /* LushSearchBar.swift */; };
+		FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520D1E929A9300E35902 /* LushSearchController.swift */; };
+		FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */; };
+		FFE852121E93BA0E00E35902 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852111E93BA0E00E35902 /* main.swift */; };
 		FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */; };
 		FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */; };
 		FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */; };
@@ -274,12 +284,22 @@
 		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmptyResultsViewController.swift; sourceTree = "<group>"; };
 		FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffAirViewController.swift; sourceTree = "<group>"; };
 		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
 		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
+		FFE852021E928CD100E35902 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FFE852071E928F9700E35902 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColourBlock.swift"; sourceTree = "<group>"; };
+		FFE8520B1E92996E00E35902 /* LushSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushSearchBar.swift; sourceTree = "<group>"; };
+		FFE8520D1E929A9300E35902 /* LushSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushSearchController.swift; sourceTree = "<group>"; };
+		FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeListingViewController.swift; sourceTree = "<group>"; };
+		FFE852111E93BA0E00E35902 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPlaceholderView.xib; sourceTree = "<group>"; };
 		FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlaceholderView.swift; sourceTree = "<group>"; };
 		FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListingViewController.swift; sourceTree = "<group>"; };
@@ -507,6 +527,7 @@
 				FFEECD4A1E85338200AC7399 /* Events */,
 				FFEECD4B1E8533B000AC7399 /* Helpers */,
 				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
+				FFE852111E93BA0E00E35902 /* main.swift */,
 				FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */,
 				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
 				FF1121801E7FE99000CD5337 /* Main.storyboard */,
@@ -574,6 +595,7 @@
 				FFEECD501E85487100AC7399 /* LoadingViewController.swift */,
 				FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */,
 				FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */,
+				FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */,
 			);
 			name = Listing;
 			sourceTree = "<group>";
@@ -592,6 +614,13 @@
 			isa = PBXGroup;
 			children = (
 				FFF5EA151E80372C007CE0C8 /* Search.storyboard */,
+				FFE852021E928CD100E35902 /* SearchViewController.swift */,
+				FFE852071E928F9700E35902 /* SearchResultsViewController.swift */,
+				FFE8520B1E92996E00E35902 /* LushSearchBar.swift */,
+				FFE8520D1E929A9300E35902 /* LushSearchController.swift */,
+				FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */,
+				FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */,
+				FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -608,6 +637,7 @@
 			isa = PBXGroup;
 			children = (
 				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
+				FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -980,6 +1010,7 @@
 				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
 				FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */,
 				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
+				FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
 			);
@@ -1074,13 +1105,19 @@
 			files = (
 				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
 				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */,
 				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
+				FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */,
+				FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */,
 				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
+				FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */,
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
+				FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */,
 				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
+				FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */,
 				FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
 				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
@@ -1095,7 +1132,10 @@
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
 				FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */,
+				FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
+				FFE852121E93BA0E00E35902 /* main.swift in Sources */,
+				FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */,
 				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
 				FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */,
 			);

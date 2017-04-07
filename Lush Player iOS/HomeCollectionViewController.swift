@@ -11,7 +11,7 @@ import LushPlayerKit
 
 private let reuseIdentifier = "HomeCellId"
 
-class HomeCollectionViewController: ContentListingViewController {
+class HomeCollectionViewController: ProgrammeListingViewController {
     
     
     override func viewDidLoad() {
@@ -24,7 +24,7 @@ class HomeCollectionViewController: ContentListingViewController {
     
     func refresh() {
         
-        viewState = .loading(LoadingViewController())
+        viewState = .loading
         
         // Fetch the latest TV programmes
         LushPlayerController.shared.fetchProgrammes(for: .TV, with: { [weak self] (error, programmes) in
@@ -38,11 +38,11 @@ class HomeCollectionViewController: ContentListingViewController {
     }
     
     func handleResponse(error: Error?, programmes: [Programme]?) {
-        if let _ = error {
+        if let error = error {
             self.connectionErrorViewController.retryAction = { [weak self] in
                 self?.refresh()
             }
-            self.viewState = ContentListingViewState.error(self.errorStateViewController)
+            self.viewState = ContentListingViewState.error(error)
             return
         }
         

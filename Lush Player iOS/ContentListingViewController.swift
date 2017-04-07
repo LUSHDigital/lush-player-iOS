@@ -9,14 +9,18 @@
 import UIKit
 import LushPlayerKit
 
-class ContentListingViewController: UIViewController, StateParentViewable {
+class ContentListingViewController<T>: UIViewController,StateParentViewable,
+                                        UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
+    typealias Model = T
     
-    var viewState: ContentListingViewState = .loading(LoadingViewController()) {
+    var viewState: ContentListingViewState<Model> = .loading {
         didSet {
             self.redraw()
         }
     }
+    
+    var loadingViewController = LoadingViewController()
     
     lazy var connectionErrorViewController: ConnectionErrorViewController = {
         let storyboard = UIStoryboard(name: "ConnectionErrorScreen", bundle: nil)
@@ -24,7 +28,7 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         return vc ?? ConnectionErrorViewController()
     }()
     
-    lazy var emptyStateViewController: EmptyErrorViewController = {
+    lazy var emptyStateViewController: UIViewController = {
         let storyboard = UIStoryboard(name: "EmptyStateScreen", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as? EmptyErrorViewController
         return vc ?? EmptyErrorViewController()
@@ -38,7 +42,7 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         
         switch viewState {
             
-        case .loading(let loadingViewController):
+        case .loading():
             
             hideChildControllersIfNeeded()
             loadingViewController.view.frame = view.bounds
@@ -52,36 +56,38 @@ class ContentListingViewController: UIViewController, StateParentViewable {
             hideChildControllersIfNeeded()
             collectionView.reloadData()
         
-        case .empty(let emptyStateViewController):
+        case .empty():
             
             hideChildControllersIfNeeded()
             emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//            emptyStateViewController.view.frame = view.bounds
             addChildViewController(emptyStateViewController)
             self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
             collectionView.reloadData()
             
-        case .error(let errorViewController):
-            
+        case .error(let error):
+            print(error)
             hideChildControllersIfNeeded()
-            errorViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            errorViewController.view.frame = view.bounds
-            addChildViewController(errorViewController)
-            self.view.addSubview(errorViewController.view)
-            errorViewController.didMove(toParentViewController: self)
+            errorStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            errorStateViewController.view.frame = view.bounds
+            addChildViewController(errorStateViewController)
+            self.view.addSubview(errorStateViewController.view)
+            errorStateViewController.didMove(toParentViewController: self)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let collectionViewLayout = ContentListingFlowLayout()
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionViewLayout.minimumLineSpacing = 20
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
         self.view.addSubview(collectionView)
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        
         let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
@@ -110,20 +116,6 @@ class ContentListingViewController: UIViewController, StateParentViewable {
         view.setNeedsUpdateConstraints()
     }
     
-    func showProgramme(programme: Programme) { }
-    
-    enum ContentListingViewState {
-        
-        case loaded([Programme])
-        case empty(UIViewController)
-        case error(UIViewController)
-        case loading(UIViewController)
-    }
-    
-}
-
-extension ContentListingViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -131,8 +123,8 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         switch viewState {
-        case .loaded(let programmes):
-            return programmes.count
+        case .loaded(let models):
+            return models.count
             
         default:
             return 0
@@ -140,38 +132,13 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? StandardMediaCell {
-            
-            if case let .loaded(programmes) = viewState {
-                
-                let programme = programmes[indexPath.item]
-                
-                cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
-                cell.titleLabel.text = programme.title
-                cell.mediaTypeLabel.text = programme.media.displayString()
-                cell.datePublishedLabel.text = programme.date?.timeAgo
-            
-                return cell
-            }
-        }
-        
-        return UICollectionViewCell()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        if case let .loaded(programmes) = viewState {
-            
-            let programme = programmes[indexPath.item]
-            showProgramme(programme: programme)
-        }
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCell", for: indexPath)
     }
     
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
-
+        
         collectionView.collectionViewLayout.invalidateLayout()
     }
     
@@ -181,10 +148,10 @@ extension ContentListingViewController: UICollectionViewDelegate, UICollectionVi
         }
         flowLayout.invalidateLayout()
     }
-}
-
-
-extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -206,17 +173,18 @@ extension ContentListingViewController: UICollectionViewDelegateFlowLayout {
         
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
         let currentTotalWidth = collectionView.bounds.width - layout.sectionInset.left - layout.sectionInset.right
-    
+        
         
         let cellWidth = (currentTotalWidth - (numberOfColumns-1) * layout.sectionInset.left) / numberOfColumns
         let cellHeight = CGFloat(Double(cellWidth) * 0.9)
-
+        
         let cellSize = CGSize(width: cellWidth , height: cellHeight)
         return cellSize
         
-
+        
     }
 }
+
 
 extension ContentListingViewController: ErrorStateDisplayable {
     
@@ -250,6 +218,15 @@ class ContentListingFlowLayout: UICollectionViewFlowLayout {
         return true
     }
     
+}
+
+
+enum ContentListingViewState<Model> {
+    
+    case loaded([Model])
+    case empty
+    case error(Error)
+    case loading
 }
 
 

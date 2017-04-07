@@ -62,9 +62,11 @@ class ChannelListingContainerViewController: MenuContainerViewController {
             
             if filteredProgrammes.isEmpty {
                 
-                childListingViewController?.viewState = .empty(childListingViewController?.emptyStateViewController ?? EmptyErrorViewController())
-                childListingViewController?.emptyStateViewController.descriptionLabel.text = "Sorry, no \(menuItem.identifier == "all" ? "" : menuItem.title) episodes here right now"
-                childListingViewController?.emptyStateViewController.channelImageView.image = channel.image()
+                childListingViewController?.viewState = .empty
+                
+                guard let emptyStateViewController = childListingViewController?.emptyStateViewController as? EmptyErrorViewController else { return }
+                emptyStateViewController.descriptionLabel.text = "Sorry, no \(menuItem.identifier == "all" ? "" : menuItem.title) episodes here right now"
+                emptyStateViewController.channelImageView.image = channel.image()
                 return
             }
             

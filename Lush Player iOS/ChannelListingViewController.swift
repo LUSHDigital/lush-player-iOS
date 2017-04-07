@@ -9,7 +9,7 @@
 import UIKit
 import LushPlayerKit
 
-class ChannelListingViewController: ContentListingViewController {
+class ChannelListingViewController: ProgrammeListingViewController {
     
     var selectedChannel: Channel?
 
@@ -21,13 +21,13 @@ class ChannelListingViewController: ContentListingViewController {
     
     func refresh() {
         
-        viewState = .loading(LoadingViewController())
+        viewState = .loading
         
         guard let selectedChannel = selectedChannel else { return }
         // If we've already pulled the programmes for the selected channel
         if let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] {
             if programmes.isEmpty {
-                self.viewState = .empty(emptyStateViewController)
+                self.viewState = .empty
                 return
             }
             self.viewState  = .loaded(programmes)
@@ -47,7 +47,7 @@ class ChannelListingViewController: ContentListingViewController {
                 if let programmes = programmes {
                     // If there are no programmes so the empty state
                     if programmes.isEmpty, let emptyStateViewController = self?.emptyStateViewController {
-                        self?.viewState = .empty(emptyStateViewController)
+                        self?.viewState = .empty
                         return
                     }
                     
@@ -66,10 +66,10 @@ class ChannelListingViewController: ContentListingViewController {
         }
         
         if error is URLError {
-            viewState = .error(self.connectionErrorViewController)
+            viewState = .error(error)
             return
         } else if (error as NSError).domain == "com.threesidedcube.ThunderRequest" {
-            viewState = .error(self.connectionErrorViewController)
+            viewState = .error(error)
             return
         }
         
