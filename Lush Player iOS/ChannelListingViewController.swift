@@ -27,7 +27,7 @@ class ChannelListingViewController: ProgrammeListingViewController {
         // If we've already pulled the programmes for the selected channel
         if let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] {
             if programmes.isEmpty {
-                self.viewState = .empty(emptyStateViewController)
+                self.viewState = .empty
                 return
             }
             self.viewState  = .loaded(programmes)
@@ -47,7 +47,7 @@ class ChannelListingViewController: ProgrammeListingViewController {
                 if let programmes = programmes {
                     // If there are no programmes so the empty state
                     if programmes.isEmpty, let emptyStateViewController = self?.emptyStateViewController {
-                        self?.viewState = .empty(emptyStateViewController)
+                        self?.viewState = .empty
                         return
                     }
                     

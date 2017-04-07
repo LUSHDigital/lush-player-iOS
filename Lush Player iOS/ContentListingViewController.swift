@@ -28,7 +28,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         return vc ?? ConnectionErrorViewController()
     }()
     
-    lazy var emptyStateViewController: EmptyErrorViewController = {
+    lazy var emptyStateViewController: UIViewController = {
         let storyboard = UIStoryboard(name: "EmptyStateScreen", bundle: nil)
         let vc = storyboard.instantiateInitialViewController() as? EmptyErrorViewController
         return vc ?? EmptyErrorViewController()
@@ -56,7 +56,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             hideChildControllersIfNeeded()
             collectionView.reloadData()
         
-        case .empty(let emptyStateViewController):
+        case .empty():
             
             hideChildControllersIfNeeded()
             emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -224,7 +224,7 @@ class ContentListingFlowLayout: UICollectionViewFlowLayout {
 enum ContentListingViewState<Model> {
     
     case loaded([Model])
-    case empty(UIViewController)
+    case empty
     case error(Error)
     case loading
 }

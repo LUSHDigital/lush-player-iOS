@@ -27,11 +27,21 @@ class SearchViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupSearchBar()
         
+        self.navigationController?.isNavigationBarHidden = true
         searchQueue.maxConcurrentOperationCount = 1
         searchQueue.qualityOfService = .userInitiated
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        UIView.animate(withDuration: 0.3) { 
+            self.navigationController?.isNavigationBarHidden = true
+        }
     }
     
 
@@ -72,6 +82,16 @@ class SearchViewController: UIViewController {
                 
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
+                        
+                        if searchResults.isEmpty {
+                            self?.searchResultsController?.viewState = .empty
+                            if let emptyStateViewController = self?.searchResultsController?.emptyStateViewController as? SearchEmptyResultsViewController {
+                                emptyStateViewController.descriptionLabel.text = "No search results found"
+                                emptyStateViewController.searchAgainButton.setTitle("Search Again".uppercased(), for: .normal)
+                            }
+                            return
+                        }
+                        
                         self?.searchResultsController?.viewState = .loaded(searchResults)
                     }
                 })

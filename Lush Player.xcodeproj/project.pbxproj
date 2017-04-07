@@ -44,6 +44,7 @@
 		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
 		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
 		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
+		FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */; };
 		FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */; };
 		FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */; };
 		FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; };
@@ -285,6 +286,7 @@
 		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmptyResultsViewController.swift; sourceTree = "<group>"; };
 		FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
 		FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffAirViewController.swift; sourceTree = "<group>"; };
 		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				FFE8520D1E929A9300E35902 /* LushSearchController.swift */,
 				FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */,
 				FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */,
+				FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -1105,6 +1108,7 @@
 				FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */,
 				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
 				FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */,
+				FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */,
 				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
 				FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */,
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,

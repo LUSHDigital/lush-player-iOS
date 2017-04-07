@@ -11,10 +11,27 @@ import LushPlayerKit
 
 class SearchResultsViewController: ContentListingViewController<SearchResult> {
 
+
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        self.emptyStateViewController = {
+                let storyboard = UIStoryboard(name: "Search", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "SearchEmptyResultsViewControllerId") as? SearchEmptyResultsViewController
+                return vc ?? SearchEmptyResultsViewController()
+            }()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.viewState = .empty
         
+        guard let emptyStateViewController = emptyStateViewController as? SearchEmptyResultsViewController else { return }
+        
+        emptyStateViewController.descriptionLabel.text = "Search for a programme"
+        emptyStateViewController.searchAgainButton.setTitle("Search".uppercased(), for: .normal)
         
         let nib = UINib(nibName: "SearchCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "SearchCollectionViewCell")
@@ -61,4 +78,54 @@ class SearchResultsViewController: ContentListingViewController<SearchResult> {
         
         return CGSize(width: width, height: height)
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard case let .loaded(searchResults) = viewState else {
+            return
+        }
+        
+        let result = searchResults[indexPath.item]
+        
+        // Set the dummy programme's media type...
+        var media: Programme.Media = .TV
+        if result.media == .radio {
+            media = .radio
+        }
+        
+        let programmes = LushPlayerController.shared.programmes[media]
+        if let foundProgramme = programmes?.filter({ $0.id == result.id }).first {
+            
+            performSegue(withIdentifier: "MediaDetailSegue", sender: foundProgramme)
+            return
+        }
+        
+        // Else Create a dummy Programme dictionary representation from the search result
+        var programmeDict: [AnyHashable : Any] = ["id":result.id]
+        if let title = result.title {
+            programmeDict["title"] = title
+        }
+        if let thumbnailURL = result.thumbnailURL {
+            programmeDict["thumbnail"] = thumbnailURL.absoluteString
+        }
+        
+
+        
+        // Show the selected programme created from the selected search result
+        guard let programme = Programme(dictionary: programmeDict, media: media) else { return }
+
+        performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "MediaDetailSegue" {
+            if let destination = segue.destination as? MediaDetailViewController, let programme = sender as? Programme {
+                
+                destination.programme = programme
+            }
+        }
+    }
 }
+
+
