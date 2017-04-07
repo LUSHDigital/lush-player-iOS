@@ -36,6 +36,8 @@ class MediaDetailViewController: UIViewController {
     
     @IBOutlet weak var playerContainerView: UIView!
     
+    @IBOutlet weak var tagsStackView: UIStackView!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     var tagListController: TagListCollectionViewController? {
@@ -64,15 +66,22 @@ class MediaDetailViewController: UIViewController {
         dateLabel.text = programme.date?.timeAgo
         
         shareButton.setTitle("SHARE", for: .normal)
-        if let tagListController = tagListController {
+        
+        if let tags = programme.tags, !tags.isEmpty {
             
-            if let tags = programme.tags {
+            if let tagListController = tagListController {
+                
+                
                 tagListController.tags = tags
+                
+                tagListController.didSelectTag = { [weak self] tag in
+                    self?.selectedTag(tag: tag)
+                }
             }
-            tagListController.didSelectTag = { [weak self] tag in
-                self?.selectedTag(tag: tag)
-            }
+        } else {
+            tagsStackView.isHidden = true
         }
+       
     }
     
     
