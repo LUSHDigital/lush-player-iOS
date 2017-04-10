@@ -127,7 +127,7 @@
                                                 <edgeInsets key="layoutMargins" top="20" left="0.0" bottom="20" right="0.0"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Wx-gx-fND" userLabel="Tags StackView">
-                                                <rect key="frame" x="0.0" y="512" width="375" height="176.5"/>
+                                                <rect key="frame" x="0.0" y="512" width="374" height="176.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wke-Po-pLl">
                                                         <rect key="frame" x="20" y="0.0" width="39.5" height="20.5"/>
@@ -136,10 +136,9 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="335" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="Jhb-Lg-VRE">
-                                                        <rect key="frame" x="20" y="40.5" width="335" height="128"/>
+                                                        <rect key="frame" x="20" y="40.5" width="334" height="128"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="335" id="GAK-pF-tkM"/>
-                                                            <constraint firstAttribute="height" constant="128" id="mLk-DO-fq7"/>
+                                                            <constraint firstAttribute="height" constant="128" id="WXF-Gu-cAG"/>
                                                         </constraints>
                                                         <connections>
                                                             <segue destination="1Ld-Nj-7GX" kind="embed" id="CMY-CD-fUn"/>
@@ -166,6 +165,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Jhb-Lg-VRE" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" multiplier="0.89" id="KMe-ww-cv0"/>
                             <constraint firstItem="sM2-JF-08P" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="Kxy-88-aoF"/>
                             <constraint firstItem="wrN-ut-Lnv" firstAttribute="width" secondItem="1yH-MX-4g6" secondAttribute="width" id="X9T-Jw-QgI"/>
                             <constraint firstItem="pdx-cS-u8s" firstAttribute="top" secondItem="lD4-Sl-p5c" secondAttribute="bottom" id="ZI9-jV-YA6"/>
@@ -185,7 +185,7 @@
                         <outlet property="playerContainerView" destination="wrN-ut-Lnv" id="fCK-wp-vWD"/>
                         <outlet property="scrollView" destination="lD4-Sl-p5c" id="w09-g5-hPd"/>
                         <outlet property="shareButton" destination="fFR-ln-xfo" id="ILK-IZ-uzY"/>
-                        <outlet property="tagListContainerHeight" destination="mLk-DO-fq7" id="f88-mw-eOL"/>
+                        <outlet property="tagListContainerHeight" destination="WXF-Gu-cAG" id="02c-zZ-7uF"/>
                         <outlet property="tagsContainerView" destination="Jhb-Lg-VRE" id="h6Q-Wa-RsM"/>
                         <outlet property="tagsStackView" destination="4Wx-gx-fND" id="imd-ZN-nZ6"/>
                         <outlet property="titleLabel" destination="xn6-S0-5Bz" id="uqP-ar-jlr"/>
@@ -199,8 +199,8 @@
         <scene sceneID="A0b-6K-Qg1">
             <objects>
                 <collectionViewController id="1Ld-Nj-7GX" customClass="TagListCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="335" height="128"/>
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="334" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Siy-gi-dEX" customClass="UICollectionViewLeftAlignedLayout">
                             <size key="itemSize" width="50" height="50"/>
