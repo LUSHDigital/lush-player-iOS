@@ -88,18 +88,6 @@ class MediaDetailViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        if let mediaContentState = mediaContentState {
-            switch mediaContentState {
-            case .TV(let playerViewController):
-                playerViewController.view.frame = self.playerContainerView.bounds
-                self.playerContainerView.subviews.forEach({ $0.frame = self.playerContainerView.bounds })
-            
-            case .radio(let soundViewController):
-                soundViewController.view.frame = self.playerContainerView.bounds
-                self.playerContainerView.subviews.forEach({ $0.frame = self.playerContainerView.bounds })
-            }
-        }
-        
         // Don't show expand button if our text is not truncated
         if descriptionExpansion != .expanded {
             if !descriptionLabel.isTruncated() {
@@ -145,6 +133,7 @@ class MediaDetailViewController: UIViewController {
                 
                 self.mediaContentState = MediaContentState.TV(playerViewController)
                 playerContainerView.addSubview(placeholder)
+                placeholder.bindFrameToSuperviewBounds()
                 playerViewController.didMove(toParentViewController: self)
             }
             
@@ -158,6 +147,7 @@ class MediaDetailViewController: UIViewController {
                 
                 playerViewController.didMove(toParentViewController: self)
                 playerContainerView.addSubview(placeholder)
+                placeholder.bindFrameToSuperviewBounds()
 //                playerViewController.play(programme: programme)
                 self.mediaContentState = MediaContentState.radio(playerViewController)
             

@@ -20,6 +20,10 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         }
     }
     
+    var shouldAnimateCellsIn: Bool = true
+    var animatedCellsDictionary = [IndexPath: Bool]()
+    var shouldAnimateInitialCells: Bool = true
+    
     var loadingViewController = LoadingViewController()
     
     lazy var connectionErrorViewController: ConnectionErrorViewController = {
@@ -155,21 +159,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        var numberOfColumns: CGFloat = 1
-        
-        switch (view.traitCollection.verticalSizeClass, view.traitCollection.horizontalSizeClass) {
-        case (.regular, .regular):
-            numberOfColumns = 3
-        case (.regular, .compact):
-            numberOfColumns = 1
-        case (.compact, .compact):
-            numberOfColumns = 2
-        case (.compact, .regular):
-            numberOfColumns = 2
-        default:
-            numberOfColumns = 1
-        }
-        
+        let numberOfColumns: CGFloat = numberOfColumnsForSizeClass()
         
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return .zero }
         let currentTotalWidth = collectionView.bounds.width - layout.sectionInset.left - layout.sectionInset.right
@@ -183,6 +173,59 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if cell.frame.midY >= collectionView.bounds.maxY {
+            shouldAnimateInitialCells = false
+        }
+        
+        if shouldAnimateInitialCells {
+            
+            if animatedCellsDictionary[indexPath] == nil {
+                cell.alpha = 0
+                
+                UIView.animate(withDuration: 0.4, delay: 0.04 * Double(indexPath.item), options: .curveEaseIn, animations: { 
+                    cell.alpha = 1
+                }, completion: nil)
+                
+                animatedCellsDictionary[indexPath] = true
+                return
+            }
+        }
+        
+        
+        if shouldAnimateCellsIn {
+            
+            if animatedCellsDictionary[indexPath] == nil {
+                cell.alpha = 0
+                
+                UIView.animate(withDuration: 0.4, animations: {
+                    cell.alpha = 1
+                })
+                
+                animatedCellsDictionary[indexPath] = true
+            }
+        }
+    }
+    
+    
+    
+    func numberOfColumnsForSizeClass() -> CGFloat {
+        switch (view.traitCollection.verticalSizeClass, view.traitCollection.horizontalSizeClass) {
+        case (.regular, .regular):
+            return 3
+        case (.regular, .compact):
+            return 1
+        case (.compact, .compact):
+            return 2
+        case (.compact, .regular):
+            return 2
+        default:
+            return 1
+        }
+    }
+
 }
 
 
