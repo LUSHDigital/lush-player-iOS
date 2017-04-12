@@ -100,8 +100,9 @@
 		FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */; };
 		FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */; };
 		FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */; };
-		FFFC47A41E9BBCB000290F07 /* EventItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A31E9BBCB000290F07 /* EventItemController.swift */; };
+		FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */; };
 		FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */; };
+		FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -342,8 +343,9 @@
 		FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
 		FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
 		FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionView.swift; sourceTree = "<group>"; };
-		FFFC47A31E9BBCB000290F07 /* EventItemController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventItemController.swift; sourceTree = "<group>"; };
+		FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProgrammeController.swift; sourceTree = "<group>"; };
 		FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -647,8 +649,9 @@
 				FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */,
 				FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */,
 				FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */,
-				FFFC47A31E9BBCB000290F07 /* EventItemController.swift */,
+				FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */,
 				FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */,
+				FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1135,13 +1138,14 @@
 				FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */,
 				FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */,
 				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
-				FFFC47A41E9BBCB000290F07 /* EventItemController.swift in Sources */,
+				FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */,
 				FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */,
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */,
 				FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */,
+				FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */,
 				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFFC478A1E9B992400290F07 /* UIView+Pin.swift in Sources */,

@@ -48,11 +48,18 @@ class MenuContainerViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let firstIndex = IndexPath(item: 0, section: 0)
+        menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+    }
+    
     func layoutMenu() {
         
         menuCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraints([
-            NSLayoutConstraint(item: menuCollectionView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: menuCollectionView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
@@ -107,6 +114,8 @@ extension MenuContainerViewController: UICollectionViewDelegateFlowLayout {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if menuCollectionView == nil { return }
         guard let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }

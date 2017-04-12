@@ -10,8 +10,15 @@ import UIKit
 
 class EventCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
+    var shouldStopOnMiddleItem: Bool = true
+    
+    weak var eventFlowLayoutDelegate: EventCollectionViewFlowLayoutDelegate?
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        
+        guard shouldStopOnMiddleItem else {
+            return proposedContentOffset
+        }
         
         guard let collectionView = collectionView else { return proposedContentOffset }
         
@@ -46,4 +53,18 @@ class EventCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
         return CGPoint(x: _candidateAttributes.center.x - halfWidth, y: proposedContentOffset.y)
     }
+    
+    override func invalidateLayout() {
+        super.invalidateLayout()
+        
+        if let collectionView = collectionView {
+            eventFlowLayoutDelegate?.layoutWasInvalidated(collectionView: collectionView, eventCollectionViewFlowLayout: self)
+        }
+    }
 }
+
+protocol EventCollectionViewFlowLayoutDelegate: class {
+    
+    func layoutWasInvalidated(collectionView: UICollectionView, eventCollectionViewFlowLayout: EventCollectionViewFlowLayout)
+}
+

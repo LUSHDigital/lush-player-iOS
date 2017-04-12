@@ -17,7 +17,9 @@ protocol EventProgrammeControllerDelegate: class {
 class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var events: [Event]?
-    var maxNumberOfProgrammes: Int = 4
+    var maxNumberOfProgrammes: Int = 6
+    
+    var viewMode: ViewMode = .compact
     
     weak var delegate: EventProgrammeControllerDelegate?
     
@@ -32,6 +34,11 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
+    
+        if let flowLayout = collectionView.collectionViewLayout as? EventCollectionViewFlowLayout {
+            flowLayout.eventFlowLayoutDelegate = self
+        }
+        
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? StandardMediaCell else {
             fatalError("Incorrect cell")
         }
@@ -50,14 +57,23 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
     }
     
     
+    
     func numberOfProgrammesToDisplay(item: Int) -> Int {
         guard let events = events else { return 0 }
+        
         return events[item].programmes.prefix(maxNumberOfProgrammes).count
+    }
+    
+    enum ViewMode {
+        
+        case extended
+        case compact
     }
 }
 
 
 extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -74,8 +90,17 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
             return UIEdgeInsets.zero
         }
         
-        let inset = collectionView.bounds.width - (flowLayout.minimumInteritemSpacing + 250)
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: inset/2)
+        
+        switch viewMode {
+            
+        case .compact:
+            let inset = collectionView.bounds.width - (flowLayout.minimumInteritemSpacing + 250)
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: inset/2)
+    
+        case .extended:
+
+            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        }
     }
     
     
@@ -87,3 +112,22 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
     }
     
 }
+
+extension EventProgrammeController: EventCollectionViewFlowLayoutDelegate {
+    
+    func layoutWasInvalidated(collectionView: UICollectionView, eventCollectionViewFlowLayout: EventCollectionViewFlowLayout) {
+        
+        switch viewMode {
+            
+        case .compact:
+            collectionView.isPagingEnabled = false
+            eventCollectionViewFlowLayout.shouldStopOnMiddleItem = true
+            
+        case .extended:
+            collectionView.isPagingEnabled = true
+            eventCollectionViewFlowLayout.shouldStopOnMiddleItem = false
+        }
+    }
+    
+}
+

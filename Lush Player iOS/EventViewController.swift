@@ -14,12 +14,13 @@ struct Event {
     var id: String
     var title: String
     var programmes: [Programme]
-    
 }
+
 
 class EventViewController: ContentListingViewController<Event> {
     
     let eventProgrammeController = EventProgrammeController()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,39 +28,39 @@ class EventViewController: ContentListingViewController<Event> {
         let nib = UINib(nibName: "EventCollectionViewCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "EventCollectionViewCellId")
         
-        let radioProgrammes = LushPlayerController.shared.programmes[.radio] ?? []
-        let tvProgrammes = LushPlayerController.shared.programmes[.TV] ?? []
-        
-        let programmes = (radioProgrammes + tvProgrammes)
-        var tagDictionary = [String: [Programme]]()
-        
-        for programme in programmes {
-            guard let tags = programme.tags else {
-                continue
-            }
-            
-            for tag in tags {
-                print(tag)
-                if var programmeStore = tagDictionary[tag] {
-                    programmeStore.append(programme)
-                    tagDictionary[tag] = programmeStore
-                } else {
-                    tagDictionary[tag] = [programme]
-                }
-            }
-        }
-        
-        
-        let summit = Event(id: "summit", title: "Summit 2017", programmes: tagDictionary["summit"] ?? [])
-        let showcase =  Event(id: "showcase 2016", title: "Creative Showcase 2016", programmes: tagDictionary["showcase 2016"] ?? [])
-        let events = [summit, showcase]
-        
+        viewModeForDeviceTraits(traits: self.traitCollection)
         eventProgrammeController.delegate = self
-        eventProgrammeController.events = events
-        viewState = .loaded(events)
-
-        // Do any additional setup after loading the view.
     }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if self.parent is MenuContainerViewController {
+            collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
+        }
+    }
+    
+    
+    func viewModeForDeviceTraits(traits: UITraitCollection) {
+        if (traits.horizontalSizeClass == .regular) ||  (UIDevice.current.orientation.isLandscape) {
+            
+            eventProgrammeController.viewMode = .extended
+        } else {
+            eventProgrammeController.viewMode = .compact
+        }
+    }
+    
+    
+    
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+        viewModeForDeviceTraits(traits: newCollection)
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.reloadData()
+    }
+    
     
     
     
@@ -72,10 +73,17 @@ class EventViewController: ContentListingViewController<Event> {
                 let event = events[indexPath.item]
                 cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: eventProgrammeController, forRow: indexPath.item)
                 cell.eventLabel.text = event.title
-                cell.pageControl.numberOfPages = eventProgrammeController.numberOfProgrammesToDisplay(item: indexPath.item)
+                switch eventProgrammeController.viewMode {
+                case .compact:
+                    cell.pageControl.numberOfPages = eventProgrammeController.numberOfProgrammesToDisplay(item: indexPath.item)
+                    
+                case .extended:
+                    cell.pageControl.numberOfPages = Int(ceil(cell.eventItemsCollectionView.contentSize.width / cell.eventItemsCollectionView.frame.size.width))
+
+                }
+                
                 
                 return cell
-                
             }
         }
         
@@ -87,22 +95,47 @@ class EventViewController: ContentListingViewController<Event> {
 
             return CGSize(width: collectionView.bounds.width, height: 420)
     }
+    
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        guard let cell = cell as? EventCollectionViewCell else {
+            return
+        }
+        if eventProgrammeController.viewMode == .extended {
+            cell.pageControl.numberOfPages = Int(ceil(cell.eventItemsCollectionView.contentSize.width / cell.eventItemsCollectionView.frame.size.width))
+        }
+
+    }
 }
 
 
 extension EventViewController: EventProgrammeControllerDelegate {
 
     func eventItemsDidScroll(collectionView: UICollectionView) {
-        
-        let contentOffset = collectionView.contentOffset
-        let centrePoint =  CGPoint(
-            x: contentOffset.x + collectionView.frame.midX,
-            y: contentOffset.y + collectionView.frame.midY
-        )
+        setPageControlIndex(for: collectionView)
+
+    }
+    
+    func setPageControlIndex(for collectionView: UICollectionView) {
         guard let cell = self.collectionView.cellForItem(at: IndexPath(item: collectionView.tag, section: 0)) as? EventCollectionViewCell else { return }
         
-        if let index = collectionView.indexPathForItem(at: centrePoint){
-            cell.pageControl.currentPage = index.row
+        switch eventProgrammeController.viewMode {
+            
+        case .compact:
+            let contentOffset = collectionView.contentOffset
+            let centrePoint =  CGPoint(
+                x: contentOffset.x + collectionView.frame.midX,
+                y: contentOffset.y + collectionView.frame.midY
+            )
+            
+            
+            if let index = collectionView.indexPathForItem(at: centrePoint){
+                cell.pageControl.currentPage = index.row
+            }
+            
+        case .extended:
+            cell.pageControl.currentPage = Int(ceil(collectionView.contentOffset.x / collectionView.frame.size.width))
         }
     }
 }

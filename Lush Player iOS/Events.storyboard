@@ -11,7 +11,7 @@
         <!--Events-->
         <scene sceneID="rGw-KQ-JkI">
             <objects>
-                <viewController title="Events" id="L3y-jg-cA3" customClass="EventViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventViewControllerId" title="Events" id="L3y-jg-cA3" customClass="EventViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zv0-e5-Vyf"/>
                         <viewControllerLayoutGuide type="bottom" id="gyl-EW-vn5"/>
@@ -28,23 +28,42 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="peV-hp-35r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="976"/>
+            <point key="canvasLocation" x="2348" y="976"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Event Container View Controller-->
+        <scene sceneID="lIU-eX-PYw">
+            <objects>
+                <viewController storyboardIdentifier="EventContainerViewControllerId" id="G0b-iv-L7X" customClass="EventContainerViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7F0-KV-p1P"/>
+                        <viewControllerLayoutGuide type="bottom" id="K6V-1h-h4O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iby-PD-vg5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cGW-ur-Yz6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4r-uo-cVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1470" y="976"/>
+        </scene>
+        <!--Events-->
         <scene sceneID="aDh-pG-u3s">
             <objects>
-                <navigationController navigationBarHidden="YES" id="X8a-Y3-97K" sceneMemberID="viewController">
+                <navigationController title="Events" navigationBarHidden="YES" id="X8a-Y3-97K" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Lge-VX-AbL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="L3y-jg-cA3" kind="relationship" relationship="rootViewController" id="EU1-7o-o7f"/>
+                        <segue destination="G0b-iv-L7X" kind="relationship" relationship="rootViewController" id="kOT-Cy-bec"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TT9-QH-LR1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="843" y="976"/>
+            <point key="canvasLocation" x="671" y="976"/>
         </scene>
     </scenes>
 </document>

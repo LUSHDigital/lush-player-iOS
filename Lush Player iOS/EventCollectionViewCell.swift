@@ -12,7 +12,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var eventLabel: UILabel!
     
-    @IBOutlet private weak var eventItemsCollectionView: EventCollectionView!
+    @IBOutlet weak var eventItemsCollectionView: EventCollectionView!
     
     @IBOutlet weak var pageControl: UIPageControl!
     
@@ -31,8 +31,6 @@ class EventCollectionViewCell: UICollectionViewCell {
             let uppercased = text.uppercased()
             button.setTitle(uppercased, for: .normal)
         }
-       
-    
     }
     
     override func layoutSubviews() {
