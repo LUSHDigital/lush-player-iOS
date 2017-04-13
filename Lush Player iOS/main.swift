@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-print(HomeCollectionViewController.self, ChannelListingViewController.self, SearchResultsViewController.self, EventViewController.self)
+print(HomeCollectionViewController.self, ChannelListingViewController.self, SearchResultsViewController.self, EventViewController.self, EventListingViewController.self)
 
 // The following is required because there's an impedence mismatch between
 // `CommandLine` and `UIApplicationMain` <rdar://problem/25693546>.

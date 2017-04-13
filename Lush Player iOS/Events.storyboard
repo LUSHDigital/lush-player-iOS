@@ -65,5 +65,36 @@
             </objects>
             <point key="canvasLocation" x="671" y="976"/>
         </scene>
+        <!--Event Listing View Controller-->
+        <scene sceneID="nKc-c0-Adc">
+            <objects>
+                <viewController storyboardIdentifier="EventListingViewControllerId" id="1XH-9B-Zve" customClass="EventListingViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="u63-VZ-fL5"/>
+                        <viewControllerLayoutGuide type="bottom" id="tfW-Y7-Y9g"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2dt-Cw-u9Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="AoZ-JJ-2II" kind="show" identifier="MediaDetailSegue" id="97E-eB-QWC">
+                            <nil key="action"/>
+                        </segue>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bum-dG-C4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3255" y="976"/>
+        </scene>
+        <!--MediaDetail-->
+        <scene sceneID="QlM-IL-aP3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MediaDetail" id="AoZ-JJ-2II" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZfN-2J-n2T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3966" y="956"/>
+        </scene>
     </scenes>
 </document>

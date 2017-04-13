@@ -15,12 +15,18 @@ class EventContainerViewController: MenuContainerViewController {
         return childViewControllers.filter({ $0 is EventViewController}).first as? EventViewController
     }
     
+    var childProgrammeListingViewController: EventListingViewController =  {
+        
+        guard let viewController = UIStoryboard(name: "Events", bundle: nil).instantiateViewController(withIdentifier: "EventListingViewControllerId") as? EventListingViewController else { fatalError() }
+        
+        return viewController
+    }()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         guard let viewController = storyboard?.instantiateViewController(withIdentifier: "EventViewControllerId") as? EventViewController else { return }
-        
         
         addChildViewController(viewController)
         containerView.addSubview(viewController.view)
@@ -29,7 +35,6 @@ class EventContainerViewController: MenuContainerViewController {
         
         setupEventView()
     }
-    
     
     func setupEventView() {
         
@@ -71,16 +76,65 @@ class EventContainerViewController: MenuContainerViewController {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         
-        childEventViewController?.viewModeForDeviceTraits(traits: self.traitCollection)
-        childEventViewController?.collectionView.collectionViewLayout.invalidateLayout()
-        childEventViewController?.collectionView.reloadData()
+        guard let vc = childEventViewController else { return }
+        
+        vc.collectionView.collectionViewLayout.invalidateLayout()
+        vc.collectionView.reloadData()
     }
     
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.willTransition(to: newCollection, with: coordinator)
+        
+         guard let vc = childEventViewController else { return }
+        vc.viewModeForDeviceTraits(traits: newCollection)
+        vc.collectionView.collectionViewLayout.invalidateLayout()
+        vc.collectionView.reloadData()
+        
+    }
+    
+    func showListingViewWithEvent(_ event: Event) {
+        
+        let viewController = childProgrammeListingViewController
+        addChildViewController(viewController)
+        containerView.addSubview(viewController.view)
+        viewController.view.bindFrameToSuperviewBounds()
+        didMove(toParentViewController: viewController)
+        
+        viewController.viewState = .loaded(event.programmes)
+    }
+    
+    func hideListingIfNeeded() {
+        
+        for vc in self.childViewControllers {
+            guard vc is EventListingViewController else { continue }
+            vc.willMove(toParentViewController: nil)
+            vc.view.removeFromSuperview()
+            vc.removeFromParentViewController()
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let menuItem = menuItems[indexPath.item]
+        
+        if menuItem.identifier == "all" {
+            hideListingIfNeeded()
+        }
+        
+        if let eventsVc = childEventViewController, case let .loaded(events) = eventsVc.viewState {
+            if let filteredEvent = events.filter({ $0.id == menuItem.identifier }).first {
+                showListingViewWithEvent(filteredEvent)
+            }
+        }
+    }
     
     func createMenuItems(_ events: [Event]) {
         
         menuItems = events.map { (event) -> MenuItem in
             return MenuItem(title: event.title, identifier: event.id)
         }
+        
+        menuItems.insert(MenuItem(title: "All Events", identifier: "all"), at: 0)
     }
 }
+

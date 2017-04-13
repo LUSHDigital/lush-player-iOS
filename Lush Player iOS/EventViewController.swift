@@ -29,7 +29,10 @@ class EventViewController: ContentListingViewController<Event> {
         collectionView.register(nib, forCellWithReuseIdentifier: "EventCollectionViewCellId")
         
         viewModeForDeviceTraits(traits: self.traitCollection)
+
         eventProgrammeController.delegate = self
+        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView.reloadData()
     }
     
     
@@ -73,13 +76,27 @@ class EventViewController: ContentListingViewController<Event> {
                 let event = events[indexPath.item]
                 cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: eventProgrammeController, forRow: indexPath.item)
                 cell.eventLabel.text = event.title
+                cell.didTapViewMore = { [weak self] button in
+                    
+                    if let menuVc = self?.parent as? EventContainerViewController {
+                        
+                        if let itemWithOffset = menuVc.menuItems.enumerated().filter({ $0.element.identifier == event.id }).first {
+                            
+                            let ip = IndexPath(item: itemWithOffset.offset, section: 0)
+                            menuVc.menuCollectionView.selectItem(at: ip, animated: true, scrollPosition: .right)
+                            menuVc.collectionView(menuVc.menuCollectionView, didSelectItemAt: ip)
+                        }
+                    }
+                    
+                }
+                
+                
                 switch eventProgrammeController.viewMode {
                 case .compact:
-                    cell.pageControl.numberOfPages = eventProgrammeController.numberOfProgrammesToDisplay(item: indexPath.item)
+                    cell.pageMode = .individual(eventProgrammeController.numberOfProgrammesToDisplay(item: indexPath.item))
                     
                 case .extended:
-                    cell.pageControl.numberOfPages = Int(ceil(cell.eventItemsCollectionView.contentSize.width / cell.eventItemsCollectionView.frame.size.width))
-
+                    cell.pageMode = .page
                 }
                 
                 
@@ -105,6 +122,12 @@ class EventViewController: ContentListingViewController<Event> {
         if eventProgrammeController.viewMode == .extended {
             cell.pageControl.numberOfPages = Int(ceil(cell.eventItemsCollectionView.contentSize.width / cell.eventItemsCollectionView.frame.size.width))
         }
+
+    }
+    
+    
+    func showEvent(_ event: Event) {
+        
 
     }
 }

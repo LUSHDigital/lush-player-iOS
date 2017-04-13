@@ -19,6 +19,10 @@ class EventCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var collectionViewHeightConstraint: NSLayoutConstraint!
 
     @IBOutlet weak var button: SpacedCharacterButton!
+    
+    var pageMode: PagingMode = .page
+    
+    var didTapViewMore: ((SpacedCharacterButton) -> ())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,13 +37,26 @@ class EventCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func pressedViewMoreButton(_ sender: SpacedCharacterButton) {
+        didTapViewMore?(sender)
+    }
+    
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
+        
+        
+        if case let .individual(number) = pageMode {
+            self.pageControl.numberOfPages = number
+        } else {
+            self.pageControl.numberOfPages = Int(ceil(eventItemsCollectionView.contentSize.width / eventItemsCollectionView.frame.size.width))
+        }
+        
     }
-    
+
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
         (dataSourceDelegate: D, forRow row: Int) {
@@ -48,5 +65,10 @@ class EventCollectionViewCell: UICollectionViewCell {
         eventItemsCollectionView.dataSource = dataSourceDelegate
         eventItemsCollectionView.tag = row
         eventItemsCollectionView.reloadData()
+    }
+    
+    enum PagingMode {
+        case individual(Int)
+        case page
     }
 }

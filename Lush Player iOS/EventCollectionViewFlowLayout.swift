@@ -16,42 +16,67 @@ class EventCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     override func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
         
-        guard shouldStopOnMiddleItem else {
-            return proposedContentOffset
-        }
-        
         guard let collectionView = collectionView else { return proposedContentOffset }
         
-        let collectionBounds = collectionView.bounds
-        let halfWidth = collectionBounds.size.width * 0.5
-        let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth
-        
-        guard let attributes = self.layoutAttributesForElements(in: collectionBounds) else { return proposedContentOffset }
-        
-        
-        var candidateAttributes: UICollectionViewLayoutAttributes? = nil
-        
-        for attribute in attributes {
+        if shouldStopOnMiddleItem {
             
-            guard attribute.representedElementCategory == .cell else {
-                continue
+            let collectionBounds = collectionView.bounds
+            let halfWidth = collectionBounds.size.width * 0.5
+            let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth
+            
+            guard let attributes = self.layoutAttributesForElements(in: collectionBounds) else { return proposedContentOffset }
+            
+            
+            var candidateAttributes: UICollectionViewLayoutAttributes? = nil
+            
+            for attribute in attributes {
+                
+                guard attribute.representedElementCategory == .cell else {
+                    continue
+                }
+                
+                guard let _candidateAttributes = candidateAttributes else {
+                    candidateAttributes = attribute
+                    continue
+                }
+                
+                if fabs(attribute.center.x - proposedContentOffsetCenterX) < fabs(_candidateAttributes.center.x - proposedContentOffsetCenterX) {
+                    candidateAttributes = attribute
+                }
             }
             
             guard let _candidateAttributes = candidateAttributes else {
-                candidateAttributes = attribute
-                continue
+                return proposedContentOffset
             }
             
-            if fabs(attribute.center.x - proposedContentOffsetCenterX) < fabs(_candidateAttributes.center.x - proposedContentOffsetCenterX) {
-                candidateAttributes = attribute
+            return CGPoint(x: _candidateAttributes.center.x - halfWidth, y: proposedContentOffset.y)
+            
+            
+            
+        } else {
+            
+            var offsetAdjustment = Double.infinity
+            let horizontalOffset = proposedContentOffset.x
+            
+            let targetRect = CGRect(x: proposedContentOffset.x, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height)
+            
+            let array = super.layoutAttributesForElements(in: targetRect)
+            
+            
+            for layoutAttributes in array! {
+                let itemOffset = layoutAttributes.frame.origin.x
+                if Double(abs(itemOffset - horizontalOffset)) < abs(offsetAdjustment) {
+                    offsetAdjustment = Double(itemOffset - horizontalOffset);
+                }
+                
             }
+            
+            if proposedContentOffset.x <= 0 {
+                return CGPoint(x: (Double(proposedContentOffset.x) + offsetAdjustment) - 40, y: Double(proposedContentOffset.y))
+                
+            }
+            return CGPoint(x: (Double(proposedContentOffset.x) + offsetAdjustment) - 20, y: Double(proposedContentOffset.y))
         }
-        
-        guard let _candidateAttributes = candidateAttributes else {
-            return proposedContentOffset
-        }
-    
-        return CGPoint(x: _candidateAttributes.center.x - halfWidth, y: proposedContentOffset.y)
     }
     
     override func invalidateLayout() {

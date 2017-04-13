@@ -53,6 +53,20 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
         cell.mediaTypeLabel.text = programme.media.displayString()
         cell.datePublishedLabel.text = programme.date?.timeAgo
         
+        if let flowLayout = collectionView.collectionViewLayout as? EventCollectionViewFlowLayout {
+            switch viewMode {
+                
+            case .compact:
+                collectionView.isPagingEnabled = false
+                flowLayout.shouldStopOnMiddleItem = true
+                
+            case .extended:
+                collectionView.isPagingEnabled = false
+                flowLayout.shouldStopOnMiddleItem = false
+            }
+
+        }
+        
         return cell
     }
     
@@ -77,19 +91,39 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = CGFloat(250)
-        let cellHeight = CGFloat(Double(cellWidth) * 0.9)
+        var cellWidth: CGFloat
+        var cellHeight: CGFloat
+        switch viewMode {
+            case .compact:
+                cellWidth = 250
+                cellHeight = CGFloat(Double(cellWidth) * 0.9)
+            case .extended:
+                cellWidth = 300
+                cellHeight = 260
+        }
+        
+        
         
         let cellSize = CGSize(width: cellWidth , height: cellHeight)
         return cellSize
     }
     
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        switch viewMode {
+        case .compact:
+            return 10
+        case .extended:
+            return 20
+        }
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
         guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else {
             return UIEdgeInsets.zero
         }
-        
         
         switch viewMode {
             
@@ -99,7 +133,7 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
     
         case .extended:
 
-            return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            return UIEdgeInsets(top: 0, left: 40, bottom: 0, right: 40)
         }
     }
     
@@ -124,7 +158,7 @@ extension EventProgrammeController: EventCollectionViewFlowLayoutDelegate {
             eventCollectionViewFlowLayout.shouldStopOnMiddleItem = true
             
         case .extended:
-            collectionView.isPagingEnabled = true
+            collectionView.isPagingEnabled = false
             eventCollectionViewFlowLayout.shouldStopOnMiddleItem = false
         }
     }

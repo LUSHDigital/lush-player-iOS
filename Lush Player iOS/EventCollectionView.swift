@@ -25,4 +25,9 @@ class EventCollectionView: UICollectionView {
         return self.contentSize
     }
     
+    
+    override func reloadData() {
+        super.reloadData()
+        self.collectionViewLayout.invalidateLayout()
+    }
 }

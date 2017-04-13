@@ -74,6 +74,9 @@
                                                         <include reference="HgX-Qj-trL"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="pressedViewMoreButton:" destination="gTV-IL-0wX" eventType="touchUpInside" id="ydf-Pl-uv4"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <edgeInsets key="layoutMargins" top="0.0" left="20" bottom="0.0" right="20"/>
@@ -96,6 +99,9 @@
                                     <mask key="subviews">
                                         <include reference="Lv8-lu-eD7"/>
                                     </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <edgeInsets key="layoutMargins" top="0.0" left="40" bottom="0.0" right="40"/>
                                 </variation>
                             </stackView>
                         </subviews>
