@@ -34,8 +34,6 @@ class ChannelListingContainerViewController: MenuContainerViewController {
         addChildViewController(viewController)
         containerView.addSubview(viewController.view)
         didMove(toParentViewController: viewController)
-        
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -35,12 +35,15 @@ class MenuContainerViewController: UIViewController {
             flowLayout.minimumInteritemSpacing = 0
             flowLayout.minimumLineSpacing = 0
             flowLayout.sectionInset = .zero
+            flowLayout.scrollDirection = .horizontal
+            
         }
         menuCollectionView.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
         
         let nib = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
         menuCollectionView.register(nib, forCellWithReuseIdentifier: "MenuCollectionViewCell")
         
+        menuCollectionView.showsHorizontalScrollIndicator = false
         menuCollectionView.delegate = self
         menuCollectionView.dataSource = self
         view.addSubview(menuCollectionView)
@@ -48,11 +51,18 @@ class MenuContainerViewController: UIViewController {
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let firstIndex = IndexPath(item: 0, section: 0)
+        menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+    }
+    
     func layoutMenu() {
         
         menuCollectionView.translatesAutoresizingMaskIntoConstraints = false
         view.addConstraints([
-            NSLayoutConstraint(item: menuCollectionView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0),
+            NSLayoutConstraint(item: menuCollectionView, attribute: .top, relatedBy: .equal, toItem: topLayoutGuide, attribute: .bottom, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .right, relatedBy: .equal, toItem: view, attribute: .right, multiplier: 1.0, constant: 0.0),
             NSLayoutConstraint(item: menuCollectionView, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
@@ -96,17 +106,24 @@ extension MenuContainerViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        if menuItems.count > 3 {
-            let size: CGSize = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
-            return CGSize(width: size.width + 45.0, height: 50)
+        
+        let equallyDividedWidth = collectionView.bounds.size.width / CGFloat(menuItems.count)
+        let sizeFromText = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+        
+        if sizeFromText.width >= equallyDividedWidth {
+            return CGSize(width: sizeFromText.width + 45.0, height: 50)
         }
-        
-        let width = collectionView.bounds.size.width / CGFloat(menuItems.count)
-        return CGSize(width: width, height: 50)
-        
+    
+        if menuItems.count > 3 {
+            return CGSize(width: sizeFromText.width + 45.0, height: 50)
+        }
+    
+        return CGSize(width: equallyDividedWidth, height: 50)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        if menuCollectionView == nil { return }
         guard let flowLayout = menuCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }

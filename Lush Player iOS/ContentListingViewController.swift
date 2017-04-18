@@ -108,16 +108,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     
     
     func setupConstraints() {
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        view.addConstraints([
-            NSLayoutConstraint(item: collectionView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: collectionView, attribute: .left, relatedBy: .equal, toItem: collectionView.superview, attribute: .left, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: collectionView, attribute: .right, relatedBy: .equal, toItem: collectionView.superview, attribute: .right, multiplier: 1.0, constant: 0.0),
-            NSLayoutConstraint(item: collectionView, attribute: .bottom, relatedBy: .equal, toItem: collectionView.superview, attribute: .bottom, multiplier: 1.0, constant: 0.0)
-            ])
-        
-        view.setNeedsUpdateConstraints()
+        collectionView.bindFrameToSuperviewBounds()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -147,6 +138,10 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if collectionView == nil {
+            return
+        }
+        
         guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }

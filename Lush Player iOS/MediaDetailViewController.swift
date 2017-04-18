@@ -209,6 +209,8 @@ class MediaDetailViewController: UIViewController {
         
         guard let url = programme.webURL else { return }
         let activityController = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = self.shareButton
+        activityController.popoverPresentationController?.sourceRect = self.shareButton.frame
         
         self.present(activityController, animated: true, completion: nil)
     }

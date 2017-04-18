@@ -52,6 +52,7 @@
 		FFA8F0261E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */; };
+		FFB39FB91E9F731A00B5DA36 /* EventListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */; };
 		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
 		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; };
@@ -96,6 +97,13 @@
 		FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */; };
 		FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */; };
 		FFFC478A1E9B992400290F07 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47891E9B992400290F07 /* UIView+Pin.swift */; };
+		FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */; };
+		FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */; };
+		FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */; };
+		FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */; };
+		FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */; };
+		FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */; };
+		FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -293,6 +301,7 @@
 		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
+		FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListingViewController.swift; sourceTree = "<group>"; };
 		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
 		FFE852021E928CD100E35902 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		FFE852071E928F9700E35902 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
@@ -332,6 +341,13 @@
 		FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Helper.swift"; sourceTree = "<group>"; };
 		FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedCharacterButton.swift; sourceTree = "<group>"; };
 		FFFC47891E9B992400290F07 /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionView.swift; sourceTree = "<group>"; };
+		FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProgrammeController.swift; sourceTree = "<group>"; };
+		FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -631,6 +647,14 @@
 			isa = PBXGroup;
 			children = (
 				FFF5EA131E80371F007CE0C8 /* Events.storyboard */,
+				FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */,
+				FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */,
+				FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */,
+				FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */,
+				FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */,
+				FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */,
+				FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */,
+				FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */,
 			);
 			name = Events;
 			sourceTree = "<group>";
@@ -1016,6 +1040,7 @@
 				FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
+				FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1111,17 +1136,24 @@
 				FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */,
 				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
 				FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */,
+				FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */,
 				FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */,
+				FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */,
+				FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */,
 				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
+				FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */,
 				FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */,
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */,
+				FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */,
+				FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */,
 				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
 				FFFC478A1E9B992400290F07 /* UIView+Pin.swift in Sources */,
 				FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */,
+				FFB39FB91E9F731A00B5DA36 /* EventListingViewController.swift in Sources */,
 				FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */,
 				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
 				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
