@@ -45,7 +45,6 @@ class SearchResultsViewController: ContentListingViewController<SearchResult> {
         }
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
                 collectionView.contentInset = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)

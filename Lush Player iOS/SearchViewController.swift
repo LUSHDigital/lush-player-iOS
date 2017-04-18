@@ -34,17 +34,47 @@ class SearchViewController: UIViewController {
         searchQueue.maxConcurrentOperationCount = 1
         searchQueue.qualityOfService = .userInitiated
         
+        
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        registerKeyboardNotifications()
         UIView.animate(withDuration: 0.3) { 
             self.navigationController?.isNavigationBarHidden = true
         }
     }
     
-
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func registerKeyboardNotifications() {
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: Notification) {
+        
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: keyboardSize.height, right: 0)
+            searchResultsController?.collectionView.contentInset = contentInsets
+            searchResultsController?.collectionView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    func keyboardWillHide(notification: Notification) {
+        
+            let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
+            searchResultsController?.collectionView.contentInset = contentInsets
+            searchResultsController?.collectionView.scrollIndicatorInsets = contentInsets
+    }
+    
+    
     func setupSearchBar() {
         
         let appearance = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
