@@ -40,7 +40,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     
     
     // Collection view for displaying the content items
-    var collectionView: UICollectionView!
+    var collectionView: UICollectionView?
     
     func redraw() {
         
@@ -58,7 +58,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         case .loaded(_):
             
             hideChildControllersIfNeeded()
-            collectionView.reloadData()
+            collectionView?.reloadData()
         
         case .empty():
             
@@ -67,7 +67,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             addChildViewController(emptyStateViewController)
             self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
-            collectionView.reloadData()
+            collectionView?.reloadData()
             
         case .error(let error):
             print(error)
@@ -87,6 +87,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         collectionViewLayout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         collectionViewLayout.minimumLineSpacing = 20
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: collectionViewLayout)
+        guard let collectionView = collectionView else { return }
         self.view.addSubview(collectionView)
         
         collectionView.delegate = self
@@ -103,12 +104,12 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     
     
     func setupConstraints() {
-        collectionView.bindFrameToSuperviewBounds()
+        collectionView?.bindFrameToSuperviewBounds()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -134,7 +135,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
         
-        collectionView.collectionViewLayout.invalidateLayout()
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -142,7 +143,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             return
         }
         
-        guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+        guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else {
             return
         }
         flowLayout.invalidateLayout()

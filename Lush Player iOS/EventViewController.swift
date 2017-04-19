@@ -26,13 +26,13 @@ class EventViewController: ContentListingViewController<Event> {
         super.viewDidLoad()
         
         let nib = UINib(nibName: "EventCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "EventCollectionViewCellId")
+        collectionView?.register(nib, forCellWithReuseIdentifier: "EventCollectionViewCellId")
         
         viewModeForDeviceTraits(traits: self.traitCollection)
 
         eventProgrammeController.delegate = self
-        collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.reloadData()
+        collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView?.reloadData()
     }
     
     
@@ -40,7 +40,7 @@ class EventViewController: ContentListingViewController<Event> {
         super.viewWillAppear(animated)
         
         if self.parent is MenuContainerViewController {
-            collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
+            collectionView?.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
         }
     }
     
@@ -60,8 +60,8 @@ class EventViewController: ContentListingViewController<Event> {
         super.willTransition(to: newCollection, with: coordinator)
         
         viewModeForDeviceTraits(traits: newCollection)
-        collectionView.collectionViewLayout.invalidateLayout()
-        collectionView.reloadData()
+        collectionView?.collectionViewLayout.invalidateLayout()
+        collectionView?.reloadData()
     }
     
     
@@ -141,7 +141,7 @@ extension EventViewController: EventProgrammeControllerDelegate {
     }
     
     func setPageControlIndex(for collectionView: UICollectionView) {
-        guard let cell = self.collectionView.cellForItem(at: IndexPath(item: collectionView.tag, section: 0)) as? EventCollectionViewCell else { return }
+        guard let cell = self.collectionView?.cellForItem(at: IndexPath(item: collectionView.tag, section: 0)) as? EventCollectionViewCell else { return }
         
         switch eventProgrammeController.viewMode {
             

@@ -34,11 +34,11 @@ class SearchResultsViewController: ContentListingViewController<SearchResult> {
         emptyStateViewController.searchAgainButton.setTitle("Search".uppercased(), for: .normal)
         
         let nib = UINib(nibName: "SearchCollectionViewCell", bundle: nil)
-        collectionView.register(nib, forCellWithReuseIdentifier: "SearchCollectionViewCell")
+        collectionView?.register(nib, forCellWithReuseIdentifier: "SearchCollectionViewCell")
         
-        collectionView.keyboardDismissMode = .interactive
+        collectionView?.keyboardDismissMode = .interactive
         
-        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             flowLayout.minimumLineSpacing = 0
             flowLayout.minimumInteritemSpacing = 0
@@ -47,7 +47,7 @@ class SearchResultsViewController: ContentListingViewController<SearchResult> {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-                collectionView.contentInset = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
+                collectionView?.contentInset = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
