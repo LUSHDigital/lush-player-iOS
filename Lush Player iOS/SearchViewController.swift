@@ -33,9 +33,6 @@ class SearchViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
         searchQueue.maxConcurrentOperationCount = 1
         searchQueue.qualityOfService = .userInitiated
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -62,16 +59,16 @@ class SearchViewController: UIViewController {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
             let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: keyboardSize.height, right: 0)
-            searchResultsController?.collectionView.contentInset = contentInsets
-            searchResultsController?.collectionView.scrollIndicatorInsets = contentInsets
+            searchResultsController?.collectionView?.contentInset = contentInsets
+            searchResultsController?.collectionView?.scrollIndicatorInsets = contentInsets
         }
     }
     
     func keyboardWillHide(notification: Notification) {
         
             let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
-            searchResultsController?.collectionView.contentInset = contentInsets
-            searchResultsController?.collectionView.scrollIndicatorInsets = contentInsets
+            searchResultsController?.collectionView?.contentInset = contentInsets
+            searchResultsController?.collectionView?.scrollIndicatorInsets = contentInsets
     }
     
     
