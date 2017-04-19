@@ -85,13 +85,16 @@ class SoundPlayerViewController: AVPlayerViewController {
         
         imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
         self.contentOverlayView?.addSubview(imageView)
+
         avPlayer.play()
     }
     
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        imageView.frame = self.view.bounds
+        imageView.frame = self.view.frame
+         imageView.center = imageView.superview?.center ?? imageView.center
     }
+
 }
 
