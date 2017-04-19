@@ -24,7 +24,7 @@ class EventListingViewController: ProgrammeListingViewController {
         self.navigationController?.isNavigationBarHidden = true
         
         if self.parent is MenuContainerViewController {
-            collectionView.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
+            collectionView?.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
         }
     }
     

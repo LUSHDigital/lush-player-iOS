@@ -41,6 +41,8 @@ public class PlayerViewController: UIViewController {
 
     @IBOutlet public weak var activityIndicator: UIActivityIndicatorView!
     
+    public var shouldDismissOnVideoEnd: Bool = true
+    
     override public func viewDidLoad() {
         
         super.viewDidLoad()
@@ -209,7 +211,10 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
             return
         }
         
-        dismiss(animated: true, completion: nil)
+        if shouldDismissOnVideoEnd {
+            dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     

@@ -75,11 +75,17 @@ class MediaDetailViewController: UIViewController {
                 tagListController.tags = tags
                 
                 tagListController.didSelectTag = { [weak self] tag in
-                    self?.selectedTag(tag: tag)
+                    self?.selectedTag(tag)
                 }
             }
         } else {
             tagsStackView.isHidden = true
+        }
+        
+        if let url = programme.webURL {
+            let webHandoffActivity = NSUserActivity(activityType: "com.lush.player.watching")
+            webHandoffActivity.webpageURL = url
+            userActivity = webHandoffActivity
         }
        
     }
@@ -125,6 +131,7 @@ class MediaDetailViewController: UIViewController {
                 playerViewController.programme = programme
                 playerViewController.brightcovePolicyKey = BrightcoveConstants.onDemandPolicyID
                 playerViewController.shouldAutoPlay = false
+                playerViewController.shouldDismissOnVideoEnd = false
                 
                 addChildViewController(playerViewController)
                 let bounds = self.playerContainerView.bounds
@@ -150,7 +157,6 @@ class MediaDetailViewController: UIViewController {
                 placeholder.bindFrameToSuperviewBounds()
 //                playerViewController.play(programme: programme)
                 self.mediaContentState = MediaContentState.radio(playerViewController)
-            
             }
         }
     }
@@ -177,10 +183,49 @@ class MediaDetailViewController: UIViewController {
         }
     }
     
-    func selectedTag(tag: String) {
-        print(tag)
+    func selectedTag(_ selectedTag: String) {
+        
+        let radioProgrammes = LushPlayerController.shared.programmes[.radio] ?? []
+        let tvProgrammes = LushPlayerController.shared.programmes[.TV] ?? []
+        
+        let programmes = (radioProgrammes + tvProgrammes)
+        
+        
+        let taggedProgrammes = programmes.filter { (programme) -> Bool in
+            guard let tags = programme.tags else {
+                return false
+            }
+            
+            return tags.index(of: selectedTag) != nil
+        }
+        
+        let programmesDictionary: [String : Any] =  ["title": selectedTag,
+         "programmes": taggedProgrammes]
+        performSegue(withIdentifier: "ShowTagId", sender: programmesDictionary)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        if segue.identifier == "ShowTagId" {
+            
+            guard let programmesDictionary = sender as? [String: Any] else { return }
+            
+            if let vc = segue.destination as? ProgrammeListingViewController {
+                
+                
+                if let title = programmesDictionary["title"] as? String {
+                    vc.title = "Tag: \(title)"
+                }
+                
+                if let programmes = programmesDictionary["programmes"] as? [Programme] {
+                    vc.viewState = .loaded(programmes)
+                }
+            }
+        }
+    }
+
     
     @IBAction func pressedExpandButton(_ sender: Any) {
         

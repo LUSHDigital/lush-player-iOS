@@ -78,8 +78,8 @@ class EventContainerViewController: MenuContainerViewController {
         
         guard let vc = childEventViewController else { return }
         
-        vc.collectionView.collectionViewLayout.invalidateLayout()
-        vc.collectionView.reloadData()
+        vc.collectionView?.collectionViewLayout.invalidateLayout()
+        vc.collectionView?.reloadData()
     }
     
     override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -87,8 +87,8 @@ class EventContainerViewController: MenuContainerViewController {
         
          guard let vc = childEventViewController else { return }
         vc.viewModeForDeviceTraits(traits: newCollection)
-        vc.collectionView.collectionViewLayout.invalidateLayout()
-        vc.collectionView.reloadData()
+        vc.collectionView?.collectionViewLayout.invalidateLayout()
+        vc.collectionView?.reloadData()
         
     }
     
