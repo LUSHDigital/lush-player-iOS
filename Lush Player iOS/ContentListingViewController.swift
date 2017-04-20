@@ -70,7 +70,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             collectionView?.reloadData()
             
         case .error(let error):
-            print(error)
+            
             hideChildControllersIfNeeded()
             errorStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             errorStateViewController.view.frame = view.bounds

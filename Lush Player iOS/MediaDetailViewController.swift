@@ -156,6 +156,7 @@ class MediaDetailViewController: UIViewController {
                 playerContainerView.addSubview(placeholder)
                 placeholder.bindFrameToSuperviewBounds()
 //                playerViewController.play(programme: programme)
+                
                 self.mediaContentState = MediaContentState.radio(playerViewController)
             }
         }
@@ -216,7 +217,7 @@ class MediaDetailViewController: UIViewController {
                 
                 
                 if let title = programmesDictionary["title"] as? String {
-                    vc.title = "Tag: \(title)"
+                    vc.title = "Tag: #\(title)"
                 }
                 
                 if let programmes = programmesDictionary["programmes"] as? [Programme] {
@@ -259,6 +260,7 @@ class MediaDetailViewController: UIViewController {
         
         self.present(activityController, animated: true, completion: nil)
     }
+
     
     // Expansion state, used to know if the description is expanded or not, or notExpandable i.e the text isn't long enough to be expanded
     enum ExpansionState {

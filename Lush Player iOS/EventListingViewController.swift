@@ -27,22 +27,4 @@ class EventListingViewController: ProgrammeListingViewController {
             collectionView?.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
         }
     }
-    
-    override func showProgramme(programme: Programme) {
-        super.showProgramme(programme: programme)
-        
-        self.performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        super.prepare(for: segue, sender: sender)
-        if segue.identifier == "MediaDetailSegue" {
-            if let destination = segue.destination as? MediaDetailViewController, let programme = sender as? Programme {
-                
-                destination.programme = programme
-            }
-        }
-    }
-
-
 }

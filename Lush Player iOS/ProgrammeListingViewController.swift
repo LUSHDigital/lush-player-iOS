@@ -16,7 +16,10 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
         // Do any additional setup after loading the view.
     }
     
-    func showProgramme(programme: Programme) {}
+    func showProgramme(programme: Programme) {
+    
+        performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
+    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -44,6 +47,16 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
             
             let programme = programmes[indexPath.item]
             showProgramme(programme: programme)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        if segue.identifier == "MediaDetailSegue" {
+            if let destination = segue.destination as? MediaDetailViewController, let programme = sender as? Programme {
+                
+                destination.programme = programme
+            }
         }
     }
 
