@@ -39,6 +39,8 @@ class EventViewController: ContentListingViewController<Event> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.isNavigationBarHidden = true
+        
         if self.parent is MenuContainerViewController {
             collectionView?.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 70, right: 0)
         }
@@ -134,6 +136,17 @@ class EventViewController: ContentListingViewController<Event> {
 
 
 extension EventViewController: EventProgrammeControllerDelegate {
+    
+    
+    func didSelectEventProgrammePreview(programme: Programme) {
+        
+        if let mediaDetailVc = UIStoryboard.init(name: "MediaDetail", bundle: nil).instantiateInitialViewController() as? MediaDetailViewController {
+            mediaDetailVc.programme = programme
+            show(mediaDetailVc, sender: self)
+        }
+        
+    }
+
 
     func eventItemsDidScroll(collectionView: UICollectionView) {
         setPageControlIndex(for: collectionView)

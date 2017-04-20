@@ -12,6 +12,7 @@ import LushPlayerKit
 protocol EventProgrammeControllerDelegate: class {
     
     func eventItemsDidScroll(collectionView: UICollectionView)
+    func didSelectEventProgrammePreview(programme: Programme)
 }
 
 class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
@@ -68,6 +69,14 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
         }
         
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let programme = events?[collectionView.tag].programmes[indexPath.item] {
+            delegate?.didSelectEventProgrammePreview(programme: programme)
+        }
+        
     }
     
     
