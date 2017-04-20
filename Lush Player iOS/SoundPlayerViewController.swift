@@ -19,8 +19,21 @@ class SoundPlayerViewController: AVPlayerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView = UIImageView(frame: self.view.bounds)
+    
+        imageView = UIImageView(frame: view.bounds)
+        self.contentOverlayView?.addSubview(imageView)
+        if let contentOverlayView = contentOverlayView {
+            imageView.centerXAnchor.constraint(equalTo: contentOverlayView.centerXAnchor).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: contentOverlayView.centerYAnchor).isActive = true
+            imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 16/9, constant: 0))
+            
+            contentOverlayView.addConstraint(NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: contentOverlayView, attribute: .width, multiplier: 1.0, constant: 0))
+        }
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        contentOverlayView?.updateConstraints()
     }
+
     
     
     /// Plays a specific programme
@@ -84,17 +97,8 @@ class SoundPlayerViewController: AVPlayerViewController {
         // Set up the image view for the radio programme and add it to the AVPlayerViewController contentOverlayView
         
         imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
-        self.contentOverlayView?.addSubview(imageView)
 
         avPlayer.play()
     }
-    
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        imageView.frame = self.view.frame
-         imageView.center = imageView.superview?.center ?? imageView.center
-    }
-
 }
 
