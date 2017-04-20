@@ -112,7 +112,7 @@ public struct Programme {
         }
         
         title = (dictionary["title"] as? String)?.htmlUnescape()
-        description = (dictionary["description"] as? String)?.htmlUnescape()
+        description = (dictionary["description"] as? String)?.htmlUnescape().trimmingCharacters(in: .whitespacesAndNewlines)
         if let url = dictionary["thumbnail"] as? String {
             thumbnailURL = URL(string: url)
         }
