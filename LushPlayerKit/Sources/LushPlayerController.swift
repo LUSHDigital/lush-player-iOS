@@ -16,7 +16,7 @@ import Foundation
 public typealias ProgrammesCompletion = (_ error: Error?, _ programmes: [Programme]?) -> (Void)
 public typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Programme?) -> (Void)
 public typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
-public typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [SearchResult]?) -> (Void)
+public typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [Programme]?) -> (Void)
 
 
 public extension Notification.Name {
@@ -239,8 +239,10 @@ public class LushPlayerController {
                 return
             }
             
-            let programmes = videos.flatMap({ (video) -> SearchResult? in
-                return SearchResult(dictionary: video)
+            let programmes = videos.flatMap({ (video) -> Programme? in
+                
+                guard let mediaString = video["type"] as? String, let media = Programme.Media(rawValue: mediaString) else { return nil }
+                return Programme(dictionary: video, media: media)
             })
             
             completion(nil, programmes)

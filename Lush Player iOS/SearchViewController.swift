@@ -95,7 +95,7 @@ class SearchViewController: UIViewController {
         
         guard let term = searchTerm else { return }
         
-        LushPlayerController.shared.performSearch(for: term, with: { [weak self] (error: Error?, searchResults: [SearchResult]?) -> (Void) in
+        LushPlayerController.shared.performSearch(for: term, with: { [weak self] (error: Error?, searchResults: [Programme]?) -> (Void) in
             print("finished")
             if let error = error {
                 DispatchQueue.global().async(execute: {
