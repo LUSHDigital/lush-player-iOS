@@ -11,6 +11,8 @@ import LushPlayerKit
 
 class MediaDetailViewController: UIViewController {
     
+    typealias TagWithAssociatedProgrammes = (tag: Tag, programmes: [Programme])
+    
     // Model object programme that this view controller displays
     var programme: Programme!
     
@@ -39,6 +41,8 @@ class MediaDetailViewController: UIViewController {
     @IBOutlet weak var tagsStackView: UIStackView!
     
     @IBOutlet weak var scrollView: UIScrollView!
+    
+    lazy var loadingViewController: LoadingViewController = LoadingViewController()
     
     var tagListController: TagListCollectionViewController? {
         return childViewControllers.filter({ $0 is TagListCollectionViewController }).first as? TagListCollectionViewController
@@ -70,8 +74,6 @@ class MediaDetailViewController: UIViewController {
         if let tags = programme.tags, !tags.isEmpty {
             
             if let tagListController = tagListController {
-                
-                
                 tagListController.tags = tags
                 
                 tagListController.didSelectTag = { [weak self] tag in
@@ -87,7 +89,6 @@ class MediaDetailViewController: UIViewController {
             webHandoffActivity.webpageURL = url
             userActivity = webHandoffActivity
         }
-       
     }
     
     
@@ -184,26 +185,12 @@ class MediaDetailViewController: UIViewController {
         }
     }
     
-    func selectedTag(_ selectedTag: String) {
+    func selectedTag(_ selectedTag: Tag) {
         
-        let radioProgrammes = LushPlayerController.shared.programmes[.radio] ?? []
-        let tvProgrammes = LushPlayerController.shared.programmes[.TV] ?? []
-        
-        let programmes = (radioProgrammes + tvProgrammes)
-        
-        
-        let taggedProgrammes = programmes.filter { (programme) -> Bool in
-            guard let tags = programme.tags else {
-                return false
-            }
-            
-            return tags.index(of: selectedTag) != nil
-        }
-        
-        let programmesDictionary: [String : Any] =  ["title": selectedTag,
-         "programmes": taggedProgrammes]
-        performSegue(withIdentifier: "ShowTagId", sender: programmesDictionary)
+        self.performSegue(withIdentifier: "ShowTagId", sender: selectedTag)
     }
+    
+
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -211,18 +198,12 @@ class MediaDetailViewController: UIViewController {
         
         if segue.identifier == "ShowTagId" {
             
-            guard let programmesDictionary = sender as? [String: Any] else { return }
+            guard let tag = sender as? Tag else { return }
             
-            if let vc = segue.destination as? ProgrammeListingViewController {
+            if let vc = segue.destination as? TagListViewController {
                 
-                
-                if let title = programmesDictionary["title"] as? String {
-                    vc.title = "Tag: #\(title)"
-                }
-                
-                if let programmes = programmesDictionary["programmes"] as? [Programme] {
-                    vc.viewState = .loaded(programmes)
-                }
+                vc.title = "Tag: #\(tag.name)"
+                vc.tag = tag
             }
         }
     }

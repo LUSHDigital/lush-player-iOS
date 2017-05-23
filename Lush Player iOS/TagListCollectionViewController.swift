@@ -7,20 +7,21 @@
 //
 
 import UIKit
+import LushPlayerKit
 
 private let reuseIdentifier = "Cell"
 
 class TagListCollectionViewController: UICollectionViewController {
     
     // List of tags to display, reloads the colelctionview on set
-    var tags = [String]() {
+    var tags = [Tag]() {
         didSet {
             collectionView?.reloadData()
         }
     }
     
     // Optional callback function if the user tapped a tag in collection view, with the tag that was pressed
-    var didSelectTag: ((String) -> Void)?
+    var didSelectTag: ((Tag) -> Void)?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +47,7 @@ class TagListCollectionViewController: UICollectionViewController {
         
         let tag = tags[indexPath.item]
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagCollectionViewCell", for: indexPath) as? TagCollectionViewCell {
-            cell.tagLabel.text = tag
+            cell.tagLabel.text = tag.name
             return cell
         }
         // Configure the cell
@@ -66,7 +67,7 @@ extension TagListCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size: CGSize = tags[indexPath.row].size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+        let size: CGSize = tags[indexPath.row].name.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
         return CGSize(width: size.width + 45.0, height: 40)
     }
 }

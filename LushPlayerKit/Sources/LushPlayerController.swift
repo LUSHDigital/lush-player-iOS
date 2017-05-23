@@ -248,6 +248,43 @@ public class LushPlayerController {
             completion(nil, programmes)
         }
     }
+    
+    /// Fetches the programmes for a specific tag
+    ///
+    /// - Parameters:
+    ///   - tag: The tag to fetch programmes for, its value property is used
+    ///   - completion: A block of code to be called once programmes have been fetched
+    public func fetchProgrammes(for tag: Tag, with completion: @escaping ProgrammesCompletion) {
+        
+        let endpoint = "tags/\(tag.value)"
+        
+        requestController.get(endpoint) { (response, error) in
+            
+            if let _error = error {
+                
+                completion(_error, nil)
+                return
+            }
+            
+            if response?.status != 200 {
+                completion(LushPlayerError.invalidResponseStatus, nil)
+                return
+            }
+            
+            guard let videos = response?.array as? [[AnyHashable : Any]] else {
+                completion(LushPlayerError.invalidResponse, nil)
+                return
+            }
+            
+            let programmes = videos.flatMap({ (video) -> Programme? in
+                
+                guard let mediaString = video["type"] as? String, let media = Programme.Media(rawValue: mediaString) else { return nil }
+                return Programme(dictionary: video, media: media)
+            })
+            
+            completion(nil, programmes)
+        }
+    }
 }
 
 public enum LushPlayerError: Error {

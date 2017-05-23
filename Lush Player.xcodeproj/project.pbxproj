@@ -42,6 +42,7 @@
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
 		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
 		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
+		FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32A51ED478C400058103 /* TagListViewController.swift */; };
 		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
 		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
 		FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */; };
@@ -293,6 +294,7 @@
 		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
 		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		FF5F32A51ED478C400058103 /* TagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
 		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmptyResultsViewController.swift; sourceTree = "<group>"; };
@@ -584,6 +586,7 @@
 				FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */,
 				FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */,
 				FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */,
+				FF5F32A51ED478C400058103 /* TagListViewController.swift */,
 			);
 			name = Tags;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
 				FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */,
 				FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */,
+				FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */,
 				FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */,
 				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
 				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,

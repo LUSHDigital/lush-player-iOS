@@ -81,7 +81,7 @@ public struct Programme {
         return URL(string: url)
     }
     
-    public let tags: [String]?
+    public let tags: [Tag]?
     
     /// Initialises a new Programme with a dictionary representation and media type
     ///
@@ -105,7 +105,15 @@ public struct Programme {
         
         alias = dictionary["alias"] as? String
         
-        tags = dictionary["tags"] as? [String]
+        let tagsArray = dictionary["tags"] as? [[String: String]]
+        
+        tags = tagsArray?.flatMap({ (tagDictionary) -> Tag? in
+            
+            guard let tagName = tagDictionary["name"], let tagValue = tagDictionary["tag"] else { return nil }
+            
+            return Tag(name: tagName, value: tagValue)
+        })
+        
         
         if file == nil, let urlString = dictionary["url"] as? String {
             file = URL(string: urlString)

@@ -15,6 +15,8 @@
 		FF5565151E82C7B400F3C9A4 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5565131E82C7B400F3C9A4 /* BrightcoveHelpers.swift */; };
 		FF5565171E82C80D00F3C9A4 /* DateComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */; };
 		FF5565181E82C80D00F3C9A4 /* DateComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */; };
+		FF5F32981ED46FCD00058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
+		FF5F329F1ED4707700058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
 		FFD0D62B1E80226000483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6411E80249800483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6431E80254000483381 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D6421E80254000483381 /* TestFile.swift */; };
@@ -88,6 +90,7 @@
 		FF5565101E82C7A400F3C9A4 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		FF5565131E82C7B400F3C9A4 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
 		FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateComponentHelper.swift; sourceTree = "<group>"; };
+		FF5F32961ED46FCD00058103 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		FFD0D6261E80226000483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD0D6291E80226000483381 /* LushPlayerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LushPlayerKit.h; sourceTree = "<group>"; };
 		FFD0D6341E80227200483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +196,7 @@
 		FFD0D6811E802E8700483381 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FF5F32961ED46FCD00058103 /* Tag.swift */,
 				FFD0D66D1E80284700483381 /* Programme.swift */,
 				FFD0D66E1E80284700483381 /* SearchResult.swift */,
 				FFD0D6831E802EB100483381 /* Channel.swift */,
@@ -369,6 +373,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5F329F1ED4707700058103 /* Tag.swift in Sources */,
 				FFF5EA451E814B30007CE0C8 /* ImageView.swift in Sources */,
 				FFD0D6771E8028E100483381 /* Constants.swift in Sources */,
 				FFD0D66F1E80284700483381 /* Programme.swift in Sources */,
@@ -392,6 +397,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF5F32981ED46FCD00058103 /* Tag.swift in Sources */,
 				FFF5EA461E814B30007CE0C8 /* ImageView.swift in Sources */,
 				FFD0D6701E80284700483381 /* Programme.swift in Sources */,
 				FFD0D6721E80284700483381 /* SearchResult.swift in Sources */,
