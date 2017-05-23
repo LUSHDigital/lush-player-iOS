@@ -53,11 +53,11 @@ class EventContainerViewController: MenuContainerViewController {
             }
             
             for tag in tags {
-                if var programmeStore = tagDictionary[tag] {
+                if var programmeStore = tagDictionary[tag.value] {
                     programmeStore.append(programme)
-                    tagDictionary[tag] = programmeStore
+                    tagDictionary[tag.value] = programmeStore
                 } else {
-                    tagDictionary[tag] = [programme]
+                    tagDictionary[tag.value] = [programme]
                 }
             }
         }

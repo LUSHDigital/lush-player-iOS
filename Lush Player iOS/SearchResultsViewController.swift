@@ -9,7 +9,7 @@
 import UIKit
 import LushPlayerKit
 
-class SearchResultsViewController: ContentListingViewController<SearchResult> {
+class SearchResultsViewController: ContentListingViewController<Programme> {
 
 
     
