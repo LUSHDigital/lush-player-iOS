@@ -49,7 +49,7 @@ public class LushPlayerController {
     }
     
     /// The request controller used to make requests to the API
-    private let requestController = TSCRequestController(baseURL: URL(string: "http://admin.player.lush.com/lushtvapi/v1/views/"))
+    private let requestController = TSCRequestController(baseURL: URL(string: "http://admin.player.lush.com/lushtvapi/v2/"))
     
     /// Fetches all the programmes for a specified media type
     ///
@@ -66,7 +66,7 @@ public class LushPlayerController {
             endpoint = "radio"
         }
         
-        requestController.get(endpoint) { [weak self] (response, error) in
+        requestController.get("views/\(endpoint)") { [weak self] (response, error) in
             
             if let _error = error {
                 
@@ -102,7 +102,7 @@ public class LushPlayerController {
     ///   - completion: A block of code to be called once programmes have been fetched
     public func fetchProgrammes(for channel: Channel, of medium: Programme.Media?, with completion: @escaping ProgrammesCompletion) {
         
-        var endpoint = "categories?channel=\(channel.rawValue)"
+        var endpoint = "views/categories?channel=\(channel.rawValue)"
         if let medium = medium {
             endpoint.append("&type=\(medium.rawValue)")
         }
@@ -184,7 +184,7 @@ public class LushPlayerController {
         
         let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
         
-        requestController.get("playlist?offset=\(timezoneOffset)+minutes") { (response, error) in
+        requestController.get("views/playlist?offset=\(timezoneOffset)+minutes") { (response, error) in
             
             if let _error = error {
                 
@@ -218,8 +218,10 @@ public class LushPlayerController {
     ///   - completion: A block of code to be called when the search results have been returned
     public func performSearch(for term: String, with completion: @escaping SearchResultsCompletion) {
         
-        let finalTerm = term.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? term
-        requestController.get("search?title=\(finalTerm)") { (response, error) in
+        let termSpacesRemoved = term.replacingOccurrences(of: " ", with: "+")
+        
+        let finalTerm = termSpacesRemoved.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? termSpacesRemoved
+        requestController.get("programme-search/\(finalTerm)") { (response, error) in
             
             if let _error = error {
                 
