@@ -145,7 +145,7 @@ public class LushPlayerController {
     ///   - completion: A block of code to be called when the programme details are fetched
     public func fetchDetails(for programme: Programme, with completion: @escaping ProgrammeDetailsCompletion) {
         
-        requestController.get("programme?id=\(programme.id)") { (response, error) in
+        requestController.get("views/programme?id=\(programme.id)") { (response, error) in
         
             if let _error = error {
                 
