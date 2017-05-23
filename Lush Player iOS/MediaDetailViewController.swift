@@ -62,7 +62,7 @@ class MediaDetailViewController: UIViewController {
         
         titleLabel.text = programme.title
         mediaTypeLabel.text = programme.media.displayString()
-        descriptionLabel.text = programme.description
+        descriptionLabel.text = programme.description?.trimmingCharacters(in: .newlines)
         dateLabel.text = programme.date?.timeAgo
         
         shareButton.setTitle("SHARE", for: .normal)
