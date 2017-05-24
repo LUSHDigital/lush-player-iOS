@@ -73,14 +73,17 @@ public struct Programme {
     /// The media type of the programme
     public let media: Media
     
+    /// A slug of the programme title used in the programme's web url, i.e lush-summit-video
     private let alias: String?
     
+    /// The shareable web url of the programme http://player.lush.com
     public var webURL: URL? {
         guard let alias = alias else { return nil }
         let url = "http://player.lush.com/\(media.displayString().lowercased())/\(alias)"
         return URL(string: url)
     }
     
+    /// A list of related terms to the programme; they shown underneath the programme on mobile
     public let tags: [Tag]?
     
     /// Initialises a new Programme with a dictionary representation and media type
@@ -97,7 +100,7 @@ public struct Programme {
         self.media = media
         id = _id
         
-        guid = dictionary["guid"] as? String
+        guid = _id
         
         if let fileString = dictionary["file"] as? String {
             file = URL(string: fileString)
