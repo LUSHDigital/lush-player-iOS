@@ -49,8 +49,8 @@ class MediaDetailViewController: UIViewController {
     }
     
     var mediaContentState: MediaContentState?
-
-
+    
+    
     @IBOutlet weak var tagListContainerHeight: NSLayoutConstraint!
     
     var descriptionExpansion: ExpansionState = .contracted
@@ -143,11 +143,14 @@ class MediaDetailViewController: UIViewController {
                 playerContainerView.addSubview(placeholder)
                 placeholder.bindFrameToSuperviewBounds()
                 playerViewController.didMove(toParentViewController: self)
+                
+                playerViewController.avPlayerViewController.contentOverlayView?.addObserver(self, forKeyPath: "bounds", options: [.old], context: nil)
+                
             }
             
         case .radio:
             if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "SoundPlayerViewControllerId") as? SoundPlayerViewController {
-            
+                
                 addChildViewController(playerViewController)
                 let bounds = self.playerContainerView.bounds
                 playerViewController.view.frame = bounds
@@ -156,7 +159,9 @@ class MediaDetailViewController: UIViewController {
                 playerViewController.didMove(toParentViewController: self)
                 playerContainerView.addSubview(placeholder)
                 placeholder.bindFrameToSuperviewBounds()
-//                playerViewController.play(programme: programme)
+                
+                
+                playerViewController.contentOverlayView?.addObserver(self, forKeyPath: "bounds", options: [.old], context: nil)
                 
                 self.mediaContentState = MediaContentState.radio(playerViewController)
             }
@@ -175,9 +180,10 @@ class MediaDetailViewController: UIViewController {
         
         if let mediaContentState = mediaContentState {
             switch mediaContentState {
-
+                
             case .TV(let playerViewController):
                 playerViewController.play(programme: self.programme)
+                playerViewController.videoFinished = false
                 
             case .radio(let soundViewController):
                 soundViewController.play(programme: self.programme)
@@ -190,7 +196,7 @@ class MediaDetailViewController: UIViewController {
         self.performSegue(withIdentifier: "ShowTagId", sender: selectedTag)
     }
     
-
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -207,7 +213,44 @@ class MediaDetailViewController: UIViewController {
             }
         }
     }
-
+    
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        
+        if keyPath == "bounds" {
+            
+            guard let oldValue = change?[.oldKey] as? NSValue else {
+                return
+            }
+            
+            let oldRect = oldValue.cgRectValue as CGRect
+            
+            // Moving from fullscreen to smaller
+            if oldRect.size == UIScreen.main.bounds.size {
+                //unwrap
+                guard let mediaContentState = mediaContentState else { return }
+                
+                if case let .TV(player) = mediaContentState {
+                    if player.videoFinished {
+                        togglePlaceholder(isHidden: false)
+                    }
+                }
+            }
+        }
+    }
+    
+    
+    func togglePlaceholder(isHidden: Bool) {
+        let placeholderView = playerContainerView.subviews.filter({ $0 is MediaPlaceholderView }).first
+        
+        UIView.animate(withDuration: 0.3, animations: {
+            placeholderView?.alpha = isHidden ? 0.0 : 1.0
+        }, completion: { (done) in
+            placeholderView?.isHidden = isHidden
+            
+        })
+    }
     
     @IBAction func pressedExpandButton(_ sender: Any) {
         
@@ -218,19 +261,19 @@ class MediaDetailViewController: UIViewController {
                 self.descriptionLabel.numberOfLines = 0
                 self.descriptionExpansion = .expanded
             })
-        
+            
         case .expanded:
-            UIView.animate(withDuration: 0.3, animations: { 
+            UIView.animate(withDuration: 0.3, animations: {
                 self.expandDescriptionButton.setTitle("Show full description", for: .normal)
                 self.descriptionLabel.numberOfLines = 3
                 self.descriptionExpansion = .contracted
             })
-
+            
         case .notExpandable:
             return
         }
     }
-
+    
     /// Share the media by presenting an activity share sheet
     @IBAction func shareMedia() {
         
@@ -241,7 +284,20 @@ class MediaDetailViewController: UIViewController {
         
         self.present(activityController, animated: true, completion: nil)
     }
-
+    
+    deinit {
+        
+        if let mediaContentState = mediaContentState {
+            switch mediaContentState {
+                
+            case .TV(let player):
+                player.avPlayerViewController.contentOverlayView?.removeObserver(self, forKeyPath: "bounds")
+            case .radio(let player):
+                player.contentOverlayView?.removeObserver(self, forKeyPath: "bounds")
+            }
+        }
+    }
+    
     
     // Expansion state, used to know if the description is expanded or not, or notExpandable i.e the text isn't long enough to be expanded
     enum ExpansionState {

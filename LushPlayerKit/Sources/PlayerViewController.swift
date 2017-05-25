@@ -43,6 +43,8 @@ public class PlayerViewController: UIViewController {
     
     public var shouldDismissOnVideoEnd: Bool = true
     
+    public var videoFinished: Bool = false
+    
     override public func viewDidLoad() {
         
         super.viewDidLoad()
@@ -215,6 +217,7 @@ extension PlayerViewController: BCOVPlaybackControllerDelegate {
             dismiss(animated: true, completion: nil)
         }
         
+        videoFinished = true
     }
     
     
