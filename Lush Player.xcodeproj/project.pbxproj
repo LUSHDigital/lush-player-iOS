@@ -39,6 +39,8 @@
 		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
 		FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */; };
 		FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708621EDD7AFB00BFAA6A /* Fabric.framework */; };
+		FF4708551ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */; };
+		FF4708561ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */; };
 		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
 		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
@@ -296,6 +298,8 @@
 		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		FF4708621EDD7AFB00BFAA6A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargePictureStandardMediaCell.swift; sourceTree = "<group>"; };
+		FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargePictureStandardMediaCell.xib; sourceTree = "<group>"; };
 		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
 		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -773,6 +777,8 @@
 			children = (
 				FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */,
 				FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */,
+				FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */,
+				FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */,
 			);
 			name = "Standard List Item";
 			sourceTree = "<group>";
@@ -1108,6 +1114,7 @@
 				FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */,
 				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
 				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
+				FF4708561ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib in Resources */,
 				FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1248,6 +1255,7 @@
 				FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */,
 				FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */,
 				FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */,
+				FF4708551ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift in Sources */,
 				FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
