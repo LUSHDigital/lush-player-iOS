@@ -8,6 +8,8 @@
 
 import UIKit
 import AVFoundation
+import Fabric
+import Crashlytics
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -31,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Overall App customisation 
         customiseApp()
         
+        // Initialise Crashlytics
+        Fabric.with([Crashlytics.self])
         
         return true
     }
