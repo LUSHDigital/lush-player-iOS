@@ -37,6 +37,8 @@
 		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
 		FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */; };
 		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
+		FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */; };
+		FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708621EDD7AFB00BFAA6A /* Fabric.framework */; };
 		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
 		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
 		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
@@ -287,6 +289,8 @@
 		FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSUITests.swift; sourceTree = "<group>"; };
 		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		FF4708621EDD7AFB00BFAA6A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
 		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -382,7 +386,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */,
+				FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */,
 				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
+				FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */,
 				FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +541,7 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FF47085D1EDD79E500BFAA6A /* Crashlytics */,
 				FFEECD801E8A8ED800AC7399 /* Error States */,
 				FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */,
 				FFF5EA471E814CD6007CE0C8 /* Media Detail */,
@@ -575,6 +582,15 @@
 				FF11219E1E7FE99000CD5337 /* Info.plist */,
 			);
 			path = "Lush Player iOSUITests";
+			sourceTree = "<group>";
+		};
+		FF47085D1EDD79E500BFAA6A /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */,
+				FF4708621EDD7AFB00BFAA6A /* Fabric.framework */,
+			);
+			name = Crashlytics;
 			sourceTree = "<group>";
 		};
 		FF5564F01E82B3A000F3C9A4 /* Tags */ = {
@@ -804,7 +820,8 @@
 				FF1121771E7FE99000CD5337 /* Frameworks */,
 				FF1121781E7FE99000CD5337 /* Resources */,
 				FFD0D66C1E80276D00483381 /* Embed Frameworks */,
-				FFA8F0271E82D14700338DF1 /* ShellScript */,
+				FFA8F0271E82D14700338DF1 /* Brightcove */,
+				FF4708651EDD7B3500BFAA6A /* Crashlytics */,
 			);
 			buildRules = (
 			);
@@ -1077,13 +1094,28 @@
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
 		};
-		FFA8F0271E82D14700338DF1 /* ShellScript */ = {
+		FF4708651EDD7B3500BFAA6A /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# \"${SRCROOT}/Lush Player iOS/Fabric.framework/run\" 04f3bc2754d18fba4dd1ee55dfbb9dfb5bc0d6b3 e1bc8f0becd7de796e0236ec9a4112bc27de2784c19e55f4ada676bdc4111aab";
+		};
+		FFA8F0271E82D14700338DF1 /* Brightcove */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Brightcove;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1508,9 +1540,6 @@
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
-					"\"$(SRCROOT)/Lush Player iOS\"",
-					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
 					"\"$(SRCROOT)/Lush Player iOS\"/**",
 				);
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
@@ -1537,9 +1566,6 @@
 				DEVELOPMENT_TEAM = DJ6N7G9BBD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
-					"\"$(SRCROOT)/Lush Player iOS\"",
-					"$(PROJECT_DIR)/Lush\\ Player\\ iOS",
 					"\"$(SRCROOT)/Lush Player iOS\"/**",
 				);
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
