@@ -85,35 +85,8 @@ class SearchResultsViewController: ContentListingViewController<Programme> {
         }
         
         let result = searchResults[indexPath.item]
-        
-        // Set the dummy programme's media type...
-        var media: Programme.Media = .TV
-        if result.media == .radio {
-            media = .radio
-        }
-        
-        let programmes = LushPlayerController.shared.programmes[media]
-        if let foundProgramme = programmes?.filter({ $0.id == result.id }).first {
-            
-            performSegue(withIdentifier: "MediaDetailSegue", sender: foundProgramme)
-            return
-        }
-        
-        // Else Create a dummy Programme dictionary representation from the search result
-        var programmeDict: [AnyHashable : Any] = ["id":result.id]
-        if let title = result.title {
-            programmeDict["title"] = title
-        }
-        if let thumbnailURL = result.thumbnailURL {
-            programmeDict["thumbnail"] = thumbnailURL.absoluteString
-        }
-        
-
-        
-        // Show the selected programme created from the selected search result
-        guard let programme = Programme(dictionary: programmeDict, media: media) else { return }
-
-        performSegue(withIdentifier: "MediaDetailSegue", sender: programme)
+    
+        performSegue(withIdentifier: "MediaDetailSegue", sender: result)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
