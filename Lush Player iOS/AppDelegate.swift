@@ -33,8 +33,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Overall App customisation 
         customiseApp()
         
+        // Google Analytics
+        let googleAnalyticsCode = Bundle.main.object(forInfoDictionaryKey: "TSCGoogleTrackingId")
+        
+        if let _gaCode = googleAnalyticsCode as? String {
+            let gai = GAI()
+            gai.tracker(withTrackingId: _gaCode)
+            gai.dispatchInterval = 60
+        }
+
+        
         // Initialise Crashlytics
         Fabric.with([Crashlytics.self])
+        
+        GATracker.trackPage(named: "Start")
         
         return true
     }

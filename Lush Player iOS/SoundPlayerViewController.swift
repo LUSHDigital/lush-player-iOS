@@ -15,7 +15,11 @@ import AVKit
 /// View Controller for playing radio programs, this differs from the PlayerViewController as we simply stream the mp3 file
 class SoundPlayerViewController: AVPlayerViewController {
     
+    /// Thumbnail ImageView for displaying an image while the radio content plays
     var imageView: UIImageView!
+    
+    /// The currently playing programme, nil if unset
+    var currentProgramme: Programme?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +36,13 @@ class SoundPlayerViewController: AVPlayerViewController {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
         contentOverlayView?.updateConstraints()
+        
+        // Observe PlayToEnd notification so we can log when the user finishes a programme
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime, object: self.player?.currentItem, queue: nil, using: { [weak self] (_) in
+            
+            guard let programme = self?.currentProgramme else { return }
+            GATracker.trackEventWith(category: "End", action: programme.id, label: nil, value: nil)
+        })
     }
 
     
@@ -42,6 +53,9 @@ class SoundPlayerViewController: AVPlayerViewController {
     func play(programme: Programme) {
         
         guard programme.media == .radio else { return }
+        
+        // Set as current programme
+        self.currentProgramme = programme
         
         // If the programme is a radio programme, and there's no file on it, fetch the file
         guard let file = programme.file else {
@@ -57,6 +71,7 @@ class SoundPlayerViewController: AVPlayerViewController {
                 
                 // Unfortunately we still don't have a file, this is an error with LUSH content.
                 guard let programmeFile = programme?.file else { return }
+                
                 
                 // Play the audio file
                 welf.playAudio(from: programmeFile, with: programme?.thumbnailURL)

@@ -187,6 +187,9 @@ class MediaDetailViewController: UIViewController {
                 
             case .radio(let soundViewController):
                 soundViewController.play(programme: self.programme)
+                
+                // GA event - Played radio item
+                GATracker.trackEventWith(category: "Play", action: programme.id, label: nil, value: nil)
             }
         }
     }
@@ -282,8 +285,19 @@ class MediaDetailViewController: UIViewController {
         activityController.popoverPresentationController?.sourceView = self.shareButton
         activityController.popoverPresentationController?.sourceRect = self.shareButton.frame
         
+        activityController.completionWithItemsHandler = { [weak self] activity, success, items, error in
+            
+            guard success else { return }
+            guard error == nil else { return }
+            guard let programmeId = self?.programme.id else { return }
+            
+            GATracker.trackEventWith(category: "Share", action: programmeId, label: nil, value: nil)
+            
+        }
+        
         self.present(activityController, animated: true, completion: nil)
     }
+    
     
     deinit {
         

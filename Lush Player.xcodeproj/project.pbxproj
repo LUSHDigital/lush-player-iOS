@@ -45,6 +45,12 @@
 		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
 		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
 		FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32A51ED478C400058103 /* TagListViewController.swift */; };
+		FF7B18711EDDB48700FB9E23 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */; };
+		FF7B18731EDDB5DA00FB9E23 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */; };
+		FF7B18751EDDB5E800FB9E23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */; };
+		FF7B18771EDDB5FE00FB9E23 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18761EDDB5FE00FB9E23 /* libz.tbd */; };
+		FF7B18791EDDB63100FB9E23 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */; };
+		FF7B18901EDDC29900FB9E23 /* GATracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B188F1EDDC29900FB9E23 /* GATracker.swift */; };
 		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
 		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
 		FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */; };
@@ -299,6 +305,22 @@
 		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
 		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
 		FF5F32A51ED478C400058103 /* TagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
+		FF7B18641EDDB46E00FB9E23 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = "Google Analytics/GAI.h"; sourceTree = "<group>"; };
+		FF7B18651EDDB46E00FB9E23 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
+		FF7B18661EDDB46E00FB9E23 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = "Google Analytics/GAIEcommerceFields.h"; sourceTree = "<group>"; };
+		FF7B18671EDDB46E00FB9E23 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = "Google Analytics/GAIEcommerceProduct.h"; sourceTree = "<group>"; };
+		FF7B18681EDDB46E00FB9E23 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = "Google Analytics/GAIEcommerceProductAction.h"; sourceTree = "<group>"; };
+		FF7B18691EDDB46E00FB9E23 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
+		FF7B186A1EDDB46E00FB9E23 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = "Google Analytics/GAIFields.h"; sourceTree = "<group>"; };
+		FF7B186B1EDDB46E00FB9E23 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = "Google Analytics/GAILogger.h"; sourceTree = "<group>"; };
+		FF7B186C1EDDB46E00FB9E23 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics/GAITrackedViewController.h"; sourceTree = "<group>"; };
+		FF7B186D1EDDB46E00FB9E23 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = "Google Analytics/GAITracker.h"; sourceTree = "<group>"; };
+		FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Google Analytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		FF7B18761EDDB5FE00FB9E23 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		FF7B188F1EDDC29900FB9E23 /* GATracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATracker.swift; sourceTree = "<group>"; };
 		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmptyResultsViewController.swift; sourceTree = "<group>"; };
@@ -385,8 +407,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7B18791EDDB63100FB9E23 /* libsqlite3.tbd in Frameworks */,
+				FF7B18771EDDB5FE00FB9E23 /* libz.tbd in Frameworks */,
+				FF7B18751EDDB5E800FB9E23 /* SystemConfiguration.framework in Frameworks */,
+				FF7B18731EDDB5DA00FB9E23 /* CoreData.framework in Frameworks */,
 				FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */,
 				FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */,
+				FF7B18711EDDB48700FB9E23 /* libGoogleAnalyticsServices.a in Frameworks */,
 				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
 				FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */,
 				FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
@@ -541,6 +568,7 @@
 		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B18601EDDB2D900FB9E23 /* Google Analytics */,
 				FF47085D1EDD79E500BFAA6A /* Crashlytics */,
 				FFEECD801E8A8ED800AC7399 /* Error States */,
 				FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */,
@@ -607,6 +635,24 @@
 			name = Tags;
 			sourceTree = "<group>";
 		};
+		FF7B18601EDDB2D900FB9E23 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */,
+				FF7B18641EDDB46E00FB9E23 /* GAI.h */,
+				FF7B18651EDDB46E00FB9E23 /* GAIDictionaryBuilder.h */,
+				FF7B18661EDDB46E00FB9E23 /* GAIEcommerceFields.h */,
+				FF7B18671EDDB46E00FB9E23 /* GAIEcommerceProduct.h */,
+				FF7B18681EDDB46E00FB9E23 /* GAIEcommerceProductAction.h */,
+				FF7B18691EDDB46E00FB9E23 /* GAIEcommercePromotion.h */,
+				FF7B186A1EDDB46E00FB9E23 /* GAIFields.h */,
+				FF7B186B1EDDB46E00FB9E23 /* GAILogger.h */,
+				FF7B186C1EDDB46E00FB9E23 /* GAITrackedViewController.h */,
+				FF7B186D1EDDB46E00FB9E23 /* GAITracker.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
 		FFD0D61F1E80224B00483381 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -619,6 +665,10 @@
 		FFD0D6861E802F0300483381 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */,
+				FF7B18761EDDB5FE00FB9E23 /* libz.tbd */,
+				FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */,
+				FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */,
 				FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */,
 			);
 			name = Frameworks;
@@ -681,6 +731,7 @@
 		FFEECD4B1E8533B000AC7399 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B188F1EDDC29900FB9E23 /* GATracker.swift */,
 				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
 				FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */,
 				FFFC47891E9B992400290F07 /* UIView+Pin.swift */,
@@ -1172,6 +1223,7 @@
 				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
 				FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */,
 				FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */,
+				FF7B18901EDDC29900FB9E23 /* GATracker.swift in Sources */,
 				FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */,
 				FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */,
 				FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */,
@@ -1545,6 +1597,10 @@
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1571,6 +1627,10 @@
 				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

@@ -96,7 +96,7 @@ class SearchViewController: UIViewController {
         guard let term = searchTerm else { return }
         
         LushPlayerController.shared.performSearch(for: term, with: { [weak self] (error: Error?, searchResults: [Programme]?) -> (Void) in
-            print("finished")
+            
             if let error = error {
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
@@ -121,6 +121,9 @@ class SearchViewController: UIViewController {
                         
                         self?.searchResultsController?.viewState = .loaded(searchResults)
                     }
+                    
+                    // GA event - Searched term
+                    GATracker.trackEventWith(category: "Search", action: term, label: nil, value: nil)
                 })
             }
         })
