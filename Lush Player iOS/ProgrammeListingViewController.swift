@@ -9,12 +9,8 @@
 import UIKit
 import LushPlayerKit
 
+// Subclass of ContentListingViewController for showing programmes models
 class ProgrammeListingViewController: ContentListingViewController<Programme> {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
     
     func showProgramme(programme: Programme) {
     

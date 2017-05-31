@@ -18,8 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
+
         // Set the correct background audio category for correct background behaviour
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -41,7 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             gai.tracker(withTrackingId: _gaCode)
             gai.dispatchInterval = 60
         }
-
         
         // Initialise Crashlytics
         Fabric.with([Crashlytics.self])

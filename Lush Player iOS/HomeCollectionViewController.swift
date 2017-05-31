@@ -11,8 +11,8 @@ import LushPlayerKit
 
 private let reuseIdentifier = "HomeCellId"
 
+// View controller to display a overview feed of the newest programmes
 class HomeCollectionViewController: ProgrammeListingViewController {
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +22,12 @@ class HomeCollectionViewController: ProgrammeListingViewController {
         refresh()
     }
     
+    // Reloads the programmes form the API and displays them
     func refresh() {
         
         viewState = .loading
+        
+        // There isn't currently a fetch all programmes end point so we need to request TV and Radio enpoints and merge the results
         
         // Fetch the latest TV programmes
         LushPlayerController.shared.fetchProgrammes(for: .TV, with: { [weak self] (error, programmes) in
@@ -37,7 +40,9 @@ class HomeCollectionViewController: ProgrammeListingViewController {
         })
     }
     
+    // Handles a response from either the TV or Radio enpoint
     func handleResponse(error: Error?, programmes: [Programme]?) {
+        
         if let error = error {
             self.connectionErrorViewController.retryAction = { [weak self] in
                 self?.refresh()

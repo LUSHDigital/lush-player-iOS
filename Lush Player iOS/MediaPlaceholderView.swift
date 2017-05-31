@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Placeholder view shows an image and a large play button
 class MediaPlaceholderView: UIView {
 
     @IBOutlet weak var imageView: UIImageView!

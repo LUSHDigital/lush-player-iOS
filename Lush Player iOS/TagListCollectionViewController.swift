@@ -9,8 +9,7 @@
 import UIKit
 import LushPlayerKit
 
-private let reuseIdentifier = "Cell"
-
+// Collection View for displaying a list of tags related to a programme, used in MediaDetailViewController
 class TagListCollectionViewController: UICollectionViewController {
     
     // List of tags to display, reloads the colelctionview on set
@@ -32,17 +31,14 @@ class TagListCollectionViewController: UICollectionViewController {
     }
 
     // MARK: UICollectionViewDataSource
-
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
-
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return tags.count
     }
 
-    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let tag = tags[indexPath.item]

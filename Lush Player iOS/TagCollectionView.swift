@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Tag collection view for dynamic height collection views
 class TagCollectionView: UICollectionView {
     
     override func layoutSubviews() {

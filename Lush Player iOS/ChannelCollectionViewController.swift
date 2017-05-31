@@ -9,17 +9,18 @@
 import UIKit
 import LushPlayerKit
 
-
+// View controller displaying a collection of channels that contain programmes
 class ChannelCollectionViewController: UICollectionViewController {
 
+    // Reuse Identifier for the Channel Collection Cell
     private let cellReuseId = String(describing: ChannelCollectionViewCell.self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Register cell classes
-        
         self.navigationController?.isNavigationBarHidden = true
-       
+        
+       // Register cell classes
         let nib = UINib(nibName: cellReuseId, bundle: nil)
         self.collectionView?.register(nib, forCellWithReuseIdentifier: cellReuseId)
         
@@ -104,7 +105,7 @@ extension ChannelCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        
+        // Change the cell collumns on rotation
         var numberOfColumns: CGFloat = 2
         var rowHeight: CGFloat = 3
         

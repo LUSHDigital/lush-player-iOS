@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Cell to display a menu option in the container view
 class MenuCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,10 +21,5 @@ class MenuCollectionViewCell: UICollectionViewCell {
                 self.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
             }
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
     }
 }

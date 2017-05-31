@@ -8,8 +8,10 @@
 
 import UIKit
 
+// Basic loading view controller to display when performing work that will take a little time, i.e performing a network request
 class LoadingViewController: UIViewController {
     
+    // Spinning indicator to show something is loading
     var loadingIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.whiteLarge)
 
     override func viewDidLoad() {
@@ -18,7 +20,6 @@ class LoadingViewController: UIViewController {
         self.view.backgroundColor = UIColor.black
         self.view.addSubview(loadingIndicator)
         loadingIndicator.startAnimating()
-        
     }
     
     

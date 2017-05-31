@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Styled button with large spacing between characters in LUSH style
 class SpacedCharacterButton: UIButton {
     
     var spacingAmount: Float = 1.5

@@ -8,10 +8,13 @@
 
 import UIKit
 
+// Cell for displaying a single tag
 class TagCollectionViewCell: UICollectionViewCell {
 
+    // Tag title i.e #Politics
     @IBOutlet weak var tagLabel: UILabel!
     
+    // Container view used for styling
     @IBOutlet weak var containerView: UIView!
     
     override func awakeFromNib() {
@@ -23,8 +26,8 @@ class TagCollectionViewCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        // Add white border
         containerView.layer.borderColor = UIColor.white.cgColor
-        
         containerView.layer.borderWidth = 2
     }
 

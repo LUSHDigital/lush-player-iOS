@@ -9,21 +9,22 @@
 import UIKit
 import LushPlayerKit
 
+// Parent Search view controller for managing the users input, performing search requests to the API and passing the results to a child controller
 class SearchViewController: UIViewController {
     
-    
+    // Container view for containing the results view
     @IBOutlet weak var searchContainerView: UIView!
-    
-    var searchQueue: OperationQueue = OperationQueue()
-    
-    var searchTerm: String?
 
+    // Search bar UI where the user can type in queries
     @IBOutlet weak var searchBar: UISearchBar!
     
+    // Search results view controller for displaying results
     var searchResultsController: SearchResultsViewController? {
        return childViewControllers.filter({ $0 is SearchResultsViewController}).first as? SearchResultsViewController
     }
     
+    // Term searched by the user
+    var searchTerm: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +32,11 @@ class SearchViewController: UIViewController {
         setupSearchBar()
         
         self.navigationController?.isNavigationBarHidden = true
-        searchQueue.maxConcurrentOperationCount = 1
-        searchQueue.qualityOfService = .userInitiated
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
         registerKeyboardNotifications()
         UIView.animate(withDuration: 0.3) { 
             self.navigationController?.isNavigationBarHidden = true
@@ -48,12 +48,14 @@ class SearchViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+    // Setup keyboard observers so we can adjust the view when a keyboard appears
     func registerKeyboardNotifications() {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
+    // Scroll the view to compensate the keyboard appearing
     func keyboardWillShow(notification: Notification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -64,6 +66,7 @@ class SearchViewController: UIViewController {
         }
     }
     
+    // Scroll the view to compensate the keyboard hiding
     func keyboardWillHide(notification: Notification) {
         
             let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
@@ -71,7 +74,7 @@ class SearchViewController: UIViewController {
             searchResultsController?.collectionView?.scrollIndicatorInsets = contentInsets
     }
     
-    
+    // Style search bar to match designs
     func setupSearchBar() {
         
         let appearance = UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self])
@@ -79,10 +82,8 @@ class SearchViewController: UIViewController {
         appearance.keyboardAppearance = .dark
         
         let image = UIImage.createImage(with: UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
-        
         searchBar.setSearchFieldBackgroundImage(image, for: .normal)
         searchBar.tintColor = .white
-        
         searchBar.barTintColor = .white
         searchBar.barStyle = .default
         searchBar.searchBarStyle = .minimal
@@ -90,13 +91,16 @@ class SearchViewController: UIViewController {
         searchBar.delegate = self
     }
     
-    
+    // Queries the LUSH player API for search results, and passes them to the results controller
     func performSearch() {
         
+        // Check we have a search term, or exit out now
         guard let term = searchTerm else { return }
         
+        // Request the API for search results using the term
         LushPlayerController.shared.performSearch(for: term, with: { [weak self] (error: Error?, searchResults: [Programme]?) -> (Void) in
             
+            // Handle and show an error if we get one
             if let error = error {
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
@@ -105,11 +109,13 @@ class SearchViewController: UIViewController {
                 })
             }
             
+            // If we have search results
             if let searchResults = searchResults {
                 
                 DispatchQueue.global().async(execute: {
                     DispatchQueue.main.sync{
                         
+                        // Check we have some results, if not show the empty state
                         if searchResults.isEmpty {
                             self?.searchResultsController?.viewState = .empty
                             if let emptyStateViewController = self?.searchResultsController?.emptyStateViewController as? SearchEmptyResultsViewController {
@@ -119,6 +125,7 @@ class SearchViewController: UIViewController {
                             return
                         }
                         
+                        // If we have results pass, set the state as loaded
                         self?.searchResultsController?.viewState = .loaded(searchResults)
                     }
                     
@@ -128,14 +135,10 @@ class SearchViewController: UIViewController {
             }
         })
     }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-    
-        
-    }
 }
 
+
+// MARK: - UISearchBarDelegate
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

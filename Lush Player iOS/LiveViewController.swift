@@ -9,14 +9,16 @@
 import UIKit
 import LushPlayerKit
 
+// View controller for viewing live streams from LUSH player API
 class LiveViewController: UIViewController, StateParentViewable {
     
+    // The current state of the view controller, i.e loading, live, off-air
     var liveViewState: LiveViewState = .loading(LoadingViewController()) {
         didSet {
             self.redraw()
         }
     }
-    
+    // View controller for when there is a live stream
     lazy var playerViewController: PlayerViewController = {
         
         let storyboard = UIStoryboard(name: "Live", bundle: nil)
@@ -25,6 +27,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         return playerViewController ?? PlayerViewController()
     }()
     
+    // View controller for when there is no live stream avialible to watch
     lazy var offAirViewController: OffAirViewController = {
        
         let storyboard = UIStoryboard(name: "Live", bundle: nil)
@@ -33,17 +36,22 @@ class LiveViewController: UIViewController, StateParentViewable {
         return vc ?? OffAirViewController()
     }()
     
+    // The conatiner view for the player
     @IBOutlet weak var playerViewContainer : UIView!
     
+    // Label to show: the title of the content
     @IBOutlet weak var titleLabel: UILabel!
     
+    // Label to show: a small description of the content thats playing
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // Label to show: the amount of time remaining on the live stream
     @IBOutlet weak var timeRemainingLabel: UILabel!
     
+    // Label to show: The time the live stream dated
     @IBOutlet weak var dateLabel: UILabel!
     
-    
+    // Switch between view controllers depending on the state of the view controller, i.e only show the off-air view controller if that is our current view state
     func redraw() {
         
         switch liveViewState {
@@ -101,13 +109,10 @@ class LiveViewController: UIViewController, StateParentViewable {
         
         
         redraw()
-//        self.liveViewState = .offAir(self.offAirViewCOntroller)
         refreshLive()
-
-        // Do any additional setup after loading the view.
     }
     
-    
+    // Check for new live stream every time we show the view controller
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -172,6 +177,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         })
     }
     
+    // Commented out until futher notice
     func play(playlist: BCOVPlaylist) {
         
 //        // Invalidate redraw timer

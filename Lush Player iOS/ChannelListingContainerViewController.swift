@@ -9,10 +9,13 @@
 import UIKit
 import LushPlayerKit
 
+// The containg listing view controller for channel programmes, includes a menu for filtering the itemsn
 class ChannelListingContainerViewController: MenuContainerViewController {
     
+    // Channel model
     var channel: Channel!
     
+    // The listing controller displaying the programmes
     var childListingViewController: ChannelListingViewController? {
         return childViewControllers.filter({ $0 is ChannelListingViewController}).first as? ChannelListingViewController
     }
@@ -20,6 +23,7 @@ class ChannelListingContainerViewController: MenuContainerViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Set up menu items - All, TV and Radio
         menuItems = [
         MenuItem(title: "All Episodes", identifier: "all"),
         MenuItem(title: Programme.Media.TV.displayString(), identifier: Programme.Media.TV.rawValue),
@@ -50,6 +54,7 @@ class ChannelListingContainerViewController: MenuContainerViewController {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let menuItem = menuItems[indexPath.item]
         
+        // Filter programmes based on the menu item 
         if let programmes = LushPlayerController.shared.channelProgrammes[channel] {
             
             let filteredProgrammes = programmes.filter({ (programme) -> Bool in

@@ -9,21 +9,25 @@
 import UIKit
 import LushPlayerKit
 
+// Displays a list of programmes relating to a channel
 class ChannelListingViewController: ProgrammeListingViewController {
     
+    // The channel the user selected to view programmes from
     var selectedChannel: Channel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         refresh()
-        // Do any additional setup after loading the view.
     }
     
+    // Request programmes from the API for a specific Channel
     func refresh() {
         
         viewState = .loading
         
+        // Exit if theres no channel model
         guard let selectedChannel = selectedChannel else { return }
+        
         // If we've already pulled the programmes for the selected channel
         if let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] {
             if programmes.isEmpty {
@@ -78,6 +82,7 @@ class ChannelListingViewController: ProgrammeListingViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         collectionView?.collectionViewLayout.invalidateLayout()
         if self.parent is MenuContainerViewController {
             collectionView?.contentInset = UIEdgeInsets(top: 70, left: 0, bottom: 90, right: 0)

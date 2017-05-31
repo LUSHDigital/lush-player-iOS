@@ -9,20 +9,24 @@
 import UIKit
 import LushPlayerKit
 
+// ViewController for displaying a list of programmes relating to a single tag
 class TagListViewController: ProgrammeListingViewController {
 
+    // Tag to find related programmes for
     var tag: Tag?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        // Set view initially as loading
         viewState = .loading
         
+        // If we don't have a tag show an empty state
         guard let tag = tag else {
             viewState = .empty
             return
         }
         
+        // Request API for related programmes from the tag
         LushPlayerController.shared.fetchProgrammes(for: tag) { [weak self] (error, programmes) -> (Void) in
             
             if let error = error {
@@ -38,6 +42,7 @@ class TagListViewController: ProgrammeListingViewController {
         }
     }
     
+    // Called if the API request fails for some reason, searches through locally stored programmes for tag instead
     func searchForTagsInLocalContent(_ selectedTag: Tag) {
         
         let radioProgrammes = LushPlayerController.shared.programmes[.radio] ?? []

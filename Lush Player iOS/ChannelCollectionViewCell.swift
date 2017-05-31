@@ -8,13 +8,9 @@
 
 import UIKit
 
+// Cell for displaying a Channel
 class ChannelCollectionViewCell: UICollectionViewCell {
     
+    // ImageView displaying the channel logo
     @IBOutlet weak var imageView: UIImageView!
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }
