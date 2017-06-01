@@ -9,11 +9,14 @@
 import UIKit
 import LushPlayerKit
 
+
+// A base viewcontroller for displaying a list of content, uses the viewState enum to control the UI state, this provides states for loading, loaded, empty and error.
 class ContentListingViewController<T>: UIViewController,StateParentViewable,
                                         UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     typealias Model = T
     
+    // View state property controls the view controllers UI state, on changing the view reloads, the default state is loading
     var viewState: ContentListingViewState<Model> = .loading {
         didSet {
             self.redraw()
@@ -93,7 +96,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
+        let nib = UINib(nibName: "LargePictureStandardMediaCell", bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
         setupConstraints()
@@ -162,7 +165,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         
         
         let cellWidth = (currentTotalWidth - (numberOfColumns-1) * layout.sectionInset.left) / numberOfColumns
-        let cellHeight = CGFloat(Double(cellWidth) * 0.9)
+        let cellHeight = CGFloat(Double(cellWidth) * 1.3)
         
         let cellSize = CGSize(width: cellWidth , height: cellHeight)
         return cellSize
@@ -206,7 +209,6 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
     }
     
     
-    
     func numberOfColumnsForSizeClass() -> CGFloat {
         switch (view.traitCollection.verticalSizeClass, view.traitCollection.horizontalSizeClass) {
         case (.regular, .regular):
@@ -221,7 +223,6 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             return 1
         }
     }
-
 }
 
 
@@ -252,11 +253,9 @@ extension StateParentViewable where Self:UIViewController {
 
 class ContentListingFlowLayout: UICollectionViewFlowLayout {
     
-    
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
-    
 }
 
 

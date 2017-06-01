@@ -28,4 +28,9 @@ extension UILabel {
         }
         return false
     }
+    
+    
+    func kern(with value: CGFloat) {
+        self.attributedText =  NSAttributedString(string: self.text ?? "", attributes: [NSKernAttributeName: value, NSFontAttributeName: self.font, NSForegroundColorAttributeName: self.textColor])
+    }
 }

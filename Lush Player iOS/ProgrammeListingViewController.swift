@@ -19,16 +19,21 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? StandardMediaCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? LargePictureStandardMediaCell {
             
             if case let .loaded(programmes) = viewState {
                 
                 let programme = programmes[indexPath.item]
                 
+                
                 cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
-                cell.titleLabel.text = programme.title
-                cell.mediaTypeLabel.text = programme.media.displayString()
-                cell.datePublishedLabel.text = programme.date?.timeAgo
+                cell.mediaTitleLabel.text = programme.title
+                cell.setChannelLabel(with: programme.channel)
+//                cell.titleLabel.text = programme.title
+//                cell.mediaTypeLabel.text = programme.media.displayString()
+                cell.dateLabel.text = programme.date?.timeAgo
+//                cell.datePublishedLabel.text = programme.date?.timeAgo
+                cell.setMediaTypeImage(type: programme.media)
                 
                 return cell
             }
