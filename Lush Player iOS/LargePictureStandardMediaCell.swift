@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import LushPlayerKit
 
+// Newer large card style cells for the home page
 class LargePictureStandardMediaCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
@@ -39,10 +41,17 @@ class LargePictureStandardMediaCell: UICollectionViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        
             shadowView.frame = imageView.bounds
+    }
+    
+    func setMediaTypeImage(type: Programme.Media) {
         
-        
+        switch type {
+        case .radio:
+            mediaTypeIconImageView.image = #imageLiteral(resourceName: "home_radio_icon")
+        case .TV:
+            mediaTypeIconImageView.image = #imageLiteral(resourceName: "home_video_icon")
+        }
     }
     
     override func prepareForReuse() {

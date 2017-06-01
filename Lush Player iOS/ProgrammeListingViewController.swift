@@ -25,6 +25,7 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
                 
                 let programme = programmes[indexPath.item]
                 
+                
                 cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
                 cell.mediaTitleLabel.text = programme.title
                 cell.channelLabel.text = "Gorilla"
@@ -32,6 +33,7 @@ class ProgrammeListingViewController: ContentListingViewController<Programme> {
 //                cell.mediaTypeLabel.text = programme.media.displayString()
                 cell.dateLabel.text = programme.date?.timeAgo
 //                cell.datePublishedLabel.text = programme.date?.timeAgo
+                cell.setMediaTypeImage(type: programme.media)
                 
                 return cell
             }

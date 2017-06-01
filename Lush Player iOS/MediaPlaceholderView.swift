@@ -32,6 +32,8 @@ class MediaPlaceholderView: UIView {
         let view = viewFromNibForClass()
         view.frame = bounds
         
+        imageView.contentMode = .scaleAspectFill
+        
         // Auto-layout stuff.
         view.autoresizingMask = [
             UIViewAutoresizing.flexibleWidth,
