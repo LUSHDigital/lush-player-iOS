@@ -143,6 +143,7 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
     
+        // Check there is text and not just white space
         guard !searchText.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
             NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.performSearch), object: nil)
             return
@@ -150,8 +151,11 @@ extension SearchViewController: UISearchBarDelegate {
         
         self.searchTerm = searchText
         
+        // Cancel the previous request if already performing a search
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.performSearch), object: nil)
         searchResultsController?.viewState = .loading
+        
+        // perform search
         self.perform(#selector(self.performSearch), with: nil, afterDelay: 0.4)
     }
     
@@ -192,7 +196,5 @@ extension SearchViewController: UISearchResultsUpdating {
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.performSearch), object: nil)
         searchResultsController?.viewState = .loading
         self.perform(#selector(self.performSearch), with: nil, afterDelay: 0.4)
-
-    
     }
 }

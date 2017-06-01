@@ -70,7 +70,6 @@
 		FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852071E928F9700E35902 /* SearchResultsViewController.swift */; };
 		FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */; };
 		FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520B1E92996E00E35902 /* LushSearchBar.swift */; };
-		FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520D1E929A9300E35902 /* LushSearchController.swift */; };
 		FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */; };
 		FFE852121E93BA0E00E35902 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852111E93BA0E00E35902 /* main.swift */; };
 		FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */; };
@@ -335,7 +334,6 @@
 		FFE852071E928F9700E35902 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColourBlock.swift"; sourceTree = "<group>"; };
 		FFE8520B1E92996E00E35902 /* LushSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushSearchBar.swift; sourceTree = "<group>"; };
-		FFE8520D1E929A9300E35902 /* LushSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushSearchController.swift; sourceTree = "<group>"; };
 		FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeListingViewController.swift; sourceTree = "<group>"; };
 		FFE852111E93BA0E00E35902 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPlaceholderView.xib; sourceTree = "<group>"; };
@@ -704,7 +702,6 @@
 				FFE852021E928CD100E35902 /* SearchViewController.swift */,
 				FFE852071E928F9700E35902 /* SearchResultsViewController.swift */,
 				FFE8520B1E92996E00E35902 /* LushSearchBar.swift */,
-				FFE8520D1E929A9300E35902 /* LushSearchController.swift */,
 				FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */,
 				FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */,
 				FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */,
@@ -1233,7 +1230,6 @@
 				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
 				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
 				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
-				FFE8520E1E929A9300E35902 /* LushSearchController.swift in Sources */,
 				FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */,
 				FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */,
 				FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */,

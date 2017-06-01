@@ -76,11 +76,9 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
         if let programme = events?[collectionView.tag].programmes[indexPath.item] {
             delegate?.didSelectEventProgrammePreview(programme: programme)
         }
-        
     }
     
-    
-    
+
     func numberOfProgrammesToDisplay(item: Int) -> Int {
         guard let events = events else { return 0 }
         

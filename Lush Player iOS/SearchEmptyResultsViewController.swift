@@ -8,21 +8,19 @@
 
 import UIKit
 
+// Displayed when search results return nothing
 class SearchEmptyResultsViewController: UIViewController {
 
+    // Containing stack view
     @IBOutlet weak var contentStackView: UIStackView!
     
+    // Label to show a small description
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    // Button for searching again
     @IBOutlet weak var searchAgainButton: SpacedCharacterButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    
+    // Button action - simply makes the search bar first responder 
     @IBAction func pressedSearchAgain(_ sender: SpacedCharacterButton) {
         
         guard let parentVc = self.parent as? SearchResultsViewController, let searchVC = parentVc.parent as? SearchViewController else {

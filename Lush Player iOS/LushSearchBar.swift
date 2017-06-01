@@ -8,12 +8,10 @@
 
 import UIKit
 
+// Override Search Bar
 class LushSearchBar: UISearchBar {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-
-    
 }

@@ -9,13 +9,14 @@
 import UIKit
 import LushPlayerKit
 
+
+// Displays a list of programmes the search returned
 class SearchResultsViewController: ContentListingViewController<Programme> {
-
-
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
+        // Override empty search controller
         self.emptyStateViewController = {
                 let storyboard = UIStoryboard(name: "Search", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "SearchEmptyResultsViewControllerId") as? SearchEmptyResultsViewController
@@ -28,16 +29,18 @@ class SearchResultsViewController: ContentListingViewController<Programme> {
         super.viewDidLoad()
         self.viewState = .empty
         
+        // Setup empty state view controller
         guard let emptyStateViewController = emptyStateViewController as? SearchEmptyResultsViewController else { return }
         
         emptyStateViewController.descriptionLabel.text = "Search for a programme"
         emptyStateViewController.searchAgainButton.setTitle("Search".uppercased(), for: .normal)
         
+        // Register Cell
         let nib = UINib(nibName: "SearchCollectionViewCell", bundle: nil)
         collectionView?.register(nib, forCellWithReuseIdentifier: "SearchCollectionViewCell")
-        
         collectionView?.keyboardDismissMode = .interactive
         
+        // Layout
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
             flowLayout.minimumLineSpacing = 0
@@ -57,7 +60,6 @@ class SearchResultsViewController: ContentListingViewController<Programme> {
         }
         
         let result = searchResults[indexPath.item]
-        
         
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "SearchCollectionViewCell", for: indexPath) as? SearchCollectionViewCell {
             
@@ -99,5 +101,3 @@ class SearchResultsViewController: ContentListingViewController<Programme> {
         }
     }
 }
-
-
