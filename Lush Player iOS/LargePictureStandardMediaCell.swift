@@ -29,11 +29,10 @@ class LargePictureStandardMediaCell: UICollectionViewCell {
         // Initialization code
         
         shadowView = UIView()
-        shadowView.frame = imageView.bounds
-        shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        shadowView.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
         imageView.insertSubview(shadowView, belowSubview: channelLabel)
-        
+        shadowView.bindFrameToSuperviewBounds()
         
         imageView.contentMode = .scaleAspectFill
     }
@@ -42,6 +41,13 @@ class LargePictureStandardMediaCell: UICollectionViewCell {
         super.layoutSubviews()
         
             shadowView.frame = imageView.bounds
+    }
+    
+    func setChannelLabel(with channel: Channel?) {
+        
+        channelLabel.text = channel?.title
+        channelLabel.text = channelLabel.text?.uppercased()
+        channelLabel.kern(with: 2)
     }
     
     func setMediaTypeImage(type: Programme.Media) {

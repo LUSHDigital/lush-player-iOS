@@ -83,6 +83,9 @@ public struct Programme {
         return URL(string: url)
     }
     
+    /// The channel of which the programme belongs
+    public var channel: Channel?
+    
     /// A list of related terms to the programme; they shown underneath the programme on mobile
     public let tags: [Tag]?
     
@@ -117,6 +120,8 @@ public struct Programme {
             return Tag(name: tagName, value: tagValue)
         })
         
+        let channelString = dictionary["channel"] as? String
+        channel = channelString.flatMap({ Channel(rawValue: $0) })
         
         if file == nil, let urlString = dictionary["url"] as? String {
             file = URL(string: urlString)
