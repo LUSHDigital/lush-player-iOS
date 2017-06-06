@@ -135,6 +135,8 @@ class MediaDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
         }
+        
+        GATracker.trackPage(named: "\(mediaType.displayString) programme \(programme.id)")
     }
     
     
