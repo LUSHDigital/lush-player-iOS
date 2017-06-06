@@ -15,8 +15,7 @@ class EventCollectionView: UICollectionView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        if (!self.bounds.size.equalTo(self.intrinsicContentSize))
-        {
+        if (!self.bounds.size.equalTo(self.intrinsicContentSize)) {
             self.invalidateIntrinsicContentSize()
         }
     }
