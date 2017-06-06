@@ -105,7 +105,7 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
             
         case .compact:
             cellWidth = 250
-            cellHeight = CGFloat(Double(cellWidth) * 1.1)
+            cellHeight = CGFloat(Double(cellWidth) * 1.32)
         case .extended:
             cellWidth = 300
             cellHeight = 330
