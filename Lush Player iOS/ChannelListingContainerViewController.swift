@@ -73,6 +73,10 @@ class ChannelListingContainerViewController: MenuContainerViewController {
                 return
             }
             
+            if let media = Programme.Media(rawValue: menuItem.identifier) {
+                GATracker.trackPage(named: "\(media.displayString()) listing")
+            }
+            
             childListingViewController?.viewState = .loaded(filteredProgrammes)
         } 
     }

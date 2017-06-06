@@ -83,6 +83,10 @@ class MediaDetailViewController: UIViewController {
         
         shareButton.setTitle("SHARE", for: .normal)
         
+        NotificationCenter.default.addObserver(forName: NSNotification.Name.mediaWillPlay, object: nil, queue: nil) { [weak self] (notification) in
+            self?.stopMediaPlaying()
+        }
+        
         // Set up tags view, and callbacks
         if let tags = programme.tags, !tags.isEmpty {
             
@@ -131,6 +135,8 @@ class MediaDetailViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.navigationController?.isNavigationBarHidden = false
         }
+        
+        GATracker.trackPage(named: "\(mediaType.displayString) programme \(programme.id)")
     }
     
     
@@ -194,6 +200,8 @@ class MediaDetailViewController: UIViewController {
         
         // Remove the placeholder view
         togglePlaceholder(isHidden: true)
+        
+        NotificationCenter.default.post(name: NSNotification.Name.mediaWillPlay, object: nil)
         
         // Calle ach players respective play function to start the media
         if let mediaContentState = mediaContentState {
@@ -317,6 +325,18 @@ class MediaDetailViewController: UIViewController {
         self.present(activityController, animated: true, completion: nil)
     }
     
+    func stopMediaPlaying() {
+        guard let mediaContentState = mediaContentState else { return }
+        
+        switch mediaContentState {
+            
+        case .TV(let videoPlayer):
+            videoPlayer.avPlayerViewController.player?.pause()
+        case .radio(let soundPlayer):
+            soundPlayer.player?.pause()
+        }
+    }
+    
     // Remove the KVO observers
     deinit {
         
@@ -346,4 +366,10 @@ class MediaDetailViewController: UIViewController {
         case TV(PlayerViewController)
         case radio(SoundPlayerViewController)
     }
+}
+
+
+extension Notification.Name {
+    
+    static let mediaWillPlay = Notification.Name("mediaWillPlay")
 }

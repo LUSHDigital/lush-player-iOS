@@ -26,6 +26,12 @@ class ConnectionErrorViewController: UIViewController {
         retryAction?()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        GATracker.trackPage(named: "Offline")
+    }
+    
     // Convience method which sets the error description text from an error object
     func showError(_ error: Error) {
         if let localised = error as? LocalizedError {

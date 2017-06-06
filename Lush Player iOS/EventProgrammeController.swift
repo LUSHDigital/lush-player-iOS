@@ -40,7 +40,7 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
             flowLayout.eventFlowLayoutDelegate = self
         }
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? StandardMediaCell else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "StandardMediaCellId", for: indexPath) as? LargePictureStandardMediaCell else {
             fatalError("Incorrect cell")
         }
         
@@ -49,10 +49,12 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
         }
         
         let programme = events[collectionView.tag].programmes[indexPath.item]
+        
         cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
-        cell.titleLabel.text = programme.title
-        cell.mediaTypeLabel.text = programme.media.displayString()
-        cell.datePublishedLabel.text = programme.date?.timeAgo
+        cell.mediaTitleLabel.text = programme.title
+        cell.setChannelLabel(with: programme.channel)
+        cell.dateLabel.text = programme.date?.timeAgo
+        cell.setMediaTypeImage(type: programme.media)
         
         if let flowLayout = collectionView.collectionViewLayout as? EventCollectionViewFlowLayout {
             switch viewMode {
@@ -65,7 +67,6 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
                 collectionView.isPagingEnabled = false
                 flowLayout.shouldStopOnMiddleItem = false
             }
-
         }
         
         return cell
@@ -101,12 +102,13 @@ extension EventProgrammeController: UICollectionViewDelegateFlowLayout {
         var cellWidth: CGFloat
         var cellHeight: CGFloat
         switch viewMode {
-            case .compact:
-                cellWidth = 250
-                cellHeight = CGFloat(Double(cellWidth) * 0.9)
-            case .extended:
-                cellWidth = 300
-                cellHeight = 260
+            
+        case .compact:
+            cellWidth = 250
+            cellHeight = CGFloat(Double(cellWidth) * 1.32)
+        case .extended:
+            cellWidth = 300
+            cellHeight = 330
         }
         
         

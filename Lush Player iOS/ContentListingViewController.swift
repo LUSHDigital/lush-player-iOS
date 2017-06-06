@@ -67,12 +67,13 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             
             hideChildControllersIfNeeded()
             emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            emptyStateViewController.view.frame = view.bounds
             addChildViewController(emptyStateViewController)
             self.view.addSubview(emptyStateViewController.view)
             emptyStateViewController.didMove(toParentViewController: self)
             collectionView?.reloadData()
             
-        case .error(let error):
+        case .error(let _):
             
             hideChildControllersIfNeeded()
             errorStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

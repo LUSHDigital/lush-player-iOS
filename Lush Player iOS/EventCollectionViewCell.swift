@@ -34,7 +34,7 @@ class EventCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        let nib = UINib(nibName: "StandardMediaCell", bundle: nil)
+        let nib = UINib(nibName: "LargePictureStandardMediaCell", bundle: nil)
         eventItemsCollectionView.register(nib, forCellWithReuseIdentifier: "StandardMediaCellId")
         
         if let text = button.titleLabel?.text {
