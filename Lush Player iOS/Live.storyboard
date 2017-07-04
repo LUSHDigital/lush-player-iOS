@@ -245,6 +245,8 @@
                         <outlet property="dateLabel" destination="usr-2z-MnW" id="6K5-Fl-9Oy"/>
                         <outlet property="descriptionLabel" destination="nl8-q6-Zx1" id="vCw-IO-Lk3"/>
                         <outlet property="playerViewContainer" destination="kLh-Nd-RMz" id="iOg-IV-zgW"/>
+                        <outlet property="tagsContainerView" destination="9WX-qT-bvI" id="QNj-wG-Kg5"/>
+                        <outlet property="tagsStackView" destination="2rh-9J-zhN" id="Den-U5-TiR"/>
                         <outlet property="timeRemainingLabel" destination="qD9-Xn-rRX" id="Djg-Eu-UbK"/>
                         <outlet property="titleLabel" destination="TG2-9s-3f4" id="8vs-pZ-jue"/>
                     </connections>
