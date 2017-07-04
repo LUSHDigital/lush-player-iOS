@@ -33,44 +33,80 @@ class EventContainerViewController: MenuContainerViewController {
         viewController.view.bindFrameToSuperviewBounds()
         didMove(toParentViewController: viewController)
         
-        setupEventView()
+        self.childEventViewController?.viewState = .loading
+        
+        setupEventView { (error, events) in
+            
+            if let error = error {
+                self.childEventViewController?.viewState = .error(error)
+                return
+            }
+            
+            if let events = events {
+                
+                guard !events.isEmpty else {
+                    self.childEventViewController?.viewState = .empty
+                    return
+                }
+                
+                OperationQueue.main.addOperation {
+                    self.childEventViewController?.eventProgrammeController.events = events
+                    self.childEventViewController?.viewState = .loaded(events)
+                    
+                    self.createMenuItems(events)
+                    self.setFirstMenuItemAsSelected()
+                }
+
+            }
+        }
     }
     
-    func setupEventView() {
+    func setupEventView(completion: @escaping (Error?, [Event]?) -> Void) {
         
         guard let childEventViewController = childEventViewController else { return }
         
-        let radioProgrammes = LushPlayerController.shared.programmes[.radio] ?? []
-        let tvProgrammes = LushPlayerController.shared.programmes[.TV] ?? []
         
-        let programmes = (radioProgrammes + tvProgrammes)
-        var tagDictionary = [String: [Programme]]()
-        
-        for programme in programmes {
+        LushPlayerController.shared.fetchEvents { (error, events) -> (Void) in
             
-            guard let tags = programme.tags else {
-                continue
+            if let error = error {
+                completion(error, nil)
+                return
             }
             
-            for tag in tags {
-                if var programmeStore = tagDictionary[tag.value] {
-                    programmeStore.append(programme)
-                    tagDictionary[tag.value] = programmeStore
-                } else {
-                    tagDictionary[tag.value] = [programme]
-                }
+            guard let events = events else {
+                completion(EventsError.noData, nil)
+                return
             }
+            
+            var parsedEvents = [Event]()
+            
+            let dispatchGroup = DispatchGroup()
+            
+            
+            for event in events {
+                dispatchGroup.enter()
+                LushPlayerController.shared.fetchEventDetail(for: event, completion: { (error, programmes) -> (Void) in
+                    
+                    guard error == nil else {
+                        dispatchGroup.leave()
+                        return
+                    }
+                    
+                    guard let programmes = programmes else {
+                        dispatchGroup.leave()
+                        return
+                    }
+                    
+                    let eventWithProgrammes = event.addProgrammes(programmes)
+                    parsedEvents.append(eventWithProgrammes)
+                    dispatchGroup.leave()
+                })
+            }
+            
+            dispatchGroup.notify(queue: DispatchQueue.main, execute: {
+                completion(nil, parsedEvents)
+            })
         }
-        
-        
-        let summit = Event(id: "summit", title: "Summit 2017", programmes: tagDictionary["summit"] ?? [])
-        let showcase =  Event(id: "showcase 2016", title: "Creative Showcase 2016", programmes: tagDictionary["showcase 2016"] ?? [])
-        let events = [summit, showcase]
-
-        childEventViewController.eventProgrammeController.events = events
-        childEventViewController.viewState = .loaded(events)
-        
-        createMenuItems(events)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
@@ -138,3 +174,7 @@ class EventContainerViewController: MenuContainerViewController {
     }
 }
 
+
+enum EventsError: Error {
+    case noData
+}
