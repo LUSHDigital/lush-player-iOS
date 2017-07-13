@@ -9,14 +9,6 @@
 import UIKit
 import LushPlayerKit
 
-struct Event {
-    
-    var id: String
-    var title: String
-    var programmes: [Programme]
-}
-
-
 class EventViewController: ContentListingViewController<Event> {
     
     let eventProgrammeController = EventProgrammeController()

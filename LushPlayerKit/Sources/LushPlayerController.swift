@@ -18,6 +18,7 @@ public typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Pro
 public typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
 public typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [Programme]?) -> (Void)
 public typealias ChannelCompletion = (_ error: Error?, _ searchResults: [Channel]?) -> (Void)
+public typealias EventsCompletion = (_ error: Error?, _ searchResults: [Event]?) -> (Void)
 
 
 
@@ -173,7 +174,7 @@ public class LushPlayerController {
         
         let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
         
-        requestController.get("views/playlist?offset=\(timezoneOffset)+minutes") { (response, error) in
+        requestController.get("views/playlist") { (response, error) in
             
             if let _error = error {
                 
@@ -304,6 +305,68 @@ public class LushPlayerController {
             completion(nil, parsedChannels)
         }
 
+    }
+    
+    public func fetchEvents(completion: @escaping EventsCompletion) {
+        
+        let endpoint = "events"
+        
+        requestController.get(endpoint) { (response, error) in
+            
+            if let _error = error {
+                
+                completion(_error, nil)
+                return
+            }
+            
+            if response?.status != 200 {
+                completion(LushPlayerError.invalidResponseStatus, nil)
+                return
+            }
+            
+            guard let eventsArray = response?.array as? [[AnyHashable : Any]] else {
+                completion(LushPlayerError.invalidResponse, nil)
+                return
+            }
+            
+            let events = eventsArray.flatMap({ (eventDict) -> Event? in
+                
+                return Event(with: eventDict)
+            })
+            
+            completion(nil, events)
+        }
+    }
+    
+    public func fetchEventDetail(for event: Event, completion: @escaping ProgrammesCompletion) {
+        
+        let endpoint = "events/\(event.id)"
+        
+        requestController.get(endpoint) { (response, error) in
+            if let _error = error {
+                
+                completion(_error, nil)
+                return
+            }
+            
+            if response?.status != 200 {
+                completion(LushPlayerError.invalidResponseStatus, nil)
+                return
+            }
+            
+            guard let videos = response?.array as? [[AnyHashable : Any]] else {
+                completion(LushPlayerError.invalidResponse, nil)
+                return
+            }
+            
+            let programmes = videos.flatMap({ (video) -> Programme? in
+                
+                guard let mediaString = video["type"] as? String, let media = Programme.Media(rawValue: mediaString) else { return nil }
+                return Programme(dictionary: video, media: media)
+            })
+            
+            completion(nil, programmes)
+        }
     }
 }
 

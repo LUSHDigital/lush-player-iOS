@@ -63,8 +63,14 @@ class MenuContainerViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        let firstIndex = IndexPath(item: 0, section: 0)
-        menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+        setFirstMenuItemAsSelected()
+    }
+    
+    func setFirstMenuItemAsSelected() {
+        if !menuItems.isEmpty {
+            let firstIndex = IndexPath(item: 0, section: 0)
+            menuCollectionView.selectItem(at: firstIndex, animated: false, scrollPosition: .left)
+        }
     }
     
     func layoutMenu() {
