@@ -43,9 +43,9 @@ class LargePictureStandardMediaCell: UICollectionViewCell {
             shadowView.frame = imageView.bounds
     }
     
-    func setChannelLabel(with channel: Channel?) {
+    func setChannelLabel(with channel: String?) {
         
-        channelLabel.text = channel?.title
+        channelLabel.text = channel ?? ""
         channelLabel.text = channelLabel.text?.uppercased()
         channelLabel.kern(with: 2)
     }

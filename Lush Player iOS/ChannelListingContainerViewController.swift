@@ -69,8 +69,20 @@ class ChannelListingContainerViewController: MenuContainerViewController {
                 
                 guard let emptyStateViewController = childListingViewController?.emptyStateViewController as? EmptyErrorViewController else { return }
                 emptyStateViewController.descriptionLabel.text = "Sorry, no \(menuItem.identifier == "all" ? "" : menuItem.title) episodes here right now"
-                emptyStateViewController.channelImageView.image = channel.image()
+                
+                if let url = channel.imageUrl {
+                    if let image = ImageCacher.retrieveImage(at: url.lastPathComponent) {
+                        emptyStateViewController.channelImageView.image = image
+                    } else {
+                        emptyStateViewController.channelImageView.set(imageURL: channel.imageUrl, withPlaceholder: nil, completion: nil)
+                    }
+                }
+                
                 return
+            }
+            
+            if let media = Programme.Media(rawValue: menuItem.identifier) {
+                GATracker.trackPage(named: "\(media.displayString()) listing")
             }
             
             childListingViewController?.viewState = .loaded(filteredProgrammes)
