@@ -17,6 +17,8 @@ public typealias ProgrammesCompletion = (_ error: Error?, _ programmes: [Program
 public typealias ProgrammeDetailsCompletion = (_ error: Error?, _ programme: Programme?) -> (Void)
 public typealias PlaylistCompletion = (_ error: Error?, _ playlistID: String?) -> (Void)
 public typealias SearchResultsCompletion = (_ error: Error?, _ searchResults: [Programme]?) -> (Void)
+public typealias ChannelCompletion = (_ error: Error?, _ searchResults: [Channel]?) -> (Void)
+
 
 
 public extension Notification.Name {
@@ -34,20 +36,7 @@ public class LushPlayerController {
     
     /// Programmes sorted by channel
     public var channelProgrammes: [Channel : [Programme]] = [:]
-    
-    public static var allChannels: [Channel] {
-        get {
-            return [
-                .life,
-                .kitchen,
-                .times,
-                .soapbox,
-                .gorilla,
-                .cosmetics
-            ]
-        }
-    }
-    
+
     /// The request controller used to make requests to the API
     private let requestController = TSCRequestController(baseURL: URL(string: "http://admin.player.lush.com/lushtvapi/v2/"))
     
@@ -102,7 +91,7 @@ public class LushPlayerController {
     ///   - completion: A block of code to be called once programmes have been fetched
     public func fetchProgrammes(for channel: Channel, of medium: Programme.Media?, with completion: @escaping ProgrammesCompletion) {
         
-        var endpoint = "views/categories?channel=\(channel.rawValue)"
+        var endpoint = "views/categories?channel=\(channel.tag)"
         if let medium = medium {
             endpoint.append("&type=\(medium.rawValue)")
         }
@@ -284,6 +273,37 @@ public class LushPlayerController {
             
             completion(nil, programmes)
         }
+    }
+    
+    public func fetchChannels(completion: @escaping ChannelCompletion) {
+        
+        let endpoint = "channels"
+        
+        requestController.get(endpoint) { (response, error) in
+            
+            if let _error = error {
+                
+                completion(_error, nil)
+                return
+            }
+            
+            if response?.status != 200 {
+                completion(LushPlayerError.invalidResponseStatus, nil)
+                return
+            }
+            
+            guard let channels = response?.array as? [[AnyHashable : Any]] else {
+                completion(LushPlayerError.invalidResponse, nil)
+                return
+            }
+            
+            let parsedChannels = channels.flatMap({ (channelDictionary) -> Channel? in
+                return Channel(with: channelDictionary)
+            })
+            
+            completion(nil, parsedChannels)
+        }
+
     }
 }
 
