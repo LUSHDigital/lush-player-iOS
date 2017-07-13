@@ -175,7 +175,6 @@ class ChannelCollectionViewController: UICollectionViewController, StateParentVi
             
             if let url = channel.imageUrl {
                 
-                
                 _cell.imageView.set(imageURL: url, withPlaceholder: ImageCacher.retrieveImage(at: url.lastPathComponent), completion: { (image, error) -> (Void) in
                     if let _image = image {
                         ImageCacher.cache(_image, with: url.lastPathComponent)

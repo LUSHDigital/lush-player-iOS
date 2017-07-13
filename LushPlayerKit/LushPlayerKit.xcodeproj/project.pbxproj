@@ -18,6 +18,7 @@
 		FF5F32981ED46FCD00058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
 		FF5F329F1ED4707700058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
 		FF9BE25F1F17A7C50083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
+		FF9BE2651F17BF3B0083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
 		FFD0D62B1E80226000483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6411E80249800483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6431E80254000483381 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D6421E80254000483381 /* TestFile.swift */; };
@@ -412,6 +413,7 @@
 				FF5565121E82C7A400F3C9A4 /* BrightcoveConstants.swift in Sources */,
 				FFD0D6441E80254400483381 /* TestFile.swift in Sources */,
 				FF5565151E82C7B400F3C9A4 /* BrightcoveHelpers.swift in Sources */,
+				FF9BE2651F17BF3B0083A973 /* ImageCacher.swift in Sources */,
 				FF5565001E82C1F800F3C9A4 /* PlayerViewController.swift in Sources */,
 				FFF5EA441E814B30007CE0C8 /* ImageController.swift in Sources */,
 				FFF5EA3B1E814528007CE0C8 /* TimeAgo.swift in Sources */,
