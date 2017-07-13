@@ -23,13 +23,16 @@ class ChannelsViewController: RefreshableViewController {
     @IBOutlet weak var radioProgrammesCollectionView: UICollectionView!
     
     /// The channel which was selected by the user, by default being Channel.life
-    var selectedChannel: Channel = .life
+    var selectedChannel: Channel?
     
     /// The radio programmes for the selected channel
     var radioProgrammes: [Programme]?
     
     /// The TV programmes for the selected channel
     var tvProgrammes: [Programme]?
+    
+    /// The channels availible for a user to watch programmes from
+    var channels: [Channel]?
 
     override func viewDidLoad() {
         
@@ -66,12 +69,33 @@ class ChannelsViewController: RefreshableViewController {
             radioFlowLayout.minimumInteritemSpacing = 44
         }
         
-        // Set first channel as selected
-        let firstIndexPath = IndexPath(item: 0, section: 0)
-        channelSelectionCollectionView.selectItem(at: firstIndexPath, animated: false, scrollPosition: .left)
+        LushPlayerController.shared.fetchChannels { (error, channels) -> (Void) in
+            if let error = error {
+                DispatchQueue.main.async {
+                    UIAlertController.presentError(error, in: self)
+                }
+            }
+            
+            if let channels = channels {
+                
+                    self.channels = channels
+                    self.selectedChannel = channels.first
+                    self.refresh(completion: {
+                        DispatchQueue.main.async {
+                            // Set first channel as selected if we have channels
+                            if !channels.isEmpty {
+                                let firstIndexPath = IndexPath(item: 0, section: 0)
+                                self.channelSelectionCollectionView.selectItem(at: firstIndexPath, animated: false, scrollPosition: .left)
+                            }
+                        }
+                    })
+            }
+        }
     }
     
-    override func refresh() {
+    override func refresh(completion: (() -> Void)? = nil) {
+        
+        guard let selectedChannel = selectedChannel else { return }
         
         // If we've already pulled the programmes for the selected channel
         if let _ = LushPlayerController.shared.channelProgrammes[selectedChannel] {
@@ -86,7 +110,9 @@ class ChannelsViewController: RefreshableViewController {
                     UIAlertController.presentError(error, in: welf)
                 }
                 
+                
                 self?.redraw()
+                completion?()
             })
         }
     }
@@ -96,16 +122,18 @@ class ChannelsViewController: RefreshableViewController {
         // Reload channel selector UI
         channelSelectionCollectionView.reloadData()
         
-        // Make sure we have programmes
-        guard let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] else { return }
-        
-        // Filter programmes by TV or Radio
-        tvProgrammes = programmes.filter({$0.media == .TV})
-        radioProgrammes = programmes.filter({$0.media == .radio})
-        
-        // Reload!
-        tvProgrammesCollectionView.reloadData()
-        radioProgrammesCollectionView.reloadData()
+        if let selectedChannel = selectedChannel {
+            // Make sure we have programmes
+            guard let programmes = LushPlayerController.shared.channelProgrammes[selectedChannel] else { return }
+            
+            // Filter programmes by TV or Radio
+            tvProgrammes = programmes.filter({$0.media == .TV})
+            radioProgrammes = programmes.filter({$0.media == .radio})
+            
+            // Reload!
+            tvProgrammesCollectionView.reloadData()
+            radioProgrammesCollectionView.reloadData()
+        }
     }
 }
 
@@ -128,12 +156,14 @@ extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
+        guard let channels = channels else { return .zero }
+        
         switch collectionView {
         case channelSelectionCollectionView:
             
             // Cell width is determined by the collection view bounds
             let cellWidth = (collectionView.bounds.height * 5/3)
-            let totalWidth = CGFloat(LushPlayerController.allChannels.count) * cellWidth
+            let totalWidth = CGFloat(channels.count) * cellWidth
             let contentWidth = collectionView.frame.size.width - collectionView.contentInset.left - collectionView.contentInset.right
             
             // If total width is less than content width, then create left and right insets so everything is centred
@@ -152,11 +182,13 @@ extension ChannelsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        guard let channels = channels else { return }
+        
         switch collectionView {
         case channelSelectionCollectionView:
             
             // Selected a new channel
-            let channel = LushPlayerController.allChannels[indexPath.item]
+            let channel = channels[indexPath.item]
             if channel != selectedChannel {
                 
                 // Refresh with new selected channel's content
@@ -192,7 +224,7 @@ extension ChannelsViewController: UICollectionViewDataSource {
         
         switch collectionView {
         case channelSelectionCollectionView:
-            return LushPlayerController.allChannels.count
+            return channels?.count ?? 0
         case tvProgrammesCollectionView:
             return tvProgrammes?.count ?? 0
         case radioProgrammesCollectionView:
@@ -209,11 +241,24 @@ extension ChannelsViewController: UICollectionViewDataSource {
             
             // Get a channel cell
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ChannelCell", for: indexPath)
+            
             guard let channelCell = cell as? ChannelCollectionViewCell else { return cell }
             
             // Set the cell's image to the channel's image
-            let channel = LushPlayerController.allChannels[indexPath.item]
-            channelCell.imageView.image = channel.image()
+            guard let channels = channels else { return cell }
+            
+            let channel = channels[indexPath.item]
+            if let url = channel.imageUrl {
+                
+                channelCell.imageView.set(imageURL: url, withPlaceholder: ImageCacher.retrieveImage(at: url.lastPathComponent), completion: { (image, error) -> (Void) in
+                    if let _image = image {
+                        ImageCacher.cache(_image, with: url.lastPathComponent)
+                    }
+                })
+                
+            } else {
+                channelCell.imageView.image = nil
+            }
             
             // Make sure cell is styled correctly for it's selection state
             if channel == selectedChannel {

@@ -17,6 +17,8 @@
 		FF5565181E82C80D00F3C9A4 /* DateComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */; };
 		FF5F32981ED46FCD00058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
 		FF5F329F1ED4707700058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
+		FF9BE25F1F17A7C50083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
+		FF9BE2651F17BF3B0083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
 		FFD0D62B1E80226000483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6411E80249800483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6431E80254000483381 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFD0D6421E80254000483381 /* TestFile.swift */; };
@@ -91,6 +93,7 @@
 		FF5565131E82C7B400F3C9A4 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
 		FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateComponentHelper.swift; sourceTree = "<group>"; };
 		FF5F32961ED46FCD00058103 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		FFD0D6261E80226000483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD0D6291E80226000483381 /* LushPlayerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LushPlayerKit.h; sourceTree = "<group>"; };
 		FFD0D6341E80227200483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +169,7 @@
 				FF5564FE1E82C1F800F3C9A4 /* PlayerViewController.swift */,
 				FFF5EA421E814B30007CE0C8 /* ImageView.swift */,
 				FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */,
+				FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -384,6 +388,7 @@
 				FF5565111E82C7A400F3C9A4 /* BrightcoveConstants.swift in Sources */,
 				FFD0D6711E80284700483381 /* SearchResult.swift in Sources */,
 				FF5565141E82C7B400F3C9A4 /* BrightcoveHelpers.swift in Sources */,
+				FF9BE25F1F17A7C50083A973 /* ImageCacher.swift in Sources */,
 				FF5564FF1E82C1F800F3C9A4 /* PlayerViewController.swift in Sources */,
 				FFF5EA431E814B30007CE0C8 /* ImageController.swift in Sources */,
 				FFF5EA3A1E814528007CE0C8 /* TimeAgo.swift in Sources */,
@@ -408,6 +413,7 @@
 				FF5565121E82C7A400F3C9A4 /* BrightcoveConstants.swift in Sources */,
 				FFD0D6441E80254400483381 /* TestFile.swift in Sources */,
 				FF5565151E82C7B400F3C9A4 /* BrightcoveHelpers.swift in Sources */,
+				FF9BE2651F17BF3B0083A973 /* ImageCacher.swift in Sources */,
 				FF5565001E82C1F800F3C9A4 /* PlayerViewController.swift in Sources */,
 				FFF5EA441E814B30007CE0C8 /* ImageController.swift in Sources */,
 				FFF5EA3B1E814528007CE0C8 /* TimeAgo.swift in Sources */,

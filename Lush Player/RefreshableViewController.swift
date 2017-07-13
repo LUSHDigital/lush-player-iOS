@@ -33,7 +33,7 @@ class RefreshableViewController: UIViewController {
     }
     
     /// A function responsible for refreshing the content associated with this view controller
-    func refresh() {
+    func refresh(completion: (() -> Void)? = nil) {
         
     }
 

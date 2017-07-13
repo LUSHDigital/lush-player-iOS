@@ -52,7 +52,7 @@ class EventProgrammeController: NSObject, UICollectionViewDelegate, UICollection
         
         cell.imageView.set(imageURL: programme.thumbnailURL, withPlaceholder: nil, completion: nil)
         cell.mediaTitleLabel.text = programme.title
-        cell.setChannelLabel(with: programme.channel)
+        cell.setChannelLabel(with: programme.channelId)
         cell.dateLabel.text = programme.date?.timeAgo
         cell.setMediaTypeImage(type: programme.media)
         

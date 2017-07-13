@@ -37,7 +37,7 @@ class SearchResultsViewController: RefreshableViewController {
         flowLayout.minimumLineSpacing = 36
     }
 
-    override func refresh() {
+    override func refresh(completion: (() -> Void)? = nil) {
         
         // Make sure we have a search term and it isn't empty
         guard let searchTerm = searchTerm, !searchTerm.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
