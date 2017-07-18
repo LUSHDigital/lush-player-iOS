@@ -33,6 +33,9 @@ class EventContainerViewController: MenuContainerViewController {
         viewController.view.bindFrameToSuperviewBounds()
         didMove(toParentViewController: viewController)
         
+        
+        self.menuCollectionView.transform = CGAffineTransform(translationX: 0, y: -self.menuCollectionView.bounds.height)
+        
         self.childEventViewController?.viewState = .loading
         
         setupEventView { (error, events) in
@@ -52,6 +55,10 @@ class EventContainerViewController: MenuContainerViewController {
                 OperationQueue.main.addOperation {
                     self.childEventViewController?.eventProgrammeController.events = events
                     self.childEventViewController?.viewState = .loaded(events)
+                    
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self.menuCollectionView.transform = .identity
+                    })
                     
                     self.createMenuItems(events)
                     self.setFirstMenuItemAsSelected()
@@ -104,7 +111,11 @@ class EventContainerViewController: MenuContainerViewController {
             }
             
             dispatchGroup.notify(queue: DispatchQueue.main, execute: {
-                completion(nil, parsedEvents)
+                
+                let sortedEvents = parsedEvents.sorted(by: { (a, b) -> Bool in
+                    a.endDate > b.endDate
+                })
+                completion(nil, sortedEvents)
             })
         }
     }
