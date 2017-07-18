@@ -56,7 +56,7 @@ class ChannelCollectionViewController: UICollectionViewController, StateParentVi
         // Set up all spacing for each collection view
         if let channelFlowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
             
-            channelFlowLayout.minimumLineSpacing = 2
+            channelFlowLayout.minimumLineSpacing = 1
             channelFlowLayout.minimumInteritemSpacing = 1
         }
         
