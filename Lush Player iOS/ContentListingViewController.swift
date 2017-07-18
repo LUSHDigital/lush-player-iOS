@@ -61,7 +61,9 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         case .loaded(_):
             
             hideChildControllersIfNeeded()
-            collectionView?.reloadData()
+            collectionView?.performBatchUpdates({ 
+                self.collectionView?.reloadSections([0])
+            }, completion: nil)
         
         case .empty():
             

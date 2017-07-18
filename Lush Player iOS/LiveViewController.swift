@@ -125,6 +125,9 @@ class LiveViewController: UIViewController, StateParentViewable {
         playerViewController.didMove(toParentViewController: self)
         
         
+        let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "LIVE", attributes: [NSKernAttributeName : CGFloat(1.5)])
+        liveIndicatorTitleLabel.attributedText = attributedString
+
         shareButton.setTitle("SHARE", for: .normal)
         
         redraw()
@@ -136,6 +139,12 @@ class LiveViewController: UIViewController, StateParentViewable {
         super.viewDidAppear(animated)
         
         refreshLive()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        self.playerViewController.avPlayerViewController.player?.pause()
     }
     
     @IBAction func pressedShare(sender: Any) {
