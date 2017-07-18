@@ -244,7 +244,9 @@
                     <connections>
                         <outlet property="dateLabel" destination="usr-2z-MnW" id="6K5-Fl-9Oy"/>
                         <outlet property="descriptionLabel" destination="nl8-q6-Zx1" id="vCw-IO-Lk3"/>
+                        <outlet property="liveIndicatorTitleLabel" destination="Pij-HL-rga" id="wvm-Ia-PxJ"/>
                         <outlet property="playerViewContainer" destination="kLh-Nd-RMz" id="iOg-IV-zgW"/>
+                        <outlet property="shareButton" destination="QTR-Js-Nxh" id="8J6-D2-J2z"/>
                         <outlet property="tagsContainerView" destination="9WX-qT-bvI" id="QNj-wG-Kg5"/>
                         <outlet property="tagsStackView" destination="2rh-9J-zhN" id="Den-U5-TiR"/>
                         <outlet property="timeRemainingLabel" destination="qD9-Xn-rRX" id="Djg-Eu-UbK"/>
@@ -367,6 +369,9 @@
                             <constraint firstItem="DJf-iI-Qj5" firstAttribute="leading" secondItem="X6V-cN-ams" secondAttribute="leading" id="zIa-56-HQo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="exploreChannelsButton" destination="4cA-Ux-7V4" id="Phu-Ax-38g"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xBY-Fc-91j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

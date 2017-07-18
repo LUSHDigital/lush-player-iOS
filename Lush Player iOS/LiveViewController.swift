@@ -57,6 +57,12 @@ class LiveViewController: UIViewController, StateParentViewable {
     // Parent tag view containing the tag list and a title
     @IBOutlet weak var tagsStackView: UIStackView!
     
+    // Share button - opens activity sheet
+    @IBOutlet weak var shareButton: UIButton!
+    
+    
+    @IBOutlet weak var liveIndicatorTitleLabel: UILabel!
+    
     // Controller managing the tags of a video
     var tagListController: TagListCollectionViewController? {
         return childViewControllers.flatMap({ $0 as? TagListCollectionViewController }).first
@@ -119,6 +125,8 @@ class LiveViewController: UIViewController, StateParentViewable {
         playerViewController.didMove(toParentViewController: self)
         
         
+        shareButton.setTitle("SHARE", for: .normal)
+        
         redraw()
         refreshLive()
     }
@@ -131,7 +139,20 @@ class LiveViewController: UIViewController, StateParentViewable {
     }
     
     @IBAction func pressedShare(sender: Any) {
-        print("Share")
+        
+        guard case let .live(playlist) = liveViewState else {
+            return
+        }
+        
+        let activityController = UIActivityViewController(activityItems: [], applicationActivities: nil)
+        activityController.popoverPresentationController?.sourceView = self.shareButton
+        activityController.popoverPresentationController?.sourceRect = self.shareButton.frame
+        
+        activityController.completionWithItemsHandler = { [weak self] activity, success, items, error in
+            
+            guard success else { return }
+            guard error == nil else { return }
+        }
     }
 
 
@@ -233,11 +254,21 @@ class LiveViewController: UIViewController, StateParentViewable {
         let video = playlistPosition.scheduleItem.video
         titleLabel.text = video.properties["name"] as? String
         
-        // placeholder for checking the label description form the video and show it when we know the property, for now lets just hide
+        
+        // Placeholder for checking the label description from the video and show it when we know the property, for now lets just hide
+        // TODO - Check for a description value when we know what the key is
         if false {
         } else {
             descriptionLabel.isHidden = true
         }
+        
+        // Placeholder for checking the url to share the video and show it when we know the property, for now lets just hide
+        // TODO - Check for a url value when we know what the key is
+        if false {
+        } else {
+            shareButton.isHidden = true
+        }
+        
         
         if let tagArray = video.properties["tags"] as? [String], !tagArray.isEmpty {
             
