@@ -125,6 +125,8 @@ class LiveViewController: UIViewController, StateParentViewable {
         playerViewController.didMove(toParentViewController: self)
         
         
+        shareButton.isHidden = true
+        
         let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "LIVE", attributes: [NSKernAttributeName : CGFloat(1.5)])
         liveIndicatorTitleLabel.attributedText = attributedString
 
