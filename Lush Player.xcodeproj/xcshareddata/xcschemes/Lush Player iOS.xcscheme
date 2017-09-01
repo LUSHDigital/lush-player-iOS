@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "FF1121791E7FE99000CD5337"
-               BuildableName = "Lush Player iOS.app"
+               BuildableName = "Lush Player.app"
                BlueprintName = "Lush Player iOS"
                ReferencedContainer = "container:Lush Player.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF1121791E7FE99000CD5337"
-            BuildableName = "Lush Player iOS.app"
+            BuildableName = "Lush Player.app"
             BlueprintName = "Lush Player iOS"
             ReferencedContainer = "container:Lush Player.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF1121791E7FE99000CD5337"
-            BuildableName = "Lush Player iOS.app"
+            BuildableName = "Lush Player.app"
             BlueprintName = "Lush Player iOS"
             ReferencedContainer = "container:Lush Player.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "FF1121791E7FE99000CD5337"
-            BuildableName = "Lush Player iOS.app"
+            BuildableName = "Lush Player.app"
             BlueprintName = "Lush Player iOS"
             ReferencedContainer = "container:Lush Player.xcodeproj">
          </BuildableReference>

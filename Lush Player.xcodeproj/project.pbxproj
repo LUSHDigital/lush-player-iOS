@@ -283,7 +283,7 @@
 		B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableViewController.swift; sourceTree = "<group>"; };
 		B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
-		FF11217A1E7FE99000CD5337 /* Lush Player iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF11217A1E7FE99000CD5337 /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11217C1E7FE99000CD5337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF11217E1E7FE99000CD5337 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF1121811E7FE99000CD5337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -475,7 +475,7 @@
 				B1CEBE151DF1881D001F890D /* Lush Player.app */,
 				B1CEBE281DF1881E001F890D /* Lush PlayerTests.xctest */,
 				B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */,
-				FF11217A1E7FE99000CD5337 /* Lush Player iOS.app */,
+				FF11217A1E7FE99000CD5337 /* Lush Player.app */,
 				FF11218D1E7FE99000CD5337 /* Lush Player iOSTests.xctest */,
 				FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */,
 			);
@@ -885,7 +885,7 @@
 			);
 			name = "Lush Player iOS";
 			productName = "Lush Player iOS";
-			productReference = FF11217A1E7FE99000CD5337 /* Lush Player iOS.app */;
+			productReference = FF11217A1E7FE99000CD5337 /* Lush Player.app */;
 			productType = "com.apple.product-type.application";
 		};
 		FF11218C1E7FE99000CD5337 /* Lush Player iOSTests */ = {
@@ -1606,7 +1606,7 @@
 					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Lush Player";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1636,7 +1636,7 @@
 					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Lush Player";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

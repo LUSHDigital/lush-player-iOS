@@ -22,20 +22,33 @@ extension BCOVPlaylist {
             guard let _video = video as? BCOVVideo else { return nil }
             
             guard let customInfo = _video.properties["custom_fields"] as? [AnyHashable : Any] else { return nil }
-            guard let liveDuration = customInfo["livebroadcastlength"] as? String, let startTime = customInfo["starttime"] as? String else { return nil }
+            guard let liveDuration = customInfo["livebroadcastlength"] as? String,
+				  let startTime = customInfo["starttime"] as? String else { return nil }
             
             // Set up date formatters
-            let durationFormatter = DateFormatter()
-            durationFormatter.dateFormat = "HH:mm:ss"
-            
+			
             let startFormatter = DateFormatter()
             startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
             // Create duration date object and start date object from date formatters
-            guard let durationDate = durationFormatter.date(from: liveDuration), let startDate = startFormatter.date(from: startTime) else { return nil }
-            
+            guard // let durationDate = durationFormatter.date(from: liveDuration),
+				  let startDate = startFormatter.date(from: startTime) else {
+				return nil
+			}
+			
+			let durationComponentsString = liveDuration.components(separatedBy: ":")
+			if durationComponentsString.count != 3 {
+				print("Duraction Component is the wrong format: \(liveDuration)")
+				return nil
+			}
+			
+			var seconds : Double = (Double(durationComponentsString[0]) ?? 0) * 60.0 * 60.0
+			seconds += (Double(durationComponentsString[1]) ?? 0.0) * 60.0
+			seconds += Double(durationComponentsString[2]) ?? 0.0
+
+			let durationDate = startDate.addingTimeInterval(seconds)
             let components: Set<Calendar.Component> = [.minute, .hour, .second]
-            
+			
             // The date components of the date to return relative start/end dates from
             let relativeComponents = Calendar.current.dateComponents([.minute, .hour, .second, .day, .month, .year], from: toDate)
             
