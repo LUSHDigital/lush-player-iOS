@@ -4,6 +4,10 @@
       "idiom" : "tv",
       "filename" : "iOS-Small-Icon-2.png",
       "scale" : "1x"
+    },
+    {
+      "idiom" : "tv",
+      "scale" : "2x"
     }
   ],
   "info" : {
