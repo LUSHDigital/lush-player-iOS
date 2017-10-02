@@ -38,17 +38,23 @@ class LushPlayerTabBarController: UITabBarController {
     
     /// Setup custom height tab bar
     func setupCustomTabbar() {
-        
-        var tabFrame = self.tabBar.frame
-        tabFrame.size.height = 60
-        tabFrame.origin.y = self.view.frame.size.height - 60
-        self.tabBar.frame = tabFrame
-        
-        if let tabbarItems = self.tabBar.items {
-            
-            for tabBarItem in tabbarItems {
-                tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -6)
-            }
-        }
+		
+		// Fix for iOS 11 and iPhone X (we don't need any padding for the X, if you do
+		// things mess up....
+		//
+		if UIDevice.displayType() != .iphoneX {
+			var tabFrame = self.tabBar.frame
+			tabFrame.size.height = 60
+		    tabFrame.origin.y = self.view.frame.size.height - 60
+			
+			self.tabBar.frame = tabFrame
+			
+			if let tabbarItems = self.tabBar.items {
+
+				for tabBarItem in tabbarItems {
+					tabBarItem.titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -6)
+				}
+			}
+		}
     }
 }

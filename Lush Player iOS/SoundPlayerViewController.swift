@@ -23,10 +23,24 @@ class SoundPlayerViewController: AVPlayerViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+		
+		// There's a bug in iOS 11
+		// https://openradar.appspot.com/6468254622
+		if #available(iOS 11.0, *) {
+			self.view.setNeedsLayout()
+			self.view.layoutIfNeeded()
+			self.contentOverlayView?.translatesAutoresizingMaskIntoConstraints = true
+		}
+		
         imageView = UIImageView(frame: view.bounds)
+		imageView.translatesAutoresizingMaskIntoConstraints = false
+		imageView.contentMode = .scaleAspectFill
+		imageView.clipsToBounds = true
+
         self.contentOverlayView?.addSubview(imageView)
+		
         if let contentOverlayView = contentOverlayView {
+			
             imageView.centerXAnchor.constraint(equalTo: contentOverlayView.centerXAnchor).isActive = true
             imageView.centerYAnchor.constraint(equalTo: contentOverlayView.centerYAnchor).isActive = true
             imageView.addConstraint(NSLayoutConstraint(item: imageView, attribute: NSLayoutAttribute.width, relatedBy: .equal, toItem: imageView, attribute: .height, multiplier: 16/9, constant: 0))
@@ -110,9 +124,16 @@ class SoundPlayerViewController: AVPlayerViewController {
         }
         
         // Set up the image view for the radio programme and add it to the AVPlayerViewController contentOverlayView
-        
-        imageView.set(imageURL: imageURL, withPlaceholder: nil, completion: nil)
+		
+	//	imageView.contentMode = .scaleToFill
+		
+		
+        imageView.set(imageURL: imageURL, withPlaceholder: nil, imageSize: self.view.bounds.size, completion: nil)
 
+		print(imageView.frame)
+		print(self.view.bounds.size)
+
+		
         avPlayer.play()
     }
 }

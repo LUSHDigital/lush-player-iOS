@@ -179,14 +179,17 @@ class MediaDetailViewController: UIViewController {
             if let playerViewController = storyboard?.instantiateViewController(withIdentifier: "SoundPlayerViewControllerId") as? SoundPlayerViewController {
                 
                 addChildViewController(playerViewController)
-                let bounds = self.playerContainerView.bounds
-                playerViewController.view.frame = bounds
+				
+             //   let bounds = self.playerContainerView.bounds
+             //   playerViewController.view.frame = bounds
+				
+				self.playerContainerView.translatesAutoresizingMaskIntoConstraints = false
                 self.playerContainerView.addSubview(playerViewController.view)
-                
+				playerViewController.view.bindFrameToSuperviewBounds()
                 playerViewController.didMove(toParentViewController: self)
-                playerContainerView.addSubview(placeholder)
+
+				self.playerContainerView.addSubview(placeholder)
                 placeholder.bindFrameToSuperviewBounds()
-                
                 
                 playerViewController.contentOverlayView?.addObserver(self, forKeyPath: "bounds", options: [.old], context: nil)
                 

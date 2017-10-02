@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eWJ-Fy-sIz">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13526" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="eWJ-Fy-sIz">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13524"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Media Detail View Controller-->
         <scene sceneID="avL-XR-HLO">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="eWJ-Fy-sIz" customClass="MediaDetailViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="eWJ-Fy-sIz" customClass="MediaDetailViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fna-vB-ofu"/>
                         <viewControllerLayoutGuide type="bottom" id="pdx-cS-u8s"/>
@@ -39,33 +47,37 @@
                                                         </constraints>
                                                     </containerView>
                                                 </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="wrN-ut-Lnv" firstAttribute="top" secondItem="sM2-JF-08P" secondAttribute="top" id="aZK-7x-PaV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wrN-ut-Lnv" secondAttribute="bottom" id="cE6-ii-2lb"/>
+                                                </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="TMy-PC-LgE" userLabel="Info Stack View">
                                                 <rect key="frame" x="0.0" y="230" width="375" height="238.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dKW-gn-80p" userLabel="Programme Info StackView">
-                                                        <rect key="frame" x="20" y="20" width="160" height="158.5"/>
+                                                        <rect key="frame" x="20" y="20" width="0.0" height="158.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8S-sG-x3F">
-                                                                <rect key="frame" x="0.0" y="0.0" width="160" height="20"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xn6-S0-5Bz">
-                                                                <rect key="frame" x="0.0" y="30" width="160" height="26.5"/>
+                                                                <rect key="frame" x="0.0" y="30" width="0.0" height="26.5"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngy-6a-bnK">
-                                                                <rect key="frame" x="0.0" y="66.5" width="160" height="20"/>
+                                                                <rect key="frame" x="0.0" y="66.5" width="0.0" height="20"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VUO-AO-tCh">
-                                                                <rect key="frame" x="0.0" y="96.5" width="160" height="32"/>
+                                                                <rect key="frame" x="0.0" y="96.5" width="0.0" height="32"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                 <state key="normal" title="Show full description">
                                                                     <color key="titleColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="calibratedRGB"/>
@@ -75,7 +87,7 @@
                                                                 </connections>
                                                             </button>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ih-b8-ils">
-                                                                <rect key="frame" x="0.0" y="138.5" width="160" height="20"/>
+                                                                <rect key="frame" x="0.0" y="138.5" width="0.0" height="20"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                                                 <color key="textColor" red="0.5607843137254902" green="0.5607843137254902" blue="0.5607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -88,7 +100,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="s87-zT-xDQ" userLabel="Button StackView">
                                                         <rect key="frame" x="20" y="198.5" width="169.5" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-ln-xfo" customClass="SpacedCharacterButton" customModule="Lush_Player_iOS" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fFR-ln-xfo" customClass="SpacedCharacterButton" customModule="Lush_Player" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="169.5" height="40"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <constraints>
@@ -199,8 +211,8 @@
         <!--Tag List Collection View Controller-->
         <scene sceneID="A0b-6K-Qg1">
             <objects>
-                <collectionViewController id="1Ld-Nj-7GX" customClass="TagListCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player_iOS" customModuleProvider="target">
+                <collectionViewController id="1Ld-Nj-7GX" customClass="TagListCollectionViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="XlK-ol-f6q" customClass="TagCollectionView" customModule="Lush_Player" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="334" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Siy-gi-dEX" customClass="UICollectionViewLeftAlignedLayout">
@@ -223,7 +235,7 @@
         <!--Tag List View Controller-->
         <scene sceneID="1Bo-ya-7aS">
             <objects>
-                <viewController id="we6-83-Ck6" customClass="TagListViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="we6-83-Ck6" customClass="TagListViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mWS-Jp-BOJ"/>
                         <viewControllerLayoutGuide type="bottom" id="2cK-Su-TUQ"/>
@@ -234,7 +246,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="1Rb-dc-5Bf" kind="show" identifier="MediaDetailSegue" customClass="ReplaceSegue" customModule="Lush_Player_iOS" customModuleProvider="target" id="Z2D-fh-iJZ"/>
+                        <segue destination="1Rb-dc-5Bf" kind="show" identifier="MediaDetailSegue" customClass="ReplaceSegue" customModule="Lush_Player" customModuleProvider="target" id="Z2D-fh-iJZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WKb-d4-q5l" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +264,7 @@
         <!--Sound Player View Controller-->
         <scene sceneID="qjs-od-MVn">
             <objects>
-                <viewController storyboardIdentifier="SoundPlayerViewControllerId" id="L8r-eh-Y2k" customClass="SoundPlayerViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SoundPlayerViewControllerId" id="L8r-eh-Y2k" customClass="SoundPlayerViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="6RC-io-i1Q"/>
                         <viewControllerLayoutGuide type="bottom" id="sig-dU-ZsA"/>

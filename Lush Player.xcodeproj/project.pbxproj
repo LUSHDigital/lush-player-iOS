@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401E81361F7E769C008C0FA7 /* UIDevice+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */; };
 		B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9641DF5682B00E8551D /* PlayerViewController.swift */; };
 		B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */; };
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
@@ -254,6 +255,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Versions.swift"; sourceTree = "<group>"; };
 		B125D9641DF5682B00E8551D /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 		FFEECD4B1E8533B000AC7399 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */,
 				FF7B188F1EDDC29900FB9E23 /* GATracker.swift */,
 				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
 				FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */,
@@ -1259,6 +1262,7 @@
 				FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */,
 				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
 				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
+				401E81361F7E769C008C0FA7 /* UIDevice+Versions.swift in Sources */,
 				FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */,
 				FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */,
 				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
