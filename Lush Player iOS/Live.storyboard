@@ -21,10 +21,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Live-->
+        <!--On now-->
         <scene sceneID="Wcd-No-DdT">
             <objects>
-                <navigationController title="Live" navigationBarHidden="YES" id="L1z-9z-1xo" sceneMemberID="viewController">
+                <navigationController title="On now" navigationBarHidden="YES" id="L1z-9z-1xo" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Ss-Zh-h3m">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
