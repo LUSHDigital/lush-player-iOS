@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sOe-Eq-f9q">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="Mr6-HG-c5P">
+            <objects>
+                <navigationController title="Home" navigationBarHidden="YES" id="sOe-Eq-f9q" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ayt-9K-sFN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="mD6-CN-VeX" kind="relationship" relationship="rootViewController" id="CF9-sI-0Jq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QFN-H4-uAx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="529" y="-799"/>
+        </scene>
+        <!--Home Collection View Controller-->
+        <scene sceneID="9Au-rn-uL1">
+            <objects>
+                <viewController id="mD6-CN-VeX" customClass="HomeCollectionViewController" customModule="Lush_Player_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8ko-Dj-05J"/>
+                        <viewControllerLayoutGuide type="bottom" id="ckB-5j-IGx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XlV-Lx-rsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="A6f-09-BZj"/>
+                    <connections>
+                        <segue destination="2UW-WP-FGR" kind="show" identifier="MediaDetailSegue" id="dby-af-fXw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngw-7S-xxr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1418" y="-799"/>
+        </scene>
+        <!--MediaDetail-->
+        <scene sceneID="ti4-eY-01h">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MediaDetail" id="2UW-WP-FGR" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QyY-Vn-21h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2286" y="-799"/>
+        </scene>
+    </scenes>
+</document>

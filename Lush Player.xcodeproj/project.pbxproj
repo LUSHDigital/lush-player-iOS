@@ -7,18 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		401E81361F7E769C008C0FA7 /* UIDevice+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */; };
 		B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9641DF5682B00E8551D /* PlayerViewController.swift */; };
 		B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */; };
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
-		B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9831DF5D6DA00E8551D /* SearchResult.swift */; };
 		B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
 		B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; };
-		B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
 		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
 		B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */; };
-		B1985E201DF9725E00802635 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E1F1DF9725E00802635 /* PlayerView.swift */; };
 		B1985E261DF9739C00802635 /* Holding Screen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1985E251DF9739C00802635 /* Holding Screen.mp4 */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
@@ -30,19 +27,94 @@
 		B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */; };
 		B1CEBE4E1DF1931F001F890D /* ProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */; };
 		B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */; };
-		B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */; };
-		B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBB1DF1BFE4001F890D /* Programme.swift */; };
 		B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */; };
-		B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE71DF1CDA1001F890D /* ImageView.swift */; };
-		B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEE81DF1CDA1001F890D /* ImageController.swift */; };
 		B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */; };
-		B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEED1DF1D88E001F890D /* Constants.swift */; };
-		B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEE1DF1D88E001F890D /* ParseError.swift */; };
-		B1CEBEF31DF1D88E001F890D /* String+HTMLEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */; };
-		B1CEBEF41DF1D88E001F890D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEF01DF1D88E001F890D /* Utilities.swift */; };
-		B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */; };
 		B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */; };
 		B1DBCBEA1E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */; };
+		FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11217C1E7FE99000CD5337 /* AppDelegate.swift */; };
+		FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11217E1E7FE99000CD5337 /* ViewController.swift */; };
+		FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121801E7FE99000CD5337 /* Main.storyboard */; };
+		FF1121841E7FE99000CD5337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1121831E7FE99000CD5337 /* Assets.xcassets */; };
+		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
+		FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */; };
+		FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */; };
+		FF4708551ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */; };
+		FF4708561ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */; };
+		FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */; };
+		FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4708621EDD7AFB00BFAA6A /* Fabric.framework */; };
+		FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */; };
+		FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */; };
+		FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */; };
+		FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */; };
+		FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */; };
+		FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32A51ED478C400058103 /* TagListViewController.swift */; };
+		FF7B18711EDDB48700FB9E23 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */; };
+		FF7B18731EDDB5DA00FB9E23 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */; };
+		FF7B18751EDDB5E800FB9E23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */; };
+		FF7B18771EDDB5FE00FB9E23 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18761EDDB5FE00FB9E23 /* libz.tbd */; };
+		FF7B18791EDDB63100FB9E23 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */; };
+		FF7B18901EDDC29900FB9E23 /* GATracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B188F1EDDC29900FB9E23 /* GATracker.swift */; };
+		FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */; };
+		FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */; };
+		FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */; };
+		FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */; };
+		FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */; };
+		FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; };
+		FFA8F0251E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */; };
+		FFA8F0261E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */; };
+		FFB39FB91E9F731A00B5DA36 /* EventListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */; };
+		FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; };
+		FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; };
+		FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852021E928CD100E35902 /* SearchViewController.swift */; };
+		FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852071E928F9700E35902 /* SearchResultsViewController.swift */; };
+		FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */; };
+		FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520B1E92996E00E35902 /* LushSearchBar.swift */; };
+		FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */; };
+		FFE852121E93BA0E00E35902 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE852111E93BA0E00E35902 /* main.swift */; };
+		FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */; };
+		FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */; };
+		FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */; };
+		FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */; };
+		FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD501E85487100AC7399 /* LoadingViewController.swift */; };
+		FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */; };
+		FFEECD681E891F1F00AC7399 /* ThunderRequest.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEAC1DF1BD0A001F890D /* ThunderRequest.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */; };
+		FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */; };
+		FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */; };
+		FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */; };
+		FFEECD821E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */; };
+		FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */; };
+		FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */; };
+		FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */; };
+		FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA071E8036CA007CE0C8 /* Home.storyboard */; };
+		FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */; };
+		FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA101E803701007CE0C8 /* Channels.storyboard */; };
+		FFF5EA141E80371F007CE0C8 /* Events.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA131E80371F007CE0C8 /* Events.storyboard */; };
+		FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA151E80372C007CE0C8 /* Search.storyboard */; };
+		FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */; };
+		FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */; };
+		FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */; };
+		FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */; };
+		FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */; };
+		FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */; };
+		FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */; };
+		FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */; };
+		FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */; };
+		FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */; };
+		FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */; };
+		FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */; };
+		FFFC478A1E9B992400290F07 /* UIView+Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47891E9B992400290F07 /* UIView+Pin.swift */; };
+		FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */; };
+		FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */; };
+		FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */; };
+		FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */; };
+		FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */; };
+		FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */; };
+		FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +174,55 @@
 			remoteGlobalIDString = 49084FD11BD13DBD0012F636;
 			remoteInfo = ThunderRequestTV;
 		};
+		FF11218E1E7FE99000CD5337 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBE0D1DF1881D001F890D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF1121791E7FE99000CD5337;
+			remoteInfo = "Lush Player iOS";
+		};
+		FF1121991E7FE99000CD5337 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBE0D1DF1881D001F890D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF1121791E7FE99000CD5337;
+			remoteInfo = "Lush Player iOS";
+		};
+		FFD0D65F1E8026EF00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FFD0D6261E80226000483381;
+			remoteInfo = "LushPlayerKit iOS";
+		};
+		FFD0D6611E8026EF00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FFD0D6341E80227200483381;
+			remoteInfo = "LushPlayerKit tvOS";
+		};
+		FFD0D6661E80276500483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FFD0D6331E80227200483381;
+			remoteInfo = "LushPlayerKit tvOS";
+		};
+		FFD0D66A1E80276D00483381 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FFD0D6251E80226000483381;
+			remoteInfo = "LushPlayerKit iOS";
+		};
+		FFEECD691E891F1F00AC7399 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C2E5088119C835A300350F00;
+			remoteInfo = ThunderRequest;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,8 +232,22 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FFA8F0261E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 				B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */,
-				B14985921DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Embed Frameworks */,
+				FFD0D6651E80276500483381 /* LushPlayerKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FFD0D66C1E80276D00483381 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				FFEECD681E891F1F00AC7399 /* ThunderRequest.framework in Embed Frameworks */,
+				FFD0D6691E80276D00483381 /* LushPlayerKit.framework in Embed Frameworks */,
+				FFA8F0291E82D1A500338DF1 /* BrightcovePlayerSDK.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,16 +255,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Versions.swift"; sourceTree = "<group>"; };
 		B125D9641DF5682B00E8551D /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
-		B125D9831DF5D6DA00E8551D /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
 		B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
-		B1985E1F1DF9725E00802635 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		B1985E251DF9739C00802635 /* Holding Screen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holding Screen.mp4"; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -147,20 +280,106 @@
 		B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 		B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
-		B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerController.swift; sourceTree = "<group>"; };
 		B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ThunderRequest.xcodeproj; path = "Thunder Request/ThunderRequest.xcodeproj"; sourceTree = SOURCE_ROOT; };
-		B1CEBEBB1DF1BFE4001F890D /* Programme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Programme.swift; sourceTree = "<group>"; };
 		B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		B1CEBEE71DF1CDA1001F890D /* ImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
-		B1CEBEE81DF1CDA1001F890D /* ImageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageController.swift; sourceTree = "<group>"; };
 		B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshableViewController.swift; sourceTree = "<group>"; };
-		B1CEBEED1DF1D88E001F890D /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "HTML Parser/Sources/HTMLEntities/Constants.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEEE1DF1D88E001F890D /* ParseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseError.swift; path = "HTML Parser/Sources/HTMLEntities/ParseError.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "String+HTMLEntities.swift"; path = "HTML Parser/Sources/HTMLEntities/String+HTMLEntities.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEF01DF1D88E001F890D /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "HTML Parser/Sources/HTMLEntities/Utilities.swift"; sourceTree = SOURCE_ROOT; };
-		B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeAgo.swift; sourceTree = "<group>"; };
 		B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelProgrammeCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF11217A1E7FE99000CD5337 /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF11217C1E7FE99000CD5337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FF11217E1E7FE99000CD5337 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FF1121811E7FE99000CD5337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF1121831E7FE99000CD5337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FF1121861E7FE99000CD5337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FF1121881E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF11218D1E7FE99000CD5337 /* Lush Player iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSTests.swift; sourceTree = "<group>"; };
+		FF1121931E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lush Player iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lush_Player_iOSUITests.swift; sourceTree = "<group>"; };
+		FF11219E1E7FE99000CD5337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargePictureStandardMediaCell.swift; sourceTree = "<group>"; };
+		FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LargePictureStandardMediaCell.xib; sourceTree = "<group>"; };
+		FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		FF4708621EDD7AFB00BFAA6A /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListCollectionViewController.swift; sourceTree = "<group>"; };
+		FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TagCollectionViewCell.swift; path = ../TagCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TagCollectionViewCell.xib; path = ../TagCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewLeftAlignedLayout.h; sourceTree = "<group>"; };
+		FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewLeftAlignedLayout.m; sourceTree = "<group>"; };
+		FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagCollectionView.swift; sourceTree = "<group>"; };
+		FF5F32A51ED478C400058103 /* TagListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagListViewController.swift; sourceTree = "<group>"; };
+		FF7B18641EDDB46E00FB9E23 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAI.h; path = "Google Analytics/GAI.h"; sourceTree = "<group>"; };
+		FF7B18651EDDB46E00FB9E23 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIDictionaryBuilder.h; path = "Google Analytics/GAIDictionaryBuilder.h"; sourceTree = "<group>"; };
+		FF7B18661EDDB46E00FB9E23 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceFields.h; path = "Google Analytics/GAIEcommerceFields.h"; sourceTree = "<group>"; };
+		FF7B18671EDDB46E00FB9E23 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProduct.h; path = "Google Analytics/GAIEcommerceProduct.h"; sourceTree = "<group>"; };
+		FF7B18681EDDB46E00FB9E23 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommerceProductAction.h; path = "Google Analytics/GAIEcommerceProductAction.h"; sourceTree = "<group>"; };
+		FF7B18691EDDB46E00FB9E23 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIEcommercePromotion.h; path = "Google Analytics/GAIEcommercePromotion.h"; sourceTree = "<group>"; };
+		FF7B186A1EDDB46E00FB9E23 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAIFields.h; path = "Google Analytics/GAIFields.h"; sourceTree = "<group>"; };
+		FF7B186B1EDDB46E00FB9E23 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAILogger.h; path = "Google Analytics/GAILogger.h"; sourceTree = "<group>"; };
+		FF7B186C1EDDB46E00FB9E23 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITrackedViewController.h; path = "Google Analytics/GAITrackedViewController.h"; sourceTree = "<group>"; };
+		FF7B186D1EDDB46E00FB9E23 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GAITracker.h; path = "Google Analytics/GAITracker.h"; sourceTree = "<group>"; };
+		FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Google Analytics/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		FF7B18761EDDB5FE00FB9E23 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
+		FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
+		FF7B188F1EDDC29900FB9E23 /* GATracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATracker.swift; sourceTree = "<group>"; };
+		FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
+		FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchEmptyResultsViewController.swift; sourceTree = "<group>"; };
+		FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiveViewController.swift; sourceTree = "<group>"; };
+		FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OffAirViewController.swift; sourceTree = "<group>"; };
+		FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
+		FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BrightcovePlayerSDK.framework; sourceTree = "<group>"; };
+		FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundPlayerViewController.swift; sourceTree = "<group>"; };
+		FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListingViewController.swift; sourceTree = "<group>"; };
+		FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = LushPlayerKit.xcodeproj; path = LushPlayerKit/LushPlayerKit.xcodeproj; sourceTree = "<group>"; };
+		FFE852021E928CD100E35902 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		FFE852071E928F9700E35902 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ColourBlock.swift"; sourceTree = "<group>"; };
+		FFE8520B1E92996E00E35902 /* LushSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushSearchBar.swift; sourceTree = "<group>"; };
+		FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgrammeListingViewController.swift; sourceTree = "<group>"; };
+		FFE852111E93BA0E00E35902 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MediaPlaceholderView.xib; sourceTree = "<group>"; };
+		FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaPlaceholderView.swift; sourceTree = "<group>"; };
+		FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentListingViewController.swift; sourceTree = "<group>"; };
+		FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuContainerViewController.swift; sourceTree = "<group>"; };
+		FFEECD501E85487100AC7399 /* LoadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingViewController.swift; sourceTree = "<group>"; };
+		FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelListingContainerViewController.swift; sourceTree = "<group>"; };
+		FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ConnectionErrorScreen.storyboard; sourceTree = "<group>"; };
+		FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionErrorViewController.swift; sourceTree = "<group>"; };
+		FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EmptyStateScreen.storyboard; sourceTree = "<group>"; };
+		FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyErrorViewController.swift; sourceTree = "<group>"; };
+		FFF5EA081E8036CA007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Live.storyboard; sourceTree = "<group>"; };
+		FFF5EA111E803701007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Channels.storyboard; sourceTree = "<group>"; };
+		FFF5EA131E80371F007CE0C8 /* Events.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Events.storyboard; sourceTree = "<group>"; };
+		FFF5EA161E80372C007CE0C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Search.storyboard; sourceTree = "<group>"; };
+		FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewController.swift; sourceTree = "<group>"; };
+		FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LushPlayerTabBarController.swift; sourceTree = "<group>"; };
+		FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandardMediaCell.swift; sourceTree = "<group>"; };
+		FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StandardMediaCell.xib; sourceTree = "<group>"; };
+		FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaDetailViewController.swift; sourceTree = "<group>"; };
+		FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MediaDetail.storyboard; sourceTree = "<group>"; };
+		FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Helper.swift"; sourceTree = "<group>"; };
+		FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpacedCharacterButton.swift; sourceTree = "<group>"; };
+		FFFC47891E9B992400290F07 /* UIView+Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Pin.swift"; sourceTree = "<group>"; };
+		FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCollectionViewCell.xib; sourceTree = "<group>"; };
+		FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventViewController.swift; sourceTree = "<group>"; };
+		FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionView.swift; sourceTree = "<group>"; };
+		FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProgrammeController.swift; sourceTree = "<group>"; };
+		FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,8 +387,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FFA8F0251E82CFBC00338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
+				FFD0D6641E80276500483381 /* LushPlayerKit.framework in Frameworks */,
 				B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */,
-				B14985911DF959F800BC8C7B /* BrightcovePlayerSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +407,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF1121771E7FE99000CD5337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF7B18791EDDB63100FB9E23 /* libsqlite3.tbd in Frameworks */,
+				FF7B18771EDDB5FE00FB9E23 /* libz.tbd in Frameworks */,
+				FF7B18751EDDB5E800FB9E23 /* SystemConfiguration.framework in Frameworks */,
+				FF7B18731EDDB5DA00FB9E23 /* CoreData.framework in Frameworks */,
+				FFEECD671E891F1F00AC7399 /* ThunderRequest.framework in Frameworks */,
+				FF4708641EDD7AFB00BFAA6A /* Fabric.framework in Frameworks */,
+				FF7B18711EDDB48700FB9E23 /* libGoogleAnalyticsServices.a in Frameworks */,
+				FFD0D6681E80276D00483381 /* LushPlayerKit.framework in Frameworks */,
+				FF4708631EDD7AFB00BFAA6A /* Crashlytics.framework in Frameworks */,
+				FFA8F0201E82CE0100338DF1 /* BrightcovePlayerSDK.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF11218A1E7FE99000CD5337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1121951E7FE99000CD5337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -197,10 +448,10 @@
 				B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */,
 				B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */,
 				B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */,
+				FFF5EA5E1E816C91007CE0C8 /* PlayerView.swift */,
 				B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */,
 				B1CEBE9C1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift */,
 				B1CEBE4D1DF1931F001F890D /* ProgrammeCollectionViewCell.xib */,
-				B1985E1F1DF9725E00802635 /* PlayerView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,6 +462,10 @@
 				B1CEBE171DF1881D001F890D /* Lush Player */,
 				B1CEBE2B1DF1881E001F890D /* Lush PlayerTests */,
 				B1CEBE361DF1881E001F890D /* Lush PlayerUITests */,
+				FF11217B1E7FE99000CD5337 /* Lush Player iOS */,
+				FF1121901E7FE99000CD5337 /* Lush Player iOSTests */,
+				FF11219B1E7FE99000CD5337 /* Lush Player iOSUITests */,
+				FFD0D6861E802F0300483381 /* Frameworks */,
 				B1CEBE161DF1881D001F890D /* Products */,
 				B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */,
 			);
@@ -222,6 +477,9 @@
 				B1CEBE151DF1881D001F890D /* Lush Player.app */,
 				B1CEBE281DF1881E001F890D /* Lush PlayerTests.xctest */,
 				B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */,
+				FF11217A1E7FE99000CD5337 /* Lush Player.app */,
+				FF11218D1E7FE99000CD5337 /* Lush Player iOSTests.xctest */,
+				FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -229,7 +487,6 @@
 		B1CEBE171DF1881D001F890D /* Lush Player */ = {
 			isa = PBXGroup;
 			children = (
-				B14985681DF9511D00BC8C7B /* BrightcovePlayerSDK.framework */,
 				B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */,
 				B1CEBE181DF1881D001F890D /* AppDelegate.swift */,
 				B1CEBEF51DF1D894001F890D /* Helpers */,
@@ -266,6 +523,7 @@
 		B1CEBE451DF18C31001F890D /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */,
 				B125D9641DF5682B00E8551D /* PlayerViewController.swift */,
 				B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */,
 				B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */,
@@ -279,9 +537,6 @@
 		B1CEBE4C1DF18E23001F890D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEE71DF1CDA1001F890D /* ImageView.swift */,
-				B1CEBEE81DF1CDA1001F890D /* ImageController.swift */,
-				B1CEBEA11DF1BBB6001F890D /* LushPlayerController.swift */,
 				B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */,
 			);
 			name = Controllers;
@@ -302,8 +557,6 @@
 		B1CEBEBA1DF1BFD2001F890D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEBB1DF1BFE4001F890D /* Programme.swift */,
-				B125D9831DF5D6DA00E8551D /* SearchResult.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -311,14 +564,249 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B1CEBEED1DF1D88E001F890D /* Constants.swift */,
-				B1CEBEEE1DF1D88E001F890D /* ParseError.swift */,
-				B1CEBEEF1DF1D88E001F890D /* String+HTMLEntities.swift */,
-				B1CEBEF01DF1D88E001F890D /* Utilities.swift */,
-				B1CEBEF61DF1D91D001F890D /* TimeAgo.swift */,
 				B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FF11217B1E7FE99000CD5337 /* Lush Player iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B18601EDDB2D900FB9E23 /* Google Analytics */,
+				FF47085D1EDD79E500BFAA6A /* Crashlytics */,
+				FFEECD801E8A8ED800AC7399 /* Error States */,
+				FFA8F01F1E82CE0100338DF1 /* BrightcovePlayerSDK.framework */,
+				FFF5EA471E814CD6007CE0C8 /* Media Detail */,
+				FFF5EA381E813D6A007CE0C8 /* Home */,
+				FFF5EA331E8135C4007CE0C8 /* Standard List Item */,
+				FFF5EA181E8038E8007CE0C8 /* Channels */,
+				FFEECD431E85334900AC7399 /* Listing */,
+				FFEECD481E85336100AC7399 /* Live */,
+				FFEECD491E85337200AC7399 /* Search */,
+				FFEECD4A1E85338200AC7399 /* Events */,
+				FFEECD4B1E8533B000AC7399 /* Helpers */,
+				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
+				FFE852111E93BA0E00E35902 /* main.swift */,
+				FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */,
+				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
+				FF1121801E7FE99000CD5337 /* Main.storyboard */,
+				FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */,
+				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
+				FF1121831E7FE99000CD5337 /* Assets.xcassets */,
+				FF1121881E7FE99000CD5337 /* Info.plist */,
+			);
+			path = "Lush Player iOS";
+			sourceTree = "<group>";
+		};
+		FF1121901E7FE99000CD5337 /* Lush Player iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF1121911E7FE99000CD5337 /* Lush_Player_iOSTests.swift */,
+				FF1121931E7FE99000CD5337 /* Info.plist */,
+			);
+			path = "Lush Player iOSTests";
+			sourceTree = "<group>";
+		};
+		FF11219B1E7FE99000CD5337 /* Lush Player iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FF11219C1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift */,
+				FF11219E1E7FE99000CD5337 /* Info.plist */,
+			);
+			path = "Lush Player iOSUITests";
+			sourceTree = "<group>";
+		};
+		FF47085D1EDD79E500BFAA6A /* Crashlytics */ = {
+			isa = PBXGroup;
+			children = (
+				FF4708611EDD7AFB00BFAA6A /* Crashlytics.framework */,
+				FF4708621EDD7AFB00BFAA6A /* Fabric.framework */,
+			);
+			name = Crashlytics;
+			sourceTree = "<group>";
+		};
+		FF5564F01E82B3A000F3C9A4 /* Tags */ = {
+			isa = PBXGroup;
+			children = (
+				FF5564EC1E82814E00F3C9A4 /* TagCollectionViewCell.swift */,
+				FF5564ED1E82814E00F3C9A4 /* TagCollectionViewCell.xib */,
+				FF5564E61E8280C100F3C9A4 /* TagListCollectionViewController.swift */,
+				FF5564F21E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.h */,
+				FF5564F31E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m */,
+				FF5564FC1E82BA1900F3C9A4 /* TagCollectionView.swift */,
+				FF5F32A51ED478C400058103 /* TagListViewController.swift */,
+			);
+			name = Tags;
+			sourceTree = "<group>";
+		};
+		FF7B18601EDDB2D900FB9E23 /* Google Analytics */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B186F1EDDB48700FB9E23 /* libGoogleAnalyticsServices.a */,
+				FF7B18641EDDB46E00FB9E23 /* GAI.h */,
+				FF7B18651EDDB46E00FB9E23 /* GAIDictionaryBuilder.h */,
+				FF7B18661EDDB46E00FB9E23 /* GAIEcommerceFields.h */,
+				FF7B18671EDDB46E00FB9E23 /* GAIEcommerceProduct.h */,
+				FF7B18681EDDB46E00FB9E23 /* GAIEcommerceProductAction.h */,
+				FF7B18691EDDB46E00FB9E23 /* GAIEcommercePromotion.h */,
+				FF7B186A1EDDB46E00FB9E23 /* GAIFields.h */,
+				FF7B186B1EDDB46E00FB9E23 /* GAILogger.h */,
+				FF7B186C1EDDB46E00FB9E23 /* GAITrackedViewController.h */,
+				FF7B186D1EDDB46E00FB9E23 /* GAITracker.h */,
+			);
+			name = "Google Analytics";
+			sourceTree = "<group>";
+		};
+		FFD0D61F1E80224B00483381 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */,
+				FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FFD0D6861E802F0300483381 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B18781EDDB63100FB9E23 /* libsqlite3.tbd */,
+				FF7B18761EDDB5FE00FB9E23 /* libz.tbd */,
+				FF7B18741EDDB5E800FB9E23 /* SystemConfiguration.framework */,
+				FF7B18721EDDB5DA00FB9E23 /* CoreData.framework */,
+				FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFEECD431E85334900AC7399 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				FFEECD4C1E8533F400AC7399 /* ContentListingViewController.swift */,
+				FFEECD4E1E85341800AC7399 /* MenuContainerViewController.swift */,
+				FFEECD501E85487100AC7399 /* LoadingViewController.swift */,
+				FFEECD771E8A5E2F00AC7399 /* MenuCollectionViewCell.swift */,
+				FFEECD781E8A5E2F00AC7399 /* MenuCollectionViewCell.xib */,
+				FFE8520F1E93B31500E35902 /* ProgrammeListingViewController.swift */,
+			);
+			name = Listing;
+			sourceTree = "<group>";
+		};
+		FFEECD481E85336100AC7399 /* Live */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA0E1E8036E9007CE0C8 /* Live.storyboard */,
+				FFA3A1231E8D1EE4007EC585 /* LiveViewController.swift */,
+				FFA3A1251E8D255A007EC585 /* OffAirViewController.swift */,
+			);
+			name = Live;
+			sourceTree = "<group>";
+		};
+		FFEECD491E85337200AC7399 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA151E80372C007CE0C8 /* Search.storyboard */,
+				FFE852021E928CD100E35902 /* SearchViewController.swift */,
+				FFE852071E928F9700E35902 /* SearchResultsViewController.swift */,
+				FFE8520B1E92996E00E35902 /* LushSearchBar.swift */,
+				FF8A29491E93F9D800D727BC /* SearchCollectionViewCell.swift */,
+				FF8A294A1E93F9D800D727BC /* SearchCollectionViewCell.xib */,
+				FF8A29DC1E963F6700D727BC /* SearchEmptyResultsViewController.swift */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
+		FFEECD4A1E85338200AC7399 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA131E80371F007CE0C8 /* Events.storyboard */,
+				FFFC479B1E9B9ED600290F07 /* EventCollectionViewCell.swift */,
+				FFFC479C1E9B9ED600290F07 /* EventCollectionViewCell.xib */,
+				FFFC47A11E9BA1FC00290F07 /* EventCollectionView.swift */,
+				FFFC479F1E9B9EEA00290F07 /* EventViewController.swift */,
+				FFFC47A31E9BBCB000290F07 /* EventProgrammeController.swift */,
+				FFFC47A51E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift */,
+				FFFC47CD1E9E32C700290F07 /* EventContainerViewController.swift */,
+				FFB39FB81E9F731A00B5DA36 /* EventListingViewController.swift */,
+			);
+			name = Events;
+			sourceTree = "<group>";
+		};
+		FFEECD4B1E8533B000AC7399 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */,
+				FF7B188F1EDDC29900FB9E23 /* GATracker.swift */,
+				FFF5EA601E8187EA007CE0C8 /* UILabel+Helper.swift */,
+				FFE852091E92968100E35902 /* UIImage+ColourBlock.swift */,
+				FFFC47891E9B992400290F07 /* UIView+Pin.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		FFEECD801E8A8ED800AC7399 /* Error States */ = {
+			isa = PBXGroup;
+			children = (
+				FFEECD811E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard */,
+				FFEECD831E8A8FC700AC7399 /* ConnectionErrorViewController.swift */,
+				FFEECD851E8AB31300AC7399 /* EmptyStateScreen.storyboard */,
+				FFEECD871E8AB32700AC7399 /* EmptyErrorViewController.swift */,
+			);
+			name = "Error States";
+			sourceTree = "<group>";
+		};
+		FFF5EA181E8038E8007CE0C8 /* Channels */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA101E803701007CE0C8 /* Channels.storyboard */,
+				FFF5EA191E803900007CE0C8 /* ChannelCollectionViewController.swift */,
+				FFF5EA1F1E80392D007CE0C8 /* ChannelCollectionViewCell */,
+				FFEECD6B1E8921EC00AC7399 /* ChannelListingViewController.swift */,
+				FFEECD6F1E89417A00AC7399 /* ChannelListingContainerViewController.swift */,
+			);
+			name = Channels;
+			sourceTree = "<group>";
+		};
+		FFF5EA1F1E80392D007CE0C8 /* ChannelCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA1B1E803928007CE0C8 /* ChannelCollectionViewCell.swift */,
+				FFF5EA1C1E803928007CE0C8 /* ChannelCollectionViewCell.xib */,
+			);
+			name = ChannelCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		FFF5EA331E8135C4007CE0C8 /* Standard List Item */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA341E8135FF007CE0C8 /* StandardMediaCell.swift */,
+				FFF5EA351E8135FF007CE0C8 /* StandardMediaCell.xib */,
+				FF4708531ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift */,
+				FF4708541ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib */,
+			);
+			name = "Standard List Item";
+			sourceTree = "<group>";
+		};
+		FFF5EA381E813D6A007CE0C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA071E8036CA007CE0C8 /* Home.storyboard */,
+				FFF5EA2E1E812966007CE0C8 /* HomeCollectionViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		FFF5EA471E814CD6007CE0C8 /* Media Detail */ = {
+			isa = PBXGroup;
+			children = (
+				FFF5EA541E81666C007CE0C8 /* MediaDetail.storyboard */,
+				FFF5EA4C1E814F20007CE0C8 /* MediaDetailViewController.swift */,
+				FFF5EA661E819CD3007CE0C8 /* SpacedCharacterButton.swift */,
+				FFEECD231E841E5A00AC7399 /* MediaPlaceholderView.xib */,
+				FFEECD251E841EFE00AC7399 /* MediaPlaceholderView.swift */,
+				FF5564F01E82B3A000F3C9A4 /* Tags */,
+				FFA8F03F1E83EC8400338DF1 /* SoundPlayerViewController.swift */,
+			);
+			name = "Media Detail";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +826,7 @@
 			);
 			dependencies = (
 				B149856F1DF9519700BC8C7B /* PBXTargetDependency */,
+				FFD0D6671E80276500483381 /* PBXTargetDependency */,
 			);
 			name = "Lush Player";
 			productName = "Lush Player";
@@ -380,13 +869,71 @@
 			productReference = B1CEBE331DF1881E001F890D /* Lush PlayerUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		FF1121791E7FE99000CD5337 /* Lush Player iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF1121A91E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOS" */;
+			buildPhases = (
+				FF1121761E7FE99000CD5337 /* Sources */,
+				FF1121771E7FE99000CD5337 /* Frameworks */,
+				FF1121781E7FE99000CD5337 /* Resources */,
+				FFD0D66C1E80276D00483381 /* Embed Frameworks */,
+				FFA8F0271E82D14700338DF1 /* Brightcove */,
+				FF4708651EDD7B3500BFAA6A /* Crashlytics */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FFD0D66B1E80276D00483381 /* PBXTargetDependency */,
+				FFEECD6A1E891F1F00AC7399 /* PBXTargetDependency */,
+			);
+			name = "Lush Player iOS";
+			productName = "Lush Player iOS";
+			productReference = FF11217A1E7FE99000CD5337 /* Lush Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF11218C1E7FE99000CD5337 /* Lush Player iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF1121AA1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSTests" */;
+			buildPhases = (
+				FF1121891E7FE99000CD5337 /* Sources */,
+				FF11218A1E7FE99000CD5337 /* Frameworks */,
+				FF11218B1E7FE99000CD5337 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF11218F1E7FE99000CD5337 /* PBXTargetDependency */,
+			);
+			name = "Lush Player iOSTests";
+			productName = "Lush Player iOSTests";
+			productReference = FF11218D1E7FE99000CD5337 /* Lush Player iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FF1121971E7FE99000CD5337 /* Lush Player iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF1121AB1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSUITests" */;
+			buildPhases = (
+				FF1121941E7FE99000CD5337 /* Sources */,
+				FF1121951E7FE99000CD5337 /* Frameworks */,
+				FF1121961E7FE99000CD5337 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF11219A1E7FE99000CD5337 /* PBXTargetDependency */,
+			);
+			name = "Lush Player iOSUITests";
+			productName = "Lush Player iOSUITests";
+			productReference = FF1121981E7FE99000CD5337 /* Lush Player iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		B1CEBE0D1DF1881D001F890D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = ThreeSidedCube;
 				TargetAttributes = {
@@ -413,6 +960,27 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = B1CEBE141DF1881D001F890D;
 					};
+					FF1121791E7FE99000CD5337 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = DJ6N7G9BBD;
+						LastSwiftMigration = 0820;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+					FF11218C1E7FE99000CD5337 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FF1121791E7FE99000CD5337;
+					};
+					FF1121971E7FE99000CD5337 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = FF1121791E7FE99000CD5337;
+					};
 				};
 			};
 			buildConfigurationList = B1CEBE101DF1881D001F890D /* Build configuration list for PBXProject "Lush Player" */;
@@ -428,6 +996,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = FFD0D61F1E80224B00483381 /* Products */;
+					ProjectRef = FFD0D61E1E80224B00483381 /* LushPlayerKit.xcodeproj */;
+				},
+				{
 					ProductGroup = B1CEBEA41DF1BD0A001F890D /* Products */;
 					ProjectRef = B1CEBEA31DF1BD0A001F890D /* ThunderRequest.xcodeproj */;
 				},
@@ -437,6 +1009,9 @@
 				B1CEBE141DF1881D001F890D /* Lush Player */,
 				B1CEBE271DF1881E001F890D /* Lush PlayerTests */,
 				B1CEBE321DF1881E001F890D /* Lush PlayerUITests */,
+				FF1121791E7FE99000CD5337 /* Lush Player iOS */,
+				FF11218C1E7FE99000CD5337 /* Lush Player iOSTests */,
+				FF1121971E7FE99000CD5337 /* Lush Player iOSUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -477,6 +1052,20 @@
 			remoteRef = B1CEBEB31DF1BD0A001F890D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FFD0D6601E8026EF00483381 /* LushPlayerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LushPlayerKit.framework;
+			remoteRef = FFD0D65F1E8026EF00483381 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		FFD0D6621E8026EF00483381 /* LushPlayerKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = LushPlayerKit.framework;
+			remoteRef = FFD0D6611E8026EF00483381 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -507,6 +1096,46 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FF1121781E7FE99000CD5337 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */,
+				FF1121841E7FE99000CD5337 /* Assets.xcassets in Resources */,
+				FFF5EA141E80371F007CE0C8 /* Events.storyboard in Resources */,
+				FFF5EA121E803701007CE0C8 /* Channels.storyboard in Resources */,
+				FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */,
+				FFF5EA0F1E8036E9007CE0C8 /* Live.storyboard in Resources */,
+				FFF5EA171E80372C007CE0C8 /* Search.storyboard in Resources */,
+				FFEECD821E8A8EED00AC7399 /* ConnectionErrorScreen.storyboard in Resources */,
+				FFEECD7A1E8A5E2F00AC7399 /* MenuCollectionViewCell.xib in Resources */,
+				FFF5EA551E81666C007CE0C8 /* MediaDetail.storyboard in Resources */,
+				FFF5EA091E8036CA007CE0C8 /* Home.storyboard in Resources */,
+				FF5564EF1E82814E00F3C9A4 /* TagCollectionViewCell.xib in Resources */,
+				FFEECD861E8AB31300AC7399 /* EmptyStateScreen.storyboard in Resources */,
+				FFF5EA1E1E803928007CE0C8 /* ChannelCollectionViewCell.xib in Resources */,
+				FF8A294C1E93F9D800D727BC /* SearchCollectionViewCell.xib in Resources */,
+				FFF5EA371E8135FF007CE0C8 /* StandardMediaCell.xib in Resources */,
+				FFEECD241E841E5A00AC7399 /* MediaPlaceholderView.xib in Resources */,
+				FF4708561ED733FE00BFAA6A /* LargePictureStandardMediaCell.xib in Resources */,
+				FFFC479E1E9B9ED600290F07 /* EventCollectionViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF11218B1E7FE99000CD5337 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1121961E7FE99000CD5337 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -523,6 +1152,34 @@
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
 		};
+		FF4708651EDD7B3500BFAA6A /* Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Crashlytics;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "# \"${SRCROOT}/Lush Player iOS/Fabric.framework/run\" 04f3bc2754d18fba4dd1ee55dfbb9dfb5bc0d6b3 e1bc8f0becd7de796e0236ec9a4112bc27de2784c19e55f4ada676bdc4111aab";
+		};
+		FFA8F0271E82D14700338DF1 /* Brightcove */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Brightcove;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/BrightcovePlayerSDK.framework/strip-frameworks.sh\"";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -530,30 +1187,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1CEBEF31DF1D88E001F890D /* String+HTMLEntities.swift in Sources */,
-				B1CEBEBC1DF1BFE4001F890D /* Programme.swift in Sources */,
 				B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */,
-				B125D9841DF5D6DA00E8551D /* SearchResult.swift in Sources */,
-				B1CEBEF71DF1D91D001F890D /* TimeAgo.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
-				B1CEBEE91DF1CDA1001F890D /* ImageView.swift in Sources */,
 				B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */,
 				B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */,
 				B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */,
 				B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */,
 				B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */,
-				B1CEBEF41DF1D88E001F890D /* Utilities.swift in Sources */,
 				B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */,
 				B1CEBE471DF18C48001F890D /* ChannelsViewController.swift in Sources */,
-				B1CEBEA21DF1BBB6001F890D /* LushPlayerController.swift in Sources */,
+				FFF5EA5F1E816C91007CE0C8 /* PlayerView.swift in Sources */,
 				B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */,
-				B1CEBEF11DF1D88E001F890D /* Constants.swift in Sources */,
-				B1CEBEEA1DF1CDA1001F890D /* ImageController.swift in Sources */,
 				B1CEBEEC1DF1CE12001F890D /* RefreshableViewController.swift in Sources */,
-				B1985E201DF9725E00802635 /* PlayerView.swift in Sources */,
 				B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */,
 				B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */,
-				B1CEBEF21DF1D88E001F890D /* ParseError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +1217,75 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CEBE381DF1881E001F890D /* Lush_PlayerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1121761E7FE99000CD5337 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FFF5EA611E8187EA007CE0C8 /* UILabel+Helper.swift in Sources */,
+				FFF5EA1A1E803900007CE0C8 /* ChannelCollectionViewController.swift in Sources */,
+				FFE852101E93B31500E35902 /* ProgrammeListingViewController.swift in Sources */,
+				FFA8F0401E83EC8400338DF1 /* SoundPlayerViewController.swift in Sources */,
+				FFE852031E928CD100E35902 /* SearchViewController.swift in Sources */,
+				FFFC47A01E9B9EEA00290F07 /* EventViewController.swift in Sources */,
+				FF7B18901EDDC29900FB9E23 /* GATracker.swift in Sources */,
+				FF8A29DD1E963F6700D727BC /* SearchEmptyResultsViewController.swift in Sources */,
+				FFFC479D1E9B9ED600290F07 /* EventCollectionViewCell.swift in Sources */,
+				FFFC47A61E9BD3B700290F07 /* EventCollectionViewFlowLayout.swift in Sources */,
+				FFEECD6C1E8921EC00AC7399 /* ChannelListingViewController.swift in Sources */,
+				FFFC47A41E9BBCB000290F07 /* EventProgrammeController.swift in Sources */,
+				FFE852081E928F9700E35902 /* SearchResultsViewController.swift in Sources */,
+				FFEECD4F1E85341800AC7399 /* MenuContainerViewController.swift in Sources */,
+				FF5564FD1E82BA1900F3C9A4 /* TagCollectionView.swift in Sources */,
+				FF5564E71E8280C100F3C9A4 /* TagListCollectionViewController.swift in Sources */,
+				FFFC47A21E9BA1FC00290F07 /* EventCollectionView.swift in Sources */,
+				FF5F32A61ED478C400058103 /* TagListViewController.swift in Sources */,
+				FFFC47CE1E9E32C700290F07 /* EventContainerViewController.swift in Sources */,
+				FFEECD791E8A5E2F00AC7399 /* MenuCollectionViewCell.swift in Sources */,
+				FF5564EE1E82814E00F3C9A4 /* TagCollectionViewCell.swift in Sources */,
+				FFFC478A1E9B992400290F07 /* UIView+Pin.swift in Sources */,
+				FFE8520C1E92996E00E35902 /* LushSearchBar.swift in Sources */,
+				FFB39FB91E9F731A00B5DA36 /* EventListingViewController.swift in Sources */,
+				FFA3A1241E8D1EE4007EC585 /* LiveViewController.swift in Sources */,
+				FFF5EA671E819CD3007CE0C8 /* SpacedCharacterButton.swift in Sources */,
+				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
+				FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */,
+				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
+				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
+				FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */,
+				FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */,
+				FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */,
+				FF5564F41E82B47A00F3C9A4 /* UICollectionViewLeftAlignedLayout.m in Sources */,
+				FF4708551ED733FE00BFAA6A /* LargePictureStandardMediaCell.swift in Sources */,
+				FFEECD881E8AB32700AC7399 /* EmptyErrorViewController.swift in Sources */,
+				FFF5EA361E8135FF007CE0C8 /* StandardMediaCell.swift in Sources */,
+				FFF5EA1D1E803928007CE0C8 /* ChannelCollectionViewCell.swift in Sources */,
+				401E81361F7E769C008C0FA7 /* UIDevice+Versions.swift in Sources */,
+				FFEECD4D1E8533F400AC7399 /* ContentListingViewController.swift in Sources */,
+				FF8A294B1E93F9D800D727BC /* SearchCollectionViewCell.swift in Sources */,
+				FFF5EA2F1E812966007CE0C8 /* HomeCollectionViewController.swift in Sources */,
+				FFE852121E93BA0E00E35902 /* main.swift in Sources */,
+				FFE8520A1E92968100E35902 /* UIImage+ColourBlock.swift in Sources */,
+				FFF5EA2D1E804AEB007CE0C8 /* LushPlayerTabBarController.swift in Sources */,
+				FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1121891E7FE99000CD5337 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF1121921E7FE99000CD5337 /* Lush_Player_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF1121941E7FE99000CD5337 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF11219D1E7FE99000CD5337 /* Lush_Player_iOSUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +1307,31 @@
 			target = B1CEBE141DF1881D001F890D /* Lush Player */;
 			targetProxy = B1CEBE341DF1881E001F890D /* PBXContainerItemProxy */;
 		};
+		FF11218F1E7FE99000CD5337 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF1121791E7FE99000CD5337 /* Lush Player iOS */;
+			targetProxy = FF11218E1E7FE99000CD5337 /* PBXContainerItemProxy */;
+		};
+		FF11219A1E7FE99000CD5337 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF1121791E7FE99000CD5337 /* Lush Player iOS */;
+			targetProxy = FF1121991E7FE99000CD5337 /* PBXContainerItemProxy */;
+		};
+		FFD0D6671E80276500483381 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LushPlayerKit tvOS";
+			targetProxy = FFD0D6661E80276500483381 /* PBXContainerItemProxy */;
+		};
+		FFD0D66B1E80276D00483381 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LushPlayerKit iOS";
+			targetProxy = FFD0D66A1E80276D00483381 /* PBXContainerItemProxy */;
+		};
+		FFEECD6A1E891F1F00AC7399 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ThunderRequest;
+			targetProxy = FFEECD691E891F1F00AC7399 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -600,6 +1341,46 @@
 				B1CEBE1F1DF1881E001F890D /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF1121801E7FE99000CD5337 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF1121811E7FE99000CD5337 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF1121861E7FE99000CD5337 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FFF5EA071E8036CA007CE0C8 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFF5EA081E8036CA007CE0C8 /* Base */,
+			);
+			name = Home.storyboard;
+			sourceTree = "<group>";
+		};
+		FFF5EA101E803701007CE0C8 /* Channels.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFF5EA111E803701007CE0C8 /* Base */,
+			);
+			name = Channels.storyboard;
+			sourceTree = "<group>";
+		};
+		FFF5EA151E80372C007CE0C8 /* Search.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FFF5EA161E80372C007CE0C8 /* Base */,
+			);
+			name = Search.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -699,6 +1480,7 @@
 		B1CEBE3D1DF1881E001F890D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -706,6 +1488,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
 				);
 				INFOPLIST_FILE = "Lush Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -720,6 +1507,7 @@
 		B1CEBE3E1DF1881E001F890D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
@@ -728,6 +1516,11 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"$(PROJECT_DIR)/Lush\\ Player",
+					"\"$(SRCROOT)/Lush Player\"",
 				);
 				INFOPLIST_FILE = "Lush Player/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -796,6 +1589,135 @@
 			};
 			name = Release;
 		};
+		FF11219F1E7FE99000CD5337 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DJ6N7G9BBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS\"/**",
+				);
+				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
+				PRODUCT_NAME = "Lush Player";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FF1121A01E7FE99000CD5337 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = DJ6N7G9BBD;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS\"/**",
+				);
+				INFOPLIST_FILE = "Lush Player iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Lush Player iOS/Google Analytics\"",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.createful.Lush-TV";
+				PRODUCT_NAME = "Lush Player";
+				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "Lush Player iOS/Lush Player iOS-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FF1121A11E7FE99000CD5337 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Lush Player iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "threesidedcube.com.Lush-Player-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lush Player iOS.app/Lush Player iOS";
+			};
+			name = Debug;
+		};
+		FF1121A21E7FE99000CD5337 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Lush Player iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "threesidedcube.com.Lush-Player-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lush Player iOS.app/Lush Player iOS";
+			};
+			name = Release;
+		};
+		FF1121A31E7FE99000CD5337 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Lush Player iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "threesidedcube.com.Lush-Player-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Lush Player iOS";
+			};
+			name = Debug;
+		};
+		FF1121A41E7FE99000CD5337 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "Lush Player iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "threesidedcube.com.Lush-Player-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = "Lush Player iOS";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -831,6 +1753,33 @@
 			buildConfigurations = (
 				B1CEBE431DF1881E001F890D /* Debug */,
 				B1CEBE441DF1881E001F890D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF1121A91E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF11219F1E7FE99000CD5337 /* Debug */,
+				FF1121A01E7FE99000CD5337 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF1121AA1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF1121A11E7FE99000CD5337 /* Debug */,
+				FF1121A21E7FE99000CD5337 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF1121AB1E7FE99000CD5337 /* Build configuration list for PBXNativeTarget "Lush Player iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF1121A31E7FE99000CD5337 /* Debug */,
+				FF1121A41E7FE99000CD5337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

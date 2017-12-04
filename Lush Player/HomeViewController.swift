@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LushPlayerKit
 
 /// The view controller for the `Home` content of the app
 class HomeViewController: RefreshableViewController {

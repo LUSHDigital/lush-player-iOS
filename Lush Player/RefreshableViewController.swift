@@ -8,6 +8,7 @@
 
 import UIKit
 import AVKit
+import LushPlayerKit
 
 /// A base view controller which adds refreshable capabilities to UIViewController
 class RefreshableViewController: UIViewController {
@@ -32,7 +33,7 @@ class RefreshableViewController: UIViewController {
     }
     
     /// A function responsible for refreshing the content associated with this view controller
-    func refresh() {
+    func refresh(completion: (() -> Void)? = nil) {
         
     }
 

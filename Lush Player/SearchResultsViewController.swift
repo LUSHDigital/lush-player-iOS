@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import LushPlayerKit
 
 /// The view controller responsible for showing LUSH search results
 class SearchResultsViewController: RefreshableViewController {
@@ -15,7 +16,7 @@ class SearchResultsViewController: RefreshableViewController {
     var searchTerm: String?
     
     /// The array of search results for the current search term
-    var searchResults: [SearchResult]?
+    var searchResults: [Programme]?
     
     /// A collection view used to display the search results
     @IBOutlet weak var resultsCollectionView: UICollectionView!
@@ -36,7 +37,7 @@ class SearchResultsViewController: RefreshableViewController {
         flowLayout.minimumLineSpacing = 36
     }
 
-    override func refresh() {
+    override func refresh(completion: (() -> Void)? = nil) {
         
         // Make sure we have a search term and it isn't empty
         guard let searchTerm = searchTerm, !searchTerm.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
@@ -94,24 +95,7 @@ extension SearchResultsViewController: UICollectionViewDelegateFlowLayout {
         // Get selected result from array
         let result = results[indexPath.item]
         
-        // Create a dummy Programme dictionary representation from the search result
-        var programmeDict: [AnyHashable : Any] = ["id":result.id]
-        if let title = result.title {
-            programmeDict["title"] = title
-        }
-        if let thumbnailURL = result.thumbnailURL {
-            programmeDict["thumbnail"] = thumbnailURL.absoluteString
-        }
-        
-        // Set the dummy programme's media type...
-        var media: Programme.Media = .TV
-        if result.media == .radio {
-            media = .radio
-        }
-        
-        // Show the selected programme created from the selected search result
-        guard let programme = Programme(dictionary: programmeDict, media: media) else { return }
-        show(programme: programme)
+        show(programme: result)
     }
 }
 

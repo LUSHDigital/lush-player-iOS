@@ -9,6 +9,7 @@
 import UIKit
 import ThunderRequestTV
 import AVKit
+import LushPlayerKit
 
 /// The view controller displaying the programme player UI
 /// Also responsible for playing playlists and managing the playlist schedule
