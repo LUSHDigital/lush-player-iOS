@@ -151,7 +151,7 @@ class LiveViewController: UIViewController, StateParentViewable {
     
     @IBAction func pressedShare(sender: Any) {
         
-        guard case let .live(playlist) = liveViewState else {
+        guard case .live = liveViewState else {
             return
         }
         
@@ -159,7 +159,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         activityController.popoverPresentationController?.sourceView = self.shareButton
         activityController.popoverPresentationController?.sourceRect = self.shareButton.frame
         
-        activityController.completionWithItemsHandler = { [weak self] activity, success, items, error in
+        activityController.completionWithItemsHandler = { activity, success, items, error in
             
             guard success else { return }
             guard error == nil else { return }

@@ -172,7 +172,7 @@ public class LushPlayerController {
     ///   - completion: A block of code to be called when the playlist has been fetched
     public func fetchLivePlaylist(with utcOffset: Int?, completion: @escaping PlaylistCompletion) {
         
-        let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
+        //let timezoneOffset = utcOffset ?? (TimeZone.current.secondsFromGMT(for: Date()) / 60)
         
         requestController.get("views/playlist") { (response, error) in
             
