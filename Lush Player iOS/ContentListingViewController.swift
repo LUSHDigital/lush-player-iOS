@@ -49,7 +49,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         
         switch viewState {
             
-        case .loading():
+        case .loading:
             
             hideChildControllersIfNeeded()
             loadingViewController.view.frame = view.bounds
@@ -65,7 +65,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
                 self.collectionView?.reloadSections([0])
             }, completion: nil)
         
-        case .empty():
+        case .empty:
             
             hideChildControllersIfNeeded()
             emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -75,7 +75,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
             emptyStateViewController.didMove(toParentViewController: self)
             collectionView?.reloadData()
             
-        case .error(let _):
+        case .error(_):
             
             hideChildControllersIfNeeded()
             errorStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

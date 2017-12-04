@@ -15,7 +15,7 @@ class SpacedCharacterButton: UIButton {
 
     override func setTitle(_ title: String?, for state: UIControlState) {
         super.setTitle(title, for: state)
-        let attributedString = NSMutableAttributedString(string: title!, attributes: [NSKernAttributeName : CGFloat(spacingAmount)])
+        let attributedString = NSMutableAttributedString(string: title!, attributes: [NSAttributedStringKey.kern : CGFloat(spacingAmount)])
         setAttributedTitle(attributedString, for: .normal)
     }
 }

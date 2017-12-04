@@ -56,7 +56,7 @@ class SearchViewController: UIViewController {
     }
     
     // Scroll the view to compensate the keyboard appearing
-    func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
@@ -67,7 +67,7 @@ class SearchViewController: UIViewController {
     }
     
     // Scroll the view to compensate the keyboard hiding
-    func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
         
             let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
             searchResultsController?.collectionView?.contentInset = contentInsets
@@ -81,7 +81,7 @@ class SearchViewController: UIViewController {
         appearance.textColor = .white
         appearance.keyboardAppearance = .dark
         
-        let image = UIImage.createImage(with: UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
+        let image = UIImage.createImage(with: UIColor(red: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
         searchBar.setSearchFieldBackgroundImage(image, for: .normal)
         searchBar.tintColor = .white
         searchBar.barTintColor = .white
@@ -92,7 +92,7 @@ class SearchViewController: UIViewController {
     }
     
     // Queries the LUSH player API for search results, and passes them to the results controller
-    func performSearch() {
+    @objc func performSearch() {
         
         // Check we have a search term, or exit out now
         guard let term = searchTerm else { return }

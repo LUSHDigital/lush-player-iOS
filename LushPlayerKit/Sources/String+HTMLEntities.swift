@@ -1,5 +1,5 @@
 /*
- * Copyright IBM Corporation 2016
+ * Copyright IBM Corporation 2016, 2017
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,81 +17,131 @@
 /// This String extension provides utility functions to convert strings to their
 /// HTML escaped equivalents and vice versa.
 public extension String {
+    /// Global HTML escape options
+    public struct HTMLEscapeOptions {
+        /// Specifies if all ASCII characters should be skipped when escaping text
+        public static var allowUnsafeSymbols = false
+        
+        /// Specifies if decimal escapes should be used instead of hexadecimal escapes
+        public static var decimal = false
+        
+        /// Specifies if all characters should be escaped, even if some are safe characters
+        public static var encodeEverything = false
+        
+        /// Specifies if named character references should be used whenever possible
+        public static var useNamedReferences = false
+    }
+    
+    // Private enum used by the parser state machine
+    private enum EntityParseState {
+        case Dec
+        case Hex
+        case Invalid
+        case Named
+        case Number
+        case Unknown
+    }
+    
     /// Return string as HTML escaped by replacing non-ASCII and unsafe characters
     /// with their numeric character escapes, or if such exists, their HTML named
     /// character reference equivalents. For example, this function turns
-    /// `"<script>alert("abc")</script>"` into
+    ///
+    /// `"<script>alert("abc")</script>"`
+    ///
+    /// into
+    ///
     /// `"&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;"`
-    /// - parameter decimal: Specifies if decimal escapes should be used.
-    /// *Optional*. Defaults to `false`.
-    /// - parameter useNamedReferences: Specifies if named character references
-    /// should be used whenever possible. *Optional*. Defaults to `true`.
-    public func htmlEscape(decimal: Bool = false,
-                           useNamedReferences: Bool = true) -> String {
-        // result buffer
-        var str: String = ""
-
-        for c in self.characters {
-            let unicodes = String(c).unicodeScalars
-
-            if unicodes.count == 1,
-                let unicode = unicodes.first?.value,
-                unicode.isSafeASCII {
-                // character consists of only one unicode,
-                // and is a safe ASCII character
-                str += String(c)
-            }
-            else if useNamedReferences,
-                let entity = namedCharactersEncodeMap[c] {
-                // character has a named character reference equivalent
-                str += "&" + entity
-            }
-            else {
-                // all other cases:
-                // deconstruct character into unicodes,
-                // then escape each unicode individually
-                for scalar in unicodes {
-                    let unicode = scalar.value
-
-                    if unicode.isSafeASCII {
-                        str += String(scalar)
-                    }
-                    else {
-                        let codeStr = decimal ? String(unicode, radix: 10) :
-                            "x" + String(unicode, radix:16, uppercase: true)
-
-                        str += "&#" + codeStr + ";"
+    ///
+    /// You can view/change default option values globally via `String.HTMLEscapeOptions`.
+    ///
+    /// - Parameter allowUnsafeSymbols: Specifies if all ASCII characters should be skipped
+    /// when escaping text. *Optional*
+    /// - Parameter decimal: Specifies if decimal escapes should be used instead of
+    /// hexadecimal escapes. *Optional*
+    /// - Parameter encodeEverything: Specifies if all characters should be escaped, even if
+    /// some are safe characters. *Optional*
+    /// - Parameter useNamedReferences: Specifies if named character references
+    /// should be used whenever possible. *Optional*
+    public func htmlEscape(allowUnsafeSymbols: Bool = HTMLEscapeOptions.allowUnsafeSymbols,
+                           decimal: Bool = HTMLEscapeOptions.decimal,
+                           encodeEverything: Bool = HTMLEscapeOptions.encodeEverything,
+                           useNamedReferences: Bool = HTMLEscapeOptions.useNamedReferences)
+        -> String {
+            // result buffer
+            var str: String = ""
+            
+            #if swift(>=3.2)
+                let characters = self
+            #else
+                let characters = self.characters
+            #endif
+            
+            for c in characters {
+                let unicodes = String(c).unicodeScalars
+                
+                if !encodeEverything,
+                    unicodes.count == 1,
+                    let unicode = unicodes.first?.value,
+                    unicode.isASCII && allowUnsafeSymbols || unicode.isSafeASCII {
+                    // character consists of only one unicode,
+                    // and is a safe ASCII character,
+                    // or allowUnsafeSymbols is true
+                    str += String(c)
+                }
+                else if useNamedReferences,
+                    let entity = namedCharactersEncodeMap[c] {
+                    // character has a named character reference equivalent
+                    str += "&" + entity
+                }
+                else {
+                    // all other cases:
+                    // deconstruct character into unicodes,
+                    // then escape each unicode individually
+                    for scalar in unicodes {
+                        let unicode = scalar.value
+                        
+                        if !encodeEverything && unicode.isSafeASCII {
+                            str += String(scalar)
+                        }
+                        else {
+                            let codeStr = decimal ? String(unicode, radix: 10) :
+                                "x" + String(unicode, radix: 16, uppercase: true)
+                            
+                            str += "&#" + codeStr + ";"
+                        }
                     }
                 }
             }
-        }
-
-        return str
+            
+            return str
     }
-
-    /// Return string as HTML unescaped by replacing HTML character references with their unicode
-    /// character equivalents.
-    /// For example, this function turns
+    
+    /// Return string as HTML unescaped by replacing HTML character references with their
+    /// unicode character equivalents. For example, this function turns
+    ///
     /// `"&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;"`
+    ///
     /// into
+    ///
     /// `"<script>alert(\"abc\")</script>"`
-    /// - parameter strict: Specifies if escapes MUST always end with `;`.
-    /// - throws: An error of type `ParseError`
+    ///
+    /// - Parameter strict: Specifies if escapes MUST always end with `;`.
+    /// - Throws: (Only if `strict == true`) The first `ParseError` encountered during parsing.
     public func htmlUnescape(strict: Bool) throws -> String {
         // result buffer
         var str = ""
-
+        
         // entity buffers
         var entityPrefix = ""
         var entity = ""
-
+        
         // current parse state
         var state = EntityParseState.Invalid
-
+        
         for u in self.unicodeScalars {
             let unicodeAsString = String(u)
             let unicode = u.value
-
+            
             // nondeterminstic finite automaton for parsing entity
             switch state {
             case .Invalid:
@@ -120,18 +170,20 @@ public extension String {
                 else if unicode.isAlphaNumeric {
                     // named character reference
                     state = .Named
-
+                    
                     // move current unicode to entity buffer
                     entity += unicodeAsString
                 }
                 else {
                     // false alarm, not a character reference
                     // move back to invalid state
-                    entityPrefix = ""
                     state = .Invalid
-
+                    
                     // move the consumed & and current unicode to result buffer
                     str += entityPrefix + unicodeAsString
+                    
+                    // clear entityPrefix buffer
+                    entityPrefix = ""
                 }
             case .Number:
                 // previously parsed &#
@@ -145,10 +197,10 @@ public extension String {
                         // the X character). This is a parse error; nothing is returned."
                         throw ParseError.MalformedNumericReference(entityPrefix + unicodeAsString)
                     }
-
+                    
                     // move the consume &# to result buffer
                     str += entityPrefix
-
+                    
                     // move to unknown state
                     state = .Unknown
                     entityPrefix = unicodeAsString
@@ -172,10 +224,10 @@ public extension String {
                         // the X character). This is a parse error; nothing is returned."
                         throw ParseError.MalformedNumericReference(entityPrefix + unicodeAsString)
                     }
-
+                    
                     // move the consumed &# and current unicode to result buffer
                     str += entityPrefix + unicodeAsString
-
+                    
                     // move to invalid state
                     state = .Invalid
                     entityPrefix = ""
@@ -199,7 +251,7 @@ public extension String {
                             // the X character). This is a parse error; nothing is returned."
                             throw ParseError.MalformedNumericReference(entityPrefix + unicodeAsString)
                         }
-
+                        
                         if !unicode.isSemicolon {
                             // entity did not end with ;
                             // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
@@ -208,12 +260,12 @@ public extension String {
                             throw ParseError.MissingSemicolon(entityPrefix + entity)
                         }
                     }
-
+                    
                     let unescaped = try decode(entity: entity, entityPrefix: entityPrefix, strict: strict)
-
+                    
                     // append unescaped numeric reference to result buffer
                     str += unescaped
-
+                    
                     if unicode.isAmpersand {
                         // parsed & again
                         // move to unknown state
@@ -226,7 +278,7 @@ public extension String {
                             // move current unicode to result buffer
                             str += unicodeAsString
                         }
-
+                        
                         // move back to invalid state
                         state = .Invalid
                         entityPrefix = ""
@@ -244,26 +296,26 @@ public extension String {
                     if unicode.isSemicolon {
                         entity += unicodeAsString
                     }
-
+                    
                     // try to decode parsed chunk of alphanumeric unicodes
                     let unescaped = try decode(entity: entity, entityPrefix: entityPrefix, strict: strict)
-
+                    
                     str += unescaped
-
+                    
                     if unicode.isAmpersand {
                         // parsed & again
                         // move to unknown state
                         state = .Unknown
                         entityPrefix = unicodeAsString
                         entity = ""
-
+                        
                         break
                     }
                     else if !unicode.isSemicolon {
                         // move current unicode to result buffer
                         str += unicodeAsString
                     }
-
+                    
                     // move back to invalid state
                     state = .Invalid
                     entityPrefix = ""
@@ -271,7 +323,7 @@ public extension String {
                 }
             }
         }
-
+        
         // one more round of finite automaton to catch the edge case where the original string
         // ends with a character reference that isn't terminated by ;
         switch state {
@@ -286,7 +338,7 @@ public extension String {
                     // the X character). This is a parse error; nothing is returned."
                     throw ParseError.MalformedNumericReference(entityPrefix)
                 }
-
+                
                 // by this point in code, entity is not empty and did not end with ;
                 // if it did, the numeric character reference would've been unescaped inside the loop
                 // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
@@ -294,7 +346,7 @@ public extension String {
                 // If it isn't, there is a parse error."
                 throw ParseError.MissingSemicolon(entityPrefix + entity)
             }
-
+            
             fallthrough
         case .Named:
             // parsed a partial character reference
@@ -305,29 +357,33 @@ public extension String {
             // dump partial buffers into result string
             str += entityPrefix + entity
         }
-
+        
         return str
     }
     
-    /// Return string as HTML unescaped by replacing HTML character references with their unicode
-    /// character equivalents.
-    /// For example, this function turns
+    /// Return string as HTML unescaped by replacing HTML character references with their
+    /// unicode character equivalents. For example, this function turns
+    ///
     /// `"&lt;script&gt;alert(&quot;abc&quot;)&lt;/script&gt;"`
+    ///
     /// into
+    ///
     /// `"<script>alert(\"abc\")</script>"`
-    /// Equivalent to `htmlUnescape(strict: false)`, but does not throw parse errors.
+    ///
+    /// Equivalent to `htmlUnescape(strict: false)`, but does NOT throw parse error.
     public func htmlUnescape() -> String {
         // non-strict mode should never throw error
         return try! self.htmlUnescape(strict: false)
     }
 }
 
-private func decode(entity: String, entityPrefix: String, strict: Bool) throws -> String {
+// Utility function to decode a single entity
+fileprivate func decode(entity: String, entityPrefix: String, strict: Bool) throws -> String {
     switch entityPrefix {
     case "&#", "&#x", "&#X":
         // numeric character reference
         let radix = entityPrefix == "&#" ? 10 : 16
-
+        
         if strict && entity == "" {
             // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
             // "If no characters match the range, then don't consume any characters
@@ -338,7 +394,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
         else if var code = UInt32(entity, radix: radix) {
             if code.isReplacementCharacterEquivalent {
                 code = replacementCharacterAsUInt32
-
+                
                 if strict {
                     // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
                     // "[I]f the number is in the range 0xD800 to 0xDFFF or is greater
@@ -348,7 +404,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
             }
             else if let c = deprecatedNumericDecodeMap[code] {
                 code = c
-
+                
                 if strict {
                     // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
                     // "If that number is one of the numbers in the first column of the
@@ -367,7 +423,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
                 // this is a parse error."
                 throw ParseError.DisallowedNumericReference(entityPrefix + entity)
             }
-
+            
             return String(UnicodeScalar(code)!)
         }
         else {
@@ -382,7 +438,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
                 // than 0x10FFFF, then this is a parse error."
                 throw ParseError.OutsideValidUnicodeRange(entityPrefix + entity)
             }
-
+            
             return String(UnicodeScalar(replacementCharacterAsUInt32)!)
         }
     case "&":
@@ -390,7 +446,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
         if entity == "" {
             return entityPrefix
         }
-
+        
         if entity.hasSuffix(";") {
             // Step 1: check all other named characters first
             // Assume special case is rare, always check regular case first to minimize
@@ -398,21 +454,33 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
             if let c = namedCharactersDecodeMap[entity] {
                 return String(c)
             }
-
+            
             // Step 2: check special named characters if entity didn't match any regular
             // named character references
             if let s = specialNamedCharactersDecodeMap[entity] {
                 return s
             }
         }
-
-        // next, check if entity contains a legacy named character reference in its prefix
-        var offset = 2
-
-        while (offset <= entity.characters.count && offset <= 6) {
-            let upperIndex = entity.index(entity.startIndex, offsetBy: offset)
-            let reference = entity[entity.startIndex..<upperIndex]
-
+        
+        for length in legacyNamedCharactersLengthRange {
+            #if swift(>=3.2)
+                let count = entity.count
+            #else
+                let count = entity.characters.count
+            #endif
+            
+            guard length <= count else {
+                break
+            }
+            
+            let upperIndex = entity.index(entity.startIndex, offsetBy: length)
+            
+            #if swift(>=3.2)
+                let reference = String(entity[..<upperIndex])
+            #else
+                let reference = entity[entity.startIndex..<upperIndex]
+            #endif
+            
             if let c = legacyNamedCharactersDecodeMap[reference] {
                 if strict {
                     // https://www.w3.org/TR/html5/syntax.html#tokenizing-character-references
@@ -420,13 +488,11 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
                     // ";" (U+003B) character, there is a parse error."
                     throw ParseError.MissingSemicolon("&" + reference)
                 }
-
+                
                 return String(c) + entity[upperIndex..<entity.endIndex]
             }
-
-            offset += 1
         }
-
+        
         if strict && entity.hasSuffix(";") {
             // No name character reference matched; for the sake of simplicity, assume
             // entity can only contain alphanumeric characters with a semicolon at the end
@@ -440,7 +506,7 @@ private func decode(entity: String, entityPrefix: String, strict: Bool) throws -
         return entityPrefix + entity
     default:
         // this should NEVER be hit in code execution
-        // if this block is reached, then decoder has faulty logic
+        // if this error is thrown, then decoder has faulty logic
         throw ParseError.IllegalArgument("Invaild entityPrefix: must be one of [\"&\", \"&#\", \"&#x\", \"&#X\"]")
     }
 }

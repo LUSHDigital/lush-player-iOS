@@ -45,7 +45,7 @@ class MenuContainerViewController: UIViewController {
             flowLayout.scrollDirection = .horizontal
         }
         
-        menuCollectionView.backgroundColor = UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1)
+        menuCollectionView.backgroundColor = UIColor(red: 51/225, green: 51/225, blue: 51/225, alpha: 1)
         
         // Register Cell
         let nib = UINib(nibName: "MenuCollectionViewCell", bundle: nil)
@@ -133,7 +133,7 @@ extension MenuContainerViewController: UICollectionViewDelegateFlowLayout {
         
         let equallyDividedWidth = collectionView.bounds.size.width / CGFloat(menuItems.count)
         
-        let sizeFromText = menuItems[indexPath.item].title.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+        let sizeFromText = menuItems[indexPath.item].title.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)])
         
         if sizeFromText.width >= equallyDividedWidth {
             return CGSize(width: sizeFromText.width + 45.0, height: 50)

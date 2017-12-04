@@ -79,7 +79,7 @@ class ChannelCollectionViewController: UICollectionViewController, StateParentVi
         
         switch viewState {
             
-        case .loading():
+        case .loading:
             // Loading so lets show an indicator
             hideChildControllersIfNeeded()
             loadingViewController.view.frame = view.bounds
@@ -93,7 +93,7 @@ class ChannelCollectionViewController: UICollectionViewController, StateParentVi
             hideChildControllersIfNeeded()
             collectionView?.reloadData()
             
-        case .empty():
+        case .empty:
             // Show an empty state
             hideChildControllersIfNeeded()
             emptyStateViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]

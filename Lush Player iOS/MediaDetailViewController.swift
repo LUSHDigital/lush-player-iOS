@@ -199,7 +199,7 @@ class MediaDetailViewController: UIViewController {
     }
     
     // Plays the media content, called when the user clicks the play button on the placeholder/thumbnail view
-    func playContent() {
+    @objc func playContent() {
         
         // Remove the placeholder view
         togglePlaceholder(isHidden: true)
