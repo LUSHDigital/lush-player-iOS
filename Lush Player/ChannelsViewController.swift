@@ -33,6 +33,10 @@ class ChannelsViewController: RefreshableViewController {
     
     /// The channels availible for a user to watch programmes from
     var channels: [Channel]?
+    
+    /// Shows the content is loading
+    @IBOutlet weak var loadingView: UIVisualEffectView!
+    
 
     override func viewDidLoad() {
         
@@ -95,6 +99,8 @@ class ChannelsViewController: RefreshableViewController {
     
     override func refresh(completion: (() -> Void)? = nil) {
         
+        loadingView.isHidden = false
+        
         guard let selectedChannel = selectedChannel else { return }
         
         // If we've already pulled the programmes for the selected channel
@@ -118,6 +124,8 @@ class ChannelsViewController: RefreshableViewController {
     }
 
     override func redraw() {
+        
+        loadingView.isHidden = true
         
         // Reload channel selector UI
         channelSelectionCollectionView.reloadData()

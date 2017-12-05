@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    func rotated() {
+    @objc func rotated() {
         statusBarBackground.isHidden = UIApplication.shared.isStatusBarHidden
     }
     
@@ -59,14 +59,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         navbar.isTranslucent = false
         navbar.barTintColor = UIColor.black
         navbar.tintColor = UIColor.white
-        navbar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        navbar.titleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         
         let tabbar = UITabBar.appearance()
         tabbar.isTranslucent = false
         tabbar.barTintColor = UIColor.white
         tabbar.tintColor = UIColor.black
         
-        statusBarBackground.backgroundColor = UIColor(colorLiteralRed: 26/255, green: 26/255, blue: 26/255, alpha: 1)
+        statusBarBackground.backgroundColor = UIColor(red: 26/255, green: 26/255, blue: 26/255, alpha: 1)
         
         self.window?.rootViewController?.view.addSubview(statusBarBackground)
         

@@ -63,7 +63,7 @@ extension TagListCollectionViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size: CGSize = tags[indexPath.row].name.size(attributes: [NSFontAttributeName: UIFont.systemFont(ofSize: 14.0)])
+        let size: CGSize = tags[indexPath.row].name.size(withAttributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14.0)])
         return CGSize(width: size.width + 45.0, height: 40)
     }
 }

@@ -17,6 +17,10 @@ class HomeViewController: RefreshableViewController {
     
     /// A local array of all programmes which are available from the API
     var allProgrammes: [Programme]?
+    
+    var shouldAnimateCellsIn: Bool = true
+    var animatedCellsDictionary = [IndexPath: Bool]()
+    var shouldAnimateInitialCells: Bool = true
         
     override func viewDidLoad() {
         
@@ -91,6 +95,44 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         
         // Show a programme when it is selected
         show(programme: allProgrammes[indexPath.item])
+    }
+}
+
+extension HomeViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+        if cell.frame.midY >= collectionView.bounds.maxY {
+            shouldAnimateInitialCells = false
+        }
+        
+        if shouldAnimateInitialCells {
+            
+            if animatedCellsDictionary[indexPath] == nil {
+                cell.alpha = 0
+                
+                UIView.animate(withDuration: 0.4, delay: 0.04 * Double(indexPath.item), options: .curveEaseIn, animations: {
+                    cell.alpha = 1
+                }, completion: nil)
+                
+                animatedCellsDictionary[indexPath] = true
+                return
+            }
+        }
+        
+        
+        if shouldAnimateCellsIn {
+            
+            if animatedCellsDictionary[indexPath] == nil {
+                cell.alpha = 0
+                
+                UIView.animate(withDuration: 0.4, animations: {
+                    cell.alpha = 1
+                })
+                
+                animatedCellsDictionary[indexPath] = true
+            }
+        }
     }
 }
 

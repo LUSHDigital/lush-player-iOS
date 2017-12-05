@@ -127,7 +127,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         
         shareButton.isHidden = true
         
-        let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "LIVE", attributes: [NSKernAttributeName : CGFloat(1.5)])
+        let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "LIVE", attributes: [NSAttributedStringKey.kern : CGFloat(1.5)])
         liveIndicatorTitleLabel.attributedText = attributedString
 
         shareButton.setTitle("SHARE", for: .normal)
@@ -151,7 +151,7 @@ class LiveViewController: UIViewController, StateParentViewable {
     
     @IBAction func pressedShare(sender: Any) {
         
-        guard case let .live(playlist) = liveViewState else {
+        guard case .live = liveViewState else {
             return
         }
         
@@ -159,7 +159,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         activityController.popoverPresentationController?.sourceView = self.shareButton
         activityController.popoverPresentationController?.sourceRect = self.shareButton.frame
         
-        activityController.completionWithItemsHandler = { [weak self] activity, success, items, error in
+        activityController.completionWithItemsHandler = { activity, success, items, error in
             
             guard success else { return }
             guard error == nil else { return }
@@ -352,7 +352,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         }
     }
     
-    func redrawRemainingLabel() {
+    @objc func redrawRemainingLabel() {
         redrawRemainingLabel(playlistPosition: nil)
     }
     

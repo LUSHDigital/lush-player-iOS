@@ -17,9 +17,9 @@
 		FF5565181E82C80D00F3C9A4 /* DateComponentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */; };
 		FF5F32981ED46FCD00058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
 		FF5F329F1ED4707700058103 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5F32961ED46FCD00058103 /* Tag.swift */; };
+		FF8DE1D91F0BE6C5005C3631 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8DE1D81F0BE6C5005C3631 /* Event.swift */; };
 		FF9BE25F1F17A7C50083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
 		FF9BE2651F17BF3B0083A973 /* ImageCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */; };
-		FF8DE1D91F0BE6C5005C3631 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8DE1D81F0BE6C5005C3631 /* Event.swift */; };
 		FF9BE2691F17C3310083A973 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8DE1D81F0BE6C5005C3631 /* Event.swift */; };
 		FFD0D62B1E80226000483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FFD0D6411E80249800483381 /* LushPlayerKit.h in Headers */ = {isa = PBXBuildFile; fileRef = FFD0D6291E80226000483381 /* LushPlayerKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -95,8 +95,8 @@
 		FF5565131E82C7B400F3C9A4 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
 		FF5565161E82C80D00F3C9A4 /* DateComponentHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateComponentHelper.swift; sourceTree = "<group>"; };
 		FF5F32961ED46FCD00058103 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
-		FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		FF8DE1D81F0BE6C5005C3631 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		FF9BE25E1F17A7C50083A973 /* ImageCacher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacher.swift; sourceTree = "<group>"; };
 		FFD0D6261E80226000483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFD0D6291E80226000483381 /* LushPlayerKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LushPlayerKit.h; sourceTree = "<group>"; };
 		FFD0D6341E80227200483381 /* LushPlayerKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LushPlayerKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -284,7 +284,7 @@
 		FFD0D6181E80224B00483381 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				TargetAttributes = {
 					FFD0D6251E80226000483381 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -436,6 +436,31 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
@@ -444,6 +469,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
@@ -470,7 +518,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -542,7 +590,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

@@ -15,7 +15,7 @@ extension UILabel {
         
         self.layoutIfNeeded()
         let textAsNSString = (text ?? "") as NSString
-        let attributes = [NSFontAttributeName : font as Any]
+        let attributes = [NSAttributedStringKey.font : font as Any]
         
         let labelSize = textAsNSString.boundingRect(with: CGSize(width: bounds.width, height: CGFloat.greatestFiniteMagnitude), options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: attributes, context: nil)
         return Int(ceil(CGFloat(labelSize.height) / font.lineHeight))
@@ -31,6 +31,6 @@ extension UILabel {
     
     
     func kern(with value: CGFloat) {
-        self.attributedText =  NSAttributedString(string: self.text ?? "", attributes: [NSKernAttributeName: value, NSFontAttributeName: self.font, NSForegroundColorAttributeName: self.textColor])
+        self.attributedText =  NSAttributedString(string: self.text ?? "", attributes: [NSAttributedStringKey.kern: value, NSAttributedStringKey.font: self.font, NSAttributedStringKey.foregroundColor: self.textColor])
     }
 }

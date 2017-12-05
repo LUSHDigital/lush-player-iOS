@@ -29,7 +29,7 @@ private class ImageClosureWrapper {
 }
 
 /// An extension on UIImageView for loading images from urls
-public extension UIImageView {
+extension UIImageView {
     
     private struct AssociatedKeys {
         static var finalSizeKey = "final_size"
