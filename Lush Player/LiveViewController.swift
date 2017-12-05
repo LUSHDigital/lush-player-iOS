@@ -105,6 +105,9 @@ class LiveViewController: UIViewController {
     /// The label displaying that there's currently no live content
     @IBOutlet weak var noBroadcastLabel: UILabel!
     
+    
+    @IBOutlet weak var backdropView: UIView!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -251,6 +254,7 @@ class LiveViewController: UIViewController {
         noBroadcastLabel.isHidden = false
         containerView.isHidden = true
         gradientView.isHidden = true
+        backdropView.isHidden = true
         
         // Set up the player with the video file from the bundle
         let player = AVPlayer(url: url)
@@ -282,6 +286,7 @@ class LiveViewController: UIViewController {
             backgroundPlayerView.playerLayer?.player = nil
             
             // Show the live UI
+            containerView.isHidden = false
             containerView.isHidden = false
             gradientView.isHidden = false
         }
