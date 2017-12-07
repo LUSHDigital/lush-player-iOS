@@ -32,7 +32,6 @@
 		B1DBCBE91E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DBCBE71E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.swift */; };
 		B1DBCBEA1E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */; };
 		FF11217D1E7FE99000CD5337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11217C1E7FE99000CD5337 /* AppDelegate.swift */; };
-		FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF11217E1E7FE99000CD5337 /* ViewController.swift */; };
 		FF1121821E7FE99000CD5337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121801E7FE99000CD5337 /* Main.storyboard */; };
 		FF1121841E7FE99000CD5337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF1121831E7FE99000CD5337 /* Assets.xcassets */; };
 		FF1121871E7FE99000CD5337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */; };
@@ -287,7 +286,6 @@
 		B1DBCBE81E3F3E90002C812D /* ChannelProgrammeCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelProgrammeCollectionViewCell.xib; sourceTree = "<group>"; };
 		FF11217A1E7FE99000CD5337 /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF11217C1E7FE99000CD5337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF11217E1E7FE99000CD5337 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FF1121811E7FE99000CD5337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF1121831E7FE99000CD5337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF1121861E7FE99000CD5337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -588,7 +586,6 @@
 				FF11217C1E7FE99000CD5337 /* AppDelegate.swift */,
 				FFE852111E93BA0E00E35902 /* main.swift */,
 				FF5564F11E82B47900F3C9A4 /* Lush Player iOS-Bridging-Header.h */,
-				FF11217E1E7FE99000CD5337 /* ViewController.swift */,
 				FF1121801E7FE99000CD5337 /* Main.storyboard */,
 				FF1121851E7FE99000CD5337 /* LaunchScreen.storyboard */,
 				FFF5EA2C1E804AEB007CE0C8 /* LushPlayerTabBarController.swift */,
@@ -1253,7 +1250,6 @@
 				FFEECD701E89417A00AC7399 /* ChannelListingContainerViewController.swift in Sources */,
 				FFEECD261E841EFE00AC7399 /* MediaPlaceholderView.swift in Sources */,
 				FFF5EA4D1E814F20007CE0C8 /* MediaDetailViewController.swift in Sources */,
-				FF11217F1E7FE99000CD5337 /* ViewController.swift in Sources */,
 				FFA3A1261E8D255A007EC585 /* OffAirViewController.swift in Sources */,
 				FFEECD511E85487100AC7399 /* LoadingViewController.swift in Sources */,
 				FFEECD841E8A8FC700AC7399 /* ConnectionErrorViewController.swift in Sources */,

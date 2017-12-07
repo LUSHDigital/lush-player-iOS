@@ -2,9 +2,24 @@
 //  LushPlayerController.swift
 //  Lush Player
 //
-//  Created by Simon Mitchell on 02/12/2016.
-//  Copyright © 2016 ThreeSidedCube. All rights reserved.
-//
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
 
 import Foundation
 #if os(iOS)
@@ -276,6 +291,10 @@ public class LushPlayerController {
         }
     }
     
+    /// Fetches a list of channels
+    /// Channels group media content by a related topic
+    ///
+    /// - Parameter completion: A block of code to be called once channels have been fetched
     public func fetchChannels(completion: @escaping ChannelCompletion) {
         
         let endpoint = "channels"
@@ -307,6 +326,9 @@ public class LushPlayerController {
 
     }
     
+    /// Fetches a list of Lush events for which there is related media content for
+    ///
+    /// - Parameter completion: A block of code to be called once events have been fetched
     public func fetchEvents(completion: @escaping EventsCompletion) {
         
         let endpoint = "events"
@@ -338,6 +360,11 @@ public class LushPlayerController {
         }
     }
     
+    /// Fetches a list of media content for a given event
+    ///
+    /// - Parameters:
+    ///   - event: The event
+    ///   - completion: A block of code to be called once all the media for an event has been fetched
     public func fetchEventDetail(for event: Event, completion: @escaping ProgrammesCompletion) {
         
         let endpoint = "events/\(event.id)"
@@ -370,6 +397,12 @@ public class LushPlayerController {
     }
 }
 
+
+/// Enumeration of possible errors from the PlayerController
+///
+/// - invalidResponseStatus: The response recieved from the server is not acceptable i.e is 404 when should be 200
+/// - invalidResponse: The response recieved from the server cannot be parsed into a useable format
+/// - emptyResponse: The response doesn't contain any information
 public enum LushPlayerError: Error {
     case invalidResponseStatus
     case invalidResponse
