@@ -291,6 +291,10 @@ public class LushPlayerController {
         }
     }
     
+    /// Fetches a list of channels
+    /// Channels group media content by a related topic
+    ///
+    /// - Parameter completion: A block of code to be called once channels have been fetched
     public func fetchChannels(completion: @escaping ChannelCompletion) {
         
         let endpoint = "channels"
@@ -322,6 +326,9 @@ public class LushPlayerController {
 
     }
     
+    /// Fetches a list of Lush events for which there is related media content for
+    ///
+    /// - Parameter completion: A block of code to be called once events have been fetched
     public func fetchEvents(completion: @escaping EventsCompletion) {
         
         let endpoint = "events"
@@ -353,6 +360,11 @@ public class LushPlayerController {
         }
     }
     
+    /// Fetches a list of media content for a given event
+    ///
+    /// - Parameters:
+    ///   - event: The event
+    ///   - completion: A block of code to be called once all the media for an event has been fetched
     public func fetchEventDetail(for event: Event, completion: @escaping ProgrammesCompletion) {
         
         let endpoint = "events/\(event.id)"
@@ -385,6 +397,12 @@ public class LushPlayerController {
     }
 }
 
+
+/// Enumeration of possible errors from the PlayerController
+///
+/// - invalidResponseStatus: The response recieved from the server is not acceptable i.e is 404 when should be 200
+/// - invalidResponse: The response recieved from the server cannot be parsed into a useable format
+/// - emptyResponse: The response doesn't contain any information
 public enum LushPlayerError: Error {
     case invalidResponseStatus
     case invalidResponse
