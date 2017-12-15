@@ -142,7 +142,7 @@ class LiveViewController: UIViewController, StateParentViewable {
         
         shareButton.isHidden = true
         
-        let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "LIVE", attributes: [NSAttributedStringKey.kern : CGFloat(1.5)])
+        let attributedString = NSMutableAttributedString(string: liveIndicatorTitleLabel.text ?? "ON NOW", attributes: [NSAttributedStringKey.kern : CGFloat(1.5)])
         liveIndicatorTitleLabel.attributedText = attributedString
 
         shareButton.setTitle("SHARE", for: .normal)

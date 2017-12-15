@@ -54,10 +54,10 @@
             </objects>
             <point key="canvasLocation" x="2246" y="-727"/>
         </scene>
-        <!--Live-->
+        <!--On Now-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController storyboardIdentifier="ProgrammeDetails" title="Live" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProgrammeDetails" title="On Now" id="8rJ-Kc-sve" customClass="LiveViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -228,7 +228,7 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Live" id="cPa-gy-q4n"/>
+                    <tabBarItem key="tabBarItem" title="On Now" id="cPa-gy-q4n"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="backdropView" destination="eoG-HI-1Fy" id="bau-m6-jLN"/>
@@ -250,7 +250,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4962" y="1509"/>
+            <point key="canvasLocation" x="4033" y="1263"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="ODT-zF-ZRc">
@@ -441,7 +441,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SI0-80-Yf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="777"/>
+            <point key="canvasLocation" x="-32" y="2292"/>
         </scene>
         <!--Search-->
         <scene sceneID="RIv-hf-3KB">
@@ -487,7 +487,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a6L-Dd-gEt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2246" y="2238"/>
+            <point key="canvasLocation" x="2175" y="3284"/>
         </scene>
         <!--Search-->
         <scene sceneID="yl2-sM-qoP">
@@ -514,6 +514,6 @@
         <image name="Play-Button" width="116" height="68"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9BN-dk-Lhi"/>
+        <segue reference="lzU-1b-eKA"/>
     </inferredMetricsTieBreakers>
 </document>
