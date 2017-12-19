@@ -37,8 +37,8 @@ extension BCOVPlaylist {
             guard let _video = video as? BCOVVideo else { return nil }
             
             guard let customInfo = _video.properties["custom_fields"] as? [AnyHashable : Any] else { return nil }
-            guard let liveDuration = customInfo["livebroadcastlength"] as? String,
-				  let startTime = customInfo["starttime"] as? String else { return nil }
+            
+            guard let startTime = customInfo["starttime"] as? String else { return nil }
             
             // Set up date formatters
 			
@@ -46,22 +46,35 @@ extension BCOVPlaylist {
             startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
             // Create duration date object and start date object from date formatters
-            guard // let durationDate = durationFormatter.date(from: liveDuration),
-				  let startDate = startFormatter.date(from: startTime) else {
+            guard let startDate = startFormatter.date(from: startTime) else {
 				return nil
 			}
-			
-			let durationComponentsString = liveDuration.components(separatedBy: ":")
-			if durationComponentsString.count != 3 {
-				print("Duraction Component is the wrong format: \(liveDuration)")
-				return nil
-			}
-			
-			var seconds : Double = (Double(durationComponentsString[0]) ?? 0) * 60.0 * 60.0
-			seconds += (Double(durationComponentsString[1]) ?? 0.0) * 60.0
-			seconds += Double(durationComponentsString[2]) ?? 0.0
+            
+            let durationAddition: TimeInterval
+            
+            if let liveDuration = customInfo["livebroadcastlength"] as? String {
+                
+                let durationComponentsString = liveDuration.components(separatedBy: ":")
+                
+                if durationComponentsString.count != 3 {
+                    print("Duraction Component is the wrong format: \(liveDuration)")
+                    return nil
+                }
+    
+                var seconds: Double = (Double(durationComponentsString[0]) ?? 0) * 60.0 * 60.0
+                seconds += (Double(durationComponentsString[1]) ?? 0.0) * 60.0
+                seconds += Double(durationComponentsString[2]) ?? 0.0
+                
+                durationAddition = TimeInterval(seconds)
+                
+            } else if let durationProperty =  _video.properties["duration"] as? Int {
+                durationAddition = TimeInterval(durationProperty)
+            } else {
+                return nil
+            }
 
-			let durationDate = startDate.addingTimeInterval(seconds)
+
+			let durationDate = startDate.addingTimeInterval(TimeInterval(durationAddition))
             let components: Set<Calendar.Component> = [.minute, .hour, .second]
 			
             // The date components of the date to return relative start/end dates from
