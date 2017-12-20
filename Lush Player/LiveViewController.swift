@@ -304,6 +304,7 @@ class LiveViewController: UIViewController {
             containerView.isHidden = false
             containerView.isHidden = false
             gradientView.isHidden = false
+            backdropView.isHidden = false
         }
     }
 

@@ -122,7 +122,6 @@ class LiveViewController: UIViewController, StateParentViewable {
                 vc.view.removeFromSuperview()
                 vc.removeFromParentViewController()
             }
-            
         }
     }
     
@@ -238,30 +237,34 @@ class LiveViewController: UIViewController, StateParentViewable {
     // Commented out until futher notice
     func play(playlist: BCOVPlaylist) {
         
-//        // Invalidate redraw timer
-//        redrawTimer?.invalidate()
-//
-//        // Make sure we have a position within it to play from
+        // Invalidate redraw timer
+        redrawTimer?.invalidate()
+        
+       // Make sure we have a position within it to play from
         guard let playlistPosition = playlist.playlistPosition else {
-//
+
             liveViewState = .offAir(offAirViewController)
-//            // Check every 60 seconds for live playlist content!
-//            redrawTimer = Timer(fire: Date(timeIntervalSinceNow: 60), interval: 0, repeats: false, block: { [weak self] (timer) in
-//                self?.refreshLive()
-//            })
+            // Check every 60 seconds for live playlist content!
+            if #available(iOS 10.0, *) {
+                redrawTimer = Timer(fire: Date(timeIntervalSinceNow: 60), interval: 0, repeats: false, block: { [weak self] (timer) in
+                    self?.refreshLive()
+                })
+            }
             return
         }
         
         
         self.playerViewController.play(playlist: playlist)
-//
-//        // We got a playlist, so stop playing fallback video
-//
-//        // Fire a timer 1 second after programme is scheduled to end, to redraw!
-//        remainingTimer?.invalidate()
-//        redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(1), interval: 0, repeats: false, block: { [weak self] (timer) in
-//            self?.redraw()
-//        })
+
+        // We got a playlist, so stop playing fallback video
+
+        // Fire a timer 1 second after programme is scheduled to end, to redraw!
+        if #available(iOS 10.0, *) {
+            redrawTimer = Timer(fire: playlistPosition.scheduleItem.endDate.addingTimeInterval(2), interval: 0, repeats: false, block: { [weak self] (timer) in
+                self?.redraw()
+            })
+            RunLoop.main.add(redrawTimer!, forMode: .defaultRunLoopMode)
+        }
 
         // Show all UI in a nice animated fashion
         
@@ -309,6 +312,9 @@ class LiveViewController: UIViewController, StateParentViewable {
     /// A timer to trigger when the remaining time of the programme has elapsed
     var remainingTimer: Timer?
     
+    ///
+    var redrawTimer: Timer?
+    
     
     /// Redraws the remaining time of the programme
     ///
@@ -332,38 +338,50 @@ class LiveViewController: UIViewController, StateParentViewable {
         let dateComponentsFormatter = DateComponentsFormatter()
         dateComponentsFormatter.includesTimeRemainingPhrase = true
         dateComponentsFormatter.unitsStyle = .short
-        
-        // Set up remaining time label text using formatter
-        timeRemainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
+        dateComponentsFormatter.allowedUnits = [.hour, .minute]
+    
         
         // Make sure the remaining label refreshes at the appropriate time intervals
         // If more than 24 hours left, then set up the timer to refresh remaining label in 24 hours
         if remainingTime > 24 * 60 * 60 {
             
+            dateComponentsFormatter.allowedUnits = [.hour]
+            timeRemainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
+            
             let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(24*60*60))+1)
-            
-            remainingTimer = Timer(fireAt: firstFireDate, interval: 24*60*60, target: self, selector: #selector(redrawRemainingLabel), userInfo: nil, repeats: true)
-            
-            
-        } else if remainingTime > 60 * 60 {
-            
-            // If longer than an hour left refresh the remaining label every hour
-            let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(60*60))+1)
             
             remainingTimer = Timer(fireAt: firstFireDate, interval: 60*60, target: self, selector: #selector(redrawRemainingLabel), userInfo: nil, repeats: true)
             
             
+        } else if remainingTime > 60 * 60 {
+            
+            dateComponentsFormatter.allowedUnits = [.hour, .minute]
+            timeRemainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
+            
+            // If longer than an hour left refresh the remaining label every minute
+            let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(60))+1)
+            
+            remainingTimer = Timer(fireAt: firstFireDate, interval: 60, target: self, selector: #selector(redrawRemainingLabel), userInfo: nil, repeats: true)
+            
+            
         } else if remainingTime > 60 {
             
+            dateComponentsFormatter.allowedUnits = [.minute]
+            timeRemainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
             // If longer than 60 seconds left, refresh label every 60 seconds
             let firstFireDate = Date(timeIntervalSinceNow: remainingTime.truncatingRemainder(dividingBy:(60))+1)
             
             remainingTimer =  Timer(fireAt: firstFireDate, interval: 60, target: self, selector: #selector(redrawRemainingLabel), userInfo: nil, repeats: true)
             
         } else {
-            
+            dateComponentsFormatter.allowedUnits = [.second]
+            timeRemainingLabel.text = dateComponentsFormatter.string(from: remainingTime)
             // If less than 60 seconds left, refresh label every second
             remainingTimer =  Timer(fireAt: Date(timeIntervalSinceNow: 1), interval: 1, target: self, selector: #selector(redrawRemainingLabel), userInfo: nil, repeats: true)
+        }
+    
+        if let remainingTimer = remainingTimer {
+             RunLoop.main.add(remainingTimer, forMode: .defaultRunLoopMode)
         }
     }
     

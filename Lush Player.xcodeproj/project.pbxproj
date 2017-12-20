@@ -15,7 +15,6 @@
 		B149856D1DF9519700BC8C7B /* ThunderRequestTV.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B178A45C1DF6FF4100E5D944 /* BrightcoveConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */; };
 		B178A4DD1DF80E5100E5D944 /* TSCDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */; };
-		B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */; };
 		B1985E261DF9739C00802635 /* Holding Screen.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = B1985E251DF9739C00802635 /* Holding Screen.mp4 */; };
 		B1CEBE191DF1881D001F890D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE181DF1881D001F890D /* AppDelegate.swift */; };
 		B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */; };
@@ -261,7 +260,6 @@
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
 		B178A45B1DF6FF4100E5D944 /* BrightcoveConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveConstants.swift; sourceTree = "<group>"; };
 		B178A4DC1DF80E5100E5D944 /* TSCDesignableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSCDesignableView.swift; sourceTree = "<group>"; };
-		B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightcoveHelpers.swift; sourceTree = "<group>"; };
 		B1985E251DF9739C00802635 /* Holding Screen.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Holding Screen.mp4"; sourceTree = "<group>"; };
 		B1CEBE151DF1881D001F890D /* Lush Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lush Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1CEBE181DF1881D001F890D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -562,7 +560,6 @@
 		B1CEBEF51DF1D894001F890D /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B1985E171DF96D7D00802635 /* BrightcoveHelpers.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -1184,7 +1181,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1985E181DF96D7D00802635 /* BrightcoveHelpers.swift in Sources */,
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
 				B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */,
 				B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */,
