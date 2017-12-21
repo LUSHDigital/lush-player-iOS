@@ -480,6 +480,7 @@ class LiveViewController: UIViewController {
         playerVC.brightcovePolicyKey = sender is Programme ? BrightcoveConstants.onDemandPolicyID : BrightcoveConstants.livePolicyID
         playerVC.programme = sender as? Programme
         playerVC.playlist = sender as? BCOVPlaylist
+        playerVC.shouldAutoPlay = false
     }
     
     //MARK:

@@ -32,7 +32,7 @@ import AVKit
 
 /// The view controller displaying the programme player UI
 /// Also responsible for playing playlists and managing the playlist schedule
-public class PlayerViewController: UIViewController {
+open class PlayerViewController: UIViewController {
     
     public var controller: BCOVPlaybackController?
     
@@ -60,7 +60,7 @@ public class PlayerViewController: UIViewController {
     
     public var videoFinished: Bool = false
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -105,7 +105,6 @@ public class PlayerViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     
@@ -155,7 +154,7 @@ public class PlayerViewController: UIViewController {
     /// Plays a programme in the AVPlayerViewController
     ///
     /// - Parameter programme: The programme to start playings
-    public func play(programme: Programme) {
+    public func play(programme: Programme, errorHandler: ((Error) -> ())? = nil) {
         
         // Make sure programme has GUID again
         guard let guid = programme.guid else {
@@ -164,6 +163,8 @@ public class PlayerViewController: UIViewController {
                 
                 if let error = error {
                     print(error)
+                    errorHandler?(error)
+                    return
                 }
                 
                 if let programme = programme {
@@ -180,26 +181,11 @@ public class PlayerViewController: UIViewController {
         
         // Set up the playback service and search for video
         playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
-        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
+        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { [weak self] (video, jsonResponse, error) in
             
             if let error = error {
                 
-                var showGeoError: Bool = false
-                
-                // We need to check for a geoblocked error but its hella nested
-                if let playbackErrors = (error as NSError).userInfo[kBCOVPlaybackServiceErrorKeyAPIErrors] as? [[AnyHashable: Any]] {
-                    showGeoError = playbackErrors.contains(where: { ($0["error_subcode"] as? String) == "CLIENT_GEO" })
-                }
-                
-                let message = showGeoError ? "This video has not been made available in your area" : "This video is not currently available"
-                
-                let alertController = UIAlertController(title: "Video Unavailable", message: message, preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
-                alertController.addAction(okAction)
-                
-                DispatchQueue.main.async {
-                    self.present(alertController, animated: true, completion: nil)
-                }
+                errorHandler?(error)
                 return
             }
             
@@ -208,7 +194,7 @@ public class PlayerViewController: UIViewController {
             
             // Set the brightcove controller's videos
             OperationQueue.main.addOperation ({
-                self.controller?.setVideos([video] as NSFastEnumeration)
+                self?.controller?.setVideos([video] as NSFastEnumeration)
             })
         })
 
@@ -234,7 +220,7 @@ public class PlayerViewController: UIViewController {
         controller?.isAutoAdvance = true
     }
     
-    override public func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
         controllerView?.frame = view.bounds

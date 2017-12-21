@@ -255,7 +255,7 @@
         <!--Player View Controller-->
         <scene sceneID="ODT-zF-ZRc">
             <objects>
-                <viewController id="8aA-zm-C8p" customClass="PlayerViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8aA-zm-C8p" customClass="TVPlayerViewController" customModule="Lush_Player" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="mJI-HG-xms"/>
                         <viewControllerLayoutGuide type="bottom" id="0as-BM-Q01"/>

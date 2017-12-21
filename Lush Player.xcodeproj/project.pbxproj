@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		401E81361F7E769C008C0FA7 /* UIDevice+Versions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */; };
-		B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9641DF5682B00E8551D /* PlayerViewController.swift */; };
+		5D8A27D61FEBF82100AD3B37 /* TVPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8A27D51FEBF82100AD3B37 /* TVPlayerViewController.swift */; };
 		B125D9781DF58DBE00E8551D /* ChannelCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */; };
 		B125D9791DF58DBE00E8551D /* ChannelCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */; };
 		B149856C1DF9519700BC8C7B /* ThunderRequestTV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEBEB41DF1BD0A001F890D /* ThunderRequestTV.framework */; };
@@ -254,7 +254,7 @@
 
 /* Begin PBXFileReference section */
 		401E81321F7E769B008C0FA7 /* UIDevice+Versions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Versions.swift"; sourceTree = "<group>"; };
-		B125D9641DF5682B00E8551D /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
+		5D8A27D51FEBF82100AD3B37 /* TVPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVPlayerViewController.swift; sourceTree = "<group>"; };
 		B125D96A1DF568F300E8551D /* Lush Player-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lush Player-Bridging-Header.h"; sourceTree = "<group>"; };
 		B125D9761DF58DBE00E8551D /* ChannelCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCollectionViewCell.swift; sourceTree = "<group>"; };
 		B125D9771DF58DBE00E8551D /* ChannelCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChannelCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -520,12 +520,12 @@
 			isa = PBXGroup;
 			children = (
 				FFA8F0211E82CF3100338DF1 /* BrightcovePlayerSDK.framework */,
-				B125D9641DF5682B00E8551D /* PlayerViewController.swift */,
 				B1CEBEEB1DF1CE12001F890D /* RefreshableViewController.swift */,
 				B1CEBEBD1DF1CACB001F890D /* HomeViewController.swift */,
 				B1CEBE1C1DF1881D001F890D /* LiveViewController.swift */,
 				B1CEBE461DF18C48001F890D /* ChannelsViewController.swift */,
 				B1CEBE481DF18C59001F890D /* SearchResultsViewController.swift */,
+				5D8A27D51FEBF82100AD3B37 /* TVPlayerViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -1182,7 +1182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1CEBE9D1DF19E7A001F890D /* ProgrammeCollectionViewCell.swift in Sources */,
-				B125D9651DF5682B00E8551D /* PlayerViewController.swift in Sources */,
+				5D8A27D61FEBF82100AD3B37 /* TVPlayerViewController.swift in Sources */,
 				B1CEBE491DF18C59001F890D /* SearchResultsViewController.swift in Sources */,
 				B1CEBEBE1DF1CACB001F890D /* HomeViewController.swift in Sources */,
 				B1CEBE1D1DF1881D001F890D /* LiveViewController.swift in Sources */,

@@ -221,13 +221,35 @@ class MediaDetailViewController: UIViewController {
         
         NotificationCenter.default.post(name: NSNotification.Name.mediaWillPlay, object: nil)
         
+        let errorHandler = { [weak self] (error: Error) in
+            var showGeoError: Bool = false
+            
+            // We need to check for a geoblocked error but its hella nested
+            if let playbackErrors = (error as NSError).userInfo[kBCOVPlaybackServiceErrorKeyAPIErrors] as? [[AnyHashable: Any]] {
+                showGeoError = playbackErrors.contains(where: { ($0["error_subcode"] as? String) == "CLIENT_GEO" })
+            }
+            
+            let message = showGeoError ? "This video has not been made available in your area" : "This video is not currently available"
+            
+            let alertController = UIAlertController(title: "Video Unavailable", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] (action) in
+                self?.togglePlaceholder(isHidden: false)
+            })
+            
+            alertController.addAction(okAction)
+            
+            DispatchQueue.main.async {
+                self?.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
         // Calle ach players respective play function to start the media
         if let mediaContentState = mediaContentState {
             
             switch mediaContentState {
                 
             case .TV(let playerViewController):
-                playerViewController.play(programme: self.programme)
+                playerViewController.play(programme: self.programme, errorHandler: errorHandler)
                 playerViewController.videoFinished = false
                 
             case .radio(let soundViewController):
