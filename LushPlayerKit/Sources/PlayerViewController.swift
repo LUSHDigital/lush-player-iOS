@@ -93,6 +93,11 @@ public class PlayerViewController: UIViewController {
         }
         
         fetch(programme: programme) { [weak self] (error, programme) in
+            
+            if let error = error {
+                print(error)
+            }
+            
             if let programme = programme {
                 // Play the retuned programme
                 if let welf = self, welf.shouldAutoPlay {
@@ -156,6 +161,11 @@ public class PlayerViewController: UIViewController {
         guard let guid = programme.guid else {
             
             fetch(programme: programme, completion: { [weak self] (error, programme) in
+                
+                if let error = error {
+                    print(error)
+                }
+                
                 if let programme = programme {
                     // Play the retuned programme
                     self?.play(programme: programme)
@@ -171,6 +181,27 @@ public class PlayerViewController: UIViewController {
         // Set up the playback service and search for video
         playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
         playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
+            
+            if let error = error {
+                
+                var showGeoError: Bool = false
+                
+                // We need to check for a geoblocked error but its hella nested
+                if let playbackErrors = (error as NSError).userInfo[kBCOVPlaybackServiceErrorKeyAPIErrors] as? [[AnyHashable: Any]] {
+                    showGeoError = playbackErrors.contains(where: { ($0["error_subcode"] as? String) == "CLIENT_GEO" })
+                }
+                
+                let message = showGeoError ? "This video has not been made available in your area" : "This video is not currently available"
+                
+                let alertController = UIAlertController(title: "Video Unavailable", message: message, preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                alertController.addAction(okAction)
+                
+                DispatchQueue.main.async {
+                    self.present(alertController, animated: true, completion: nil)
+                }
+                return
+            }
             
             // Make sure we get a video back
             guard let video = video else { return }
