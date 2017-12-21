@@ -251,7 +251,12 @@ extension ChannelCollectionViewController: UICollectionViewDelegateFlowLayout {
         
         // Constants for rows/columns
         let numberOfColumns: CGFloat = 1
-        let numberOfRows: CGFloat = 7
+        var numberOfRows: CGFloat = 7
+        
+        if case let .loaded(channels) = viewState {
+            let rowsToShow = max(channels.count, 4)
+            numberOfRows = CGFloat(rowsToShow)
+        }
         
         var minimumLineSpacing: CGFloat = 0.0
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
