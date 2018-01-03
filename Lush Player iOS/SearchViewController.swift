@@ -2,9 +2,24 @@
 //  SearchViewController.swift
 //  Lush Player
 //
-//  Created by Joel Trew on 03/04/2017.
-//  Copyright © 2017 ThreeSidedCube. All rights reserved.
-//
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
 
 import UIKit
 import LushPlayerKit
@@ -56,7 +71,7 @@ class SearchViewController: UIViewController {
     }
     
     // Scroll the view to compensate the keyboard appearing
-    func keyboardWillShow(notification: Notification) {
+    @objc func keyboardWillShow(notification: Notification) {
         
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             
@@ -67,7 +82,7 @@ class SearchViewController: UIViewController {
     }
     
     // Scroll the view to compensate the keyboard hiding
-    func keyboardWillHide(notification: Notification) {
+    @objc func keyboardWillHide(notification: Notification) {
         
             let contentInsets = UIEdgeInsets(top: 120, left: 0, bottom: 44, right: 0)
             searchResultsController?.collectionView?.contentInset = contentInsets
@@ -81,7 +96,7 @@ class SearchViewController: UIViewController {
         appearance.textColor = .white
         appearance.keyboardAppearance = .dark
         
-        let image = UIImage.createImage(with: UIColor(colorLiteralRed: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
+        let image = UIImage.createImage(with: UIColor(red: 51/225, green: 51/225, blue: 51/225, alpha: 1), size: CGSize(width: 200, height: 60))
         searchBar.setSearchFieldBackgroundImage(image, for: .normal)
         searchBar.tintColor = .white
         searchBar.barTintColor = .white
@@ -92,7 +107,7 @@ class SearchViewController: UIViewController {
     }
     
     // Queries the LUSH player API for search results, and passes them to the results controller
-    func performSearch() {
+    @objc func performSearch() {
         
         // Check we have a search term, or exit out now
         guard let term = searchTerm else { return }

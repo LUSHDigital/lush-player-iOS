@@ -2,9 +2,24 @@
 //  PlayerViewController.swift
 //  Lush Player
 //
-//  Created by Simon Mitchell on 05/12/2016.
-//  Copyright © 2016 ThreeSidedCube. All rights reserved.
-//
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
 
 import UIKit
 #if os(iOS)
@@ -17,7 +32,7 @@ import AVKit
 
 /// The view controller displaying the programme player UI
 /// Also responsible for playing playlists and managing the playlist schedule
-public class PlayerViewController: UIViewController {
+open class PlayerViewController: UIViewController {
     
     public var controller: BCOVPlaybackController?
     
@@ -45,7 +60,7 @@ public class PlayerViewController: UIViewController {
     
     public var videoFinished: Bool = false
     
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         
         super.viewDidLoad()
         
@@ -78,6 +93,11 @@ public class PlayerViewController: UIViewController {
         }
         
         fetch(programme: programme) { [weak self] (error, programme) in
+            
+            if let error = error {
+                print(error)
+            }
+            
             if let programme = programme {
                 // Play the retuned programme
                 if let welf = self, welf.shouldAutoPlay {
@@ -85,7 +105,6 @@ public class PlayerViewController: UIViewController {
                 }
             }
         }
-        
     }
     
     
@@ -135,12 +154,19 @@ public class PlayerViewController: UIViewController {
     /// Plays a programme in the AVPlayerViewController
     ///
     /// - Parameter programme: The programme to start playings
-    public func play(programme: Programme) {
+    public func play(programme: Programme, errorHandler: ((Error) -> ())? = nil) {
         
         // Make sure programme has GUID again
         guard let guid = programme.guid else {
             
             fetch(programme: programme, completion: { [weak self] (error, programme) in
+                
+                if let error = error {
+                    print(error)
+                    errorHandler?(error)
+                    return
+                }
+                
                 if let programme = programme {
                     // Play the retuned programme
                     self?.play(programme: programme)
@@ -155,14 +181,20 @@ public class PlayerViewController: UIViewController {
         
         // Set up the playback service and search for video
         playbackService = BCOVPlaybackService(accountId: brightcoveAccountId, policyKey: brightcovePolicyKey)
-        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { (video, jsonResponse, error) in
+        playbackService?.findVideo(withVideoID: guid, parameters: nil, completion: { [weak self] (video, jsonResponse, error) in
+            
+            if let error = error {
+                
+                errorHandler?(error)
+                return
+            }
             
             // Make sure we get a video back
             guard let video = video else { return }
             
             // Set the brightcove controller's videos
             OperationQueue.main.addOperation ({
-                self.controller?.setVideos([video] as NSFastEnumeration)
+                self?.controller?.setVideos([video] as NSFastEnumeration)
             })
         })
 
@@ -188,7 +220,7 @@ public class PlayerViewController: UIViewController {
         controller?.isAutoAdvance = true
     }
     
-    override public func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         
         super.viewDidLayoutSubviews()
         controllerView?.frame = view.bounds

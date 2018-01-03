@@ -2,9 +2,24 @@
 //  MediaDetailViewController.swift
 //  Lush Player
 //
-//  Created by Joel Trew on 21/03/2017.
-//  Copyright © 2017 ThreeSidedCube. All rights reserved.
-//
+/*
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements.  See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership.  The ASF licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License.  You may obtain a copy of the License at
+ 
+ http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied.  See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ */
 
 import UIKit
 import LushPlayerKit
@@ -199,12 +214,34 @@ class MediaDetailViewController: UIViewController {
     }
     
     // Plays the media content, called when the user clicks the play button on the placeholder/thumbnail view
-    func playContent() {
+    @objc func playContent() {
         
         // Remove the placeholder view
         togglePlaceholder(isHidden: true)
         
         NotificationCenter.default.post(name: NSNotification.Name.mediaWillPlay, object: nil)
+        
+        let errorHandler = { [weak self] (error: Error) in
+            var showGeoError: Bool = false
+            
+            // We need to check for a geoblocked error but its hella nested
+            if let playbackErrors = (error as NSError).userInfo[kBCOVPlaybackServiceErrorKeyAPIErrors] as? [[AnyHashable: Any]] {
+                showGeoError = playbackErrors.contains(where: { ($0["error_subcode"] as? String) == "CLIENT_GEO" })
+            }
+            
+            let message = showGeoError ? "This video has not been made available in your area" : "This video is not currently available"
+            
+            let alertController = UIAlertController(title: "Video Unavailable", message: message, preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] (action) in
+                self?.togglePlaceholder(isHidden: false)
+            })
+            
+            alertController.addAction(okAction)
+            
+            DispatchQueue.main.async {
+                self?.present(alertController, animated: true, completion: nil)
+            }
+        }
         
         // Calle ach players respective play function to start the media
         if let mediaContentState = mediaContentState {
@@ -212,7 +249,7 @@ class MediaDetailViewController: UIViewController {
             switch mediaContentState {
                 
             case .TV(let playerViewController):
-                playerViewController.play(programme: self.programme)
+                playerViewController.play(programme: self.programme, errorHandler: errorHandler)
                 playerViewController.videoFinished = false
                 
             case .radio(let soundViewController):
