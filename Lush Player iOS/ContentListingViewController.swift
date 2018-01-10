@@ -183,7 +183,7 @@ class ContentListingViewController<T>: UIViewController,StateParentViewable,
         
         
         let cellWidth = (currentTotalWidth - (numberOfColumns-1) * layout.sectionInset.left) / numberOfColumns
-        let cellHeight = CGFloat(Double(cellWidth) * 1.3)
+        let cellHeight = CGFloat(Double(cellWidth) * 1)
         
         let cellSize = CGSize(width: cellWidth , height: cellHeight)
         return cellSize
