@@ -39,12 +39,9 @@ extension BCOVPlaylist {
             guard let customInfo = _video.properties["custom_fields"] as? [AnyHashable : Any] else { return nil }
             
             
-            guard var startTime = customInfo["starttime"] as? String else { return nil }
-            
-            startTime = "2017-12-20T08:34:00.000Z"
+            guard let startTime = customInfo["starttime"] as? String else { return nil }
             
             // Set up date formatters
-			
             let startFormatter = DateFormatter()
             startFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
             
