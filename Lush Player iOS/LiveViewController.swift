@@ -284,9 +284,10 @@ class LiveViewController: UIViewController, StateParentViewable {
         titleLabel.text = video.properties["name"] as? String
         
         
-        // Placeholder for checking the label description from the video and show it when we know the property, for now lets just hide
-        // TODO - Check for a description value when we know what the key is
-        if false {
+        // Show description if available
+        if let description = video.properties["description"] as? String {
+            descriptionLabel.isHidden = false
+            descriptionLabel.text = description
         } else {
             descriptionLabel.isHidden = true
         }
@@ -297,7 +298,6 @@ class LiveViewController: UIViewController, StateParentViewable {
         } else {
             shareButton.isHidden = true
         }
-        
         
         if let tagArray = video.properties["tags"] as? [String], !tagArray.isEmpty {
             
